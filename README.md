@@ -5,7 +5,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Stars](https://img.shields.io/docker/stars/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 
-**automated yt-dlp docker image for downloading YouTube Music discography or singles and others music platforms supported by youtube-dlp**
+**automated yt-dlp docker image for downloading YouTube Music discography/playlists/single tracks or others music platforms supported by youtube-dlp**
 
 Docker Hub page [here](https://hub.docker.com/r/cruix89/cruix-music-archiver).  
 yt-dlp documentation [here](https://github.com/yt-dlp/yt-dlp).
@@ -35,33 +35,22 @@ yt-dlp documentation [here](https://github.com/yt-dlp/yt-dlp).
    * Etc
 
 # Quick Start
-"I want to download all my subscriptions and my watch later playlist"
-```
-docker run -d \
-    --name cruix-video-archiver \
-    -v youtube-dl_data:/config \
-    -v <PATH>:/downloads \
-    -e youtubedl_subscriptions=true \
-    -e youtubedl_watchlater=true \
-    -e youtubedl_quality=2160 \
-    cruix89/cruix-video-archiver
-```
+
 <br>
 
-"I want to download only certain artists"
 ```
 docker run -d \
-    --name cruix-video-archiver \
+    --name cruix-music-archiver \
     -v youtube-dl_data:/config \
     -v <PATH>:/downloads \
-    cruix89/cruix-video-archiver
+    cruix89/cruix-music-archiver
 ```
 **Explanation**
 * `-v youtube-dl_data:/config`  
   This makes a Docker volume where your config files are saved, named: `youtube-dl_data`.
 
 * `-v <PATH>:/downloads`  
-  This makes a bind mount where the videos are downloaded.  
+  This makes a bind mount where the music are downloaded.  
   This is where on your Docker host you want youtube-dl to download music.  
   Replace `<PATH>`, example: `-v /media/youtube-dl:/downloads`
 
