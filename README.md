@@ -164,4 +164,4 @@ docker run -d \
     * `--audio-format mp3`, convert the audio file to mp3 format.
     * `--sleep-requests 1`, make youtube-dl to wait 1 second every request to prevent block access.
 
-    yt-dlp configuration options documentation [here](https://github.com/yt-dlp/yt-dlp#usage-and-options). 
+    yt-dlp configuration options documentation [here](https://github.com/yt-dlp/yt-dlp#usage-and-options).
