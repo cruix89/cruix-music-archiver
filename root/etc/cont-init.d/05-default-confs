@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv sh
+
+if ! [ -f "/config/args.conf" ]
+then
+  echo "[default-confs] restoring default 'args.conf'."
+  cp /config.default/args.conf /config/
+fi
+
+if ! [ -f "/config/artists.txt" ]
+then
+  echo "[default-confs] restoring default 'artists.txt'."
+  cp /config.default/artists.txt /config/
+fi
+
+ln -fs /config/args.conf /etc/yt-dlp.conf
+
+# shellcheck disable=SC2016
+sed -i -E 's!\$youtubedl_quality!'"${youtubedl_quality}"'!g' /config.default/format
