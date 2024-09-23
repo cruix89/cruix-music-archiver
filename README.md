@@ -5,7 +5,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Stars](https://img.shields.io/docker/stars/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 
-**automated yt-dlp docker image for downloading YouTube Music discography/playlists/single tracks or others music platforms supported by youtube-dlp**
+**automated yt-dlp docker image for downloading YouTube Music discography's/playlists/single tracks or music of others platforms supported by youtube-dlp**
 
 Docker Hub page [here](https://hub.docker.com/r/cruix89/cruix-music-archiver).  
 yt-dlp documentation [here](https://github.com/yt-dlp/yt-dlp).
@@ -36,6 +36,7 @@ yt-dlp documentation [here](https://github.com/yt-dlp/yt-dlp).
 
 # Quick Start
 
+"download music from my artists.txt links file:"
 <br>
 
 ```
@@ -65,8 +66,6 @@ docker run -d \
 |          `UMASK`          |            (`022`)             | If you need to specify umask for file permission reasons.                                                                                                                                                                                                                                                                                              |
 |     `youtubedl_debug`     |        `true` (`false`)        | Used to enable verbose mode.                                                                                                                                                                                                                                                                                                                           |
 |   `youtubedl_lockfile`    |        `true` (`false`)        | Used to enable youtubedl-running, youtubedl-completed files in downloads directory. Useful for external scripts.                                                                                                                                                                                                                                       |
-| `youtubedl_subscriptions` |        `true` (`false`)        | If you want to download all your subscriptions. Authentication is required.                                                                                                                                                                                                                                                                            |
-|  `youtubedl_watchlater`   |        `true` (`false`)        | If you want to download your Watch Later playlist. Authentication is required.                                                                                                                                                                                                                                                                         |
 |   `youtubedl_interval`    | `1h` (`3h`) `12h` `3d` `false` | If you want to change the default download interval.<br>This can be any value compatible with [gnu sleep](https://github.com/tldr-pages/tldr/blob/main/pages/linux/sleep.md) or if set to false, the container will shutoff after executing. A low interval value risks you being ip-banned by YouTube.<br>1 hour, (3 hours), 12 hours, 3 days, false. |
 
 # Image Tags
@@ -112,7 +111,7 @@ docker run -d \
     `docker exec youtube-dl bash -c 'echo "URL" >> ./artists.txt'`
 
     It is recommended to use the UCID-based URLs, they look like: `music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg`, as the other ones might get changed.
-    You find the UCID-based URL by going to a video and clicking on the uploader.
+    You find the UCID-based URL by going to a music and copy from bar.
 
 * **pre-execution.sh**
 
@@ -139,18 +138,18 @@ docker run -d \
     * `--batch-file`, hardcoded to `/config/artists.txt`.
 
     **Default arguments**
-    * `--output "/downloads/%(channel)s/%(album)s/%(title)s.%(ext)s"`, makes youtube-dl create separate folders for each artist and use the video title for the filename.
+    * `--output "/downloads/%(channel)s/%(album)s/%(title)s.%(ext)s"`, makes youtube-dl create separate folders for each artist and use the music title for the filename.
     * `--parse-metadata "channel:%(album_artist)s" --add-metadata`, add artist album ID3 tag using the artist channel name.
-    * `--windows-filenames`, prevent youtube-dl to grab filenames incompatible with windows filesystem.
-    * `--trim-filenames 260`, prevent youtube-dl to grab filenames too long.
-    * `--newline`, add a new line each percent download conclusion.
+    * `--format bestaudio`, make youtube-dlp download the best audio possible.
+    * `--force-overwrites`, make youtube-dlp overwrites the files if a previous download was failed. 
+    * `--windows-filenames`, prevent youtube-dlp to grab filenames incompatible with windows filesystem.
+    * `--trim-filenames 260`, prevent youtube-dlp to grab filenames too long.
+    * `--newline`, add a new line each percent of download conclusion.
     * `--progress`, log each percent in download progress.
-    * `--format ba`, make youtube-dl download a best audio possible.
-    * `--write-all-thumbnails`, makes youtube-dl download music thumbnails.
+    * `--write-all-thumbnails`, makes youtube-dlp download music thumbnails.
+    * `--extract-audio`, makes youtube-dlp create the audio file.
+    * `--audio-format flac`, download the audio file to Free Lossless Audio Codec format. 
     * `--embed-metadata`, makes youtube-dl grab ID3 tags in the music file.
-    * `--extract-audio`, makes youtube-dl create the audio file.
-    * `--audio-quality 0`, makes youtube-dl work always with the best audio format.
-    * `--audio-format mp3`, convert the audio file to mp3 format.
-    * `--sleep-requests 1`, make youtube-dl to wait 1 second every request to prevent block access.
+    * `--sleep-requests 5`, make youtube-dlp to wait 5 second for every request to prevent block access. (audio files are downloaded very quickly, causing many requests)
 
     yt-dlp configuration options documentation [here](https://github.com/yt-dlp/yt-dlp#usage-and-options).
