@@ -36,7 +36,7 @@ yt-dlp documentation [here](https://github.com/yt-dlp/yt-dlp).
 
 # Quick Start
 
-"download music from my artists.txt links file:"
+"download music from my artists.txt url file:"
 <br>
 
 ```

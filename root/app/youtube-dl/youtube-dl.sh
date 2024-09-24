@@ -75,7 +75,7 @@ else
 fi
 
 # identifies the output directory from the '--output' argument
-output_dir=$(grep -Po '^(--output|-o)\s+\K[^\s]+' '/config/args.conf')
+output_dir="/downloads/"
 
 # remove files in the output directory
 if [ -d "$output_dir" ]; then
