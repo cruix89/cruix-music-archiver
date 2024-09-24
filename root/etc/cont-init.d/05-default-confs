@@ -12,6 +12,12 @@ then
   cp /config.default/artists.txt /config/
 fi
 
+if ! [ -f "/config/post-execution.sh" ]
+then
+  echo "[default-confs] restoring default 'post-execution.sh'."
+  cp /config.default/post-execution.sh /config/
+fi
+
 ln -fs /config/args.conf /etc/yt-dlp.conf
 
 # shellcheck disable=SC2016
