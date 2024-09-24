@@ -153,3 +153,5 @@ docker run -d \
     * `--sleep-requests 5`, make youtube-dlp to wait 5 second for every request to prevent block access. (audio files are downloaded very quickly, causing many requests)
 
     yt-dlp configuration options documentation [here](https://github.com/yt-dlp/yt-dlp#usage-and-options).
+
+![Logotipo](https://github.com/cruix89/cruix-music-archiver/blob/master/logo.png)
