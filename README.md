@@ -150,6 +150,6 @@ docker run -d \
     * `--extract-audio`, makes youtube-dlp create the audio file.
     * `--audio-format flac`, download the audio file to Free Lossless Audio Codec format. 
     * `--embed-metadata`, makes youtube-dl grab ID3 tags in the music file.
-    * `--sleep-requests 5`, make youtube-dlp to wait 5 second for every request to prevent block access. (audio files are downloaded very quickly, causing many requests)
+    * `--sleep-requests 1.5`, make youtube-dlp to wait 5 second for every request to prevent block access. (audio files are downloaded very quickly, causing many requests)
 
     yt-dlp configuration options documentation [here](https://github.com/yt-dlp/yt-dlp#usage-and-options).
