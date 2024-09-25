@@ -3,7 +3,7 @@
 # identifies the output directory from the '--output' argument
 output_dir="/downloads"
 
-# remove files in the output directory
+# remove cache files in the output directory and process post-processing scripts
 if [ -d "$output_dir" ]; then
   echo "deleting cache files in directory: $output_dir"
   find "$output_dir" -type f -name "*.0.jpg" -delete
@@ -62,6 +62,10 @@ if [ -d "$output_dir" ]; then
   find "$output_dir" -type f -name "*Topic.2.jpg" -delete
   find "$output_dir" -type f -name "*Topic.3.jpg" -delete
   find "$output_dir" -type d -empty -delete
+  # post-processing scripts
+  # echo "executing post-processing scripts"
+  # python3 /caminho/para/seu/script1.py
+  # python3 /caminho/para/seu/script2.py
 else
   echo "output directory not found: $output_dir"
 fi

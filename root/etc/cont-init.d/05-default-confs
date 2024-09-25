@@ -12,11 +12,9 @@ then
   cp /config.default/artists.txt /config/
 fi
 
-if ! [ -f "/config/post-execution.sh" ]
-then
-  echo "[default-confs] restoring default 'post-execution.sh'."
-  cp /config.default/post-execution.sh /config/
-fi
+# always update the post-execution.sh script
+echo "[default-confs] updating default 'post-execution.sh'."
+cp -f /config.default/post-execution.sh /config/
 
 ln -fs /config/args.conf /etc/yt-dlp.conf
 
