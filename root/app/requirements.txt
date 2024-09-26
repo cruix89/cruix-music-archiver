@@ -5,3 +5,5 @@ Jinja2
 python-multipart
 importlib_metadata
 nltk
+tqdm
+pyautogui
