@@ -3,4 +3,5 @@ fastapi
 aiofiles
 Jinja2
 python-multipart
+importlib_metadata
 nltk
