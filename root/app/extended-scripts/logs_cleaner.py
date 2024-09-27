@@ -32,14 +32,14 @@ files = [file for file in files if file != log_file]
 for file in files:
     try:
         os.remove(file)
-        logging.info(f"FILE {file} DELETED.")
+        logging.info(f"FILE {file} CLEANED.")
     except FileNotFoundError:
         logging.warning(f"FILE {file} NOT FOUND DURING DELETION.")
     except PermissionError:
-        logging.error(f"PERMISSION DENIED WHEN TRYING TO DELETE FILE {file}.")
+        logging.error(f"PERMISSION DENIED WHEN TRYING TO CLEAN FILE {file}.")
     except Exception as e:
-        logging.error(f"Unexpected error deleting file {file}: {type(e).__name__}: {e}")
+        logging.error(f"UNEXPECTED ERROR CLEANING FILE {file}: {type(e).__name__}: {e}")
 
 # LOG FINALIZATION
-logging.info("ALL FILES HAVE BEEN DELETED.")
-print("LOGS DELETED SUCCESSFULLY.")
+logging.info("ALL FILES HAVE BEEN CLEANED.")
+print("LOGS CLEANED SUCCESSFULLY.")
