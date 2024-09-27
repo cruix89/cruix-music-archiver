@@ -64,8 +64,8 @@ if [ -d "$output_dir" ]; then
   find "$output_dir" -type d -empty -delete
   find "$output_dir" -type f -name "*.5.jpg" -exec bash -c 'mv "$0" "${0%.5.jpg}.jpg"' {} \;
   # post-processing scripts
-  # echo "executing post-processing scripts"
-  # python3 /caminho/para/seu/script1.py
+  echo "executing post-processing scripts for the music library update"
+  python3 /app/extended-scripts/logs_cleaner.py
   # python3 /caminho/para/seu/script2.py
 else
   echo "output directory not found: $output_dir"
