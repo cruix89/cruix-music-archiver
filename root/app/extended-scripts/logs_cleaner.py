@@ -5,6 +5,10 @@ import logging
 # ABSOLUTE PATH TO THE LOGS DIRECTORY (SET THE FULL PATH)
 logs_directory = "/config/logs"
 
+# CREATE LOGS DIRECTORY IF IT DOES NOT EXIST
+if not os.path.exists(logs_directory):
+    os.makedirs(logs_directory)
+
 # FULL PATH TO THE LOG FILE
 log_file = os.path.join(logs_directory, "logs_cleaner.log")
 
@@ -13,8 +17,16 @@ logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s -
 
 print("CLEANING LOG DIRECTORY...")
 
+# CHECK IF LOG DIRECTORY EXISTS
+if not os.path.exists(logs_directory):
+    logging.error(f"LOG DIRECTORY {logs_directory} DOES NOT EXIST.")
+    raise FileNotFoundError(f"LOG DIRECTORY {logs_directory} DOES NOT EXIST.")
+
 # FIND ALL FILES IN THE LOGS DIRECTORY
 files = glob.glob(os.path.join(logs_directory, "*"))
+
+# EXCLUDE LOG FILE FROM DELETION
+files = [file for file in files if file != log_file]
 
 # LOOP FOR FILE DELETION
 for file in files:
@@ -26,10 +38,8 @@ for file in files:
     except PermissionError:
         logging.error(f"PERMISSION DENIED WHEN TRYING TO DELETE FILE {file}.")
     except Exception as e:
-        logging.error(f"ERROR DELETING FILE {file}: {e}")
+        logging.error(f"Unexpected error deleting file {file}: {type(e).__name__}: {e}")
 
-# LOG FINALIZATION USING 'WITH'
-with open(log_file, 'a') as log:
-    log.write("ALL FILES HAVE BEEN DELETED.\n")
-
+# LOG FINALIZATION
+logging.info("ALL FILES HAVE BEEN DELETED.")
 print("LOGS DELETED SUCCESSFULLY.")
