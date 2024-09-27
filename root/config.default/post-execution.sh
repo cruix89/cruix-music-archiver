@@ -67,6 +67,7 @@ if [ -d "$output_dir" ]; then
   echo "executing post-processing scripts for the music library update"
   python3 /app/extended-scripts/logs_cleaner.py
   python3 /app/extended-scripts/wordnet_corpus_downloader.py
+  python3 /app/extended-scripts/invalid_characters_remover.py
 else
   echo "output directory not found: $output_dir"
 fi
