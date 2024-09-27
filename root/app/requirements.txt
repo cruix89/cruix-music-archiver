@@ -7,3 +7,4 @@ importlib_metadata
 nltk
 tqdm
 pyautogui
+pillow
