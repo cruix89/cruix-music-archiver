@@ -15,7 +15,7 @@ for directory in [logs_dir, lists_dir, downloads_dir, unofficial_albums_dir]:
 # CONFIGURE LOGGING
 logging.basicConfig(filename=os.path.join(logs_dir, "unofficial_albums_mover.log"), level=logging.INFO)
 
-print("MOVING UNOFFICIAL ALBUMS...")
+print("\nMOVING UNOFFICIAL ALBUMS...")
 
 # READ THE FOLDER LIST FROM THE FILE
 try:
