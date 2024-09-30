@@ -15,7 +15,7 @@ log_file = os.path.join(logs_directory, "logs_cleaner.log")
 # CONFIGURE LOGGING
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("CLEANING LOGS DIRECTORY...")
+print("\nCLEANING LOGS DIRECTORY...")
 
 # CHECK IF LOG DIRECTORY EXISTS
 if not os.path.exists(logs_directory):
@@ -42,4 +42,4 @@ for file in files:
 
 # LOG FINALIZATION
 logging.info("ALL FILES HAVE BEEN CLEANED.")
-print("LOGS CLEANED SUCCESSFULLY.")
+print("\nLOGS CLEANED SUCCESSFULLY.")

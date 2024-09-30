@@ -11,6 +11,8 @@ def setup_logging( log_file ):
 
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
+# FIXED PRINT IN TERMINAL
+print("\nREMOVING INVALID CHARACTERS...")
 
 def load_invalid_characters( file_path ):
     try:
@@ -89,9 +91,11 @@ def main( download_path, lists_path ):
     invalid_chars = load_invalid_characters(invalid_chars_file)
     rename_files_and_dirs(download_path, invalid_chars)
 
+# FIXED PRINT IN TERMINAL
+print("\nINVALID CHARACTERS REMOVED...")
 
 if __name__ == "__main__":
-    # Set absolute paths here:
+
     global_download_path = "/downloads"
     global_lists_path = "/app/lists"
     log_path_absolute = "/config/logs/invalid_characters_remover.log"
