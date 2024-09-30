@@ -92,7 +92,7 @@ def main( download_path, lists_path ):
     rename_files_and_dirs(download_path, invalid_chars)
 
 # FIXED PRINT IN TERMINAL
-print("\nINVALID CHARACTERS REMOVED...")
+print("INVALID CHARACTERS REMOVED SUCCESSFULLY...")
 
 if __name__ == "__main__":
 

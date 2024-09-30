@@ -42,4 +42,4 @@ for file in files:
 
 # LOG FINALIZATION
 logging.info("ALL FILES HAVE BEEN CLEANED.")
-print("\nLOGS CLEANED SUCCESSFULLY.")
+print("LOGS CLEANED SUCCESSFULLY.\n")
