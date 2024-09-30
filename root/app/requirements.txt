@@ -8,3 +8,4 @@ nltk
 tqdm
 pyautogui
 pillow
+eyed3
