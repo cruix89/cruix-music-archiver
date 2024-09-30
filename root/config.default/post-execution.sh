@@ -64,10 +64,11 @@ if [ -d "$output_dir" ]; then
   find "$output_dir" -type d -empty -delete
   find "$output_dir" -type f -name "*.5.jpg" -exec bash -c 'mv "$0" "${0%.5.jpg}.jpg"' {} \;
   # post-processing scripts
-  echo -e "\nexecuting post-processing scripts for the music library update"
+  echo -e "executing post-processing scripts for the music library update"
   python3 /app/extended-scripts/logs_cleaner.py
   python3 /app/extended-scripts/wordnet_corpus_downloader.py
   python3 /app/extended-scripts/invalid_characters_remover.py
+  python3 /app/extended-scripts/complete_missing_covers.py
 else
   echo -e "\noutput directory not found: $output_dir"
 fi

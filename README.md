@@ -5,7 +5,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Stars](https://img.shields.io/docker/stars/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 
-**automated yt-dlp docker image for downloading YouTube Music discography's/playlists/single tracks or music of others platforms supported by youtube-dlp**
+**automated yt-dlp docker image for downloading YouTube Music discography's/playlists/singles or music of others platforms supported by youtube-dlp**
 
 Docker Hub page [here](https://hub.docker.com/r/cruix89/cruix-music-archiver).  
 yt-dlp documentation [here](https://github.com/yt-dlp/yt-dlp).

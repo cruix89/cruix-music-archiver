@@ -13,7 +13,7 @@ os.makedirs(log_dir, exist_ok=True)
 # LOG CONFIGURATION
 logging.basicConfig(filename=os.path.join(str(log_dir), 'complete_missing_covers.log'), level=logging.INFO)
 
-print("COMPLETING MISSING COVERS...")
+print("\nCOMPLETING MISSING COVERS...")
 
 # LIST OF AUDIO FORMATS SUPPORTED BY FFMPEG
 ffmpeg_supported_audio_formats = [
