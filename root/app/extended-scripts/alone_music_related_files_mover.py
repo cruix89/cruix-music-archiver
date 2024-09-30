@@ -16,7 +16,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'alone_music_related_files_mover.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("MOVING FILES WITHOUT A CORRESPONDING AUDIO FILE...")
+print("\nMOVING FILES WITHOUT A CORRESPONDING AUDIO FILE...")
 
 # SUPPORTED AUDIO FORMATS
 audio_formats = (
