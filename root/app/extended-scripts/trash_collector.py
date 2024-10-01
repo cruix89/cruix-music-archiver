@@ -6,14 +6,14 @@ import logging
 root_dir = os.path.abspath('/downloads')
 
 # NEW DESTINATION DIRECTORY
-dest_dir = os.path.abspath('/config/alone-music-related-files-moved')
+dest_dir = os.path.abspath('/config/recycle-bin')
 
 # LOG DIRECTORY
 log_dir = os.path.abspath('/config/logs')
 os.makedirs(log_dir, exist_ok=True)
 
 # CONFIGURE LOGGING
-log_file = os.path.join(log_dir, 'alone_music_related_files_mover.log')
+log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 print("\nMOVING FILES WITHOUT A CORRESPONDING AUDIO FILE...")
