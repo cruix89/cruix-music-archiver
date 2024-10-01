@@ -64,7 +64,9 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
             skipped_files += 1
             logging.info(f'THE FILE {src_path} WAS SKIPPED BECAUSE IT IS NOT A JPG, WEBP, ICO, PNG, OR LRC FILE\n')
 
+# LOG FINAL SUMMARY
 logging.info(
     f'THE OPERATION WAS SUCCESSFULLY COMPLETED. TOTAL FILES PROCESSED: {total_files}, MOVED: {moved_files}, SKIPPED: {skipped_files}\n')
 
-print("FILES UNRELATED TO MUSIC MOVED SUCCESSFULLY.")
+# PRINT FINAL SUMMARY TO TERMINAL
+print(f"FILES UNRELATED TO MUSIC MOVED SUCCESSFULLY.\nTotal files processed: {total_files}, Moved: {moved_files}, Skipped: {skipped_files}")
