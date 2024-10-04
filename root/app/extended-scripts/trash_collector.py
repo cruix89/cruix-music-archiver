@@ -41,28 +41,22 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
         src_path = os.path.join(dirpath, filename)
         total_files += 1
 
-        # IF THE FILE IS A JPG, WEBP, ICO, PNG, OR LRC
-        if filename.lower().endswith((".jpg", ".webp", ".ico", ".png", ".lrc")):
+        # CHECK IF THERE IS A CORRESPONDING AUDIO FILE
+        if os.path.splitext(filename)[0] not in audio_files:
+            # DEFINE THE DESTINATION PATH HERE
+            dest_path = os.path.join(dest_dir, os.path.relpath(dirpath, root_dir), filename)
 
-            # CHECK IF THERE IS A CORRESPONDING AUDIO FILE
-            if os.path.splitext(filename)[0] not in audio_files:
-                # DEFINE THE DESTINATION PATH HERE
-                dest_path = os.path.join(dest_dir, os.path.relpath(dirpath, root_dir), filename)
-
-                # TRY TO MOVE THE FILE
-                try:
-                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                    shutil.move(src_path, dest_path)
-                    moved_files += 1
-                    logging.info(f'FILE MOVED FROM {src_path} TO {dest_path}\n')
-                except Exception as e:
-                    logging.error(f'FAILED TO MOVE FILE FROM {src_path} TO {dest_path}: {e}\n')
-            else:
-                skipped_files += 1
-                logging.info(f'THE FILE {src_path} WAS SKIPPED BECAUSE A CORRESPONDING AUDIO FILE WAS FOUND\n')
+            # TRY TO MOVE THE FILE
+            try:
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                shutil.move(src_path, dest_path)
+                moved_files += 1
+                logging.info(f'FILE MOVED FROM {src_path} TO {dest_path}\n')
+            except Exception as e:
+                logging.error(f'FAILED TO MOVE FILE FROM {src_path} TO {dest_path}: {e}\n')
         else:
             skipped_files += 1
-            logging.info(f'THE FILE {src_path} WAS SKIPPED BECAUSE IT IS NOT A JPG, WEBP, ICO, PNG, OR LRC FILE\n')
+            logging.info(f'THE FILE {src_path} WAS SKIPPED BECAUSE A CORRESPONDING AUDIO FILE WAS FOUND\n')
 
 # LOG FINAL SUMMARY
 logging.info(
