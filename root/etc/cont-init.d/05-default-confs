@@ -1,13 +1,11 @@
 #!/usr/bin/with-contenv sh
 
-if ! [ -f "/config/args.conf" ]
-then
+if ! [ -f "/config/args.conf" ]; then
   echo "[default-confs] restoring default 'args.conf'."
   cp /config.default/args.conf /config/
 fi
 
-if ! [ -f "/config/artists.txt" ]
-then
+if ! [ -f "/config/artists.txt" ]; then
   echo "[default-confs] restoring default 'artists.txt'."
   cp /config.default/artists.txt /config/
 fi
@@ -17,6 +15,9 @@ echo "[default-confs] updating default 'post-execution.sh'."
 cp -f /config.default/post-execution.sh /config/
 
 ln -fs /config/args.conf /etc/yt-dlp.conf
+
+# check if youtubedl_quality is set, else assign default
+youtubedl_quality="${youtubedl_quality:-best}"
 
 # shellcheck disable=SC2016
 sed -i -E 's!\$youtubedl_quality!'"${youtubedl_quality}"'!g' /config.default/format
