@@ -16,7 +16,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("\nMOVING FILES WITHOUT A CORRESPONDING AUDIO FILE...")
+print("\nRECYCLING FILES WITHOUT A CORRESPONDING AUDIO FILE...")
 
 # SUPPORTED AUDIO FORMATS
 audio_formats = (
@@ -60,7 +60,7 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
 
 # LOG FINAL SUMMARY
 logging.info(
-    f'THE OPERATION WAS SUCCESSFULLY COMPLETED. TOTAL FILES PROCESSED: {total_files}, MOVED: {moved_files}, SKIPPED: {skipped_files}\n')
+    f'THE OPERATION WAS SUCCESSFULLY COMPLETED. TOTAL FILES PROCESSED: {total_files}, RECYCLED: {moved_files}, SKIPPED: {skipped_files}\n')
 
 # PRINT FINAL SUMMARY TO TERMINAL
-print(f"FILES UNRELATED TO MUSIC MOVED SUCCESSFULLY.\nTotal files processed: {total_files}, Moved: {moved_files}, Skipped: {skipped_files}")
+print(f"FILES RECYCLED SUCCESSFULLY.\nTotal files processed: {total_files}, Recycled: {moved_files}, Skipped: {skipped_files}")

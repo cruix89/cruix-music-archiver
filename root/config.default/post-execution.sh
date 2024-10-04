@@ -70,7 +70,7 @@ if [ -d "$output_dir" ]; then
   python3 /app/extended-scripts/invalid_characters_remover.py
   python3 /app/extended-scripts/complete_missing_covers.py
   python3 /app/extended-scripts/trash_collector.py
-  #python3 /app/extended-scripts/unofficial_albums_mover.py
+  python3 /app/extended-scripts/unofficial_albums_mover.py
   #python3 /app/extended-scripts/loudnorm.py
 else
   echo -e "\noutput directory not found: $output_dir"
