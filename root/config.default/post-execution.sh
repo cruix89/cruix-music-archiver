@@ -6,8 +6,8 @@ output_dir="/downloads"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$output_dir" ]; then
   echo -e "\ncleaning cache files in directory: $output_dir"
-  #find "$output_dir" -type f -name "*.0.jpg" -delete
-  #find "$output_dir" -type f -name "*.1.jpg" -delete
+  find "$output_dir" -type f -name "*.0.jpg" -delete
+  find "$output_dir" -type f -name "*.1.jpg" -delete
   #find "$output_dir" -type f -name "*.2.jpg" -delete
   #find "$output_dir" -type f -name "*.3.jpg" -delete
   #find "$output_dir" -type f -name "*.4.jpg" -delete
