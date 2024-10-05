@@ -5,8 +5,8 @@ from tqdm import tqdm
 # CONFIGURE ABSOLUTE PATHS
 SRC_DIR = '/downloads'
 LOG_DIR = '/config/logs'
-LISTS_DIR = '/app/lists'
-NORMALIZED_LIST_FILE = os.path.join(LISTS_DIR, 'normalized_files.txt')
+LISTS_DIR = '/config'
+NORMALIZED_LIST_FILE = os.path.join(LISTS_DIR, 'loudnorm_cache.txt')
 
 # SUPPORTED AUDIO FORMATS
 audio_formats = (
@@ -26,7 +26,7 @@ def check_ffmpeg():
 
 
 def load_normalized_list():
-    """Load the list of already normalized files from the normalized_files.txt."""
+    """Load the list of already normalized files from the loudnorm_cache.txt."""
     if not os.path.exists(NORMALIZED_LIST_FILE):
         return set()  # Return an empty set if the file does not exist
     with open(NORMALIZED_LIST_FILE, 'r', encoding='utf-8') as f:
@@ -34,7 +34,7 @@ def load_normalized_list():
 
 
 def save_to_normalized_list(file_path):
-    """Append the normalized file path to normalized_files.txt."""
+    """Append the normalized file path to loudnorm_cache.txt."""
     with open(NORMALIZED_LIST_FILE, 'a', encoding='utf-8') as f:
         f.write(file_path + '\n')
 
