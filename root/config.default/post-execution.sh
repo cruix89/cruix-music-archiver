@@ -66,11 +66,17 @@ if [ -d "$output_dir" ]; then
   # post-processing scripts
   echo -e "executing post-processing scripts for the music library update"
   python3 /app/extended-scripts/logs_cleaner.py
+  sleep '3'
   python3 /app/extended-scripts/wordnet_corpus_downloader.py
+  sleep '3'
   python3 /app/extended-scripts/invalid_characters_remover.py
+  sleep '3'
   python3 /app/extended-scripts/complete_missing_covers.py
+  sleep '3'
   python3 /app/extended-scripts/trash_collector.py
+  sleep '3'
   python3 /app/extended-scripts/unofficial_albums_mover.py
+  sleep '3'
   #python3 /app/extended-scripts/loudnorm.py
 else
   echo -e "\noutput directory not found: $output_dir"

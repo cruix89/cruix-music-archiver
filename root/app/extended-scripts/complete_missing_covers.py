@@ -12,9 +12,9 @@ downloads_dir = Path('/downloads')
 log_dir.mkdir(parents=True, exist_ok=True)
 
 # Log configuration
-logging.basicConfig(filename=log_dir / 'complete_missing_covers.log', level=logging.INFO)
+logging.basicConfig(filename=log_dir / 'complete_missing_covers.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("\nCOMPLETING MISSING COVERS...")
+logging.info("COMPLETING MISSING COVERS...")
 
 # List of audio formats supported by FFmpeg
 ffmpeg_supported_audio_formats = [
@@ -33,7 +33,7 @@ def process_image(source, width, height):
     try:
         with Image.open(source) as img:
             img_width, img_height = img.size
-            print(f'Processing {source}: {img_width}x{img_height}')  # Print dimensions for debugging
+            logging.info(f'Processing {source}: {img_width}x{img_height}')  # Log dimensions
         return img_width == width and img_height == height
     except UnidentifiedImageError:
         logging.error(f'ERROR IDENTIFYING IMAGE: {source}')
@@ -66,4 +66,4 @@ def copy_first_image_to_audio(directory, width=544, height=544):
 # Run main function
 copy_first_image_to_audio(downloads_dir)
 
-print("MISSING COVERS COMPLETED.")
+logging.info("MISSING COVERS COMPLETED.")
