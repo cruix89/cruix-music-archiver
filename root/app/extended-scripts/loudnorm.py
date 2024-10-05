@@ -1,8 +1,10 @@
 import os
+import shutil
 import subprocess
 
 # CONFIGURE ABSOLUTE PATHS
 SRC_DIR = '/downloads'
+CACHE_DIR = '/config/cache'
 LOG_DIR = '/config/logs'
 LISTS_DIR = '/config'
 NORMALIZED_LIST_FILE = os.path.join(LISTS_DIR, 'loudnorm_cache.txt')
@@ -38,13 +40,21 @@ def save_to_normalized_list(file_path):
         f.write(file_path + '\n')
 
 
+def get_cache_output_path(src_file):
+    """Get the output path in the cache directory with the same directory structure."""
+    relative_path = os.path.relpath(src_file, SRC_DIR)
+    output_path = os.path.join(CACHE_DIR, os.path.splitext(relative_path)[0] + ".mp3")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    return output_path
+
+
 def process_file(src_file, log_file):
-    # DEFINE THE TEMPORARY OUTPUT FILE WITH THE NAME temp.mp3
-    temp_file_mp3 = os.path.splitext(src_file)[0] + "_temp.mp3"
+    # DEFINE THE OUTPUT FILE IN THE CACHE DIRECTORY
+    output_file_mp3 = get_cache_output_path(src_file)
 
     # FFMPEG COMMAND WITH FULL PATH AND OUTPUT FILE EXTENSION
     cmd = ["ffmpeg", "-y", "-i", src_file, "-af", "loudnorm=I=-14:TP=-1:LRA=11:print_format=summary", "-b:a", "320k",
-           temp_file_mp3]
+           output_file_mp3]
 
     with open(log_file, 'a', encoding='utf-8') as f:
         try:
@@ -54,23 +64,37 @@ def process_file(src_file, log_file):
             f.write(f"ERROR PROCESSING FILE: {str(e)}\n")
             return  # Exit early if there's an error
 
-    # VERIFY THAT THE TEMPORARY FILE EXISTS BEFORE PROCEEDING
-    if os.path.exists(temp_file_mp3):
-        try:
-            os.remove(src_file)  # Delete the original file
-            os.rename(temp_file_mp3, src_file)  # Rename the temp file to the original name
-            save_to_normalized_list(src_file)  # Save the file to the normalized list
-        except OSError as e:
-            with open(log_file, 'a', encoding='utf-8') as f:
-                f.write(f"ERROR RENAMING FILE: {str(e)}\n")
+    # VERIFY THAT THE OUTPUT FILE EXISTS BEFORE PROCEEDING
+    if os.path.exists(output_file_mp3):
+        save_to_normalized_list(src_file)  # Save the file to the normalized list
     else:
         with open(log_file, 'a', encoding='utf-8') as f:
-            f.write(f"TEMP FILE NOT FOUND: {temp_file_mp3}\n")
+            f.write(f"OUTPUT FILE NOT FOUND: {output_file_mp3}\n")
+
+
+def move_files_and_cleanup():
+    """Move files from cache to original location and remove source files."""
+    for dirpath, dirnames, filenames in os.walk(CACHE_DIR):
+        for filename in filenames:
+            cache_file = os.path.join(dirpath, filename)
+            # Determine the original file path in SRC_DIR
+            relative_path = os.path.relpath(cache_file, CACHE_DIR)
+            original_file_path = os.path.join(SRC_DIR, os.path.splitext(relative_path)[0] + ".mp3")
+
+            # Move the cache file to the original location
+            os.makedirs(os.path.dirname(original_file_path), exist_ok=True)
+            shutil.move(cache_file, original_file_path)
+
+            # Remove the original source file
+            original_src_file = os.path.splitext(original_file_path)[0] + os.path.splitext(filename)[1]
+            if os.path.exists(original_src_file):
+                os.remove(original_src_file)
 
 
 def prepare_directories():
-    # ENSURE LOG AND LISTS DIRECTORIES EXIST
+    # ENSURE LOG, CACHE AND LISTS DIRECTORIES EXIST
     os.makedirs(LOG_DIR, exist_ok=True)
+    os.makedirs(CACHE_DIR, exist_ok=True)
     os.makedirs(LISTS_DIR, exist_ok=True)
     return SRC_DIR, LOG_DIR, LISTS_DIR
 
@@ -103,8 +127,11 @@ def main():
         process_file(src_file, log_file)
         print(f"File {idx}/{total_files} processed: {src_file}")
 
+    # MOVE FILES FROM CACHE TO ORIGINAL LOCATION AND CLEAN UP
+    move_files_and_cleanup()
+
     # Print final summary
-    print(f"\nSummary: {total_files} files normalized, {skipped_files} files skipped (already normalized).")
+    print(f"\nSummary: {total_files} files processed, {skipped_files} files skipped (already normalized).")
 
 
 if __name__ == "__main__":
