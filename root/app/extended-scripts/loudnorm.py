@@ -1,6 +1,5 @@
 import os
 import subprocess
-from tqdm import tqdm
 
 # CONFIGURE ABSOLUTE PATHS
 SRC_DIR = '/downloads'
@@ -53,16 +52,20 @@ def process_file(src_file, log_file):
             f.write(f"\n")
         except subprocess.CalledProcessError as e:
             f.write(f"ERROR PROCESSING FILE: {str(e)}\n")
-            return
+            return  # Exit early if there's an error
 
-    # REMOVE THE ORIGINAL FILE AND RENAME THE TEMP FILE TO THE ORIGINAL NAME
-    try:
-        os.remove(src_file)  # Delete the original file
-        os.rename(temp_file_mp3, src_file)  # Rename the temp file to the original name
-        save_to_normalized_list(src_file)  # Save the file to the normalized list
-    except OSError as e:
+    # VERIFY THAT THE TEMPORARY FILE EXISTS BEFORE PROCEEDING
+    if os.path.exists(temp_file_mp3):
+        try:
+            os.remove(src_file)  # Delete the original file
+            os.rename(temp_file_mp3, src_file)  # Rename the temp file to the original name
+            save_to_normalized_list(src_file)  # Save the file to the normalized list
+        except OSError as e:
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"ERROR RENAMING FILE: {str(e)}\n")
+    else:
         with open(log_file, 'a', encoding='utf-8') as f:
-            f.write(f"ERROR RENAMING FILE: {str(e)}\n")
+            f.write(f"TEMP FILE NOT FOUND: {temp_file_mp3}\n")
 
 
 def prepare_directories():
@@ -95,13 +98,13 @@ def main():
                     skipped_files += 1  # Count skipped files
 
     # PROCESS AUDIO FILES ONE BY ONE
-    with tqdm(total=len(audio_files), desc="NORMALIZING AUDIO") as pbar:
-        for src_file in audio_files:
-            process_file(src_file, log_file)
-            pbar.update()
+    total_files = len(audio_files)
+    for idx, src_file in enumerate(audio_files, start=1):
+        process_file(src_file, log_file)
+        print(f"File {idx}/{total_files} processed: {src_file}")
 
     # Print final summary
-    print(f"\nSummary: {len(audio_files)} files normalized, {skipped_files} files skipped (already normalized).")
+    print(f"\nSummary: {total_files} files normalized, {skipped_files} files skipped (already normalized).")
 
 
 if __name__ == "__main__":
