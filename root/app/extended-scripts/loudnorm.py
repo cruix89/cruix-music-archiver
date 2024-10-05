@@ -17,14 +17,12 @@ audio_formats = (
     '.w64', '.s8', '.u8'
 )
 
-
 def check_ffmpeg():
     try:
         subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     except FileNotFoundError:
         print("\nFFMPEG IS NOT INSTALLED OR NOT AVAILABLE IN THE PATH.")
         exit(1)
-
 
 def load_normalized_list():
     """Load the list of already normalized files from the loudnorm_cache.txt."""
@@ -33,12 +31,10 @@ def load_normalized_list():
     with open(NORMALIZED_LIST_FILE, 'r', encoding='utf-8') as f:
         return set(line.strip() for line in f)
 
-
 def save_to_normalized_list(file_path):
     """Append the normalized file path to loudnorm_cache.txt."""
     with open(NORMALIZED_LIST_FILE, 'a', encoding='utf-8') as f:
         f.write(file_path + '\n')
-
 
 def get_cache_output_path(src_file):
     """Get the output path in the cache directory with the same directory structure."""
@@ -46,7 +42,6 @@ def get_cache_output_path(src_file):
     output_path = os.path.join(CACHE_DIR, os.path.splitext(relative_path)[0] + ".mp3")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     return output_path
-
 
 def process_file(src_file, log_file):
     # DEFINE THE OUTPUT FILE IN THE CACHE DIRECTORY
@@ -71,7 +66,6 @@ def process_file(src_file, log_file):
         with open(log_file, 'a', encoding='utf-8') as f:
             f.write(f"OUTPUT FILE NOT FOUND: {output_file_mp3}\n")
 
-
 def move_files_and_cleanup():
     """Move files from cache to original location and remove source files."""
     for dirpath, dirnames, filenames in os.walk(CACHE_DIR):
@@ -81,15 +75,14 @@ def move_files_and_cleanup():
             relative_path = os.path.relpath(cache_file, CACHE_DIR)
             original_file_path = os.path.join(SRC_DIR, os.path.splitext(relative_path)[0] + ".mp3")
 
+            # Remove the original source file first
+            original_src_file = os.path.splitext(original_file_path)[0] + os.path.splitext(filename)[1]
+            if os.path.exists(original_src_file):
+                os.remove(original_src_file)  # Delete the original file before moving the new one
+
             # Move the cache file to the original location
             os.makedirs(os.path.dirname(original_file_path), exist_ok=True)
             shutil.move(cache_file, original_file_path)
-
-            # Remove the original source file
-            original_src_file = os.path.splitext(original_file_path)[0] + os.path.splitext(filename)[1]
-            if os.path.exists(original_src_file):
-                os.remove(original_src_file)
-
 
 def prepare_directories():
     # ENSURE LOG, CACHE AND LISTS DIRECTORIES EXIST
@@ -97,7 +90,6 @@ def prepare_directories():
     os.makedirs(CACHE_DIR, exist_ok=True)
     os.makedirs(LISTS_DIR, exist_ok=True)
     return SRC_DIR, LOG_DIR, LISTS_DIR
-
 
 def main():
     src_dir, log_dir, lists_dir = prepare_directories()
@@ -132,7 +124,6 @@ def main():
 
     # Print final summary
     print(f"\nSummary: {total_files} files processed, {skipped_files} files skipped (already normalized).")
-
 
 if __name__ == "__main__":
     main()
