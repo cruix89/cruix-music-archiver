@@ -4,12 +4,6 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS="2" \
     PUID="911" \
     PGID="911" \
     UMASK="022" \
-    youtubedl_debug="false" \
-    youtubedl_lockfile="false" \
-    youtubedl_subscriptions="false" \
-    youtubedl_watchlater="false" \
-    youtubedl_interval="3h" \
-    youtubedl_quality="1080" \
     OPENSSL_CONF=""
 
 # create group and user
@@ -39,7 +33,8 @@ RUN set -x && \
 
 # install FFMPEG
 RUN set -x && \
-    wget -q -O - 'https://github.com/yt-dlp/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz' | \
+    wget -q -O /tmp/ffmpeg.tar.xz 'https://github.com/yt-dlp/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz' || { echo "download failed"; exit 1; } && \
+    ls -lh /tmp && \
     tar -xJ -C /tmp/ --one-top-level=ffmpeg && \
     chmod -R a+x /tmp/ffmpeg/* && \
     mv /tmp/ffmpeg/*/ffmpeg /usr/local/bin/ && \
