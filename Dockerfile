@@ -52,29 +52,23 @@ RUN set -x && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /app/requirements.txt
 
-# install FFMPEG
+# install FFMPEG from Debian repository
 RUN set -x && \
-    wget -q -O /tmp/ffmpeg.tar.xz 'https://github.com/yt-dlp/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz' || { echo "download failed"; exit 1; } && \
-    ls -lh /tmp && \
-    tar -xJ -C /tmp/ --one-top-level=ffmpeg && \
-    chmod -R a+x /tmp/ffmpeg/* && \
-    mv /tmp/ffmpeg/*/ffmpeg /usr/local/bin/ && \
-    mv /tmp/ffmpeg/*/ffprobe /usr/local/bin/ && \
-    mv /tmp/ffmpeg/*/ffplay /usr/local/bin/ && \
-    rm -rf /tmp/*
-
-# install chrome
-RUN set -x && \
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
     apt update && \
-    apt install -y google-chrome-stable && \
+    apt install -y ffmpeg && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# install chromium
+RUN set -x && \
+    apt update && \
+    apt install -y chromium && \
+    apt clean && \
     rm -rf /var/lib/apt/lists/*
 
 # install puppeteer
 RUN set -x && \
-    npm install -g puppeteer && \
-    ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
+    npm install -g puppeteer
 
 # install S6 overlay
 RUN set -x && \
