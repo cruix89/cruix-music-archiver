@@ -5,6 +5,4 @@ Jinja2
 python-multipart
 importlib_metadata
 nltk
-pyautogui
-pillow
 eyed3
