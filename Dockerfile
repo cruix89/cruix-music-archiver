@@ -33,16 +33,13 @@ RUN set -x && \
         libappindicator3-1 \
         libasound2 \
         libatk-bridge2.0-0 \
-        libgtk-3-0 \
         libnspr4 \
         libnss3 \
         libxcomposite1 \
         libxdamage1 \
         libxrandr2 \
         xdg-utils \
-        gnupg \
-        nodejs \
-        npm && \
+        gnupg && \
     python3 -m pip --no-cache-dir install -r /app/requirements.txt && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -52,30 +49,6 @@ RUN set -x && \
     apt-get install -y ffmpeg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# install chromium
-RUN set -x && \
-    apt-get update && \
-    apt-get install -y chromium && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# install additional dependencies for puppeteer
-RUN set -x && \
-    apt-get update && apt-get install -y \
-        libxss1 \
-        libappindicator3-1 \
-        libatk-bridge2.0-0 \
-        libgtk-3-0 \
-        libnspr4 \
-        libnss3 \
-        fonts-liberation \
-        libasound2 \
-        && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# install puppeteer
-RUN set -x && \
-    npm install puppeteer --unsafe-perm --verbose
 
 # install S6 overlay
 RUN set -x && \
