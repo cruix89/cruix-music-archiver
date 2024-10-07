@@ -16,8 +16,8 @@ COPY root/ /
 
 # install dependencies and packages
 RUN set -x && \
-    apt update && \
-    apt install --no-install-recommends -y \
+    apt-get update && \
+    apt-get install --no-install-recommends -y \
         file \
         wget \
         python3 \
@@ -33,11 +33,6 @@ RUN set -x && \
         libappindicator3-1 \
         libasound2 \
         libatk-bridge2.0-0 \
-        libatk1.0-0 \
-        libcups2 \
-        libdbus-1-3 \
-        libdrm2 \
-        libgbm1 \
         libgtk-3-0 \
         libnspr4 \
         libnss3 \
@@ -49,21 +44,20 @@ RUN set -x && \
         nodejs \
         npm && \
     python3 -m pip --no-cache-dir install -r /app/requirements.txt && \
-    apt clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /app/requirements.txt
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install FFMPEG from debian repository
 RUN set -x && \
-    apt update && \
-    apt install -y ffmpeg && \
-    apt clean && \
+    apt-get update && \
+    apt-get install -y ffmpeg && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # install chromium
 RUN set -x && \
-    apt update && \
-    apt install -y chromium && \
-    apt clean && \
+    apt-get update && \
+    apt-get install -y chromium && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # install additional dependencies for puppeteer
@@ -81,7 +75,7 @@ RUN set -x && \
 
 # install puppeteer
 RUN set -x && \
-    npm install puppeteer || { echo "puppeteer installation failed"; exit 1; }
+    npm install puppeteer --unsafe-perm --verbose
 
 # install S6 overlay
 RUN set -x && \
