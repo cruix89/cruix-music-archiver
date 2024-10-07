@@ -29,41 +29,59 @@ def validate_directory(directory):
         return False
     return True
 
-def process_image(source, width, height):
-    try:
-        with Image.open(source) as img:
-            img_width, img_height = img.size
-            logging.info(f'Processing {source}: {img_width}x{img_height}')  # Log dimensions
-        return img_width == width and img_height == height
-    except UnidentifiedImageError:
-        logging.error(f'ERROR IDENTIFYING IMAGE: {source}')
-    except Exception as e:
-        logging.error(f'ERROR PROCESSING FILE {source}: {e}')
-    return False
+def calculate_size_difference(image_size, target_size=(544, 544)):
+    """Calculates the difference between the image size and the target size."""
+    width_diff = abs(image_size[0] - target_size[0])
+    height_diff = abs(image_size[1] - target_size[1])
+    return width_diff + height_diff  # Total difference in width and height
 
-def copy_first_image_to_audio(directory, width=544, height=544):
+def find_best_image(files, root, target_size=(544, 544)):
+    """Find the image with the smallest size difference from the target size."""
+    closest_image = None
+    smallest_difference = float('inf')
+
+    for file in files:
+        try:
+            with Image.open(Path(root) / file) as img:
+                size_difference = calculate_size_difference(img.size, target_size)
+                logging.info(f'Processing {file}: {img.size} (difference: {size_difference})')
+
+                if size_difference < smallest_difference:
+                    smallest_difference = size_difference
+                    closest_image = file
+
+        except UnidentifiedImageError:
+            logging.error(f'ERROR IDENTIFYING IMAGE: {file}')
+        except Exception as e:
+            logging.error(f'ERROR PROCESSING FILE {file}: {e}')
+
+    return closest_image
+
+def copy_best_image_to_audio(directory, target_size=(544, 544)):
     if not validate_directory(directory):
         return
 
     logging.info(f'STARTING PROCESS IN DIRECTORY: {directory}')
     for root, _, files in os.walk(directory):
-        jpg_files = [file for file in files if file.endswith(('.jpg', '.jpeg', '.png'))]  # Added support for PNG
+        # Added support for WebP images
+        jpg_files = [file for file in files if file.endswith(('.jpg', '.jpeg', '.png', '.webp'))]
         audio_files = [file for file in files if any(file.endswith(ext) for ext in ffmpeg_supported_audio_formats)]
 
         for audio_file in audio_files:
             audio_name = Path(audio_file).stem
-            if not any(jpg_file.startswith(audio_name) for jpg_file in jpg_files):
-                for jpg_file in jpg_files:
-                    source = Path(root) / jpg_file
-                    if process_image(source, width, height):
-                        destination = Path(root) / f'{audio_name}.jpg'
-                        shutil.copy2(source, destination)
-                        logging.info(f'FILE COPIED: {source} TO {destination}')
-                        break
+            if not any(jpg_file.startswith(audio_name) for jpg_file in jpg_files):  # Ignore the name matching
+                best_image = find_best_image(jpg_files, root, target_size)
+                if best_image:
+                    source = Path(root) / best_image
+                    destination = Path(root) / f'{audio_name}.jpg'  # Still saving as .jpg
+                    shutil.copy2(source, destination)
+                    logging.info(f'FILE COPIED: {source} TO {destination}')
+                else:
+                    logging.warning(f'NO SUITABLE IMAGE FOUND FOR: {audio_file}')
 
     logging.info('PROCESS COMPLETED.')
 
 # Run main function
-copy_first_image_to_audio(downloads_dir)
+copy_best_image_to_audio(downloads_dir)
 
 logging.info("MISSING COVERS COMPLETED.")

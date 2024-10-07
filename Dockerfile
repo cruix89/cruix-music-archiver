@@ -14,10 +14,10 @@ RUN set -x && \
 # copy files
 COPY root/ /
 
-# install dependencies and packages
+# install dependencies and packages (without --no-install-recommends)
 RUN set -x && \
     apt-get update && \
-    apt-get install --no-install-recommends -y \
+    apt-get install -y \
         file \
         wget \
         python3 \
@@ -39,7 +39,10 @@ RUN set -x && \
         libxdamage1 \
         libxrandr2 \
         xdg-utils \
-        gnupg && \
+        gnupg \
+        libjpeg-dev \
+        zlib1g-dev \
+        libfreetype6-dev && \
     python3 -m pip --no-cache-dir install -r /app/requirements.txt && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
