@@ -8,6 +8,5 @@ nltk
 pyautogui
 pillow
 eyed3
-pil
 pillow-simd
 pathlib
