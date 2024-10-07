@@ -52,7 +52,7 @@ RUN set -x && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /app/requirements.txt
 
-# install FFMPEG from Debian repository
+# install FFMPEG from debian repository
 RUN set -x && \
     apt update && \
     apt install -y ffmpeg && \
@@ -66,9 +66,22 @@ RUN set -x && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
+# install additional dependencies for puppeteer
+RUN set -x && \
+    apt-get update && apt-get install -y \
+        libxss1 \
+        libappindicator3-1 \
+        libatk-bridge2.0-0 \
+        libgtk-3-0 \
+        libnspr4 \
+        libnss3 \
+        fonts-liberation \
+        libasound2 \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # install puppeteer
 RUN set -x && \
-    npm install -g puppeteer
+    npm install puppeteer || { echo "puppeteer installation failed"; exit 1; }
 
 # install S6 overlay
 RUN set -x && \
