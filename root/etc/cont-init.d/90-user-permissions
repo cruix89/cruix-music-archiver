@@ -12,3 +12,9 @@ chown -R abc:abc /root
 chmod +x /app/youtube-dl/updater.sh
 chmod +x /app/youtube-dl/youtube-dl.sh
 chmod +x /config/post-execution.sh
+chmod +x /app/extended-scripts/logs_cleaner.py
+chmod +x /app/extended-scripts/wordnet_corpus_downloader.py
+chmod +x /app/extended-scripts/invalid_characters_remover.py
+chmod +x /app/extended-scripts/complete_missing_covers.py
+chmod +x /app/extended-scripts/trash_collector.py
+chmod +x /app/extended-scripts/unofficial_albums_mover.py
