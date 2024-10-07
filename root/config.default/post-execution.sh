@@ -63,21 +63,39 @@ if [ -d "$output_dir" ]; then
   find "$output_dir" -type f -name "*Topic.3.jpg" -delete
   find "$output_dir" -type d -empty -delete
   find "$output_dir" -type f -name "*.5.jpg" -exec bash -c 'mv "$0" "${0%.5.jpg}.jpg"' {} \;
+
   # post-processing scripts
+
   echo -e "executing post-processing scripts for the music library update"
+
+  sleep '3'
+
   python3 /app/extended-scripts/logs_cleaner.py
+
   sleep '3'
+
   python3 /app/extended-scripts/wordnet_corpus_downloader.py
+
   sleep '3'
+
   python3 /app/extended-scripts/invalid_characters_remover.py
+
   sleep '3'
-  #python3 /app/extended-scripts/complete_missing_covers.py
+
+  python3 /app/extended-scripts/complete_missing_covers.py
+
   sleep '3'
+
   #python3 /app/extended-scripts/trash_collector.py
+
   sleep '3'
+
   #python3 /app/extended-scripts/unofficial_albums_mover.py
+
   sleep '3'
+
   #python3 /app/extended-scripts/loudnorm.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi
