@@ -73,9 +73,9 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   python3 /app/extended-scripts/complete_missing_covers.py
   sleep '3'
-  python3 /app/extended-scripts/trash_collector.py
+  #python3 /app/extended-scripts/trash_collector.py
   sleep '3'
-  python3 /app/extended-scripts/unofficial_albums_mover.py
+  #python3 /app/extended-scripts/unofficial_albums_mover.py
   sleep '3'
   #python3 /app/extended-scripts/loudnorm.py
 else
