@@ -17,7 +17,7 @@ COPY root/ /
 # install dependencies and packages
 RUN set -x && \
     apt update && \
-    apt install -y \
+    apt install --no-install-recommends -y \
         file \
         wget \
         python3 \
@@ -26,7 +26,28 @@ RUN set -x && \
         xvfb \
         scrot \
         imagemagick \
-        xclip && \
+        xclip \
+        curl \
+        ca-certificates \
+        fonts-liberation \
+        libappindicator3-1 \
+        libasound2 \
+        libatk-bridge2.0-0 \
+        libatk1.0-0 \
+        libcups2 \
+        libdbus-1-3 \
+        libdrm2 \
+        libgbm1 \
+        libgtk-3-0 \
+        libnspr4 \
+        libnss3 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxrandr2 \
+        xdg-utils \
+        gnupg \
+        nodejs \
+        npm && \
     python3 -m pip --no-cache-dir install -r /app/requirements.txt && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /app/requirements.txt
@@ -42,6 +63,19 @@ RUN set -x && \
     mv /tmp/ffmpeg/*/ffplay /usr/local/bin/ && \
     rm -rf /tmp/*
 
+# install chrome
+RUN set -x && \
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
+    apt update && \
+    apt install -y google-chrome-stable && \
+    rm -rf /var/lib/apt/lists/*
+
+# install puppeteer
+RUN set -x && \
+    npm install -g puppeteer && \
+    ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
+
 # install S6 overlay
 RUN set -x && \
     wget -q -O /tmp/s6-overlay.tar.gz https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.3/s6-overlay-amd64.tar.gz && \
@@ -51,13 +85,6 @@ RUN set -x && \
 # install yt-dlp
 RUN set -x && \
     python3 -m pip --no-cache-dir install yt-dlp
-
-# install PhantomJS
-RUN set -x && \
-    wget -q https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-    tar -xf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-    mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/bin/phantomjs && \
-    rm -rf phantomjs-2.1.1-linux-x86_64 phantomjs-2.1.1-linux-x86_64.tar.bz2
 
 # set volumes and working directory
 VOLUME /config /downloads
