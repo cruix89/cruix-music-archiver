@@ -25,7 +25,6 @@ RUN set -x && \
         libc-dev \
         xvfb \
         scrot \
-        imagemagick \
         xclip \
         curl \
         ca-certificates \
@@ -42,7 +41,18 @@ RUN set -x && \
         gnupg \
         libjpeg-dev \
         zlib1g-dev \
-        libfreetype6-dev && \
+        libfreetype6-dev \
+        libpng-dev \
+        libtiff-dev \
+        ghostscript \
+        liblcms2-dev \
+        libfontconfig1-dev \
+        libffi-dev \
+        libxml2-dev \
+        libgdk-pixbuf2.0-dev \
+        libglib2.0-dev \
+        libmagickwand-dev \
+        imagemagick && \
     python3 -m pip --no-cache-dir install -r /app/requirements.txt && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 

@@ -16,6 +16,7 @@ chmod +x /app/extended-scripts/logs_cleaner.py
 chmod +x /app/extended-scripts/wordnet_corpus_downloader.py
 chmod +x /app/extended-scripts/invalid_characters_remover.py
 chmod +x /app/extended-scripts/complete_missing_covers.py
+chmod +x /app/extended-scripts/complete_missing_covers.sh
 chmod +x /app/extended-scripts/trash_collector.py
 chmod +x /app/extended-scripts/unofficial_albums_mover.py
 chmod +x /app/extended-scripts/loudnorm.sh

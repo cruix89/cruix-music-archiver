@@ -18,7 +18,7 @@ load_normalized_list() {
         touch "$normalized_list_file"
     fi
     mapfile -t normalized_files < "$normalized_list_file"
-    echo "\nnumber of normalized files: ${#normalized_files[@]}"
+    echo -e "\nnumber of normalized files: ${#normalized_files[@]}"
 }
 
 # function to save to the normalized list
