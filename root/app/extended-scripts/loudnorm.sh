@@ -1,7 +1,6 @@
 #!/usr/bin/with-contenv bash
 
 # environment variable configurations
-normalized_cache_dir="${normalized_cache_dir:-/config/cache}"
 normalized_log_dir="${normalized_log_dir:-/config/logs}"
 normalized_list_file="${normalized_list_file:-/config/loudnorm_cache.txt}"
 
@@ -19,7 +18,7 @@ load_normalized_list() {
         touch "$normalized_list_file"
     fi
     mapfile -t normalized_files < "$normalized_list_file"
-    echo "number of normalized files: ${#normalized_files[@]}"
+    echo "\nnumber of normalized files: ${#normalized_files[@]}"
 }
 
 # function to save to the normalized list
@@ -31,29 +30,49 @@ save_to_normalized_list() {
 process_file() {
     local src_file="$1"
     local log_file="$2"
-    # use the same name as the source file, without fixed extension
     local output_file
-    output_file="$normalized_cache_dir/$(dirname "$src_file")/$(basename "${src_file%.*}")"
+    # Add "_TEMP" suffix to the output file name
+    output_file="$(dirname "$src_file")/$(basename "${src_file%.*}")_TEMP"
 
-    # create cache directory (with structure) if it doesn't exist
-    mkdir -p "$(dirname "$output_file")"
-
-    # FFMPEG command
+    # FFMPEG command to process the file and add "_TEMP" suffix
     ffmpeg -y -i "$src_file" -af "loudnorm=I=-14:TP=-1:LRA=11:print_format=summary" -b:a 320k "$output_file.mp3" &>> "$log_file"
 
     # check if output file exists
     if [[ -f "$output_file.mp3" ]]; then
-        # move the processed file before removing the source file
-        if mv "$output_file.mp3" "$src_file"; then
-            save_to_normalized_list "$src_file"
-            rm "$src_file"
-            echo "processed and moved: $src_file"
-        else
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR MOVING FILE: $output_file.mp3 to $src_file" >> "$log_file"
-        fi
+        save_to_normalized_list "$src_file"
+        echo "processed: $src_file"
     else
         echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR PROCESSING FILE: $src_file" >> "$log_file"
     fi
+}
+
+# function to clean up original files (after processing)
+clean_up_original_files() {
+    local target_dir="$1"
+    local log_file="$2"
+    # File extensions to be deleted after processing
+    local extensions="flac|wav|aac|m4a|ogg|wma|alac|aiff|opus|dsd|amr|ape|ac3|mp2|wv|m4b|mka|spx|caf|snd|gsm|tta|voc|w64|s8|u8"
+
+    echo "cleaning up original files..." >> "$log_file"
+    find "$target_dir" -type f -regextype posix-extended -iregex ".*\.(${extensions})$" -exec rm -f {} \;
+    echo "cleanup completed." >> "$log_file"
+}
+
+# function to rename the processed files (removing "_TEMP")
+rename_processed_files() {
+    local target_dir="$1"
+    local log_file="$2"
+
+    echo "renaming processed files..." >> "$log_file"
+    find "$target_dir" -type f -name "*_TEMP.mp3" | while read -r temp_file; do
+        local new_file="${temp_file/_TEMP/}"
+        if mv "$temp_file" "$new_file"; then
+            echo "renamed: $temp_file -> $new_file" >> "$log_file"
+        else
+            echo "failed to rename: $temp_file" >> "$log_file"
+        fi
+    done
+    echo "renaming completed." >> "$log_file"
 }
 
 # main function
@@ -83,8 +102,14 @@ main() {
         fi
     done
 
+    # clean up original files
+    clean_up_original_files "/downloads" "$log_file"
+
+    # rename processed files (remove _TEMP)
+    rename_processed_files "/downloads" "$log_file"
+
     # final summary
-    echo "Summary: ${#audio_files[@]} processed files, $skipped_files ignored files (already normalized)."
+    echo "summary: ${#audio_files[@]} processed files, $skipped_files ignored files (already normalized)."
     echo "files normalized successfully."
 }
 
