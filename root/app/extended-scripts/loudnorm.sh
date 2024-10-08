@@ -1,64 +1,62 @@
 #!/usr/bin/with-contenv bash
 
-# Configurações de variáveis de ambiente
-normalized_lockfile=${normalized_lockfile:-false}
-normalized_debug=${normalized_debug:-false}
-normalized_interval=${normalized_interval:-false}
-normalized_cache_dir=${normalized_cache_dir:-"/config/cache"}
-normalized_log_dir=${normalized_log_dir:-"/config/logs"}
-normalized_list_file=${normalized_list_file:-"/config/loudnorm_cache.txt"}
+# environment variable configurations
+normalized_cache_dir="${normalized_cache_dir:-/config/cache}"
+normalized_log_dir="${normalized_log_dir:-/config/logs}"
+normalized_list_file="${normalized_list_file:-/config/loudnorm_cache.txt}"
 
-if $normalized_debug; then normalized_args_verbose=true; else normalized_args_verbose=false; fi
-
-# Função para verificar se ffmpeg está instalado
+# function to check if ffmpeg is installed
 check_ffmpeg() {
     if ! command -v ffmpeg &> /dev/null; then
-        echo "FFMPEG NÃO ESTÁ INSTALADO OU NÃO ESTÁ DISPONÍVEL NO CAMINHO."
+        echo "FFMPEG IS NOT INSTALLED OR NOT AVAILABLE IN THE PATH."
         exit 1
     fi
 }
 
-# Função para carregar a lista de arquivos normalizados
+# function to load the list of normalized files
 load_normalized_list() {
-    if [[ ! -f $normalized_list_file ]]; then
-        touch $normalized_list_file
+    if [[ ! -f "$normalized_list_file" ]]; then
+        touch "$normalized_list_file"
     fi
-    mapfile -t normalized_files < $normalized_list_file
+    mapfile -t normalized_files < "$normalized_list_file"
+    echo "number of normalized files: ${#normalized_files[@]}"
 }
 
-# Função para salvar na lista de normalizados
+# function to save to the normalized list
 save_to_normalized_list() {
-    echo "$1" >> $normalized_list_file
+    echo "$1" >> "$normalized_list_file"
 }
 
-# Função para processar arquivo de áudio
+# function to process audio file
 process_file() {
     local src_file="$1"
     local log_file="$2"
-    local output_file_mp3="$normalized_cache_dir/$(basename "${src_file%.*}.mp3")"
+    # use the same name as the source file, without fixed extension
+    local output_file
+    output_file="$normalized_cache_dir/$(dirname "$src_file")/$(basename "${src_file%.*}")"
 
-    # Criar diretório de cache se não existir
-    mkdir -p "$normalized_cache_dir"
+    # create cache directory (with structure) if it doesn't exist
+    mkdir -p "$(dirname "$output_file")"
 
-    # Comando FFMPEG
-    ffmpeg -y -i "$src_file" -af "loudnorm=I=-14:TP=-1:LRA=11:print_format=summary" -b:a 320k "$output_file_mp3" &>> "$log_file"
+    # FFMPEG command
+    ffmpeg -y -i "$src_file" -af "loudnorm=I=-14:TP=-1:LRA=11:print_format=summary" -b:a 320k "$output_file.mp3" &>> "$log_file"
 
-    # Verificar se o arquivo de saída existe
-    if [[ -f "$output_file_mp3" ]]; then
-        save_to_normalized_list "$src_file"
-
-        # Remover arquivo de origem
-        rm "$src_file"
-
-        # Mover arquivo do cache para o local original
-        mv "$output_file_mp3" "$src_file"
-        echo "Processado e movido: $src_file"
+    # check if output file exists
+    if [[ -f "$output_file.mp3" ]]; then
+        # move the processed file before removing the source file
+        if mv "$output_file.mp3" "$src_file"; then
+            save_to_normalized_list "$src_file"
+            rm "$src_file"
+            echo "processed and moved: $src_file"
+        else
+            echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR MOVING FILE: $output_file.mp3 to $src_file" >> "$log_file"
+        fi
     else
-        echo "ERRO AO PROCESSAR O ARQUIVO: $src_file" >> "$log_file"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR PROCESSING FILE: $src_file" >> "$log_file"
     fi
 }
 
-# Função principal
+# main function
 main() {
     check_ffmpeg
     load_normalized_list
@@ -67,12 +65,16 @@ main() {
     local audio_files=()
     local skipped_files=0
 
-    # Coletar todos os arquivos de áudio
+    # collect all audio files
     while IFS= read -r -d '' file; do
         audio_files+=("$file")
     done < <(find "/downloads" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" -o -name "*.aac" -o -name "*.m4a" -o -name "*.ogg" -o -name "*.wma" -o -name "*.alac" -o -name "*.aiff" -o -name "*.opus" -o -name "*.dsd" -o -name "*.amr" -o -name "*.ape" -o -name "*.ac3" -o -name "*.mp2" -o -name "*.wv" -o -name "*.m4b" -o -name "*.mka" -o -name "*.spx" -o -name "*.caf" -o -name "*.snd" -o -name "*.gsm" -o -name "*.tta" -o -name "*.voc" -o -name "*.w64" -o -name "*.s8" -o -name "*.u8" \) -print0)
 
-    # Processar arquivos de áudio um a um
+    # print the number of audio files found
+    echo "TOTAL FILES FOUND: ${#audio_files[@]}"
+    echo "NORMALIZING FILES..."
+
+    # process audio files one by one
     for src_file in "${audio_files[@]}"; do
         if ! grep -qx "$src_file" "$normalized_list_file"; then
             process_file "$src_file" "$log_file"
@@ -81,8 +83,9 @@ main() {
         fi
     done
 
-    # Resumo final
-    echo "Resumo: ${#audio_files[@]} arquivos processados, $skipped_files arquivos ignorados (já normalizados)."
+    # final summary
+    echo "Summary: ${#audio_files[@]} processed files, $skipped_files ignored files (already normalized)."
+    echo "files normalized successfully."
 }
 
 main

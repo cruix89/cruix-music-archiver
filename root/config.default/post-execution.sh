@@ -94,7 +94,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  #python3 /app/extended-scripts/loudnorm.py
+  python3 /app/extended-scripts/loudnorm.sh
 
 else
   echo -e "\noutput directory not found: $output_dir"
