@@ -19,7 +19,7 @@ ffmpeg_supported_audio_formats=(
 
 # Function to log messages
 log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a "$log_file"
+    echo "$1" | tee -a "$log_file"
 }
 
 # Function to validate directory
