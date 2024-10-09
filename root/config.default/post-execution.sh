@@ -60,6 +60,10 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/capitalize_folders_and_tags_accents.py
 
+  sleep '3'
+
+  python3 /app/extended-scripts/replace_folders_and_tags_words.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi

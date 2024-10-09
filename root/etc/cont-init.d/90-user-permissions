@@ -22,3 +22,4 @@ chmod +x /app/extended-scripts/unofficial_albums_mover.py
 chmod +x /app/extended-scripts/loudnorm.sh
 chmod +x /app/extended-scripts/capitalize_tags_files_and_folders.py
 chmod +x /app/extended-scripts/capitalize_folders_and_tags_accents.py
+chmod +x /app/extended-scripts/replace_folders_and_tags_words.py
