@@ -117,6 +117,6 @@ process_directory() {
 }
 
 # Script execution
-log "STARTING MISSING COVERS COMPLETION..."
+log -e "\nSTARTING MISSING COVERS COMPLETION..."
 process_directory "$downloads_dir"
 log "MISSING COVERS COMPLETION FINISHED."
