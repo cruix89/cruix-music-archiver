@@ -122,9 +122,15 @@ except Exception as e:
     logging.error(f'ERROR LOADING LIST OF LOWERCASE TERMS: {e}\n')
     raise
 
+# NOTIFY START OF PROCESS
+print("\nstarting the MP3 tag formatting and file renaming process...")
+
 # PROCESS MUSIC DIRECTORY
 try:
     update_tags_and_rename(music_dir, lowercase_terms_list)
 except Exception as e:
     logging.error(f'ERROR EXECUTING SCRIPT: {e}\n')
     raise
+
+# NOTIFY END OF PROCESS
+print("MP3 tag formatting and file renaming process completed successfully.")
