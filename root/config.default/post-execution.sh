@@ -58,7 +58,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  python3 /app/extended-scripts/replace_folders_and_tags_accents.py
+  python3 /app/extended-scripts/capitalize_folders_and_tags_accents.py
 
 else
   echo -e "\noutput directory not found: $output_dir"
