@@ -108,7 +108,7 @@ def update_tags_and_rename(directory, lowercase_terms):
 # CONFIGURE LOGGING
 try:
     music_dir, logs_dir, lists_dir = setup_directories()
-    log_path = os.path.join(logs_dir, '12 [capitalize_tags_files_and_folders].log')
+    log_path = os.path.join(logs_dir, 'capitalize_tags_files_and_folders.log')
     logging.basicConfig(filename=log_path, level=logging.INFO)
 except Exception as e:
     print(f'ERROR SETTING UP LOGGING: {e}\n')
