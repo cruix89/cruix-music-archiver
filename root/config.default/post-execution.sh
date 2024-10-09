@@ -52,6 +52,10 @@ if [ -d "$output_dir" ]; then
   umask "$UMASK"
   /app/extended-scripts/loudnorm.sh
 
+  sleep '3'
+
+  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi
