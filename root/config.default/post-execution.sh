@@ -62,7 +62,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  python3 /app/extended-scripts/tags_and_folders_full_strings_fixer.py
+  python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
 
   sleep '3'
 

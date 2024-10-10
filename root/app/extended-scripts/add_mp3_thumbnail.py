@@ -26,6 +26,9 @@ def setup_directories() -> None:
     logs_directory = '/config/logs'
 
 def main():
+
+    print("\nadding thumbnails to the corresponding songs...")
+
     # configure directories
     setup_directories()
 
@@ -38,8 +41,6 @@ def main():
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     logging.getLogger().addHandler(console_handler)
-
-    print("\nadding thumbnails to the corresponding songs...")
 
     success_count = 0
     failure_count = 0
