@@ -27,8 +27,6 @@ if [ -d "$output_dir" ]; then
   python3 /app/extended-scripts/invalid_characters_remover.py
 
   sleep '3'
-
-  sleep '3'
   umask "$UMASK"
   /app/extended-scripts/complete_missing_covers.sh
 
@@ -71,6 +69,10 @@ if [ -d "$output_dir" ]; then
   sleep '3'
 
   python3 /app/extended-scripts/release_year_update.py
+
+  sleep '3'
+
+  python3 /app/extended-scripts/deezer_db_downloader.py
 
 else
   echo -e "\noutput directory not found: $output_dir"

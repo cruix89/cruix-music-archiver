@@ -7,3 +7,5 @@ importlib_metadata
 nltk
 eyed3
 mutagen
+requests
+beautifulsoup4

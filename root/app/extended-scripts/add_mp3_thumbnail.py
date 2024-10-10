@@ -27,8 +27,6 @@ def setup_directories() -> None:
 
 def main():
 
-    print("\nadding thumbnails to the corresponding songs...")
-
     # configure directories
     setup_directories()
 

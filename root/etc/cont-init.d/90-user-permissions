@@ -25,3 +25,4 @@ chmod +x /app/extended-scripts/capitalize_folders_and_tags_accents.py
 chmod +x /app/extended-scripts/tags_and_folders_strings_fixer.py
 chmod +x /app/extended-scripts/add_mp3_thumbnail.py
 chmod +x /app/extended-scripts/release_year_update.py
+chmod +x /app/extended-scripts/deezer_db_downloader.py

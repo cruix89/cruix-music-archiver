@@ -99,7 +99,7 @@ def main():
     # rename files and folders
     rename_files_and_folders(MUSIC_DIR, replacements)
 
-    print("tags, files, and folders formatted successfully.")
+    print("tags, files, and folders formatted successfully.\n")
     logging.debug("tags, files, and folders formatted successfully.")
 
 if __name__ == "__main__":
