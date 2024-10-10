@@ -68,6 +68,10 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/tags_and_folders_full_strings_fixer.py
 
+  sleep '3'
+
+  python3 /app/extended-scripts/add_mp3_thumbnail.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi

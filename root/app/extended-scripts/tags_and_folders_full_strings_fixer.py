@@ -83,7 +83,7 @@ def main():
     replacements_path = os.path.join(LISTS_DIR, 'fixer.txt')
     replacements = load_replacements(replacements_path)
 
-    print("formatting tags, files, and folders...")
+    print("\nformatting tags, files, and folders...")
     logging.debug("formatting tags, files, and folders...")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
