@@ -72,6 +72,10 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/add_mp3_thumbnail.py
 
+  sleep '3'
+
+  python3 /app/extended-scripts/release_year_update.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi

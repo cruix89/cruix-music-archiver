@@ -13,11 +13,11 @@ def add_thumbnail_to_mp3(mp3_path: str, image_path: str) -> None:
             with open(image_path, 'rb') as img:
                 audiofile.tag.images.set(3, img.read(), 'image/jpeg')
             audiofile.tag.save()
-            logging.info(f'IMAGE {image_path} WAS SUCCESSFULLY ADDED TO MP3 FILE: {mp3_path}\n')
+            logging.info(f'IMAGE {image_path} WAS SUCCESSFULLY ADDED TO MP3 FILE: {mp3_path}')
         else:
-            logging.warning(f'IMAGE {image_path} DOES NOT EXIST OR IS EMPTY\n')
+            logging.warning(f'IMAGE {image_path} DOES NOT EXIST OR IS EMPTY')
     except Exception as exc:
-        logging.error(f'ERROR PROCESSING FILE: {mp3_path}: {str(exc)}\n')
+        logging.error(f'ERROR PROCESSING FILE: {mp3_path}: {str(exc)}')
 
 def setup_directories() -> None:
     global music_directory, logs_directory
@@ -61,9 +61,9 @@ def main():
                         image_file_found = True
                         break  # exit the loop once a valid image is found
                 if not image_file_found:
-                    logging.warning(f'no valid image file found for {mp3_file}\n')
+                    logging.warning(f'no valid image file found for {mp3_file}')
             else:
-                logging.warning(f'file {os.path.join(root, filename)} is not an mp3 file\n')
+                logging.warning(f'file {os.path.join(root, filename)} is not an mp3 file')
 
     print(f"thumbnails successfully added to {success_count} songs with {failure_count} failures.")
 
