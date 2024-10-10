@@ -2,6 +2,8 @@ import os
 import eyed3
 import logging
 
+print("\nadding thumbnails to the corresponding songs...")
+
 # global variables for directories
 music_directory: str = ""
 logs_directory: str = ""
@@ -38,8 +40,6 @@ def main():
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     logging.getLogger().addHandler(console_handler)
-
-    print("adding thumbnails to the corresponding songs...")
 
     success_count = 0
     failure_count = 0
