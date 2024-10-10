@@ -64,6 +64,10 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/replace_folders_and_tags_words.py
 
+  sleep '3'
+
+  python3 /app/extended-scripts/tags_and_folders_full_strings_fixer.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi

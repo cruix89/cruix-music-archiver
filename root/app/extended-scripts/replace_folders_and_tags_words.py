@@ -89,7 +89,7 @@ def setup_directories():
     return logs_dir, lists_dir, music_dir
 
 def main():
-    print("\nrunning directory and tag formatting...")
+    print("running directory and tag formatting...")
 
     logs_dir, lists_dir, music_dir = setup_directories()
 
@@ -100,15 +100,15 @@ def main():
 
     replacements = load_replacements(os.path.join(lists_dir, 'replace.txt'))
     if not replacements:
-        logger_rename.warning("no replacements loaded. check the replacements file.\n")
-        logger_format.warning("no replacements loaded. check the replacements file.\n")
+        logger_rename.warning("no replacements loaded. check the replacements file.")
+        logger_format.warning("no replacements loaded. check the replacements file.")
 
     if os.path.exists(music_dir):
         rename_directories_and_format_tags(music_dir, replacements)
-        print("directories and tags formatted.\n")
+        print("directories and tags formatted.")
     else:
-        logger_rename.error(f'music directory not found: {music_dir}\n')
-        logger_format.error(f'music directory not found: {music_dir}\n')
+        logger_rename.error(f'music directory not found: {music_dir}')
+        logger_format.error(f'music directory not found: {music_dir}')
 
     print("directory and tag formatting completed successfully.")
 
