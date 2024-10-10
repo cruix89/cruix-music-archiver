@@ -74,6 +74,10 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/deezer_db_downloader.py
 
+  sleep '3'
+
+  python3 /app/extended-scripts/lastgenre.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi
