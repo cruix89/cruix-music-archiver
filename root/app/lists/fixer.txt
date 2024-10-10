@@ -1,1 +1,4 @@
 caso_indefinido|caso_putaria
+Caso Indefinido|Teste do Mal
+Férias de Julho|Férias de Dezembro
+férias_de|groselha
