@@ -82,6 +82,46 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/capitalize_fixer.py
 
+  sleep '3'
+
+  python3 /app/extended-scripts/genre_fixer.py
+
+  sleep '3'
+
+  python3 /app/extended-scripts/trash_collector.py
+
+  sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+  umask "$UMASK"
+  /app/extended-scripts/complete_missing_covers.sh
+
+  sleep '3'
+
+  python3 /app/extended-scripts/missing_covers_downloader.py
+
+  sleep '3'
+  umask "$UMASK"
+  /app/extended-scripts/complete_missing_covers.sh
+
+  sleep '3'
+
+  python3 /app/extended-scripts/trash_collector.py
+
+  sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  python3 /app/extended-scripts/jellyfin_album_downloader.py
+
+  sleep '3'
+
+  python3 /app/extended-scripts/jellyfin_artist_downloader.py
+
 else
   echo -e "\noutput directory not found: $output_dir"
 fi

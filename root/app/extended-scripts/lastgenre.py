@@ -6,7 +6,7 @@ from mutagen import File
 
 # define absolute paths directly
 log_dir = "/config/logs"
-lists_dir = "/app/lists"
+lists_dir = "/config"
 music_dir = "/downloads"
 log_file = os.path.join(log_dir, 'lastgenre.log')
 
@@ -17,7 +17,7 @@ def setup_directories():
 
 def read_artist_list():
     artist_list = {}
-    list_path = os.path.join(lists_dir, "genres.txt")
+    list_path = os.path.join(lists_dir, "genres_cache.txt")
     if os.path.exists(list_path):
         with open(list_path, "r") as file:
             for line in file:
@@ -29,7 +29,7 @@ def read_artist_list():
 
 
 def save_artist_list(artist_list):
-    list_path = os.path.join(lists_dir, "genres.txt")
+    list_path = os.path.join(lists_dir, "genres_cache.txt")
     with open(list_path, "w") as file:
         for artist, genre in artist_list.items():
             file.write(f"{artist}|{genre}\n")
@@ -83,7 +83,7 @@ def main():
     def process_directory(dir_path):
         # Count .mp3 files
         total_files = sum(len([file for file in files if file.endswith(".mp3")]) for _, _, files in os.walk(dir_path))
-        print(f"Total MP3 files found: {total_files}")
+        print(f"\nTotal MP3 files found: {total_files}")
 
         processed_files = 0
         for root, dirs, files in os.walk(dir_path):

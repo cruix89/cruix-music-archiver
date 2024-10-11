@@ -10,3 +10,4 @@ mutagen
 requests
 beautifulsoup4
 pylast
+pillow

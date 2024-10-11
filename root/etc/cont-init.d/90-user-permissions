@@ -28,3 +28,7 @@ chmod +x /app/extended-scripts/release_year_update.py
 chmod +x /app/extended-scripts/deezer_db_downloader.py
 chmod +x /app/extended-scripts/lastgenre.py
 chmod +x /app/extended-scripts/capitalize_fixer.py
+chmod +x /app/extended-scripts/genre_fixer.py
+chmod +x /app/extended-scripts/missing_covers_downloader.py
+chmod +x /app/extended-scripts/jellyfin_album_downloader.py
+chmod +x /app/extended-scripts/jellyfin_artist_downloader.py
