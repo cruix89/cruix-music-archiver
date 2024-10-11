@@ -27,3 +27,4 @@ chmod +x /app/extended-scripts/add_mp3_thumbnail.py
 chmod +x /app/extended-scripts/release_year_update.py
 chmod +x /app/extended-scripts/deezer_db_downloader.py
 chmod +x /app/extended-scripts/lastgenre.py
+chmod +x /app/extended-scripts/capitalize_fixer.py
