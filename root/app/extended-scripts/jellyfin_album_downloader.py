@@ -27,24 +27,24 @@ logging.basicConfig(filename=log_filename, level=logging.INFO)
 
 
 def copy_first_jpg(directory):
-    """Copies the first .jpg file found in the specified directory."""
+    """Copies the first .jpg file found in each directory or subdirectory."""
     try:
         # Ensure directory is a string
         directory = str(directory)  # Convert to string if it's not already
 
-        for root, dirs, files in os.walk(directory):
+        for root, dirs, files in os.walk(directory):  # Walk through directory and subdirectories
             for file in files:
                 if file.endswith('.jpg'):
                     # Ensure root and file are treated as strings
-                    source = os.path.join(root, file)  # Construct source path
-                    destination = os.path.join(root, 'folder.jpg')  # Construct destination path
+                    source = os.path.join(root, file)  # Construct source path (where the file was found)
+                    destination = os.path.join(root, 'folder.jpg')  # Construct destination path in same folder
 
                     if not os.path.exists(destination):
-                        shutil.copy2(source, destination)
+                        shutil.copy2(source, destination)  # Copy to the same directory
                         logging.info(f'cover copied: {source} to {destination}\n')
                     else:
                         logging.info(f'cover not copied: {destination} already exists.\n')
-                    break  # Stops after copying the first found file
+                    break  # Stops after copying the first found file in each directory
     except (FileNotFoundError, PermissionError) as e:
         logging.error(f'error copying cover: {e}\n')
     except Exception as e:

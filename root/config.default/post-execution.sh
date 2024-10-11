@@ -64,10 +64,6 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  python3 /app/extended-scripts/add_mp3_thumbnail.py
-
-  sleep '3'
-
   python3 /app/extended-scripts/release_year_update.py
 
   sleep '3'
@@ -121,6 +117,10 @@ if [ -d "$output_dir" ]; then
   sleep '3'
 
   python3 /app/extended-scripts/jellyfin_artist_downloader.py
+
+  sleep '3'
+
+  python3 /app/extended-scripts/add_mp3_thumbnail.py
 
 else
   echo -e "\noutput directory not found: $output_dir"

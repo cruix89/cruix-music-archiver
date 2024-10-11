@@ -7,6 +7,7 @@ from PIL import Image, UnidentifiedImageError
 from io import BytesIO
 from pathlib import Path
 
+
 def setup_directories():
     # CONFIGURED DIRECTORIES
     music_dir = Path('/downloads').resolve()
@@ -19,6 +20,7 @@ def setup_directories():
     log_dir.mkdir(parents=True, exist_ok=True)
 
     return music_dir, deezer_db_dir, log_dir
+
 
 def main():
     # LOG SETUP
@@ -96,7 +98,9 @@ def main():
             mp3_files = [file for file in files if file.endswith('.mp3')]
 
             for mp3_file in mp3_files:
-                mp3_name = mp3_file.stem
+                mp3_path = Path(mp3_file)  # Converta para Path
+                mp3_name = mp3_path.stem  # Agora você pode acessar o atributo 'stem'
+
                 if not any(jpg_file.startswith(mp3_name) for jpg_file in jpg_files):
                     for jpg_file in jpg_files:
                         source = Path(root) / jpg_file
@@ -121,6 +125,7 @@ def main():
     copy_first_image_to_lonely_mp3(music_dir)
 
     print("MISSING COVERS DOWNLOADED.\n")
+
 
 if __name__ == "__main__":
     main()
