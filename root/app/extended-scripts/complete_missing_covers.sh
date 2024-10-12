@@ -102,21 +102,21 @@ process_directory() {
             log "best image found: $best_image"
             for audio_file in "${audio_files[@]}"; do
                 audio_name=$(basename "$audio_file" | sed 's/\.[^.]*$//')
-                # If the audio file does not have a corresponding image, copy the best image
+                # if the audio file does not have a corresponding image, copy the best image
                 if [[ ! -f "$sub_dir/$audio_name.jpg" ]]; then
                     destination="$sub_dir/$audio_name.jpg"
                     copy_file "$best_image" "$destination"
                 fi
             done
         else
-            log "NO SUITABLE IMAGE FOUND IN: $sub_dir"
+            log "no suitable image found in: $sub_dir"
         fi
     done
 
     log "process completed in directory: $directory"
 }
 
-# Script execution
+# script execution
 log ""
 log "starting missing covers completion..."
 process_directory "$downloads_dir"
