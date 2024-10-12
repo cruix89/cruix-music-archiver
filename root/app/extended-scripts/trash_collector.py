@@ -26,12 +26,18 @@ audio_formats = (
     '.w64', '.s8', '.u8'
 )
 
+# EXCLUDED FOLDERS
+excluded_folders = {'.stfolder', '.stversions'}
+
 # WALK THROUGH THE ROOT DIRECTORY
 total_files = 0
 moved_files = 0
 skipped_files = 0
 
 for dirpath, dirnames, filenames in os.walk(root_dir):
+    # Filter out excluded folders
+    dirnames[:] = [d for d in dirnames if d not in excluded_folders]
+
     # Create a set of audio files found in the directory
     audio_files = {os.path.splitext(f)[0] for f in filenames if f.lower().endswith(audio_formats)}
 

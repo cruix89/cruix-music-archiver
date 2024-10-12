@@ -99,6 +99,7 @@ process_directory() {
         best_image=$(find_best_image "$sub_dir")
 
         if [[ -n "$best_image" ]]; then
+            log ""
             log "best image found: $best_image"
             log ""
             for audio_file in "${audio_files[@]}"; do
