@@ -78,7 +78,7 @@ process_directory() {
         return
     fi
 
-    log "STARTING PROCESS IN DIRECTORY: $directory"
+    log "starting process in directory: $directory"
 
     find "$directory" -type d | while read -r sub_dir; do
         # Search for images and audio files in the current subdirectory
@@ -99,7 +99,7 @@ process_directory() {
         best_image=$(find_best_image "$sub_dir")
 
         if [[ -n "$best_image" ]]; then
-            log "BEST IMAGE FOUND: $best_image"
+            log "best image found: $best_image"
             for audio_file in "${audio_files[@]}"; do
                 audio_name=$(basename "$audio_file" | sed 's/\.[^.]*$//')
                 # If the audio file does not have a corresponding image, copy the best image
@@ -113,11 +113,11 @@ process_directory() {
         fi
     done
 
-    log "PROCESS COMPLETED IN DIRECTORY: $directory"
+    log "process completed in directory: $directory"
 }
 
 # Script execution
 log ""
-log "STARTING MISSING COVERS COMPLETION..."
+log "starting missing covers completion..."
 process_directory "$downloads_dir"
-log "MISSING COVERS COMPLETION FINISHED."
+log "missing covers completion finished."

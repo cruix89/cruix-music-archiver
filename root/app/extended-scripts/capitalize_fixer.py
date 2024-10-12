@@ -63,7 +63,7 @@ def format_mp3_tags(directory):
                     logging.error(f'ERROR FORMATTING TAGS FOR FILE {file_path}: {e}\n')
 
 def main():
-    print("\nRUNNING DIRECTORY AND TAG FORMATTING...")
+    print("\nrunning directory and tag formatting...")
 
     # replace with absolute paths
     music_directory = '/downloads'
@@ -75,11 +75,11 @@ def main():
     if os.path.exists(music_directory):
         rename_to_lowercase(music_directory)
         format_mp3_tags(music_directory)
-        print("DIRECTORIES AND TAGS FORMATTED.")
+        print("directories and tags formatted.")
     else:
         logging.error(f'MUSIC DIRECTORY NOT FOUND: {music_directory}\n')
 
-    print("DIRECTORY AND TAG FORMATTING SUCCESSFULLY COMPLETED.")
+    print("directory and tag formatting successfully completed.")
 
 if __name__ == "__main__":
     main()

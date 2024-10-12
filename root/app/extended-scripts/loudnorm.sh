@@ -90,8 +90,8 @@ main() {
     done < <(find "/downloads" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" -o -name "*.aac" -o -name "*.m4a" -o -name "*.ogg" -o -name "*.wma" -o -name "*.alac" -o -name "*.aiff" -o -name "*.opus" -o -name "*.dsd" -o -name "*.amr" -o -name "*.ape" -o -name "*.ac3" -o -name "*.mp2" -o -name "*.wv" -o -name "*.m4b" -o -name "*.mka" -o -name "*.spx" -o -name "*.caf" -o -name "*.snd" -o -name "*.gsm" -o -name "*.tta" -o -name "*.voc" -o -name "*.w64" -o -name "*.s8" -o -name "*.u8" \) -print0)
 
     # print the number of audio files found
-    echo "TOTAL FILES FOUND: ${#audio_files[@]}"
-    echo "NORMALIZING FILES..."
+    echo "total files found: ${#audio_files[@]}"
+    echo "normalizing files..."
 
     # process audio files one by one
     for src_file in "${audio_files[@]}"; do

@@ -98,8 +98,8 @@ def main():
             mp3_files = [file for file in files if file.endswith('.mp3')]
 
             for mp3_file in mp3_files:
-                mp3_path = Path(mp3_file)  # Converta para Path
-                mp3_name = mp3_path.stem  # Agora você pode acessar o atributo 'stem'
+                mp3_path = Path(mp3_file)
+                mp3_name = mp3_path.stem
 
                 if not any(jpg_file.startswith(mp3_name) for jpg_file in jpg_files):
                     for jpg_file in jpg_files:
@@ -124,7 +124,7 @@ def main():
     # EXECUTE MAIN FUNCTION
     copy_first_image_to_lonely_mp3(music_dir)
 
-    print("MISSING COVERS DOWNLOADED.\n")
+    print("missing covers downloaded.")
 
 
 if __name__ == "__main__":

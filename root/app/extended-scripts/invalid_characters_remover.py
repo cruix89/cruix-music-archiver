@@ -12,7 +12,7 @@ def setup_logging( log_file ):
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 # FIXED PRINT IN TERMINAL
-print("\nREMOVING INVALID CHARACTERS...")
+print("\nremoving invalid characters...")
 
 def load_invalid_characters( file_path ):
     try:
@@ -92,7 +92,7 @@ def main( download_path, lists_path ):
     rename_files_and_dirs(download_path, invalid_chars)
 
 # FIXED PRINT IN TERMINAL
-print("INVALID CHARACTERS REMOVED SUCCESSFULLY...")
+print("invalid characters removed successfully...")
 
 if __name__ == "__main__":
 

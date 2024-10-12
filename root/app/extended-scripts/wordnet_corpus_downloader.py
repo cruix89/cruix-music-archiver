@@ -12,7 +12,7 @@ logging.basicConfig(filename=log_file, level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # FIXED PRINT IN TERMINAL
-print("CONFIGURING NLTK CORPUS...")
+print("configuring NLTK corpus...")
 
 # FUNCTION TO DOWNLOAD CORPUS
 def download_corpora():
@@ -20,7 +20,7 @@ def download_corpora():
     try:
         nltk.download('wordnet')
         logging.info("WORDNET CORPUS DOWNLOADED SUCCESSFULLY")
-        print("NLTK CORPUS CONFIGURED SUCCESSFULLY")
+        print("NLTK corpus configured successfully")
     except Exception as e:
         logging.error(f"ERROR DOWNLOADING WORDNET: {e}")
         print("ERROR CONFIGURING NLTK CORPUS")

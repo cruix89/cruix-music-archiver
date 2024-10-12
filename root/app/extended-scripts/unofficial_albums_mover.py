@@ -15,7 +15,7 @@ for directory in [logs_dir, lists_dir, downloads_dir, unofficial_albums_dir]:
 # CONFIGURE LOGGING
 logging.basicConfig(filename=os.path.join(logs_dir, "unofficial_albums_mover.log"), level=logging.INFO)
 
-print("\nMOVING UNOFFICIAL ALBUMS...")
+print("\nmoving unofficial albums...")
 
 # READ THE FOLDER LIST FROM THE FILE
 try:
@@ -41,4 +41,4 @@ for root, dirs, files in os.walk(downloads_dir):
             except Exception as e:
                 logging.error(f'ERROR MOVING ALBUM {name}: {e}\n')
 
-print("UNOFFICIAL ALBUMS MOVED SUCCESSFULLY.")
+print("unofficial albums moved successfully.")
