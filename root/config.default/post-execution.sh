@@ -122,7 +122,7 @@ if [ -d "$output_dir" ]; then
 
   python3 /app/extended-scripts/add_mp3_thumbnail.py
 
-  echo -e "\ncleaning old files in recycle-bin and unofficial-albums"
+  echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
 
   find /config/recycle-bin -depth -mtime +6 -exec rm -rf {} \;
   find /config/unofficial-albums -depth -mtime +6 -exec rm -rf {} \;

@@ -27,7 +27,7 @@ audio_formats = (
 )
 
 # EXCLUDED FOLDERS
-excluded_folders = {'.stfolder', '.stversions'}
+excluded_folders = {'.stfolder', '.stversions', '.thumbnails'}
 
 # WALK THROUGH THE ROOT DIRECTORY
 total_files = 0
