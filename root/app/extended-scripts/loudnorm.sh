@@ -36,13 +36,16 @@ process_file() {
 
     # FFMPEG command to process the file and add "_TEMP" suffix
     ffmpeg -y -i "$src_file" -af "loudnorm=I=-14:TP=-1:LRA=11:print_format=summary" -b:a 320k "$output_file.mp3" &>> "$log_file"
+    local exit_code=$?  # capture the exit code of the ffmpeg command
 
-    # check if output file exists
-    if [[ -f "$output_file.mp3" ]]; then
+    # check the exit code
+    if [[ $exit_code -eq 0 ]]; then
+        mv "$output_file.mp3" "${output_file}_0.mp3"  # Success
         save_to_normalized_list "$src_file"
         echo "processed: $src_file"
-    else
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR PROCESSING FILE: $src_file" >> "$log_file"
+    elif [[ $exit_code -ne 0 ]]; then
+        mv "$output_file.mp3" "${output_file}_1.mp3"  # Failure
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR PROCESSING FILE: $src_file with exit code: $exit_code" >> "$log_file"
     fi
 }
 
@@ -64,8 +67,8 @@ rename_processed_files() {
     local log_file="$2"
 
     echo "renaming processed files..." >> "$log_file"
-    find "$target_dir" -type f -name "*_TEMP.mp3" | while read -r temp_file; do
-        local new_file="${temp_file/_TEMP/}"
+    find "$target_dir" -type f -name "*_TEMP_*.mp3" | while read -r temp_file; do
+        local new_file="${temp_file/_TEMP_/}"
         if mv "$temp_file" "$new_file"; then
             echo "renamed: $temp_file -> $new_file" >> "$log_file"
         else
