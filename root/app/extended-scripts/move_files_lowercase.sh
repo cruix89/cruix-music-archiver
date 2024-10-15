@@ -20,7 +20,7 @@ copy_files() {
         base_name="$(basename "$item")"
 
         # Check if the current item is in the excluded folders
-        if [[ " ${excluded_folders[*]} " == *" $base_name "* ]]; then
+        if printf '%s\n' "${excluded_folders[@]}" | grep -q -x "$base_name"; then
             echo "Skipped: '$item' is in the excluded folders."
             continue
         fi
@@ -71,7 +71,7 @@ find "$DEST_DIR" -mindepth 1 | while read -r item; do
     base_name="$(basename "$item")"
 
     # Check if the current item is in the excluded folders
-    if [[ " ${excluded_folders[*]} " == *" $base_name "* ]]; then
+    if printf '%s\n' "${excluded_folders[@]}" | grep -q -x "$base_name"; then
         echo "Skipped: '$item' is in the excluded folders."
         continue
     fi
