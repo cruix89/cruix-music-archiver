@@ -24,7 +24,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find /config/cache -type d -empty -delete
+  find /config/cache/ -type d -empty -delete
 
   sleep '3'
 
@@ -48,7 +48,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find /config/cache -type d -empty -delete
+  find /config/cache/ -type d -empty -delete
 
   sleep '3'
   umask "$UMASK"
@@ -80,7 +80,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find /config/cache -type d -empty -delete
+  find /config/cache/ -type d -empty -delete
 
   sleep '3'
   umask "$UMASK"
@@ -108,7 +108,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find /config/cache -type d -empty -delete
+  find /config/cache/ -type d -empty -delete
 
   sleep '3'
 
@@ -140,7 +140,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find /config/cache -type d -empty -delete
+  find /config/cache/ -type d -empty -delete
 
   sleep '3'
 
@@ -180,7 +180,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find /config/cache -type d -empty -delete
+  find /config/cache/ -type d -empty -delete
 
   sleep '3'
 

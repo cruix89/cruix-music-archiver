@@ -64,6 +64,12 @@ main() {
     local log_file="$normalized_log_dir/loudnorm.log"
     local skipped_files=0
 
+    # Ensure the cache directory exists
+    if [[ ! -d "$cache_dir" ]]; then
+        mkdir -p "$cache_dir"
+        echo "Created cache directory: $cache_dir"
+    fi
+
     while true; do
         # Collect an unnormalized audio file
         local src_file
