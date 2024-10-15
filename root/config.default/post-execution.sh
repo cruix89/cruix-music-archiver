@@ -11,7 +11,10 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   find "$output_dir" -type d -empty -delete
   sleep '3'
-  find /config/cache/* -mindepth 1 -delete
+  find /config/cache -type f -delete
+  sleep '3'
+  find /config/cache -type d -empty -delete
+  sleep '3'
 
   # post-processing scripts
 
