@@ -20,6 +20,14 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  find /config/cache -type d -empty -delete
+
+  sleep '3'
+
   python3 /app/extended-scripts/logs_cleaner.py
 
   sleep '3'
@@ -33,6 +41,14 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   umask "$UMASK"
   /app/extended-scripts/move_files_lowercase.sh
+
+  sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  find /config/cache -type d -empty -delete
 
   sleep '3'
   umask "$UMASK"
@@ -59,6 +75,14 @@ if [ -d "$output_dir" ]; then
   /app/extended-scripts/move_files_lowercase.sh
 
   sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  find /config/cache -type d -empty -delete
+
+  sleep '3'
   umask "$UMASK"
   /app/extended-scripts/loudnorm.sh
 
@@ -77,6 +101,14 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   umask "$UMASK"
   /app/extended-scripts/move_files_lowercase.sh
+
+  sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  find /config/cache -type d -empty -delete
 
   sleep '3'
 
@@ -101,6 +133,14 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   umask "$UMASK"
   /app/extended-scripts/move_files_lowercase.sh
+
+  sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  find /config/cache -type d -empty -delete
 
   sleep '3'
 
@@ -133,6 +173,14 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   umask "$UMASK"
   /app/extended-scripts/move_files_lowercase.sh
+
+  sleep '3'
+
+  find "$output_dir" -type d -empty -delete
+
+  sleep '3'
+
+  find /config/cache -type d -empty -delete
 
   sleep '3'
 

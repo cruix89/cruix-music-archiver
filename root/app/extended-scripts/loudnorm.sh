@@ -33,8 +33,8 @@ process_file() {
     local log_file="$2"
     # Declare the variable
     local output_file
-    # Assign the value separately
-    output_file="${cache_dir}/$(basename "$src_file")"
+    # Assign the value separately, removing the original extension
+    output_file="${cache_dir}/$(basename "${src_file%.*}")"
 
     # FFMPEG command to process the file
     ffmpeg -y -i "$src_file" -af "loudnorm=I=-14:TP=-1:LRA=11:print_format=summary" -b:a 320k "$output_file.mp3" &>> "$log_file"
@@ -46,11 +46,11 @@ process_file() {
     if [[ -f "$output_file.mp3" && $exit_code -eq 0 ]]; then
         # Delete the original file
         rm -f "$src_file"
-        # Move the normalized file to the original path
-        mv "$output_file.mp3" "$src_file"
+        # Move the normalized file to the original path with .mp3 extension
+        mv "$output_file.mp3" "${src_file%.*}.mp3"
 
-        save_to_normalized_list "$src_file"
-        echo "Processed and replaced: $src_file"
+        save_to_normalized_list "${src_file%.*}.mp3"
+        echo "Processed and replaced: ${src_file%.*}.mp3"
     else
         echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR PROCESSING FILE: $src_file" >> "$log_file"
     fi
