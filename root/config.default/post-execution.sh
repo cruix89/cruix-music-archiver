@@ -9,6 +9,7 @@ if [ -d "$output_dir" ]; then
   echo -e "\ncleaning cache files in directory: $output_dir"
 
   find "$output_dir" -type d -empty -delete
+  find /config/cache/* -mindepth 1 -delete
 
   # post-processing scripts
 
