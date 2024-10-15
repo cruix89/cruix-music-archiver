@@ -16,14 +16,13 @@ copy_files() {
     mkdir -p "$DEST_DIR"
 
     find "$SOURCE_DIR" -mindepth 1 | while read -r item; do
-        # Get the basename of the current item
-        base_name="$(basename "$item")"
-
-        # Check if the current item is in the excluded folders
-        if printf '%s\n' "${excluded_folders[@]}" | grep -q -x "$base_name"; then
-            echo "Skipped: '$item' is in the excluded folders."
-            continue
-        fi
+        # Check if the current item's path starts with any of the excluded folders
+        for excluded in "${excluded_folders[@]}"; do
+            if [[ "$item" == "$SOURCE_DIR/$excluded"* ]]; then
+                echo "Skipped: '$item' is in the excluded folders."
+                continue 2
+            fi
+        done
 
         relative_path="${item//$SOURCE_DIR\//}"
         lowercase_path="$(echo "$relative_path" | tr '[:upper:]' '[:lower:]')"
@@ -67,14 +66,13 @@ copy_files() {
 copy_files
 
 find "$DEST_DIR" -mindepth 1 | while read -r item; do
-    # Get the basename of the current item
-    base_name="$(basename "$item")"
-
-    # Check if the current item is in the excluded folders
-    if printf '%s\n' "${excluded_folders[@]}" | grep -q -x "$base_name"; then
-        echo "Skipped: '$item' is in the excluded folders."
-        continue
-    fi
+    # Check if the current item's path starts with any of the excluded folders
+    for excluded in "${excluded_folders[@]}"; do
+        if [[ "$item" == "$DEST_DIR/$excluded"* ]]; then
+            echo "Skipped: '$item' is in the excluded folders."
+            continue 2
+        fi
+    done
 
     relative_path="${item//$DEST_DIR\//}"
     dest_path="$SOURCE_DIR/$relative_path"
