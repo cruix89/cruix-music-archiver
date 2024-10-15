@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("artist image set up successfully.")
+    print("artist image set up successfully.\n")
 
 
 if __name__ == "__main__":

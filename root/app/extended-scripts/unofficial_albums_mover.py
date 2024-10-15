@@ -41,4 +41,4 @@ for root, dirs, files in os.walk(downloads_dir):
             except Exception as e:
                 logging.error(f'ERROR MOVING ALBUM {name}: {e}\n')
 
-print("unofficial albums moved successfully.")
+print("unofficial albums moved successfully.\n")

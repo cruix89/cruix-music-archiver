@@ -12,7 +12,7 @@ if [ -d "$output_dir" ]; then
 
   # post-processing scripts
 
-  echo -e "executing post-processing scripts for the music library update"
+  echo -e "executing post-processing scripts for the music library update\n"
 
   sleep '3'
   umask "$UMASK"
@@ -172,6 +172,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
   umask "$UMASK"
+  log ""
   /app/extended-scripts/move_files_lowercase.sh
 
   sleep '3'

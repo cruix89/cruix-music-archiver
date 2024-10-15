@@ -32,7 +32,7 @@ def main():
                 except Exception as e:
                     logging.error(f"ERROR PROCESSING FILE: {filename} - {str(e)}")
 
-    print("genre tag formatting completed...")
+    print("genre tag formatting completed...\n")
     logging.debug("GENRE TAG FORMATTING COMPLETED...\n")
 
 if __name__ == "__main__":
