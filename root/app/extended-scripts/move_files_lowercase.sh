@@ -4,6 +4,9 @@ SOURCE_DIR="/downloads"
 DEST_DIR="/config/cache"
 CACHE_FILE="/config/mover_cache.txt"
 
+# Define the excluded folders
+excluded_folders=('.stfolder' '.stversions' '.thumbnails')
+
 # Create the cache file if it doesn't exist
 if [[ ! -f "$CACHE_FILE" ]]; then
     touch "$CACHE_FILE"
@@ -13,6 +16,15 @@ copy_files() {
     mkdir -p "$DEST_DIR"
 
     find "$SOURCE_DIR" -mindepth 1 | while read -r item; do
+        # Get the basename of the current item
+        base_name="$(basename "$item")"
+
+        # Check if the current item is in the excluded folders
+        if [[ " ${excluded_folders[*]} " == *" $base_name "* ]]; then
+            echo "Skipped: '$item' is in the excluded folders."
+            continue
+        fi
+
         relative_path="${item//$SOURCE_DIR\//}"
         lowercase_path="$(echo "$relative_path" | tr '[:upper:]' '[:lower:]')"
         dest_path="$DEST_DIR/$lowercase_path"
@@ -55,6 +67,15 @@ copy_files() {
 copy_files
 
 find "$DEST_DIR" -mindepth 1 | while read -r item; do
+    # Get the basename of the current item
+    base_name="$(basename "$item")"
+
+    # Check if the current item is in the excluded folders
+    if [[ " ${excluded_folders[*]} " == *" $base_name "* ]]; then
+        echo "Skipped: '$item' is in the excluded folders."
+        continue
+    fi
+
     relative_path="${item//$DEST_DIR\//}"
     dest_path="$SOURCE_DIR/$relative_path"
 
