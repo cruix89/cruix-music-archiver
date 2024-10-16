@@ -12,6 +12,11 @@ if [[ ! -f "$CACHE_FILE" ]]; then
     touch "$CACHE_FILE"
 fi
 
+normalize_path() {
+    # Convert the path to lowercase and replace spaces with underscores
+    echo "$1" | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g'
+}
+
 copy_files() {
     mkdir -p "$DEST_DIR"
 
@@ -24,9 +29,10 @@ copy_files() {
             fi
         done
 
+        # Normalize the path to lowercase and underscores
         relative_path="${item//$SOURCE_DIR\//}"
-        lowercase_path="$(echo "$relative_path" | tr '[:upper:]' '[:lower:]')"
-        dest_path="$DEST_DIR/$lowercase_path"
+        normalized_path="$(normalize_path "$relative_path")"
+        dest_path="$DEST_DIR/$normalized_path"
 
         # Check if the file is already in the cache
         if grep -qx "$item" "$CACHE_FILE"; then
@@ -34,79 +40,32 @@ copy_files() {
             continue
         fi
 
+        # Check if a directory with a normalized name already exists
+        if [[ -d "$dest_path" || -f "$dest_path" ]]; then
+            echo "Merging: '$item' into existing directory '$dest_path'."
+        fi
+
         mkdir -p "$(dirname "$dest_path")"
 
         if [[ -f "$item" ]]; then
-            # Copy the file and check if it was successful
-            if cp "$item" "$dest_path"; then
-                # Check if the file exists at the destination and compare sizes
-                if [[ -f "$dest_path" ]]; then
-                    original_size=$(stat -c%s "$item")
-                    dest_size=$(stat -c%s "$dest_path")
-
-                    if [[ "$original_size" -eq "$dest_size" ]]; then
-                        echo "Successfully copied '$item' to '$dest_path'."
-                        # Remove original file if the copy was successful and sizes match
-                        rm "$item"
-                        # Add the item to the cache
-                        echo "$item" >> "$CACHE_FILE"
-                    else
-                        echo "Error: File sizes do not match. Keeping original '$item'."
-                    fi
-                else
-                    echo "Error: File '$dest_path' does not exist after copy. Keeping original '$item'."
-                fi
+            # Move the file and check if it was successful
+            if mv "$item" "$dest_path"; then
+                # Add the item to the cache
+                echo "$item" >> "$CACHE_FILE"
+                echo "Successfully moved '$item' to '$dest_path'."
             else
-                echo "Error copying '$item' to '$dest_path'."
+                echo "Error moving '$item' to '$dest_path'."
+            fi
+        elif [[ -d "$item" ]]; then
+            # Merge directories if it's a folder
+            if mv "$item"/* "$dest_path"/ 2>/dev/null; then
+                echo "Successfully merged directory '$item' into '$dest_path'."
+                rmdir "$item" 2>/dev/null # Remove the directory if it's empty
+            else
+                echo "Error merging directory '$item' into '$dest_path'."
             fi
         fi
     done
 }
 
 copy_files
-
-find "$DEST_DIR" -mindepth 1 | while read -r item; do
-    # Check if the current item's path starts with any of the excluded folders
-    for excluded in "${excluded_folders[@]}"; do
-        if [[ "$item" == "$DEST_DIR/$excluded"* ]]; then
-            echo "Skipped: '$item' is in the excluded folders."
-            continue 2
-        fi
-    done
-
-    relative_path="${item//$DEST_DIR\//}"
-    dest_path="$SOURCE_DIR/$relative_path"
-
-    mkdir -p "$(dirname "$dest_path")"
-
-    if [[ -f "$item" ]]; then
-        # Check if the file is already in the cache before copying back
-        if grep -qx "$item" "$CACHE_FILE"; then
-            echo "Skipped: '$item' already copied back."
-            continue
-        fi
-
-        # Copy the file back and check if it was successful
-        if cp "$item" "$dest_path"; then
-            # Check if the file exists at the source and compare sizes
-            if [[ -f "$dest_path" ]]; then
-                original_size=$(stat -c%s "$item")
-                dest_size=$(stat -c%s "$dest_path")
-
-                if [[ "$original_size" -eq "$dest_size" ]]; then
-                    echo "Successfully copied '$item' back to '$dest_path'."
-                    # Remove original file if the copy was successful and sizes match
-                    rm "$item"
-                    # Add the item to the cache
-                    echo "$item" >> "$CACHE_FILE"
-                else
-                    echo "Error: File sizes do not match after copying back. Keeping original '$item'."
-                fi
-            else
-                echo "Error: File '$dest_path' does not exist after copying back. Keeping original '$item'."
-            fi
-        else
-            echo "Error copying '$item' back to '$dest_path'."
-        fi
-    fi
-done

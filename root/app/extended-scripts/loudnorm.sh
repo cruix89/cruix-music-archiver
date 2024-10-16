@@ -91,8 +91,8 @@ main() {
     done
 
     # Final summary
-    echo "All files have been processed and normalized successfully."
-    echo "Total skipped files: $skipped_files"
+    echo "all files have been processed and normalized successfully."
+    echo "total processed files: $skipped_files"
 }
 
 main
