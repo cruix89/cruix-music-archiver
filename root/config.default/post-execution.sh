@@ -180,7 +180,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
   umask "$UMASK"
-  log ""
+  echo ""
   /app/extended-scripts/move_files_lowercase.sh
 
   sleep '3'
