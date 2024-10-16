@@ -16,6 +16,8 @@ fi
 
 # Função principal que executa o loop de cópia
 process_files() {
+    local files_processed=false
+
     while IFS= read -r -d '' item; do
         # Verifica se o arquivo já está no cache
         if grep -qx "$item" "$CACHE_FILE"; then
@@ -40,9 +42,6 @@ process_files() {
             if [[ "$source_size" -eq "$dest_size" ]]; then
                 echo "Successfully copied '$item' to '$dest_path'."
 
-                # Adiciona ao arquivo de cache
-                echo "$item" >> "$CACHE_FILE"
-
                 # Remove o arquivo da origem
                 rm "$item"
 
@@ -64,6 +63,9 @@ process_files() {
                 if [[ "$dest_size" -eq "$back_copy_size" ]]; then
                     echo "Successfully copied back '$dest_path' to '$back_copy_path'."
                     rm "$dest_path" # Exclui o arquivo do cache
+                    # Registra no arquivo de cache apenas se todas as operações foram bem-sucedidas
+                    echo "$item" >> "$CACHE_FILE"
+                    files_processed=true
                 else
                     echo "Error: File sizes do not match after copying back."
                     continue
@@ -77,11 +79,18 @@ process_files() {
             continue
         fi
     done < <(find "$SOURCE_DIR" -mindepth 1 -type f -print0)
+
+    # Retorna se algum arquivo foi processado
+    echo $files_processed
 }
 
 # Executa o loop até que todos os arquivos tenham sido processados
 while true; do
-    process_files
+    # Chama a função process_files e armazena se algum arquivo foi processado
+    if ! process_files; then
+        echo "No more files to process."
+        break
+    fi
 
     # Verifica se ainda há arquivos para processar
     remaining_files=$(find "$SOURCE_DIR" -mindepth 1 -type f | wc -l)
