@@ -87,7 +87,7 @@ process_files() {
 # Executa o loop até que todos os arquivos tenham sido processados
 while true; do
     # Chama a função process_files e armazena se algum arquivo foi processado
-    if ! process_files; then
+    if [[ "$(process_files)" == "false" ]]; then
         echo "No more files to process."
         break
     fi
