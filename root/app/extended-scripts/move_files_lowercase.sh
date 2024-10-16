@@ -4,76 +4,91 @@ SOURCE_DIR="/downloads"
 DEST_DIR="/config/cache"
 CACHE_FILE="/config/mover_cache.txt"
 
-# Define the excluded folders
-excluded_folders=('.stfolder' '.stversions' '.thumbnails')
+# Função para normalizar os caminhos (minúsculas e underscores nos espaços)
+normalize_path() {
+    echo "$1" | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g'
+}
 
-# Create the cache file if it doesn't exist
+# Verifica se o arquivo de cache existe, se não existir cria
 if [[ ! -f "$CACHE_FILE" ]]; then
     touch "$CACHE_FILE"
 fi
 
-normalize_path() {
-    # Convert the path to lowercase and replace spaces with underscores
-    echo "$1" | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g'
-}
+# Função principal que executa o loop de cópia
+process_files() {
+    while IFS= read -r -d '' item; do
+        # Verifica se o arquivo já está no cache
+        if grep -qx "$item" "$CACHE_FILE"; then
+            echo "Skipped: '$item' already processed."
+            continue
+        fi
 
-copy_files() {
-    mkdir -p "$DEST_DIR"
-
-    find "$SOURCE_DIR" -mindepth 1 | while read -r item; do
-        # Check if the current item's path starts with any of the excluded folders
-        for excluded in "${excluded_folders[@]}"; do
-            if [[ "$item" == "$SOURCE_DIR/$excluded"* ]]; then
-                echo "Skipped: '$item' is in the excluded folders."
-                continue 2
-            fi
-        done
-
-        # Normalize the path to lowercase and underscores
+        # Normaliza o caminho e define o caminho no diretório de destino
         relative_path="${item//$SOURCE_DIR\//}"
         normalized_path="$(normalize_path "$relative_path")"
         dest_path="$DEST_DIR/$normalized_path"
 
-        # Check if the file is already in the cache
-        if grep -qx "$item" "$CACHE_FILE"; then
-            echo "Skipped: '$item' already copied."
-            continue
-        fi
-
-        # Check if a directory with a normalized name already exists
-        if [[ -d "$dest_path" || -f "$dest_path" ]]; then
-            echo "Merging: '$item' into existing directory '$dest_path'."
-        fi
-
+        # Cria a estrutura de diretórios capitalizada no destino
         mkdir -p "$(dirname "$dest_path")"
 
-        if [[ -f "$item" ]]; then
-            # Move the file and check if it was successful
-            if mv "$item" "$dest_path"; then
-                # Add the item to the cache
-                echo "$item" >> "$CACHE_FILE"
-                echo "Successfully moved '$item' to '$dest_path'."
-            else
-                echo "Error moving '$item' to '$dest_path'."
-            fi
-        elif [[ -d "$item" ]]; then
-            # Merge directories if it's a folder
-            if rsync -a "$item/" "$dest_path/"; then
-                # Add the directory to the cache
-                echo "$item" >> "$CACHE_FILE"
-                echo "Successfully merged directory '$item' into '$dest_path'."
+        # Copia o arquivo para o destino
+        if cp "$item" "$dest_path"; then
+            # Verifica se os arquivos têm o mesmo tamanho
+            source_size=$(stat -c%s "$item")
+            dest_size=$(stat -c%s "$dest_path")
 
-                # Try to remove the directory if it's empty
-                if rmdir "$item" 2>/dev/null; then
-                    echo "Successfully removed directory '$item'."
+            if [[ "$source_size" -eq "$dest_size" ]]; then
+                echo "Successfully copied '$item' to '$dest_path'."
+
+                # Adiciona ao arquivo de cache
+                echo "$item" >> "$CACHE_FILE"
+
+                # Remove o arquivo da origem
+                rm "$item"
+
+                # Verifica se a estrutura do caminho no destino existe na origem
+                if [[ ! -d "$SOURCE_DIR/$(dirname "$relative_path")" ]]; then
+                    echo "Recreating missing directory structure in source."
+                    mkdir -p "$SOURCE_DIR/$(dirname "$relative_path")"
+                    cp "$dest_path" "$SOURCE_DIR/$(dirname "$relative_path")/"
                 else
-                    echo "Error removing directory '$item'. It may not be empty."
+                    # Copia de volta sem recriar diretórios
+                    echo "Directory already exists, copying file back."
+                    cp "$dest_path" "$SOURCE_DIR/$(dirname "$relative_path")/"
+                fi
+
+                # Verifica o tamanho novamente ao copiar de volta para downloads
+                back_copy_path="$SOURCE_DIR/$(dirname "$relative_path")/$(basename "$dest_path")"
+                back_copy_size=$(stat -c%s "$back_copy_path")
+
+                if [[ "$dest_size" -eq "$back_copy_size" ]]; then
+                    echo "Successfully copied back '$dest_path' to '$back_copy_path'."
+                    rm "$dest_path" # Exclui o arquivo do cache
+                else
+                    echo "Error: File sizes do not match after copying back."
+                    continue
                 fi
             else
-                echo "Error merging directory '$item' into '$dest_path'."
+                echo "Error: File sizes do not match, skipping '$item'."
+                continue
             fi
+        else
+            echo "Error copying '$item' to '$dest_path'."
+            continue
         fi
-    done
+    done < <(find "$SOURCE_DIR" -mindepth 1 -type f -print0)
 }
 
-copy_files
+# Executa o loop até que todos os arquivos tenham sido processados
+while true; do
+    process_files
+
+    # Verifica se ainda há arquivos para processar
+    remaining_files=$(find "$SOURCE_DIR" -mindepth 1 -type f | wc -l)
+    if [[ "$remaining_files" -eq 0 ]]; then
+        echo "All files have been processed."
+        break
+    fi
+
+    sleep 1
+done
