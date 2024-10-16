@@ -23,18 +23,6 @@ if [ -d "$output_dir" ]; then
   echo -e "executing post-processing scripts for the music library update\n"
 
   sleep '3'
-  umask "$UMASK"
-  /app/extended-scripts/move_files_lowercase.sh
-
-  sleep '3'
-
-  find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-
-  find /config/cache/ -type d -empty -mindepth 1 -delete
-
-  sleep '3'
 
   python3 /app/extended-scripts/logs_cleaner.py
 
@@ -47,16 +35,8 @@ if [ -d "$output_dir" ]; then
   python3 /app/extended-scripts/invalid_characters_remover.py
 
   sleep '3'
-  umask "$UMASK"
-  /app/extended-scripts/move_files_lowercase.sh
 
-  sleep '3'
-
-  find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-
-  find /config/cache/ -type d -empty -mindepth 1 -delete
+  python3 /app/extended-scripts/folder_merger.py
 
   sleep '3'
   umask "$UMASK"
@@ -80,18 +60,6 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
   umask "$UMASK"
-  /app/extended-scripts/move_files_lowercase.sh
-
-  sleep '3'
-
-  find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-
-  find /config/cache/ -type d -empty -mindepth 1 -delete
-
-  sleep '3'
-  umask "$UMASK"
   /app/extended-scripts/loudnorm.sh
 
   sleep '3'
@@ -105,18 +73,6 @@ if [ -d "$output_dir" ]; then
   sleep '3'
 
   python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
-
-  sleep '3'
-  umask "$UMASK"
-  /app/extended-scripts/move_files_lowercase.sh
-
-  sleep '3'
-
-  find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-
-  find /config/cache/ -type d -empty -mindepth 1 -delete
 
   sleep '3'
 
@@ -137,18 +93,6 @@ if [ -d "$output_dir" ]; then
   sleep '3'
 
   python3 /app/extended-scripts/genre_fixer.py
-
-  sleep '3'
-  umask "$UMASK"
-  /app/extended-scripts/move_files_lowercase.sh
-
-  sleep '3'
-
-  find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-
-  find /config/cache/ -type d -empty -mindepth 1 -delete
 
   sleep '3'
 
@@ -177,19 +121,6 @@ if [ -d "$output_dir" ]; then
   sleep '3'
 
   find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-  umask "$UMASK"
-  echo ""
-  /app/extended-scripts/move_files_lowercase.sh
-
-  sleep '3'
-
-  find "$output_dir" -type d -empty -delete
-
-  sleep '3'
-
-  find /config/cache/ -type d -empty -mindepth 1 -delete
 
   sleep '3'
 
