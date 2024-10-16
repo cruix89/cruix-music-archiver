@@ -58,9 +58,17 @@ copy_files() {
             fi
         elif [[ -d "$item" ]]; then
             # Merge directories if it's a folder
-            if mv "$item"/* "$dest_path"/ 2>/dev/null; then
+            if rsync -a "$item/" "$dest_path/"; then
+                # Add the directory to the cache
+                echo "$item" >> "$CACHE_FILE"
                 echo "Successfully merged directory '$item' into '$dest_path'."
-                rmdir "$item" 2>/dev/null # Remove the directory if it's empty
+
+                # Try to remove the directory if it's empty
+                if rmdir "$item" 2>/dev/null; then
+                    echo "Successfully removed directory '$item'."
+                else
+                    echo "Error removing directory '$item'. It may not be empty."
+                fi
             else
                 echo "Error merging directory '$item' into '$dest_path'."
             fi
