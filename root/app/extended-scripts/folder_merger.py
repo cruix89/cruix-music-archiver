@@ -1,11 +1,14 @@
 import os
 import shutil
-
+import re
 
 def normalize_folder_name(folder_name):
-    """Normaliza o nome da pasta, removendo espaços e underscores."""
-    return folder_name.replace(' ', '').replace('_', '').lower()
-
+    """Normaliza o nome da pasta, removendo espaços, underscores e sufixos numéricos."""
+    # Remove espaços e underscores, converte para minúsculas
+    normalized_name = folder_name.replace(' ', '').replace('_', '').lower()
+    # Remove sufixos no padrão "_número" (ex: "_1", "_2", etc.)
+    normalized_name = re.sub(r'(_\d+)$', '', normalized_name)
+    return normalized_name
 
 # Define o diretório de downloads
 downloads_dir = '/downloads'
@@ -23,25 +26,27 @@ for folder in os.listdir(downloads_dir):
         # Normaliza o nome da pasta para comparação
         normalized_folder = normalize_folder_name(folder)
 
-        if normalized_folder in folders:
-            # Se uma pasta com o mesmo nome (normalizado) já existir,
-            # move o conteúdo da pasta atual para a pasta existente
-            target_folder = folders[normalized_folder]
-            for item in os.listdir(folder_path):
-                src_path = os.path.join(folder_path, item)
-                dest_path = os.path.join(target_folder, item)
+        # Adiciona a pasta apenas se não contiver sufixo "_número"
+        if not re.search(r'(_\d+)$', normalized_folder):
+            # Se não houver uma pasta principal, armazena
+            if normalized_folder not in folders:
+                folders[normalized_folder] = folder_path
+            else:
+                # Se uma pasta com o mesmo nome (normalizado) já existir,
+                # move o conteúdo da pasta atual para a pasta existente
+                target_folder = folders[normalized_folder]
+                for item in os.listdir(folder_path):
+                    src_path = os.path.join(folder_path, item)
+                    dest_path = os.path.join(target_folder, item)
 
-                # Mova o item para a pasta de destino, sobrescrevendo se necessário
-                try:
-                    if os.path.isdir(src_path):
-                        shutil.move(src_path, dest_path)
-                    else:
-                        shutil.copy2(src_path, dest_path)  # Usa copy2 para manter os metadados
-                    print(f'Movendo {src_path} para {dest_path}')
-                except Exception as e:
-                    print(f'Erro ao mover {src_path}: {e}')
-        else:
-            # Armazena o caminho da pasta original no dicionário
-            folders[normalized_folder] = folder_path
+                    # Mova o item para a pasta de destino, sobrescrevendo se necessário
+                    try:
+                        if os.path.isdir(src_path):
+                            shutil.move(src_path, dest_path)
+                        else:
+                            shutil.copy2(src_path, dest_path)  # Usa copy2 para manter os metadados
+                        print(f'Movendo {src_path} para {dest_path}')
+                    except Exception as e:
+                        print(f'Erro ao mover {src_path}: {e}')
 
 print('Processo concluído.')
