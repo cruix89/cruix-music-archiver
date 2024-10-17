@@ -6,7 +6,7 @@ print("merging folders...")
 
 def normalize_folder_name(folder_name):
     """Normaliza o nome da pasta, removendo espaços e underscores, e convertendo para minúsculas."""
-    normalized_name = folder_name.replace(' ', '_').replace('__', '_').lower()
+    normalized_name = folder_name.replace('__', '_').replace('_', ' ').lower()  # Substitui todos os underscores por espaços
     normalized_name = re.sub(r'(_\d+)$', '', normalized_name)  # Remove sufixos numéricos
     return normalized_name
 
