@@ -15,7 +15,7 @@ def setup_directories():
 
 def update_release_year(path):
     """update the release year tag in MP3 files."""
-    print("\nformatting release year of MP3 files...")
+    print("formatting release year of MP3 files...")
 
     # Set up logging
     logs_dir = setup_directories()

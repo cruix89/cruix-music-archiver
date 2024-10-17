@@ -11,7 +11,7 @@ if [ -d "$output_dir" ]; then
   sleep '3'
   mkdir -p /config/cache/
   sleep '3'
-  find "$output_dir" -type d -empty -delete
+  find "$output_dir" -mindepth 1 -type d -empty -delete
   sleep '3'
   find /config/cache/ -type f -delete
   sleep '3'
@@ -48,7 +48,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find "$output_dir" -type d -empty -delete
+  find "$output_dir" -mindepth 1 -type d -empty -delete
 
   sleep '3'
 
@@ -56,7 +56,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find "$output_dir" -type d -empty -delete
+  find "$output_dir" -mindepth 1 -type d -empty -delete
 
   sleep '3'
   umask "$UMASK"
@@ -100,7 +100,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find "$output_dir" -type d -empty -delete
+  find "$output_dir" -mindepth 1 -type d -empty -delete
 
   sleep '3'
   umask "$UMASK"
@@ -120,7 +120,7 @@ if [ -d "$output_dir" ]; then
 
   sleep '3'
 
-  find "$output_dir" -type d -empty -delete
+  find "$output_dir" -mindepth 1 -type d -empty -delete
 
   sleep '3'
 

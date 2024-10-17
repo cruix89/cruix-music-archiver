@@ -2,6 +2,8 @@ import os
 import shutil
 import re
 
+print("merging folders...")
+
 def normalize_folder_name(folder_name):
     """Normaliza o nome da pasta, removendo espaços e underscores, e convertendo para minúsculas."""
     normalized_name = folder_name.replace(' ', '_').replace('__', '_').lower()
