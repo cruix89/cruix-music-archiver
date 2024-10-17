@@ -29,49 +29,33 @@ for folder in os.listdir(downloads_dir):
         # Se a pasta normalizada já existir, mova os arquivos para a pasta existente
         if normalized_folder in folders:
             target_folder = folders[normalized_folder]
-            # Mover todos os arquivos para a pasta de destino
-            for item in os.listdir(folder_path):
-                src_path = os.path.join(folder_path, item)
-                dest_path = os.path.join(target_folder, item)
-
-                # Se o item já existe na pasta de destino, ajuste o nome para evitar conflitos
-                if os.path.exists(dest_path):
-                    base_name, ext = os.path.splitext(item)
-                    dest_path = os.path.join(target_folder, f"{base_name}_copy{ext}")
-
-                # Mova o arquivo ou diretório
-                shutil.move(src_path, dest_path)
-
-            # Remove a pasta original
-            try:
-                os.rmdir(folder_path)
-                print(f'Removendo pasta vazia {folder_path}')
-            except Exception as e:
-                print(f'Erro ao remover pasta {folder_path}: {e}')
         else:
             # Se a pasta normalizada não existir, crie um novo diretório na pasta de cache
             normalized_folder_path = os.path.join(cache_dir, normalized_folder)
             os.makedirs(normalized_folder_path, exist_ok=True)
             folders[normalized_folder] = normalized_folder_path
+            target_folder = normalized_folder_path
 
-            # Mover os arquivos da pasta original para a pasta de cache
-            for item in os.listdir(folder_path):
-                src_path = os.path.join(folder_path, item)
-                dest_path = os.path.join(normalized_folder_path, item)
+        # Mover os arquivos da pasta original para a pasta de cache
+        for item in os.listdir(folder_path):
+            src_path = os.path.join(folder_path, item)
+            dest_path = os.path.join(target_folder, item)
 
-                # Se o item já existe na pasta de destino, ajuste o nome para evitar conflitos
-                if os.path.exists(dest_path):
-                    base_name, ext = os.path.splitext(item)
-                    dest_path = os.path.join(normalized_folder_path, f"{base_name}_copy{ext}")
+            # Se o item já existe na pasta de destino, ajuste o nome para evitar conflitos
+            count = 1
+            base_name, ext = os.path.splitext(item)
+            while os.path.exists(dest_path):
+                dest_path = os.path.join(target_folder, f"{base_name}_copy_{count}{ext}")
+                count += 1
 
-                # Mova o arquivo ou diretório
-                shutil.move(src_path, dest_path)
+            # Mova o arquivo ou diretório
+            shutil.move(src_path, dest_path)
 
-            # Remove a pasta original
-            try:
-                os.rmdir(folder_path)
-                print(f'Removendo pasta vazia {folder_path}')
-            except Exception as e:
-                print(f'Erro ao remover pasta {folder_path}: {e}')
+        # Remove a pasta original
+        try:
+            os.rmdir(folder_path)
+            print(f'Removendo pasta vazia {folder_path}')
+        except Exception as e:
+            print(f'Erro ao remover pasta {folder_path}: {e}')
 
 print('Processo concluído.')
