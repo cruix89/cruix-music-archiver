@@ -5,9 +5,9 @@ import re
 print("merging folders...")
 
 def normalize_folder_name(folder_name):
-    """Normaliza o nome da pasta, removendo espaços e underscores, e convertendo para minúsculas."""
-    normalized_name = folder_name.replace('__', '_').replace('_', ' ').lower()  # Substitui todos os underscores por espaços
-    normalized_name = re.sub(r'(_\d+)$', '', normalized_name)  # Remove sufixos numéricos
+    """Normaliza o nome da pasta, removendo espaços, underscores e sufixos numéricos, convertendo para minúsculas."""
+    normalized_name = folder_name.replace('__', '_').replace('_', ' ').lower()  # Substitui underscores por espaços
+    normalized_name = re.sub(r'\s\d+$', '', normalized_name)  # Remove sufixos numéricos no final
     return normalized_name
 
 # Define o diretório de downloads e o diretório de cache
