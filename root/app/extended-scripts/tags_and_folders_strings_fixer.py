@@ -6,7 +6,7 @@ import mutagen.id3
 # define absolute paths for directories
 LOGS_DIR = '/config/logs'
 LISTS_DIR = '/app/lists'
-MUSIC_DIR = '/downloads'
+MUSIC_DIR = '/music'
 
 # create directories if they do not exist
 for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:

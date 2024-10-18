@@ -2,7 +2,7 @@ import os
 import shutil
 import re
 
-print("merging folders...")
+print("moving music folders...")
 
 def normalize_folder_name(folder_name):
     """Normaliza o nome da pasta, removendo espaços, underscores e sufixos numéricos, convertendo para minúsculas."""
@@ -12,7 +12,7 @@ def normalize_folder_name(folder_name):
 
 # Define o diretório de downloads e o diretório de cache
 downloads_dir = '/downloads'
-cache_dir = '/config/cache'
+music_dir = '/music'
 
 # Cria um dicionário para armazenar pastas normalizadas encontradas
 folders = {}
@@ -31,7 +31,7 @@ for folder in os.listdir(downloads_dir):
             target_folder = folders[normalized_folder]
         else:
             # Se a pasta normalizada não existir, crie um novo diretório na pasta de cache
-            normalized_folder_path = os.path.join(cache_dir, normalized_folder)
+            normalized_folder_path = os.path.join(music_dir, normalized_folder)
             os.makedirs(normalized_folder_path, exist_ok=True)
             folders[normalized_folder] = normalized_folder_path
             target_folder = normalized_folder_path

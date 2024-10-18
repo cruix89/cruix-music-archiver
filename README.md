@@ -5,6 +5,12 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Stars](https://img.shields.io/docker/stars/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 
+****
+
+**ATTENTION: /music AND /downloads SEPARATED WORK FOLDER IN BETA TEST, IF YOU WANNA USE AND TEST WITH ME ADD "/music" AS PATH IN YOUR DOCKER CONTAINER AS THE "/downloads" WAY**
+
+****
+
 **automated yt-dlp docker image for downloading YouTube Music discography's/playlists/singles or music of others platforms supported by youtube-dlp**
 
 Docker Hub page [here](https://hub.docker.com/r/cruix89/cruix-music-archiver).  

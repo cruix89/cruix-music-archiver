@@ -6,7 +6,7 @@ import logging
 
 def setup_directories():
     # absolute directories
-    base_dir = '/downloads'
+    base_dir = '/music'
     db_dir = '/config/deezer-db'
     log_dir = '/config/logs'
 

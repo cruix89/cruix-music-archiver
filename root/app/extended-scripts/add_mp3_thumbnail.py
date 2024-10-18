@@ -22,7 +22,7 @@ def add_thumbnail_to_mp3(mp3_path: str, image_path: str) -> None:
 def setup_directories() -> None:
     global music_directory, logs_directory
     # set absolute paths
-    music_directory = '/downloads'
+    music_directory = '/music'
     logs_directory = '/config/logs'
 
 def main():

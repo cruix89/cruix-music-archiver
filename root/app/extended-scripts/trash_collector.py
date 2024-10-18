@@ -3,7 +3,7 @@ import shutil
 import logging
 
 # ROOT DIRECTORY TO START THE SEARCH
-root_dir = os.path.abspath('/downloads')
+root_dir = os.path.abspath('/music')
 
 # NEW DESTINATION DIRECTORY
 dest_dir = os.path.abspath('/config/recycle-bin')

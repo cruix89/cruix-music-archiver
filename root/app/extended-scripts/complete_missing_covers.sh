@@ -2,7 +2,7 @@
 
 # Absolute directories for logs and downloads
 log_dir='/config/logs'
-downloads_dir='/downloads'
+music_dir='/music'
 
 # Ensure the log directory exists
 mkdir -p "$log_dir"
@@ -121,5 +121,5 @@ process_directory() {
 # script execution
 log ""
 log "starting missing covers completion..."
-process_directory "$downloads_dir"
+process_directory "$music_dir"
 log "missing covers completion finished."

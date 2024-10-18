@@ -5,7 +5,7 @@ from eyed3.id3 import ID3_V2_4
 
 # define the paths for logs and music directories
 logs_dir = '/config/logs'
-music_dir = '/downloads'
+music_dir = '/music'
 
 # create logging directory if it doesn't exist
 if not os.path.exists(logs_dir):

@@ -10,7 +10,7 @@ from pathlib import Path
 
 def setup_directories():
     # CONFIGURED DIRECTORIES
-    music_dir = Path('/downloads').resolve()
+    music_dir = Path('/music').resolve()
     deezer_db_dir = Path('/config/deezer-db').resolve()
     log_dir = Path('/config/logs').resolve()
 

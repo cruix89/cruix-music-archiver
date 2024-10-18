@@ -66,7 +66,7 @@ def main():
     print("\nrunning directory and tag formatting...")
 
     # replace with absolute paths
-    music_directory = '/downloads'
+    music_directory = '/music'
     logs_directory = '/config/logs'
 
     log_file_rename = os.path.join(logs_directory, 'capitalize_fixer.log')

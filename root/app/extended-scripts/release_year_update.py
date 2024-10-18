@@ -47,5 +47,5 @@ def update_release_year(path):
 
 if __name__ == "__main__":
     # define the absolute path to the music directory
-    music_directory = '/downloads'
+    music_directory = '/music'
     update_release_year(music_directory)

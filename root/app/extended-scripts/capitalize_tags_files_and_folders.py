@@ -6,7 +6,7 @@ import re
 
 def setup_directories():
     try:
-        music_directory = '/downloads'
+        music_directory = '/music'
         logs_directory = '/config/logs'
         lists_directory = '/app/lists'
         return music_directory, logs_directory, lists_directory

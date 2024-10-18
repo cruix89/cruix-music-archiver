@@ -3,7 +3,7 @@ import logging
 from mutagen.id3 import ID3
 
 def main():
-    music_dir = "/downloads"
+    music_dir = "/music"
     logs_dir = "/config/logs"
 
     if not os.path.exists(logs_dir):

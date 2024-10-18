@@ -1,137 +1,117 @@
 #!/usr/bin/with-contenv bash
 
-# identifies the output directory from the '--output' argument
-output_dir="/downloads"
+# directory's config
+downloads_dir="/downloads"
+music_dir="/music"
+cache_dir="/config/cache"
+logs_dir="/config/logs"
 
 # remove cache files in the output directory and process post-processing scripts
-if [ -d "$output_dir" ]; then
+if [ -d "$downloads_dir" ]; then
 
-  echo -e "\ncleaning cache files in directory: $output_dir"
+  echo -e "\ncleaning cache files in directory:$cache_dir , $downloads_dir and $music_dir"
 
-  sleep '3'
-  mkdir -p /config/cache/
-  sleep '3'
-  find "$output_dir" -mindepth 1 -type d -empty -delete
-  sleep '3'
-  find /config/cache/ -type f -delete
-  sleep '3'
-  find /config/cache/ -type d -empty -mindepth 1 -delete
-  sleep '3'
+  sleep '5'
+  mkdir -p $cache_dir
+  find $cache_dir -type f -delete
+  find $cache_dir -type d -empty -mindepth 1 -delete
 
-  # post-processing scripts
+  sleep '5'
+  find "$downloads_dir" -mindepth 1 -type d -empty -delete
 
   echo -e "executing post-processing scripts for the music library update\n"
 
-  sleep '3'
+  # post-processing scripts in downloads folder
 
-  python3 /app/extended-scripts/logs_cleaner.py
+  sleep '5'
+  mkdir -p $logs_dir
+  find $logs_dir -type f -delete
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/wordnet_corpus_downloader.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/invalid_characters_remover.py
 
-  sleep '3'
+  sleep '5'
+  python3 /app/extended-scripts/downloads_mover.py
 
-  python3 /app/extended-scripts/folder_merger.py
+  # post-processing scripts in music folder
 
-  sleep '3'
+  sleep '5'
   umask "$UMASK"
   /app/extended-scripts/complete_missing_covers.sh
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/trash_collector.py
 
-  sleep '3'
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  find "$output_dir" -mindepth 1 -type d -empty -delete
-
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/unofficial_albums_mover.py
 
-  sleep '3'
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  find "$output_dir" -mindepth 1 -type d -empty -delete
-
-  sleep '3'
+  sleep '5'
   umask "$UMASK"
   /app/extended-scripts/loudnorm.sh
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/capitalize_folders_and_tags_accents.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/release_year_update.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/deezer_db_downloader.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/lastgenre.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/capitalize_fixer.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/genre_fixer.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/trash_collector.py
 
-  sleep '3'
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  find "$output_dir" -mindepth 1 -type d -empty -delete
-
-  sleep '3'
+  sleep '5'
   umask "$UMASK"
   /app/extended-scripts/complete_missing_covers.sh
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/missing_covers_downloader.py
 
-  sleep '3'
+  sleep '5'
   umask "$UMASK"
   /app/extended-scripts/complete_missing_covers.sh
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/trash_collector.py
 
-  sleep '3'
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  find "$output_dir" -mindepth 1 -type d -empty -delete
-
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/jellyfin_album_downloader.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/jellyfin_artist_downloader.py
 
-  sleep '3'
-
+  sleep '5'
   python3 /app/extended-scripts/add_mp3_thumbnail.py
 
   echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
@@ -140,5 +120,5 @@ if [ -d "$output_dir" ]; then
   find /config/unofficial-albums -depth -mtime +6 -exec rm -rf {} \;
 
 else
-  echo -e "\noutput directory not found: $output_dir"
+  echo -e "\noutput directory not found: $downloads_dir"
 fi

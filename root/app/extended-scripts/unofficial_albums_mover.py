@@ -5,11 +5,11 @@ import logging
 # ABSOLUTE DIRECTORY PATHS
 logs_dir = "/config/logs"
 lists_dir = "/app/lists"
-downloads_dir = "/downloads"
+music_dir = "/music"
 unofficial_albums_dir = "/config/unofficial-albums"
 
 # CREATE NECESSARY DIRECTORIES
-for directory in [logs_dir, lists_dir, downloads_dir, unofficial_albums_dir]:
+for directory in [logs_dir, lists_dir, music_dir, unofficial_albums_dir]:
     os.makedirs(directory, exist_ok=True)
 
 # CONFIGURE LOGGING
@@ -27,11 +27,11 @@ except FileNotFoundError:
     exit(1)
 
 # WALK THROUGH THE DOWNLOAD DIRECTORY
-for root, dirs, files in os.walk(downloads_dir):
+for root, dirs, files in os.walk(music_dir):
     for name in dirs:
         if name in folders:
             source = os.path.join(root, name)
-            destination = os.path.join(unofficial_albums_dir, os.path.relpath(source, downloads_dir))
+            destination = os.path.join(unofficial_albums_dir, os.path.relpath(source, music_dir))
             try:
                 os.makedirs(os.path.dirname(destination), exist_ok=True)
                 if os.path.exists(destination):

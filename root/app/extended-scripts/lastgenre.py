@@ -7,7 +7,7 @@ from mutagen import File
 # define absolute paths directly
 log_dir = "/config/logs"
 lists_dir = "/config"
-music_dir = "/downloads"
+music_dir = "/music"
 log_file = os.path.join(log_dir, 'lastgenre.log')
 
 

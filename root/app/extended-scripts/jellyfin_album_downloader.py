@@ -7,7 +7,7 @@ def setup_directories():
     """Sets up the log and music directories using fixed absolute paths."""
     # DEFINING ABSOLUTE PATHS
     log_dir = '/config/logs'
-    music_dir = '/downloads'
+    music_dir = '/music'
 
     # ENSURE DIRECTORIES EXIST
     os.makedirs(log_dir, exist_ok=True)
