@@ -9,12 +9,12 @@ from pathlib import Path
 
 
 def setup_directories():
-    # CONFIGURED DIRECTORIES
+    # configured directories
     music_dir = Path('/music').resolve()
     deezer_db_dir = Path('/config/deezer-db').resolve()
     log_dir = Path('/config/logs').resolve()
 
-    # ENSURE DIRECTORIES EXIST
+    # ensure directories exist
     music_dir.mkdir(parents=True, exist_ok=True)
     deezer_db_dir.mkdir(parents=True, exist_ok=True)
     log_dir.mkdir(parents=True, exist_ok=True)
@@ -23,20 +23,20 @@ def setup_directories():
 
 
 def main():
-    # LOG SETUP
+    # log setup
     music_dir, deezer_db_dir, log_dir = setup_directories()
     log_file = log_dir / 'missing_covers_downloader.log'
     logging.basicConfig(filename=str(log_file), level=logging.INFO)
 
-    # CHECK IF LOG FILE IS CREATED CORRECTLY
+    # check if log file is created correctly
     if not log_file.exists():
-        print(f"ERROR: UNABLE TO CREATE LOG FILE AT {log_file}. CHECK WRITE PERMISSIONS.\n")
+        print(f"error: unable to create log file at {log_file}. check write permissions.\n")
     else:
-        print(f"LOG FILE CREATED AT: {log_file}\n")
+        print(f"log file created at: {log_file}\n")
 
     def validate_directory(directory):
         if not directory.is_dir():
-            error = f'DIRECTORY NOT FOUND: {directory}'
+            error = f'directory not found: {directory}'
             logging.error(error)
             print(error)
             return False
@@ -49,9 +49,9 @@ def main():
             if img_width == width and img_height == height:
                 return True
         except UnidentifiedImageError:
-            logging.error(f'ERROR IDENTIFYING IMAGE: {source}\n')
+            logging.error(f'error identifying image: {source}\n')
         except Exception as e:
-            logging.error(f'ERROR PROCESSING FILE {source}: {e}\n')
+            logging.error(f'error processing file {source}: {e}\n')
         return False
 
     def find_cover_in_deezer_db(mp3_name, width, height):
@@ -65,11 +65,11 @@ def main():
                         match = re.search(r"'cover_xl':\s*'([^']+)'", content)
                         if match:
                             img_url = match.group(1)
-                            logging.info(f"IMAGE URL FOUND: {img_url}")
+                            logging.info(f"image URL found: {img_url}")
                             return download_and_resize_image(img_url, width, height)
                 except Exception as e:
-                    logging.error(f'ERROR READING FILE {txt_path}: {e}\n')
-                    print(f'ERROR READING FILE {txt_path}: {e}\n')
+                    logging.error(f'error reading file {txt_path}: {e}\n')
+                    print(f'error reading file {txt_path}: {e}\n')
         return None
 
     def download_and_resize_image(url, width, height):
@@ -80,19 +80,19 @@ def main():
             img = img.resize((width, height))
             return img
         except requests.exceptions.RequestException as e:
-            logging.error(f'ERROR DOWNLOADING IMAGE: {e}\n')
-            print(f'ERROR DOWNLOADING IMAGE: {e}\n')
+            logging.error(f'error downloading image: {e}\n')
+            print(f'error downloading image: {e}\n')
             return None
         except Exception as e:
-            logging.error(f'ERROR PROCESSING DOWNLOADED IMAGE: {e}\n')
-            print(f'ERROR PROCESSING DOWNLOADED IMAGE: {e}\n')
+            logging.error(f'error processing downloaded image: {e}\n')
+            print(f'error processing downloaded image: {e}\n')
             return None
 
     def copy_first_image_to_lonely_mp3(directory, width=544, height=544):
         if not validate_directory(directory):
             return
 
-        logging.info(f'BEGINNING PROCESS IN DIRECTORY: {directory}\n')
+        logging.info(f'beginning process in directory: {directory}\n')
         for root, _, files in os.walk(directory):
             jpg_files = [file for file in files if file.endswith('.jpg')]
             mp3_files = [file for file in files if file.endswith('.mp3')]
@@ -107,21 +107,21 @@ def main():
                         if process_image(source, width, height):
                             destination = Path(root) / f'{mp3_name}.jpg'
                             shutil.copy2(source, destination)
-                            logging.info(f'FILE COPIED: {source} TO {destination}\n')
+                            logging.info(f'file copied: {source} TO {destination}\n')
                             break
                     else:
                         img = find_cover_in_deezer_db(mp3_name, width, height)
                         if img:
                             destination = Path(root) / f'{mp3_name}.jpg'
                             img.save(destination)
-                            logging.info(f'COVER DOWNLOADED AND SAVED: {destination}\n')
+                            logging.info(f'cover downloaded and saved: {destination}\n')
                         else:
-                            logging.error(f'UNABLE TO FIND OR DOWNLOAD A COVER FOR: {mp3_name}\n')
-                            print(f'UNABLE TO FIND OR DOWNLOAD A COVER FOR: {mp3_name}\n')
+                            logging.error(f'unable to find or download a cover for: {mp3_name}\n')
+                            print(f'unable to find or download a cover for: {mp3_name}\n')
 
-        logging.info('PROCESS COMPLETED.\n')
+        logging.info('process completed.\n')
 
-    # EXECUTE MAIN FUNCTION
+    # execute main function
     copy_first_image_to_lonely_mp3(music_dir)
 
     print("missing covers downloaded.")

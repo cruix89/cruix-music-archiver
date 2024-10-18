@@ -25,7 +25,7 @@ log() {
 # Function to validate directory
 validate_directory() {
     if [[ ! -d "$1" ]]; then
-        log "ERROR: DIRECTORY NOT FOUND: $1"
+        log "error: directory not found: $1"
         return 1
     fi
     return 0
@@ -64,9 +64,9 @@ copy_file() {
     local destination="$2"
 
     if cp "$source" "$destination"; then
-        log "FILE COPIED: $source TO $destination"
+        log "file copied: $source TO $destination"
     else
-        log "ERROR COPYING: $source TO $destination"
+        log "error copying: $source TO $destination"
     fi
 }
 

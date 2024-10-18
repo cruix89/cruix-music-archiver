@@ -45,7 +45,7 @@ def main():
     api_secret = "6f815b76ff0790c0fe172d372a6a5740"
 
     if not api_key or not api_secret:
-        logging.critical('API keys for Last.fm not configured.\n')
+        logging.critical('API keys for last.fm not configured.\n')
         return
 
     network = pylast.LastFMNetwork(api_key=api_key, api_secret=api_secret)
@@ -63,27 +63,27 @@ def main():
         try:
             artist = network.get_artist(artist_name)
             if not artist:
-                logging.warning(f'Artist not found: {artist_name}\n')
+                logging.warning(f'artist not found: {artist_name}\n')
                 return None
 
             top_tag = artist.get_top_tags(limit=1)
             genre_tag = top_tag[0].item.get_name() if top_tag else None
 
             if genre_tag:
-                logging.info(f'Genre {genre_tag} found for artist {artist_name}\n')
+                logging.info(f'genre {genre_tag} found for artist {artist_name}\n')
             else:
-                logging.warning(f'No genre found for artist {artist_name}\n')
+                logging.warning(f'no genre found for artist {artist_name}\n')
 
             genre_cache[artist_name] = genre_tag
             return genre_tag
         except pylast.WSError as e:
-            logging.error(f'Error retrieving genre tag for artist {artist_name}: {str(e)}\n')
+            logging.error(f'error retrieving genre tag for artist {artist_name}: {str(e)}\n')
             return None
 
     def process_directory(dir_path):
         # Count .mp3 files
         total_files = sum(len([file for file in files if file.endswith(".mp3")]) for _, _, files in os.walk(dir_path))
-        print(f"\nTotal MP3 files found: {total_files}")
+        print(f"\ntotal MP3 files found: {total_files}")
 
         processed_files = 0
         for root, dirs, files in os.walk(dir_path):
@@ -91,28 +91,28 @@ def main():
                 if file.endswith(".mp3"):
                     file_path = os.path.join(root, file)
                     processed_files += 1
-                    print(f"Processing file {processed_files}/{total_files}: {file_path}")
-                    logging.info(f'Processing file: {file_path}\n')
+                    print(f"processing file {processed_files}/{total_files}: {file_path}")
+                    logging.info(f'processing file: {file_path}\n')
 
                     audio = File(file_path)
                     artist_frame = audio.get("TPE2")
                     if artist_frame:
                         artist_name = artist_frame.text[0]
-                        logging.info(f'Artist found: {artist_name}\n')
+                        logging.info(f'artist found: {artist_name}\n')
                         genre_tag = get_genre_tags(artist_name)
                         if genre_tag:
                             audio["TCON"] = mutagen.id3.TCON(encoding=3, text=genre_tag)  # Using TCON from mutagen.id3
                             audio.save()
-                            print(f"Genre '{genre_tag}' added to {file_path}")
-                            logging.info(f'Genre {genre_tag} added to file {file_path}\n')
+                            print(f"genre '{genre_tag}' added to {file_path}")
+                            logging.info(f'genre {genre_tag} added to file {file_path}\n')
                             artist_list[artist_name] = genre_tag
                             save_artist_list(artist_list)
                         else:
-                            logging.warning(f'No genre found for artist {artist_name}, file: {file_path}\n')
-                            print(f"No genre found for {file_path}")
+                            logging.warning(f'no genre found for artist {artist_name}, file: {file_path}\n')
+                            print(f"no genre found for {file_path}")
                     else:
-                        logging.warning(f'No artist tag found in file: {file_path}\n')
-                        print(f"No artist tag found in {file_path}")
+                        logging.warning(f'no artist tag found in file: {file_path}\n')
+                        print(f"no artist tag found in {file_path}")
 
     process_directory(music_dir)
 

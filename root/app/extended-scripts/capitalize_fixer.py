@@ -17,7 +17,7 @@ def rename_to_lowercase(directory):
             new_dir_path = os.path.join(root, new_dir_name)
             if dir_path != new_dir_path:
                 os.rename(dir_path, new_dir_path)
-                logging.info(f'DIRECTORY RENAMED: {dir_path} -> {new_dir_path}\n')
+                logging.info(f'directory renamed: {dir_path} -> {new_dir_path}\n')
 
         for file_name in files:
             file_path = os.path.join(root, file_name)
@@ -25,7 +25,7 @@ def rename_to_lowercase(directory):
             new_file_path = os.path.join(root, new_file_name)
             if file_path != new_file_path:
                 os.rename(file_path, new_file_path)
-                logging.info(f'FILE RENAMED: {file_path} -> {new_file_path}\n')
+                logging.info(f'file renamed: {file_path} -> {new_file_path}\n')
 
 def format_first_letter(name):
     if not name:
@@ -58,9 +58,9 @@ def format_mp3_tags(directory):
                             tags_modified = True
                     if tags_modified:
                         tags.save()
-                        logging.info(f'TAGS FORMATTED: {file_path}\n')
+                        logging.info(f'tags formatted: {file_path}\n')
                 except Exception as e:
-                    logging.error(f'ERROR FORMATTING TAGS FOR FILE {file_path}: {e}\n')
+                    logging.error(f'error formatting tags for file {file_path}: {e}\n')
 
 def main():
     print("\nrunning directory and tag formatting...")
@@ -77,7 +77,7 @@ def main():
         format_mp3_tags(music_directory)
         print("directories and tags formatted.")
     else:
-        logging.error(f'MUSIC DIRECTORY NOT FOUND: {music_directory}\n')
+        logging.error(f'music directory not found: {music_directory}\n')
 
     print("directory and tag formatting successfully completed.")
 

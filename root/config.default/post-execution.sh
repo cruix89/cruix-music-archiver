@@ -5,6 +5,8 @@ downloads_dir="/downloads"
 music_dir="/music"
 cache_dir="/config/cache"
 logs_dir="/config/logs"
+recycle_bin_dir="/config/recycle-bin"
+unofficial_albums_dir="/config/unofficial-albums"
 
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
@@ -119,8 +121,10 @@ if [ -d "$downloads_dir" ]; then
 
   echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
 
-  find /config/recycle-bin -depth -mtime +6 -exec rm -rf {} \;
-  find /config/unofficial-albums -depth -mtime +6 -exec rm -rf {} \;
+  mkdir -p $recycle_bin_dir
+  mkdir -p $unofficial_albums_dir
+  find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
+  find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
 
 else
   echo -e "\noutput directory not found: $downloads_dir"

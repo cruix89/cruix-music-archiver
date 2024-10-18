@@ -2,23 +2,23 @@ import os
 import shutil
 import logging
 
-# ROOT DIRECTORY TO START THE SEARCH
+# root directory to start the search
 root_dir = os.path.abspath('/music')
 
-# NEW DESTINATION DIRECTORY
+# new destination directory
 dest_dir = os.path.abspath('/config/recycle-bin')
 
-# LOG DIRECTORY
+# log directory
 log_dir = os.path.abspath('/config/logs')
 os.makedirs(log_dir, exist_ok=True)
 
-# CONFIGURE LOGGING
+# configure logging
 log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 print("\nrecycling files without a corresponding audio file...")
 
-# SUPPORTED AUDIO FORMATS
+# supported audio formats
 audio_formats = (
     '.mp3', '.flac', '.wav', '.aac', '.m4a', '.ogg', '.wma', '.alac',
     '.aiff', '.opus', '.dsd', '.amr', '.ape', '.ac3', '.mp2', '.wv',
@@ -26,47 +26,47 @@ audio_formats = (
     '.w64', '.s8', '.u8'
 )
 
-# EXCLUDED FOLDERS
+# excluded folders
 excluded_folders = {'.stfolder', '.stversions', '.thumbnails'}
 
-# WALK THROUGH THE ROOT DIRECTORY
+# walk through the root directory
 total_files = 0
 moved_files = 0
 skipped_files = 0
 
 for dirpath, dirnames, filenames in os.walk(root_dir):
-    # Filter out excluded folders
+    # filter out excluded folders
     dirnames[:] = [d for d in dirnames if d not in excluded_folders]
 
-    # Create a set of audio files found in the directory
+    # create a set of audio files found in the directory
     audio_files = {os.path.splitext(f)[0] for f in filenames if f.lower().endswith(audio_formats)}
 
-    # FOR EACH FILE IN THE DIRECTORY
+    # for each file in the directory
     for filename in filenames:
-        # DEFINE THE FULL PATH FOR THE FILE
+        # define the full path for the file
         src_path = os.path.join(dirpath, filename)
         total_files += 1
 
-        # CHECK IF THERE IS A CORRESPONDING AUDIO FILE
+        # check if there is a corresponding audio file
         if os.path.splitext(filename)[0] not in audio_files:
-            # DEFINE THE DESTINATION PATH HERE
+            # define the destination path here
             dest_path = os.path.join(dest_dir, os.path.relpath(dirpath, root_dir), filename)
 
-            # TRY TO MOVE THE FILE
+            # try to move the file
             try:
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                 shutil.move(src_path, dest_path)
                 moved_files += 1
-                logging.info(f'FILE MOVED FROM {src_path} TO {dest_path}\n')
+                logging.info(f'file moved from {src_path} TO {dest_path}\n')
             except Exception as e:
-                logging.error(f'FAILED TO MOVE FILE FROM {src_path} TO {dest_path}: {e}\n')
+                logging.error(f'failed to move file from {src_path} TO {dest_path}: {e}\n')
         else:
             skipped_files += 1
-            logging.info(f'THE FILE {src_path} WAS SKIPPED BECAUSE A CORRESPONDING AUDIO FILE WAS FOUND\n')
+            logging.info(f'the file {src_path} was skipped because a corresponding audio file was found\n')
 
-# LOG FINAL SUMMARY
+# log final summary
 logging.info(
-    f'THE OPERATION WAS SUCCESSFULLY COMPLETED. TOTAL FILES PROCESSED: {total_files}, RECYCLED: {moved_files}, SKIPPED: {skipped_files}\n')
+    f'the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}\n')
 
-# PRINT FINAL SUMMARY TO TERMINAL
-print(f"files recycled successfully.\nTotal files processed: {total_files}, Recycled: {moved_files}, Skipped: {skipped_files}")
+# print final summary to terminal
+print(f"files recycled successfully.\ntotal files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}")

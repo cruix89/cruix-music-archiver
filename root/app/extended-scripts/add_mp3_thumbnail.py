@@ -13,11 +13,11 @@ def add_thumbnail_to_mp3(mp3_path: str, image_path: str) -> None:
             with open(image_path, 'rb') as img:
                 audiofile.tag.images.set(3, img.read(), 'image/jpeg')
             audiofile.tag.save()
-            logging.info(f'IMAGE {image_path} WAS SUCCESSFULLY ADDED TO MP3 FILE: {mp3_path}')
+            logging.info(f'image {image_path} was successfully added to MP3 file: {mp3_path}')
         else:
-            logging.warning(f'IMAGE {image_path} DOES NOT EXIST OR IS EMPTY')
+            logging.warning(f'image {image_path} does not exist or is empty')
     except Exception as exc:
-        logging.error(f'ERROR PROCESSING FILE: {mp3_path}: {str(exc)}')
+        logging.error(f'error processing file: {mp3_path}: {str(exc)}')
 
 def setup_directories() -> None:
     global music_directory, logs_directory

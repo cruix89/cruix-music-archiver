@@ -11,7 +11,7 @@ def main():
 
     logging.basicConfig(filename=os.path.join(logs_dir, "genre_fixer.log"), level=logging.DEBUG)
     print("\nformatting genre tags...")
-    logging.debug("FORMATTING GENRE TAGS...\n")
+    logging.debug("formatting genre tags...\n")
 
     for dirpath, _, filenames in os.walk(music_dir):
         for filename in filenames:
@@ -26,14 +26,14 @@ def main():
                         if formatted_genre != original_genre:
                             audiofile['TCON'].text[0] = formatted_genre
                             audiofile.save()
-                            logging.debug(f"GENRE TAG FORMATTED FOR FILE: {filename}")
-                            logging.debug(f"ORIGINAL GENRE: {original_genre}")
-                            logging.debug(f"FORMATTED GENRE: {formatted_genre}")
+                            logging.debug(f"genre tag formatted for file: {filename}")
+                            logging.debug(f"original genre: {original_genre}")
+                            logging.debug(f"formatted genre: {formatted_genre}")
                 except Exception as e:
-                    logging.error(f"ERROR PROCESSING FILE: {filename} - {str(e)}")
+                    logging.error(f"error processing file: {filename} - {str(e)}")
 
     print("genre tag formatting completed...")
-    logging.debug("GENRE TAG FORMATTING COMPLETED...\n")
+    logging.debug("genre tag formatting completed...\n")
 
 if __name__ == "__main__":
     main()

@@ -2,31 +2,31 @@ import os
 import shutil
 import logging
 
-# ABSOLUTE DIRECTORY PATHS
+# absolute directory paths
 logs_dir = "/config/logs"
 lists_dir = "/app/lists"
 music_dir = "/music"
 unofficial_albums_dir = "/config/unofficial-albums"
 
-# CREATE NECESSARY DIRECTORIES
+# create necessary directories
 for directory in [logs_dir, lists_dir, music_dir, unofficial_albums_dir]:
     os.makedirs(directory, exist_ok=True)
 
-# CONFIGURE LOGGING
+# configure logging
 logging.basicConfig(filename=os.path.join(logs_dir, "unofficial_albums_mover.log"), level=logging.INFO)
 
 print("\nmoving unofficial albums...")
 
-# READ THE FOLDER LIST FROM THE FILE
+# read the folder list from the file
 try:
     with open(os.path.join(lists_dir, "unofficial_albums.txt"), 'r', encoding='utf-8') as f:
         folders = [line.strip() for line in f if line.strip()]
 except FileNotFoundError:
-    logging.error("FILE unofficial_albums.txt NOT FOUND.")
-    print("ERROR: FILE NOT FOUND.")
+    logging.error("file unofficial_albums.txt not found.")
+    print("error: file not found.")
     exit(1)
 
-# WALK THROUGH THE DOWNLOAD DIRECTORY
+# walk through the download directory
 for root, dirs, files in os.walk(music_dir):
     for name in dirs:
         if name in folders:
@@ -37,8 +37,8 @@ for root, dirs, files in os.walk(music_dir):
                 if os.path.exists(destination):
                     shutil.rmtree(destination)
                 shutil.move(source, destination)
-                logging.info(f'THE ALBUM {name} WAS SUCCESSFULLY MOVED TO {destination}\n')
+                logging.info(f'the album {name} was successfully moved to {destination}\n')
             except Exception as e:
-                logging.error(f'ERROR MOVING ALBUM {name}: {e}\n')
+                logging.error(f'error moving album {name}: {e}\n')
 
 print("unofficial albums moved successfully.")
