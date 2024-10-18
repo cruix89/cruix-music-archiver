@@ -31,12 +31,15 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/wordnet_corpus_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/invalid_characters_remover.py
+  python3 /app/extended-scripts/downloads_invalid_characters_remover.py
 
   sleep '5'
   python3 /app/extended-scripts/downloads_mover.py
 
   # post-processing scripts in music folder
+
+  sleep '5'
+  python3 /app/extended-scripts/music_invalid_characters_remover.py
 
   sleep '5'
   umask "$UMASK"

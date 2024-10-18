@@ -98,7 +98,7 @@ if __name__ == "__main__":
 
     global_download_path = "/downloads"
     global_lists_path = "/app/lists"
-    log_path_absolute = "/config/logs/invalid_characters_remover.log"
+    log_path_absolute = "/config/logs/downloads_invalid_characters_remover.log"
 
     setup_logging(log_path_absolute)
     main(global_download_path, global_lists_path)
