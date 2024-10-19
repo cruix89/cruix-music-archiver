@@ -11,7 +11,7 @@ unofficial_albums_dir="/config/unofficial-albums"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "\ncleaning cache files in directory:$cache_dir , $downloads_dir and $music_dir"
+  echo -e "\ncleaning cache files in directory's: $cache_dir and $downloads_dir"
 
   sleep '5'
   mkdir -p $cache_dir
