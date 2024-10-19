@@ -11,7 +11,7 @@ unofficial_albums_dir="/config/unofficial-albums"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "\ncleaning cache files in directory's: /cache , /logs and /downloads"
+  echo -e "\ncleaning cache files in directory's: /cache /logs /downloads"
 
   sleep '5'
   mkdir -p $cache_dir
@@ -21,7 +21,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$downloads_dir" -mindepth 1 -type d -empty -delete
 
-  echo -e "executing post-processing scripts for the music library update\n"
+  echo -e "executing post-processing scripts for the music library update"
 
   # post-processing scripts in downloads folder
 
