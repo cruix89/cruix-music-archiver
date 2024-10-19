@@ -11,7 +11,7 @@ unofficial_albums_dir="/config/unofficial-albums"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "\ncleaning cache files in directory's: $cache_dir and $downloads_dir"
+  echo -e "\ncleaning cache files in directory's: /cache , /logs and /downloads"
 
   sleep '5'
   mkdir -p $cache_dir
@@ -28,9 +28,6 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   mkdir -p $logs_dir
   find $logs_dir -type f -delete
-
-  sleep '5'
-  python3 /app/extended-scripts/wordnet_corpus_downloader.py
 
   sleep '5'
   python3 /app/extended-scripts/downloads_invalid_characters_remover.py
