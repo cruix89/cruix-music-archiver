@@ -31,11 +31,11 @@ validate_directory() {
     return 0
 }
 
-# Function to find the closest image to 544x544
+# Function to find the highest resolution image
 find_best_image() {
     local image_dir="$1"
     local best_image=""
-    local best_diff=99999
+    local max_resolution=0
 
     # Check all supported image files
     for image in "$image_dir"/*.{jpg,jpeg,png,webp}; do
@@ -46,9 +46,9 @@ find_best_image() {
             height=$(echo "$dimensions" | cut -d'x' -f2)
 
             if [[ -n "$width" && -n "$height" ]]; then
-                diff=$(( (width - 544) ** 2 + (height - 544) ** 2 ))
-                if [[ $diff -lt $best_diff ]]; then
-                    best_diff=$diff
+                resolution=$(( width * height ))
+                if [[ $resolution -gt $max_resolution ]]; then
+                    max_resolution=$resolution
                     best_image="$image"
                 fi
             fi
@@ -56,6 +56,27 @@ find_best_image() {
     done
 
     echo "$best_image"
+}
+
+# Function to crop image to square, keeping the center
+crop_image_to_square() {
+    local image="$1"
+    local destination="$2"
+
+    # Use ImageMagick to crop the image
+    dimensions=$(identify -format "%wx%h" "$image" 2>/dev/null)
+    width=$(echo "$dimensions" | cut -d'x' -f1)
+    height=$(echo "$dimensions" | cut -d'x' -f2)
+
+    # Determine the size of the square (smallest dimension)
+    if [[ $width -gt $height ]]; then
+        crop_size=$height
+    else
+        crop_size=$width
+    fi
+
+    # Perform the crop using the center of the image
+    convert "$image" -gravity Center -crop "${crop_size}x${crop_size}+0+0" +repage "$destination"
 }
 
 # Function to copy the source file to the destination
@@ -103,10 +124,11 @@ process_directory() {
             log "best image found: $best_image"
             for audio_file in "${audio_files[@]}"; do
                 audio_name=$(basename "$audio_file" | sed 's/\.[^.]*$//')
-                # if the audio file does not have a corresponding image, copy the best image
+                # if the audio file does not have a corresponding image, crop and copy the best image
                 if [[ ! -f "$sub_dir/$audio_name.jpg" ]]; then
                     destination="$sub_dir/$audio_name.jpg"
-                    copy_file "$best_image" "$destination"
+                    crop_image_to_square "$best_image" "$destination"
+                    log "image cropped and copied: $best_image TO $destination"
                 fi
             done
         else
