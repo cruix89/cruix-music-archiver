@@ -114,6 +114,12 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/jellyfin_artist_downloader.py
 
   sleep '5'
+  python3 /app/extended-scripts/poweramp_album_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/poweramp_artist_downloader.py
+
+  sleep '5'
   python3 /app/extended-scripts/add_mp3_thumbnail.py
 
   echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"

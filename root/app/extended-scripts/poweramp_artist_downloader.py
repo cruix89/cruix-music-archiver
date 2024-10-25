@@ -21,11 +21,11 @@ def setup_directories():
 
 
 def main():
-    print("\nsetting up jellyfin artist image...")
+    print("\nsetting up poweramp artist image...")
 
     # logging setup
     music_dir, deezer_db_dir, log_dir = setup_directories()
-    logging.basicConfig(filename=os.path.join(log_dir, 'jellyfin_artist_downloader.log'), level=logging.DEBUG)
+    logging.basicConfig(filename=os.path.join(log_dir, 'poweramp_artist_downloader.log'), level=logging.DEBUG)
 
     logging.debug(f"music_dir: {music_dir}\n")
     logging.debug(f"deezer_db_dir: {deezer_db_dir}\n")
@@ -60,7 +60,7 @@ def main():
                                     response.raise_for_status()
                                     img = Image.open(BytesIO(response.content))
                                     img = img.resize((700, 700))
-                                    img.save(os.path.join(music_dir, folder, "folder.jpg"))
+                                    img.save(os.path.join(music_dir, folder, "cover.jpg"))
                                     logging.info(f'artist image downloaded and saved for {folder}\n')
                                     break
                                 except requests.exceptions.RequestException as e:
@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("jellyfin artist image set up successfully.\n")
+    print("poweramp artist image set up successfully.\n")
 
 
 if __name__ == "__main__":

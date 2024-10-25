@@ -19,10 +19,10 @@ def setup_directories():
 # call the function to set up directories
 logs_directory, music_directory = setup_directories()
 
-print("\nconfiguring jellyfin album covers...")
+print("\nconfiguring poweramp album covers...")
 
 # set up logging
-log_filename = os.path.join(logs_directory, 'jellyfin_album_downloader.log')
+log_filename = os.path.join(logs_directory, 'poweramp_album_downloader.log')
 logging.basicConfig(filename=log_filename, level=logging.INFO)
 
 
@@ -37,7 +37,7 @@ def copy_first_jpg(directory):
                 if file.endswith('.jpg'):
                     # ensure root and file are treated as strings
                     source = os.path.join(root, file)  # construct source path (where the file was found)
-                    destination = os.path.join(root, 'folder.jpg')  # construct destination path in same folder
+                    destination = os.path.join(root, 'albumart.jpg')  # construct destination path in same folder
 
                     if not os.path.exists(destination):
                         shutil.copy2(source, destination)  # copy to the same directory
@@ -54,4 +54,4 @@ def copy_first_jpg(directory):
 # execute the function to copy .JPG files
 copy_first_jpg(music_directory)
 
-print("jellyfin album covers configured successfully.")
+print("poweramp album covers configured successfully.")
