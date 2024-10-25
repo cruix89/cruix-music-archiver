@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("jellyfin artist image set up successfully.\n")
+    print("jellyfin artist image set up successfully.")
 
 
 if __name__ == "__main__":
