@@ -19,7 +19,7 @@ load_normalized_list() {
         touch "$normalized_list_file"
     fi
     mapfile -t normalized_files < "$normalized_list_file"
-    echo -e "\nnumber of already normalized files in cache: ${#normalized_files[@]}"
+    echo -e "\nnumber of normalized files in cache: ${#normalized_files[@]}"
 }
 
 # function to save to the normalized list
@@ -63,6 +63,8 @@ main() {
 
     local log_file="$normalized_log_dir/loudnorm.log"
     local skipped_files=0
+    local max_attempts=25
+    declare -A attempt_count  # associative array to track attempts for each file
 
     # ensure the cache directory exists
     if [[ ! -d "$cache_dir" ]]; then
@@ -71,7 +73,7 @@ main() {
     fi
 
     while true; do
-        # collect an unnormalized audio file
+        # collect an rough audio file
         local src_file
         src_file=$(find "/music" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" -o -name "*.aac" -o -name "*.m4a" -o -name "*.ogg" -o -name "*.wma" -o -name "*.alac" -o -name "*.aiff" -o -name "*.opus" -o -name "*.dsd" -o -name "*.amr" -o -name "*.ape" -o -name "*.ac3" -o -name "*.mp2" -o -name "*.wv" -o -name "*.m4b" -o -name "*.mka" -o -name "*.spx" -o -name "*.caf" -o -name "*.snd" -o -name "*.gsm" -o -name "*.tta" -o -name "*.voc" -o -name "*.w64" -o -name "*.s8" -o -name "*.u8" \) ! -exec grep -qx {} "$normalized_list_file" \; -print -quit)
 
@@ -87,6 +89,17 @@ main() {
             continue
         fi
 
+        # increment attempt count for the current file
+        attempt_count["$src_file"]=$((attempt_count["$src_file"] + 1))
+
+        # if the file has been attempted max_attempts times, delete it
+        if [[ ${attempt_count["$src_file"]} -gt $max_attempts ]]; then
+            echo "deleting $src_file after $max_attempts unsuccessful attempts."
+            rm -f "$src_file"
+            continue
+        fi
+
+        # process the file
         process_file "$src_file" "$log_file"
     done
 
