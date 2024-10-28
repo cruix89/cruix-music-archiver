@@ -67,9 +67,14 @@ move_to_recycle_bin() {
     dest_dir=$(dirname "$dest_file")
     mkdir -p "$dest_dir"
 
-    # move the file
-    mv "$src_file" "$dest_file"
-    echo "moved $src_file to recycle bin: $dest_file"
+    # copy the file to the recycle bin
+    if cp "$src_file" "$dest_file"; then
+        # remove the original file after copying
+        rm -f "$src_file"
+        echo "copied and removed $src_file to recycle bin: $dest_file"
+    else
+        echo "failed to copy $src_file to recycle bin: $dest_file"
+    fi
 }
 
 # main function
