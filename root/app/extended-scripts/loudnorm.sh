@@ -4,6 +4,7 @@
 normalized_log_dir="${normalized_log_dir:-/config/logs}"
 normalized_list_file="${normalized_list_file:-/config/loudnorm_cache.txt}"
 cache_dir="/config/cache"
+recycle_bin_dir="/config/recycle-bin"
 
 # function to check if ffmpeg is installed
 check_ffmpeg() {
@@ -56,6 +57,21 @@ process_file() {
     fi
 }
 
+# function to move file to recycle bin, preserving directory structure
+move_to_recycle_bin() {
+    local src_file="$1"
+    local dest_file="${recycle_bin_dir}${src_file}"
+    local dest_dir
+
+    # create the directory structure in the recycle bin
+    dest_dir=$(dirname "$dest_file")
+    mkdir -p "$dest_dir"
+
+    # move the file
+    mv "$src_file" "$dest_file"
+    echo "moved $src_file to recycle bin: $dest_file"
+}
+
 # main function
 main() {
     check_ffmpeg
@@ -70,6 +86,12 @@ main() {
     if [[ ! -d "$cache_dir" ]]; then
         mkdir -p "$cache_dir"
         echo "created cache directory: $cache_dir"
+    fi
+
+    # ensure the recycle bin directory exists
+    if [[ ! -d "$recycle_bin_dir" ]]; then
+        mkdir -p "$recycle_bin_dir"
+        echo "created recycle bin directory: $recycle_bin_dir"
     fi
 
     while true; do
@@ -92,10 +114,10 @@ main() {
         # increment attempt count for the current file
         attempt_count["$src_file"]=$((attempt_count["$src_file"] + 1))
 
-        # if the file has been attempted max_attempts times, delete it
+        # if the file has been attempted max_attempts times, move it to recycle bin
         if [[ ${attempt_count["$src_file"]} -gt $max_attempts ]]; then
-            echo "deleting $src_file after $max_attempts unsuccessful attempts."
-            rm -f "$src_file"
+            echo "moving $src_file to recycle bin after $max_attempts unsuccessful attempts."
+            move_to_recycle_bin "$src_file"
             continue
         fi
 
