@@ -5,6 +5,7 @@ normalized_log_dir="${normalized_log_dir:-/config/logs}"
 normalized_list_file="${normalized_list_file:-/config/loudnorm_cache.txt}"
 cache_dir="/config/cache"
 recycle_bin_dir="/config/recycle-bin"
+failed_log_file="$normalized_log_dir/loudnorm_failed_files.log"  # log file for failed files
 
 # function to check if ffmpeg is installed
 check_ffmpeg() {
@@ -72,6 +73,8 @@ move_to_recycle_bin() {
         # remove the original file after copying
         rm -f "$src_file"
         echo "copied and removed $src_file to recycle bin: $dest_file"
+        # log the file path to loudnorm_failed_files.log
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - moved to recycle bin: $src_file" >> "$failed_log_file"
     else
         echo "failed to copy $src_file to recycle bin: $dest_file"
     fi
