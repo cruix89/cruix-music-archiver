@@ -5,7 +5,7 @@ normalized_log_dir="${normalized_log_dir:-/config/logs}"
 normalized_list_file="${normalized_list_file:-/config/loudnorm_cache.txt}"
 cache_dir="/config/cache"
 recycle_bin_dir="/config/recycle-bin"
-failed_log_file="$normalized_log_dir/loudnorm_failed_files.log"  # log file for failed files
+failed_log_file="/config/loudnorm_failed_cache.txt"  # log file for failed files
 
 # function to check if ffmpeg is installed
 check_ffmpeg() {
