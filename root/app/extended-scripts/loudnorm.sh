@@ -84,7 +84,7 @@ main() {
 
     local log_file="$normalized_log_dir/loudnorm.log"
     local skipped_files=0
-    local max_attempts=25
+    local max_attempts=999
     declare -A attempt_count  # associative array to track attempts for each file
 
     # ensure the cache directory exists
