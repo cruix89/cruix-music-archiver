@@ -2,7 +2,7 @@ import os
 import shutil
 import re
 
-print("moving downloads to music library...")
+print("moving folders from /downloads to /music library...\n")
 
 def normalize_folder_name(folder_name):
     """normalizes the folder name, removing spaces, underscores and numeric suffixes, converting it to lowercase."""
@@ -61,4 +61,4 @@ for folder in os.listdir(downloads_dir):
         except Exception as e:
             print(f'error removing folder {folder_path}: {e}')
 
-print('process completed.')
+print('\nmoving completed successfully.')

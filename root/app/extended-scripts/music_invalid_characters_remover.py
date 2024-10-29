@@ -12,7 +12,7 @@ def setup_logging( log_file ):
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 # fixed print in terminal
-print("\nremoving invalid characters...")
+print("\nremoving invalid characters from /music...")
 
 def load_invalid_characters( file_path ):
     try:
