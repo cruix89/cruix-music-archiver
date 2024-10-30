@@ -61,4 +61,4 @@ for folder in os.listdir(downloads_dir):
         except Exception as e:
             print(f'error removing folder {folder_path}: {e}')
 
-print('\nmoving completed successfully.')
+print('\nmover completed successfully.')

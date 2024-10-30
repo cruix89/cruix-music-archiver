@@ -1,8 +1,6 @@
 import os
 import eyed3
 import logging
-import re
-
 
 def setup_directories():
     try:
@@ -14,20 +12,18 @@ def setup_directories():
         logging.error(f'error setting up directories: {error}\n')
         raise
 
-
 def rename_file(file_path, new_file_path):
     try:
+        # Converte o nome completo para letras minúsculas, mantendo a extensão original
         base, extension = os.path.splitext(new_file_path)
-        new_file_path = re.sub(r'(_\d+)?(\.\w+)$', extension, base) + extension
-        os.rename(file_path, new_file_path)
+        new_file_name = base + extension
+        os.rename(file_path, new_file_name)
     except Exception as error:
         logging.error(f'error renaming file: {error}\n')
         raise
 
-
 def is_mp3(file_name):
     return file_name.lower().endswith('.mp3')
-
 
 def capitalize_words(text, lowercase_terms):
     words = text.split()
@@ -42,18 +38,15 @@ def capitalize_words(text, lowercase_terms):
             formatted_words.append(word.lower())
     return ' '.join(formatted_words)
 
-
 def format_name(name, lowercase_terms):
     if name:
         return capitalize_words(name, lowercase_terms)
     return name
 
-
 def format_file_name(name):
     if name:
         return name.lower()
     return name
-
 
 def process_mp3_tags(file_path, lowercase_terms):
     audiofile = eyed3.load(file_path)
@@ -66,7 +59,6 @@ def process_mp3_tags(file_path, lowercase_terms):
     if audiofile.tag.album_artist:
         audiofile.tag.album_artist = format_name(audiofile.tag.album_artist, lowercase_terms)
     audiofile.tag.save()
-
 
 def rename_files_and_folders(directory):
     for root, dirs, files in os.walk(directory, topdown=False):
@@ -86,7 +78,6 @@ def rename_files_and_folders(directory):
                 rename_file(old_folder_path, new_folder_path)
                 logging.info(f'folder renamed: {old_folder_path} -> {new_folder_path}\n')
 
-
 def update_tags_and_rename(directory, lowercase_terms):
     try:
         logging.info("formatting tags and directories...\n")
@@ -103,7 +94,6 @@ def update_tags_and_rename(directory, lowercase_terms):
     except Exception as error:
         logging.error(f'error formatting tags, files, and folders: {error}\n')
         raise
-
 
 # CONFIGURE LOGGING
 try:
