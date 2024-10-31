@@ -136,6 +136,7 @@ process_directory() {
         fi
     done
 
+    log ""
     log "process completed in directory: $directory"
 }
 

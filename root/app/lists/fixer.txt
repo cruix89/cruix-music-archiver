@@ -25,3 +25,7 @@ bilhete_ii|bilhete_2
 bilhete_iii|bilhete_3
 Aff|AFF
 Bicho de 7 Cabeças / a Culpa é das Igrejas|Bicho de 7 Cabeças / A Culpa é das Igrejas
+bilhete_1i|bilhete_2
+bilhete_1ii|bilhete_3
+X.t.|X.T.
+Rj|RJ
