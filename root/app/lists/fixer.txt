@@ -29,3 +29,7 @@ bilhete_1i|bilhete_2
 bilhete_1ii|bilhete_3
 X.t.|X.T.
 Rj|RJ
+bilhete_2i|bilhete_3
+5am Rj|5Am RJ
+5am rj|5Am RJ
+Teoria do Ciclo da água|Teoria do Ciclo da Água
