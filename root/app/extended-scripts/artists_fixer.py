@@ -35,7 +35,12 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         # replace ',' with '/' in the tag if it exists and capitalize the first letter of each word
         if current_tag:
             current_tag_text = current_tag.text[0]
-            modified_tag_text = current_tag_text.replace(',', '/').title()  # capitalize each word
+            # Split the string into parts using '/' as the delimiter
+            entries = current_tag_text.split('/')  # Separate into parts
+            # Format each part (capitalize the first letter of each word)
+            formatted_entries = [entry.strip().title() for entry in entries]
+            modified_tag_text = ' / '.join(formatted_entries)  # Rejoin the parts with ' / ' as the separator
+
             logging.debug(f"Current '{tag_name}' tag: '{current_tag_text}' - Modified to: '{modified_tag_text}'")
 
             # update tag only if it was modified
@@ -49,10 +54,12 @@ def update_tag(file_path, tag_class, tag_name, replacements):
             for old, new in replacements:
                 if current_tag.text[0] == old:
                     modified_replacement_text = new.title()  # capitalize each word in replacement text
-                    logging.debug(f"Replacing '{tag_name}' from '{old}' to '{modified_replacement_text}' in file: '{file_path}'")
+                    logging.debug(
+                        f"Replacing '{tag_name}' from '{old}' to '{modified_replacement_text}' in file: '{file_path}'")
                     audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
                     audiofile.save()  # save the changes
-                    logging.debug(f"Tag '{tag_name}' in '{file_path}' successfully replaced to '{modified_replacement_text}'")
+                    logging.debug(
+                        f"Tag '{tag_name}' in '{file_path}' successfully replaced to '{modified_replacement_text}'")
                     return audiofile.get(tag_name)
     except FileNotFoundError as e:
         logging.error(f"Error updating tag in '{file_path}': {e}")
@@ -63,7 +70,8 @@ def update_tag(file_path, tag_class, tag_name, replacements):
             modified_replacement_text = replacements[0][1].title()  # capitalize each word
             audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
             audiofile.save(file_path)  # save the new file
-            logging.debug(f"New ID3 header created in '{file_path}' with '{tag_name}' set to '{modified_replacement_text}'")
+            logging.debug(
+                f"New ID3 header created in '{file_path}' with '{tag_name}' set to '{modified_replacement_text}'")
         else:
             logging.error(f"Error updating tag in '{file_path}': {e}")
     return None
