@@ -42,8 +42,8 @@ def update_tag(file_path, tag_class, tag_name, replacements):
             entries = current_tag_text.split('/')  # Split the string by '/'
             logging.debug(f"Current tag entries: {entries}")
 
-            # Capitalize each entry and strip whitespace
-            formatted_entries = [entry.strip().title() for entry in entries]
+            # Capitalize each entry, strip whitespace, and remove apostrophes
+            formatted_entries = [entry.strip().title().replace("'", "") for entry in entries]
             modified_tag_text = ' / '.join(formatted_entries)  # Join the formatted entries
             logging.debug(f"Modified tag text: '{modified_tag_text}'")
 
