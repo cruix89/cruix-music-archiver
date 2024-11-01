@@ -49,7 +49,7 @@ def main():
     replacements_path = os.path.join(LISTS_DIR, 'artists.txt')
     replacements = load_replacements(replacements_path)
 
-    print("\nformatting artist tags in files...")
+    print("formatting artist tags in files...")
     logging.debug("formatting artist tags in files...")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
