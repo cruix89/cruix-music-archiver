@@ -29,13 +29,13 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         if current_tag:
             modified_segments = []
             for segment in current_tag.text[0].split('/'):
-                segment = segment.strip()
+                segment = segment.strip().upper()  # capitalize the segment to uppercase
 
                 # apply replacements for each segment
                 for old, new in replacements:
-                    if segment == old:
+                    if segment == old.upper():  # also check the replacement in uppercase
                         logging.debug(f"replacing segment '{segment}' with '{new}' in file: {file_path}\n")
-                        segment = new
+                        segment = new.upper()  # change the new segment to uppercase if needed
                         break
                 modified_segments.append(segment)
 
@@ -50,7 +50,7 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         if "no ID3 header found" in str(e):
             logging.warning(f"no ID3 header found in '{file_path}'. creating a new ID3 header.\n")
             audiofile = ID3()  # create a new ID3 instance
-            audiofile[tag_name] = tag_class(encoding=3, text=replacements[0][1])  # set the new tag
+            audiofile[tag_name] = tag_class(encoding=3, text=replacements[0][1].upper())  # set the new tag in uppercase
             audiofile.save(file_path)  # save the new file
         else:
             logging.error(f"Error updating tag in '{file_path}': {e}\n")
