@@ -1,5 +1,6 @@
 import os
 import logging
+import re
 from mutagen.id3 import ID3
 import mutagen.id3
 
@@ -20,37 +21,42 @@ def load_replacements(replacements_path):
         return [line.strip().split('|') for line in f.readlines() if line.strip()]
 
 
+def capitalize_words(text):
+    return ' '.join(word.capitalize() for word in text.split())
+
+
 def update_tag(file_path, tag_class, tag_name, replacements):
     try:
         audiofile = ID3(file_path)  # load the audio file
         current_tag = audiofile.get(tag_name)  # get the current tag
 
-        # process each substring separated by '/' in the tag
+        # replace ',' and '/' with '/' and split by delimiters
         if current_tag:
-            modified_segments = []
-            for segment in current_tag.text[0].split('/'):
-                segment = segment.strip().upper()  # capitalize the segment to uppercase
-
-                # apply replacements for each segment
-                for old, new in replacements:
-                    if segment == old.upper():  # also check the replacement in uppercase
-                        logging.debug(f"replacing segment '{segment}' with '{new}' in file: {file_path}\n")
-                        segment = new.upper()  # change the new segment to uppercase if needed
-                        break
-                modified_segments.append(segment)
-
-            # join modified segments with '/'
-            modified_tag_text = '/'.join(modified_segments)
+            current_tag_text = current_tag.text[0]
+            # Replace ',' and '/' with '/' and split by the defined delimiters
+            modified_tag_text = re.split(r'[ ,/]+|(?:featuring|feat\.?|feat)', current_tag_text, flags=re.IGNORECASE)
+            # Join the modified tag back with '/' as delimiter
+            modified_tag_text = '/'.join([part.strip() for part in modified_tag_text if part.strip()])
+            # Capitalize the first letter of each word
+            modified_tag_text = capitalize_words(modified_tag_text)
             audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
             audiofile.save()
 
+        # continue with original replacement logic
+        if current_tag:
+            for old, new in replacements:
+                if current_tag.text[0] == old:
+                    logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{new}' in file: {file_path}\n")
+                    audiofile[tag_name] = tag_class(encoding=3, text=new)  # create a new tag instance
+                    audiofile.save()  # save the changes
+                    return audiofile.get(tag_name)
     except FileNotFoundError as e:
         logging.error(f"error updating tag in '{file_path}': {e}\n")
     except Exception as e:
         if "no ID3 header found" in str(e):
             logging.warning(f"no ID3 header found in '{file_path}'. creating a new ID3 header.\n")
             audiofile = ID3()  # create a new ID3 instance
-            audiofile[tag_name] = tag_class(encoding=3, text=replacements[0][1].upper())  # set the new tag in uppercase
+            audiofile[tag_name] = tag_class(encoding=3, text=replacements[0][1])  # set the new tag
             audiofile.save(file_path)  # save the new file
         else:
             logging.error(f"Error updating tag in '{file_path}': {e}\n")
