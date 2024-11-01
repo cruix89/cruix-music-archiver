@@ -25,22 +25,25 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         audiofile = ID3(file_path)  # load the audio file
         current_tag = audiofile.get(tag_name)  # get the current tag
 
-        # replace ',' with '/' in the tag if it exists
+        # process each substring separated by '/' in the tag
         if current_tag:
-            current_tag_text = current_tag.text[0]
-            if ',' in current_tag_text:
-                modified_tag_text = current_tag_text.replace(',', '/')
-                audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
-                audiofile.save()
+            modified_segments = []
+            for segment in current_tag.text[0].split('/'):
+                segment = segment.strip()
 
-        # continue with original replacement logic
-        if current_tag:
-            for old, new in replacements:
-                if current_tag.text[0] == old:
-                    logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{new}' in file: {file_path}\n")
-                    audiofile[tag_name] = tag_class(encoding=3, text=new)  # create a new tag instance
-                    audiofile.save()  # save the changes
-                    return audiofile.get(tag_name)
+                # apply replacements for each segment
+                for old, new in replacements:
+                    if segment == old:
+                        logging.debug(f"replacing segment '{segment}' with '{new}' in file: {file_path}\n")
+                        segment = new
+                        break
+                modified_segments.append(segment)
+
+            # join modified segments with '/'
+            modified_tag_text = '/'.join(modified_segments)
+            audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
+            audiofile.save()
+
     except FileNotFoundError as e:
         logging.error(f"error updating tag in '{file_path}': {e}\n")
     except Exception as e:
