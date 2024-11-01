@@ -35,6 +35,10 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         # Check if the current tag exists and split it by '/'
         if current_tag:
             current_tag_text = current_tag.text[0]
+
+            # Remove apostrophes from the current tag text
+            current_tag_text = current_tag_text.replace("'", "")  # Remove all apostrophes
+
             entries = current_tag_text.split('/')  # Split the string by '/'
             logging.debug(f"Current tag entries: {entries}")
 
@@ -54,10 +58,12 @@ def update_tag(file_path, tag_class, tag_name, replacements):
             for old, new in replacements:
                 if current_tag.text[0] == old:
                     modified_replacement_text = new.title()  # capitalize each word in replacement text
-                    logging.debug(f"Replacing '{tag_name}' from '{old}' to '{modified_replacement_text}' in file: '{file_path}'")
+                    logging.debug(
+                        f"Replacing '{tag_name}' from '{old}' to '{modified_replacement_text}' in file: '{file_path}'")
                     audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
                     audiofile.save()  # save the changes
-                    logging.debug(f"Tag '{tag_name}' in '{file_path}' successfully replaced to '{modified_replacement_text}'")
+                    logging.debug(
+                        f"Tag '{tag_name}' in '{file_path}' successfully replaced to '{modified_replacement_text}'")
                     return audiofile.get(tag_name)
     except FileNotFoundError as e:
         logging.error(f"Error updating tag in '{file_path}': {e}")
@@ -68,7 +74,8 @@ def update_tag(file_path, tag_class, tag_name, replacements):
             modified_replacement_text = replacements[0][1].title()  # capitalize each word
             audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
             audiofile.save(file_path)  # save the new file
-            logging.debug(f"New ID3 header created in '{file_path}' with '{tag_name}' set to '{modified_replacement_text}'")
+            logging.debug(
+                f"New ID3 header created in '{file_path}' with '{tag_name}' set to '{modified_replacement_text}'")
         else:
             logging.error(f"Error updating tag in '{file_path}': {e}")
     return None
