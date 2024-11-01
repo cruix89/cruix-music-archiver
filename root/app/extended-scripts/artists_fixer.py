@@ -25,19 +25,23 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         audiofile = ID3(file_path)  # load the audio file
         current_tag = audiofile.get(tag_name)  # get the current tag
 
-        # replace ',' and '/' with '/' in the tag if it exists
+        # replace ',' with '/' in the tag if it exists and capitalize the first letter of each word
         if current_tag:
             current_tag_text = current_tag.text[0]
-            modified_tag_text = current_tag_text.replace(',', '/').replace('/', '/')
-            audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
-            audiofile.save()
+            modified_tag_text = current_tag_text.replace(',', '/').title()  # capitalize each word
+
+            # update tag only if it was modified
+            if modified_tag_text != current_tag_text:
+                audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
+                audiofile.save()
 
         # continue with original replacement logic
         if current_tag:
             for old, new in replacements:
                 if current_tag.text[0] == old:
-                    logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{new}' in file: {file_path}\n")
-                    audiofile[tag_name] = tag_class(encoding=3, text=new)  # create a new tag instance
+                    modified_replacement_text = new.title()  # capitalize each word in replacement text
+                    logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{modified_replacement_text}' in file: {file_path}\n")
+                    audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
                     audiofile.save()  # save the changes
                     return audiofile.get(tag_name)
     except FileNotFoundError as e:
@@ -46,10 +50,11 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         if "no ID3 header found" in str(e):
             logging.warning(f"no ID3 header found in '{file_path}'. creating a new ID3 header.\n")
             audiofile = ID3()  # create a new ID3 instance
-            audiofile[tag_name] = tag_class(encoding=3, text=replacements[0][1])  # set the new tag
+            modified_replacement_text = replacements[0][1].title()  # capitalize each word
+            audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
             audiofile.save(file_path)  # save the new file
         else:
-            logging.error(f"Error updating tag in '{file_path}': {e}\n")
+            logging.error(f"error updating tag in '{file_path}': {e}\n")
     return None
 
 
