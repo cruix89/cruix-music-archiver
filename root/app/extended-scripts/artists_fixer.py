@@ -3,106 +3,77 @@ import logging
 from mutagen.id3 import ID3
 import mutagen.id3
 
-# define absolute paths for directories
+# Define absolute paths for directories
 LOGS_DIR = '/config/logs'
 LISTS_DIR = '/app/lists'
 MUSIC_DIR = '/music'
 
-# create directories if they do not exist
+# Create directories if they do not exist
 for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:
     if not os.path.exists(path):
         os.makedirs(path)
 
-
-def load_replacements(replacements_path):
-    absolute_path = os.path.abspath(replacements_path)
-    replacements = []
+def load_characters(characters_path):
+    absolute_path = os.path.abspath(characters_path)
+    characters = []
     with open(absolute_path, 'r', encoding='utf-8') as f:
         for line in f:
-            if line.strip():
-                old, new = line.strip().split('|')
-                replacements.append((old, new))
-                logging.debug(f"Loaded replacement - old: '{old}', new: '{new}'")  # Log each loaded replacement
-    return replacements
+            char = line.strip()  # Read single character from each line
+            if char:  # Ensure it's not empty
+                characters.append(char)
+                logging.debug(f"Loaded character for removal: '{char}'")  # Log each loaded character
+    return characters
 
-
-def update_tag(file_path, tag_class, tag_name, replacements):
+def remove_characters_from_artist_tag(file_path, tag_class, tag_name, characters):
     try:
-        logging.debug(f"Attempting to update tag '{tag_name}' in file: '{file_path}'")
-        audiofile = ID3(file_path)  # load the audio file
-        current_tag = audiofile.get(tag_name)  # get the current tag
+        logging.debug(f"Attempting to update artist tag in file: '{file_path}'")
+        audiofile = ID3(file_path)  # Load the audio file
+        current_tag = audiofile.get(tag_name)  # Get the current artist tag (TPE1)
 
-        # Check if the current tag exists and split it by '/'
+        # Check if the artist tag exists
         if current_tag:
             current_tag_text = current_tag.text[0]
+            logging.debug(f"Current artist tag text before removal: '{current_tag_text}'")
 
-            # Remove apostrophes from the current tag text
-            current_tag_text = current_tag_text.replace("'", "")  # Remove all apostrophes
+            # Remove specified characters from the current artist tag text
+            for char in characters:
+                current_tag_text = current_tag_text.replace(char, '')  # Remove the character
 
-            entries = current_tag_text.split('/')  # Split the string by '/'
-            logging.debug(f"Current tag entries: {entries}")
+            current_tag_text = current_tag_text.strip()  # Strip any leading/trailing whitespace
+            logging.debug(f"Modified artist tag text after removal: '{current_tag_text}'")
 
-            # Capitalize each entry, strip whitespace, and remove apostrophes
-            formatted_entries = [entry.strip().title().replace("'", "") for entry in entries]
-            modified_tag_text = ' / '.join(formatted_entries)  # Join the formatted entries
-            logging.debug(f"Modified tag text: '{modified_tag_text}'")
-
-            # Update tag only if it was modified
-            if modified_tag_text != current_tag_text:
-                audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
+            # Update the artist tag only if it was modified
+            if current_tag_text:
+                audiofile[tag_name] = tag_class(encoding=3, text=current_tag_text)
                 audiofile.save()
-                logging.debug(f"Updated '{tag_name}' tag in '{file_path}' to '{modified_tag_text}'")
+                logging.debug(f"Updated artist tag in '{file_path}' to '{current_tag_text}'")
 
-        # continue with original replacement logic
-        if current_tag:
-            for old, new in replacements:
-                if current_tag.text[0] == old:
-                    modified_replacement_text = new.title()  # capitalize each word in replacement text
-                    logging.debug(
-                        f"Replacing '{tag_name}' from '{old}' to '{modified_replacement_text}' in file: '{file_path}'")
-                    audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
-                    audiofile.save()  # save the changes
-                    logging.debug(
-                        f"Tag '{tag_name}' in '{file_path}' successfully replaced to '{modified_replacement_text}'")
-                    return audiofile.get(tag_name)
     except FileNotFoundError as e:
-        logging.error(f"Error updating tag in '{file_path}': {e}")
+        logging.error(f"Error updating artist tag in '{file_path}': {e}")
     except Exception as e:
-        if "no ID3 header found" in str(e):
-            logging.warning(f"No ID3 header found in '{file_path}'. Creating a new ID3 header.")
-            audiofile = ID3()  # create a new ID3 instance
-            modified_replacement_text = replacements[0][1].title()  # capitalize each word
-            audiofile[tag_name] = tag_class(encoding=3, text=modified_replacement_text)
-            audiofile.save(file_path)  # save the new file
-            logging.debug(
-                f"New ID3 header created in '{file_path}' with '{tag_name}' set to '{modified_replacement_text}'")
-        else:
-            logging.error(f"Error updating tag in '{file_path}': {e}")
-    return None
-
+        logging.error(f"Error updating artist tag in '{file_path}': {e}")
 
 def main():
     logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_fixer.log'),
                         level=logging.DEBUG)
 
-    # absolute path to the replacements file
-    replacements_path = os.path.join(LISTS_DIR, 'artists.txt')
-    replacements = load_replacements(replacements_path)
+    # Absolute path to the characters file
+    characters_path = os.path.join(LISTS_DIR, 'characters.txt')  # Updated to reflect new file
+    characters = load_characters(characters_path)
 
-    logging.debug("Starting tag formatting for artist tags in files...")
-    print("Formatting artist tags in files...")
+    logging.debug("Starting character removal for artist tags in files...")
+    print("Removing specified characters from artist tags in files...")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
         for file_name in filenames:
             if file_name.endswith(".mp3"):
                 file_path = os.path.join(dirpath, file_name)
 
-                # update artist tag only
-                update_tag(file_path, mutagen.id3.TPE1, 'TPE1', replacements)  # update artist tag
+                # Remove characters from artist tag only
+                remove_characters_from_artist_tag(file_path, mutagen.id3.TPE1, 'TPE1', characters)
 
-    logging.debug("Artist tags formatted successfully.")
-    print("Artist tags formatted successfully.")
-
+    logging.debug("Character removal from artist tags completed successfully.")
+    print("Character removal from artist tags completed successfully.")
 
 if __name__ == "__main__":
     main()
