@@ -17,6 +17,13 @@ def rename_file(file_path, new_file_path):
         # Converte o nome completo para letras minúsculas, mantendo a extensão original
         base, extension = os.path.splitext(new_file_path)
         new_file_name = base + extension
+
+        # Verifica se o arquivo já existe e adiciona o sufixo _copyN
+        counter = 1
+        while os.path.exists(new_file_name):
+            new_file_name = f"{base}_copy{counter}{extension}"
+            counter += 1
+
         os.rename(file_path, new_file_name)
     except Exception as error:
         logging.error(f'error renaming file: {error}\n')
