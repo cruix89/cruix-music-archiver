@@ -3,6 +3,8 @@ import eyed3
 import requests
 import logging
 
+# print in terminal
+print("\ndownloading deezer database...")
 
 def setup_directories():
     # absolute directories
@@ -25,9 +27,6 @@ def count_mp3_files(base_dir):
 
 
 def main():
-    # print in terminal
-    print("\ndownloading deezer database...")
-
     # logging configuration
     base_dir, db_dir, log_dir = setup_directories()
     logging.basicConfig(filename=os.path.join(log_dir, 'deezer_db_downloader.log'), level=logging.INFO)

@@ -1,6 +1,5 @@
 import os
 import logging
-import re
 from mutagen.id3 import ID3
 import mutagen.id3
 
@@ -21,24 +20,15 @@ def load_replacements(replacements_path):
         return [line.strip().split('|') for line in f.readlines() if line.strip()]
 
 
-def capitalize_words(text):
-    return ' '.join(word.capitalize() for word in text.split())
-
-
 def update_tag(file_path, tag_class, tag_name, replacements):
     try:
         audiofile = ID3(file_path)  # load the audio file
         current_tag = audiofile.get(tag_name)  # get the current tag
 
-        # replace ',' and '/' with '/' and split by delimiters
+        # replace ',' and '/' with '/' in the tag if it exists
         if current_tag:
             current_tag_text = current_tag.text[0]
-            # Replace ',' and '/' with '/' and split by the defined delimiters
-            modified_tag_text = re.split(r'[ ,/]+|(?:featuring|feat\.?|feat)', current_tag_text, flags=re.IGNORECASE)
-            # Join the modified tag back with '/' as delimiter
-            modified_tag_text = '/'.join([part.strip() for part in modified_tag_text if part.strip()])
-            # Capitalize the first letter of each word
-            modified_tag_text = capitalize_words(modified_tag_text)
+            modified_tag_text = current_tag_text.replace(',', '/').replace('/', '/')
             audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
             audiofile.save()
 
