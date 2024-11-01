@@ -120,10 +120,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/poweramp_artist_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/add_mp3_thumbnail.py
+  python3 /app/extended-scripts/artists_fixer.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_fixer.py
+  python3 /app/extended-scripts/add_mp3_thumbnail.py
 
   echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
 
