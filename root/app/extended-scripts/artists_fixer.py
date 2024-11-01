@@ -42,7 +42,7 @@ def update_tag(file_path, tag_class, tag_name, replacements):
     return None
 
 def main():
-    logging.basicConfig(filename=os.path.join(LOGS_DIR, 'tags_artist_fixer.log'),
+    logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_fixer.log'),
                         level=logging.DEBUG)
 
     # absolute path to the replacements file
