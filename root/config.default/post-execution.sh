@@ -122,6 +122,9 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/add_mp3_thumbnail.py
 
+  sleep '5'
+  python3 /app/extended-scripts/artists_fixer.py
+
   echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
 
   mkdir -p $recycle_bin_dir
