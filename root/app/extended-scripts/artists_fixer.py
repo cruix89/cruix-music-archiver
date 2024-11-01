@@ -13,15 +13,27 @@ for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:
     if not os.path.exists(path):
         os.makedirs(path)
 
+
 def load_replacements(replacements_path):
     absolute_path = os.path.abspath(replacements_path)
     with open(absolute_path, 'r', encoding='utf-8') as f:
         return [line.strip().split('|') for line in f.readlines() if line.strip()]
 
+
 def update_tag(file_path, tag_class, tag_name, replacements):
     try:
         audiofile = ID3(file_path)  # load the audio file
         current_tag = audiofile.get(tag_name)  # get the current tag
+
+        # replace ',' with '/' in the tag if it exists
+        if current_tag:
+            current_tag_text = current_tag.text[0]
+            if ',' in current_tag_text:
+                modified_tag_text = current_tag_text.replace(',', '/')
+                audiofile[tag_name] = tag_class(encoding=3, text=modified_tag_text)
+                audiofile.save()
+
+        # continue with original replacement logic
         if current_tag:
             for old, new in replacements:
                 if current_tag.text[0] == old:
@@ -40,6 +52,7 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         else:
             logging.error(f"Error updating tag in '{file_path}': {e}\n")
     return None
+
 
 def main():
     logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_fixer.log'),
@@ -62,6 +75,7 @@ def main():
 
     print("artist tags formatted successfully.\n")
     logging.debug("artist tags formatted successfully.")
+
 
 if __name__ == "__main__":
     main()
