@@ -20,7 +20,8 @@ def load_replacements(replacements_path):
     with open(absolute_path, 'r', encoding='utf-8') as f:
         for line in f:
             if line.strip():
-                old, new = line.strip().split('|')
+                # Split without stripping spaces from each replacement part
+                old, new = line.split('|')
                 replacements.append((old, new))
                 logging.debug(f"Loaded replacement - old: '{old}', new: '{new}'")  # Log each loaded replacement
     return replacements
