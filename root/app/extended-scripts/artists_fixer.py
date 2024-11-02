@@ -46,9 +46,9 @@ def update_tag(file_path, tag_class, tag_name, replacements):
                         entries[i] = new  # Replace the entry with the new value
                         logging.debug(f"Replaced '{old}' with '{new}' in tag '{tag_name}' for '{file_path}'")
 
-            # Join the modified entries and remove any extra spaces
-            modified_tag_text = ' / '.join(entries)
-            modified_tag_text = ' '.join(modified_tag_text.split())  # Ensure only single spaces
+            # Remove empty entries resulting from replacements
+            entries = [entry.strip() for entry in entries if entry.strip()]
+            modified_tag_text = ' / '.join(entries) if entries else ""  # Set empty string if no valid entries left
             logging.debug(f"Final formatted tag text: '{modified_tag_text}'")
 
             # Update tag only if it was modified
