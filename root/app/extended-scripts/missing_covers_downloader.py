@@ -124,7 +124,7 @@ def main():
     # execute main function
     copy_first_image_to_lonely_mp3(music_dir)
 
-    print("missing covers downloaded.")
+    print("covers downloader API completed successfully.")
 
 
 if __name__ == "__main__":

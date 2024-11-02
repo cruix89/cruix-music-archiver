@@ -77,7 +77,7 @@ def main():
                         level=logging.DEBUG)
 
     # absolute path to the replacements file
-    replacements_path = os.path.join(LISTS_DIR, 'artists.txt')
+    replacements_path = os.path.join(LISTS_DIR, 'artists_fixer.txt')
     replacements = load_replacements(replacements_path)
 
     logging.debug("Starting tag formatting for artist tags in files...")
