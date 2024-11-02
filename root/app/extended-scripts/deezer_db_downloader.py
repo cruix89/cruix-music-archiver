@@ -4,7 +4,7 @@ import requests
 import logging
 
 # print in terminal
-print("\ndownloading deezer database...")
+print("\ndownloading deezer database...", flush=True)
 
 def setup_directories():
     # absolute directories
