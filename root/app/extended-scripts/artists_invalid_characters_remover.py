@@ -14,7 +14,7 @@ def setup_logging(log_file):
 
 
 # fixed print in terminal
-print("\nremoving invalid characters from artist tags in MP3 files...")
+print("removing invalid characters from artist tags in MP3 files...")
 
 def load_invalid_characters(file_path):
     try:
@@ -94,7 +94,7 @@ def main(download_path, lists_path):
 
 
 # fixed print in terminal
-print("artist tags updated successfully...")
+print("artist tags updated successfully...\n")
 
 if __name__ == "__main__":
 

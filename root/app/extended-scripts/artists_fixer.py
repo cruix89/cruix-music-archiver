@@ -45,8 +45,10 @@ def update_tag(file_path, tag_class, tag_name, replacements):
                         entries[i] = new  # Replace the entry with the new value
                         logging.debug(f"Replaced '{old}' with '{new}' in tag '{tag_name}' for '{file_path}'")
 
-            modified_tag_text = ' / '.join(entries)  # Join the modified entries
-            logging.debug(f"Modified tag text: '{modified_tag_text}'")
+            # Join the modified entries and remove any extra spaces
+            modified_tag_text = ' / '.join(entries)
+            modified_tag_text = ' '.join(modified_tag_text.split())  # Ensure only single spaces
+            logging.debug(f"Final formatted tag text: '{modified_tag_text}'")
 
             # Update tag only if it was modified
             if modified_tag_text != current_tag_text:
@@ -79,7 +81,7 @@ def main():
     replacements = load_replacements(replacements_path)
 
     logging.debug("Starting tag formatting for artist tags in files...")
-    print("Formatting artist tags in files...")
+    print("formatting artist tags in files...")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
         for file_name in filenames:
@@ -90,7 +92,7 @@ def main():
                 update_tag(file_path, mutagen.id3.TPE1, 'TPE1', replacements)  # update artist tag
 
     logging.debug("Artist tags formatted successfully.")
-    print("Artist tags formatted successfully.")
+    print("artist tags formatted successfully.\n")
 
 
 if __name__ == "__main__":
