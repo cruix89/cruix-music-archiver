@@ -33,8 +33,8 @@ def sanitize_artist_tag(artist_name, invalid_chars):
     artist_name = artist_name.replace(',', '/')
     logging.debug(f"replacing ',' with '/' in artist tag '{original_name}'\n")
     # replace "-" with "_"
-    artist_name = artist_name.replace(',', '/')
-    logging.debug(f"replacing ',' with '/' in artist tag '{original_name}'\n")
+    artist_name = artist_name.replace('\\', '/')
+    logging.debug(f"replacing '\\' with '/' in artist tag '{original_name}'\n")
     # replace "," with "_"
     artist_name = artist_name.replace(',', '/')
     logging.debug(f"replacing ',' with '/' in artist tag '{original_name}'\n")
