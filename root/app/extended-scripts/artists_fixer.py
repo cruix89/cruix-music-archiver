@@ -1,79 +1,106 @@
 import os
 import logging
-from mutagen.id3 import ID3
-import mutagen.id3
+import sys
+import eyed3
 
-# Define absolute paths for directories
-LOGS_DIR = '/config/logs'
-LISTS_DIR = '/app/lists'
-MUSIC_DIR = '/music'
 
-# Create directories if they do not exist
-for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:
-    if not os.path.exists(path):
-        os.makedirs(path)
+def setup_logging(log_file):
+    log_dir = os.path.dirname(log_file)
 
-def load_characters(characters_path):
-    absolute_path = os.path.abspath(characters_path)
-    characters = []
-    with open(absolute_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            char = line.strip()  # Read single character from each line
-            if char:  # Ensure it's not empty
-                characters.append(char)
-                logging.debug(f"Loaded character for removal: '{char}'")  # Log each loaded character
-    return characters
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
 
-def remove_characters_from_artist_tag(file_path, tag_class, tag_name, characters):
+    logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
+
+
+# fixed print in terminal
+print("\nremoving invalid characters from artist tags in MP3 files...")
+
+def load_invalid_characters(file_path):
     try:
-        logging.debug(f"Attempting to update artist tag in file: '{file_path}'")
-        audiofile = ID3(file_path)  # Load the audio file
-        current_tag = audiofile.get(tag_name)  # Get the current artist tag (TPE1)
-
-        # Check if the artist tag exists
-        if current_tag:
-            current_tag_text = current_tag.text[0]
-            logging.debug(f"Current artist tag text before removal: '{current_tag_text}'")
-
-            # Remove specified characters from the current artist tag text
-            for char in characters:
-                current_tag_text = current_tag_text.replace(char, '')  # Remove the character
-
-            current_tag_text = current_tag_text.strip()  # Strip any leading/trailing whitespace
-            logging.debug(f"Modified artist tag text after removal: '{current_tag_text}'")
-
-            # Update the artist tag only if it was modified
-            if current_tag_text:
-                audiofile[tag_name] = tag_class(encoding=3, text=current_tag_text)
-                audiofile.save()
-                logging.debug(f"Updated artist tag in '{file_path}' to '{current_tag_text}'")
-
-    except FileNotFoundError as e:
-        logging.error(f"Error updating artist tag in '{file_path}': {e}")
+        with open(file_path, 'r', encoding='utf-8') as f:
+            invalid_chars = [line.encode().decode('unicode-escape').strip() for line in f if line.strip()]
+        logging.info(f"invalid characters loaded from list: {invalid_chars}\n")
+        return invalid_chars
     except Exception as e:
-        logging.error(f"Error updating artist tag in '{file_path}': {e}")
+        logging.error(f"error loading invalid characters: {e}\n")
+        return []
 
-def main():
-    logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_fixer.log'),
-                        level=logging.DEBUG)
 
-    # Absolute path to the characters file
-    characters_path = os.path.join(LISTS_DIR, 'characters.txt')  # Updated to reflect new file
-    characters = load_characters(characters_path)
+def sanitize_artist_tag(artist_name, invalid_chars):
+    original_name = artist_name
+    # replace spaces with "_"
+    artist_name = artist_name.replace(',', '/')
+    logging.debug(f"replacing spaces with '_' in artist tag '{original_name}'\n")
+    # replace "-" with "_"
+    artist_name = artist_name.replace(',', '/')
+    logging.debug(f"replacing '-' with '_' in artist tag '{original_name}'\n")
+    # replace "," with "_"
+    artist_name = artist_name.replace(',', '/')
+    logging.debug(f"replacing ',' with '_' in artist tag '{original_name}'\n")
+    for char in invalid_chars:
+        if char in artist_name:
+            logging.debug(f"replacing '{char}' in artist tag '{original_name}'\n")
+        artist_name = artist_name.replace(char, "_")
+    logging.info(f"standardizing artist tag '{original_name}' TO '{artist_name}'\n")
+    return artist_name
 
-    logging.debug("Starting character removal for artist tags in files...")
-    print("Removing specified characters from artist tags in files...")
 
-    for dirpath, _, filenames in os.walk(MUSIC_DIR):
-        for file_name in filenames:
-            if file_name.endswith(".mp3"):
-                file_path = os.path.join(dirpath, file_name)
+def update_mp3_tag(path, invalid_chars):
+    if path.endswith('.mp3'):
+        try:
+            audiofile = eyed3.load(path)
+            if audiofile is None:
+                logging.warning(f"unable to load MP3 file: {path}\n")
+                return
 
-                # Remove characters from artist tag only
-                remove_characters_from_artist_tag(file_path, mutagen.id3.TPE1, 'TPE1', characters)
+            artist_tag = audiofile.tag.artist
+            if artist_tag:
+                new_artist_tag = sanitize_artist_tag(artist_tag, invalid_chars)
+                if new_artist_tag != artist_tag:
+                    audiofile.tag.artist = new_artist_tag
+                    audiofile.tag.save()
+                    logging.info(f"updated artist tag in {path}\n")
+                else:
+                    logging.info(f"no changes needed for artist tag in {path}\n")
+            else:
+                logging.info(f"no artist tag found in {path}\n")
+        except Exception as e:
+            logging.error(f"error updating artist tag in {path}: {e}\n")
 
-    logging.debug("Character removal from artist tags completed successfully.")
-    print("Character removal from artist tags completed successfully.")
+
+def process_mp3_tags(path, invalid_chars):
+    logging.info("processing MP3 artist tags...\n")
+    for dirpath, _, filenames in os.walk(path):
+        for filename in filenames:
+            file_path = os.path.join(dirpath, filename)
+            update_mp3_tag(file_path, invalid_chars)
+    logging.info("artist tags processed.\n")
+
+
+def main(download_path, lists_path):
+    invalid_chars_file = os.path.join(lists_path, 'invalid_characters.txt')
+
+    if not os.path.exists(download_path):
+        logging.error(f"download directory does not exist: {download_path}\n")
+        sys.exit(1)
+
+    if not os.path.exists(lists_path):
+        logging.error(f"lists directory does not exist: {lists_path}\n")
+        sys.exit(1)
+
+    invalid_chars = load_invalid_characters(invalid_chars_file)
+    process_mp3_tags(download_path, invalid_chars)
+
+
+# fixed print in terminal
+print("artist tags updated successfully...")
 
 if __name__ == "__main__":
-    main()
+
+    global_music_path = "/music"
+    global_lists_path = "/app/lists"
+    log_path_absolute = "/config/logs/music_artist_tag_updater.log"
+
+    setup_logging(log_path_absolute)
+    main(global_music_path, global_lists_path)
