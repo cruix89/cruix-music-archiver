@@ -15,6 +15,7 @@ chmod +x /app/youtube-dl/youtube-dl.sh
 chmod +x /config/post-execution.sh
 chmod +x /app/extended-scripts/add_mp3_thumbnail.py
 chmod +x /app/extended-scripts/artists_fixer.py
+chmod +x /app/extended-scripts/artists_invalid_characters_remover.py
 chmod +x /app/extended-scripts/capitalize_fixer.py
 chmod +x /app/extended-scripts/capitalize_folders_and_tags_accents.py
 chmod +x /app/extended-scripts/capitalize_tags_files_and_folders.py

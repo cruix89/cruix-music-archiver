@@ -120,6 +120,9 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/poweramp_artist_downloader.py
 
   sleep '5'
+  python3 /app/extended-scripts/artists_invalid_characters_remover.py
+
+  sleep '5'
   python3 /app/extended-scripts/artists_fixer.py
 
   sleep '5'
