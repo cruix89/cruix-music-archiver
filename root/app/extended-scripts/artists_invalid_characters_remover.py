@@ -30,14 +30,14 @@ def load_invalid_characters(file_path):
 def sanitize_artist_tag(artist_name, invalid_chars):
     original_name = artist_name
     # replace spaces with "_"
-    artist_name = artist_name.replace(',', ';')
-    logging.debug(f"replacing ',' with ';' in artist tag '{original_name}'\n")
+    artist_name = artist_name.replace(',', '/')
+    logging.debug(f"replacing ',' with '/' in artist tag '{original_name}'\n")
     # replace "-" with "_"
-    artist_name = artist_name.replace('\\', ';')
-    logging.debug(f"replacing '\\' with ';' in artist tag '{original_name}'\n")
+    artist_name = artist_name.replace('\\', '/')
+    logging.debug(f"replacing '\\' with '/' in artist tag '{original_name}'\n")
     # replace "," with "_"
-    artist_name = artist_name.replace('/', ';')
-    logging.debug(f"replacing '/' with ';' in artist tag '{original_name}'\n")
+    artist_name = artist_name.replace(';', '/')
+    logging.debug(f"replacing ';' with '/' in artist tag '{original_name}'\n")
     for char in invalid_chars:
         if char in artist_name:
             logging.debug(f"replacing '{char}' in artist tag '{original_name}'\n")
