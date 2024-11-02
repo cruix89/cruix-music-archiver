@@ -33,10 +33,10 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         audiofile = ID3(file_path)  # load the audio file
         current_tag = audiofile.get(tag_name)  # get the current tag
 
-        # Check if the current tag exists and split it by '/'
+        # Check if the current tag exists and split it by ';'
         if current_tag:
             current_tag_text = current_tag.text[0]
-            entries = current_tag_text.split('/')  # Split the string by '/'
+            entries = current_tag_text.split(';')  # Split the string by ';'
             logging.debug(f"Current tag entries: {entries}")
 
             # Replace each entry according to the replacements list
@@ -48,7 +48,7 @@ def update_tag(file_path, tag_class, tag_name, replacements):
 
             # Remove empty entries resulting from replacements
             entries = [entry.strip() for entry in entries if entry.strip()]
-            modified_tag_text = ' / '.join(entries) if entries else ""  # Set empty string if no valid entries left
+            modified_tag_text = ' ; '.join(entries) if entries else ""  # Set empty string if no valid entries left
             logging.debug(f"Final formatted tag text: '{modified_tag_text}'")
 
             # Update tag only if it was modified
