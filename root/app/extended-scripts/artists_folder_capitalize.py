@@ -16,4 +16,4 @@ for item in os.listdir(music_dir):
         # Renomeia o diretório
         if item != capitalized_name:  # Evita renomeações desnecessárias
             os.rename(item_path, capitalized_path)
-            print(f'renamed: {item} -> {capitalized_name}')
+            print(f'capitalizing: {item} -> {capitalized_name}')
