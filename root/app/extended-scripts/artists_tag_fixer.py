@@ -74,11 +74,11 @@ def update_tag(file_path, tag_class, tag_name, replacements):
 
 
 def main():
-    logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_fixer.log'),
+    logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_tag_fixer.log'),
                         level=logging.DEBUG)
 
     # absolute path to the replacements file
-    replacements_path = os.path.join(LISTS_DIR, 'artists_fixer.txt')
+    replacements_path = os.path.join(LISTS_DIR, 'artists_tag_fixer.txt')
     replacements = load_replacements(replacements_path)
 
     logging.debug("Starting tag formatting for artist tags in files...")
