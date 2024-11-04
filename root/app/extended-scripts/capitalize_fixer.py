@@ -63,7 +63,7 @@ def format_mp3_tags(directory):
                     logging.error(f'error formatting tags for file {file_path}: {e}\n')
 
 def main():
-    print("\nrunning directory and tag formatting...")
+    print("\nrunning directory and tag formatting...", flush=True)
 
     # replace with absolute paths
     music_directory = '/music'

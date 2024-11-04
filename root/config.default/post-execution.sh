@@ -51,12 +51,6 @@ if [ -d "$downloads_dir" ]; then
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
   sleep '5'
-  python3 /app/extended-scripts/unofficial_albums_mover.py
-
-  sleep '5'
-  find "$music_dir" -mindepth 1 -type d -empty -delete
-
-  sleep '5'
   umask "$UMASK"
   /app/extended-scripts/loudnorm.sh
 
@@ -83,12 +77,6 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/extended-scripts/genre_fixer.py
-
-  sleep '5'
-  python3 /app/extended-scripts/trash_collector.py
-
-  sleep '5'
-  find "$music_dir" -mindepth 1 -type d -empty -delete
 
   sleep '5'
   umask "$UMASK"
@@ -133,6 +121,35 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/extended-scripts/artists_folder_fixer.py
+
+  sleep '5'
+  python3 /app/extended-scripts/unofficial_albums_mover.py
+
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
+
+  sleep '5'
+  python3 /app/extended-scripts/trash_collector.py
+
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
+
+  sleep '5'
+  umask "$UMASK"
+  /app/extended-scripts/complete_missing_covers.sh
+
+  sleep '5'
+  python3 /app/extended-scripts/missing_covers_downloader.py
+
+  sleep '5'
+  umask "$UMASK"
+  /app/extended-scripts/complete_missing_covers.sh
+
+  sleep '5'
+  python3 /app/extended-scripts/trash_collector.py
+
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
 
   echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
 
