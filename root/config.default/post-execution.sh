@@ -151,7 +151,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  echo -e "\cleaning old files in recycle-bin and unofficial-albums\n"
+  echo -e "\ncleaning old files in recycle-bin and unofficial-albums\n"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
