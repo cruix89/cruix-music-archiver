@@ -42,7 +42,7 @@ def main():
             return False
         return True
 
-    def process_image(source, width, height):
+    def process_image(source, width=720, height=720):
         try:
             with Image.open(source) as img:
                 img_width, img_height = img.size
@@ -54,7 +54,7 @@ def main():
             logging.error(f'error processing file {source}: {e}\n')
         return False
 
-    def find_cover_in_deezer_db(mp3_name, width, height):
+    def find_cover_in_deezer_db(mp3_name, width=720, height=720):
         for root, _, files in os.walk(deezer_db_dir):
             txt_file = f'{mp3_name}.txt'
             if txt_file in files:
@@ -72,7 +72,7 @@ def main():
                     print(f'error reading file {txt_path}: {e}\n')
         return None
 
-    def download_and_resize_image(url, width, height):
+    def download_and_resize_image(url, width=720, height=720):
         try:
             response = requests.get(url, timeout=10)
             response.raise_for_status()
@@ -88,7 +88,7 @@ def main():
             print(f'error processing downloaded image: {e}\n')
             return None
 
-    def copy_first_image_to_lonely_mp3(directory, width=544, height=544):
+    def copy_first_image_to_lonely_mp3(directory, width=720, height=720):
         if not validate_directory(directory):
             return
 
