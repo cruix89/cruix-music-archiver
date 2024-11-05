@@ -96,33 +96,6 @@ if [ -d "$downloads_dir" ]; then
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
   sleep '5'
-  python3 /app/extended-scripts/jellyfin_album_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/jellyfin_artist_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/poweramp_album_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/poweramp_artist_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/artists_invalid_characters_remover.py
-
-  sleep '5'
-  python3 /app/extended-scripts/artists_tag_fixer.py
-
-  sleep '5'
-  python3 /app/extended-scripts/add_mp3_thumbnail.py
-
-  sleep '5'
-  python3 /app/extended-scripts/artists_folder_capitalize.py
-
-  sleep '5'
-  python3 /app/extended-scripts/artists_folder_fixer.py
-
-  sleep '5'
   python3 /app/extended-scripts/unofficial_albums_mover.py
 
   sleep '5'
@@ -151,7 +124,34 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  echo -e "\ncleaning old files in recycle-bin and unofficial-albums\n"
+  sleep '5'
+  python3 /app/extended-scripts/jellyfin_album_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/jellyfin_artist_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/poweramp_album_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/poweramp_artist_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_invalid_characters_remover.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_tag_fixer.py
+
+  sleep '5'
+  python3 /app/extended-scripts/add_mp3_thumbnail.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folder_capitalize.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folder_fixer.py
+
+  echo -e "cleaning old files in recycle-bin and unofficial-albums\n"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
