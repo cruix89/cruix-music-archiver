@@ -54,7 +54,7 @@ def main():
     # rename only direct folders in /music
     rename_direct_folders(MUSIC_DIR, replacements)
 
-    print("artists folders fixed successfully.\n")
+    print("artists folders fixed successfully.")
     logging.debug("artists folders fixed successfully.")
 
 if __name__ == "__main__":

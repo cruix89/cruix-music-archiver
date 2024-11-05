@@ -158,8 +158,8 @@ if [ -d "$downloads_dir" ]; then
   find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "\nold files in recycle-bin and unofficial-albums successfully cleaned.\n"
+  echo -e "old files in recycle-bin and unofficial-albums successfully cleaned.\n"
 
 else
-  echo -e "\noutput directory not found: $downloads_dir"
+  echo -e "output directory not found: $downloads_dir"
 fi
