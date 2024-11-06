@@ -48,7 +48,7 @@ def main():
     replacements_path = os.path.join(LISTS_DIR, 'artists_folder_fixer.txt')
     replacements = load_replacements(replacements_path)
 
-    print("fixing artists folders...")
+    print("\nfixing artists folders...")
     logging.debug("fixing artists folders...")
 
     # rename only direct folders in /music
