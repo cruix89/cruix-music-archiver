@@ -59,7 +59,7 @@ def main():
                                     response = requests.get(img_url, timeout=10)
                                     response.raise_for_status()
                                     img = Image.open(BytesIO(response.content))
-                                    img = img.resize((700, 700))
+                                    img = img.resize((1280, 1280))
                                     img.save(os.path.join(music_dir, folder, "cover.jpg"))
                                     logging.info(f'artist image downloaded and saved for {folder}\n')
                                     break
