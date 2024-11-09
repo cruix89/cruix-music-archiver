@@ -14,7 +14,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ---
 
-📌 DOCKER HUB: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
+📌 docker hub: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
 📄 yt-dlp documentation: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
 ---
