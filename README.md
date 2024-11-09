@@ -7,16 +7,8 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Stars](https://img.shields.io/docker/stars/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 
----
-
-### ⚠️ **Attention** ⚠️
-
-`/music` and `/downloads` separated work folder **in beta test**. To join testing, add `/music` path in your Docker container setup alongside `/downloads`.
-
----
-
-## 🎼 Overview
-A fully automated `yt-dlp` Docker image to easily download YouTube Music discographies, playlists, singles, and other supported music.
+## 🎼 OVERVIEW
+a fully automated `yt-dlp` docker image to easily download and manage a music library based in YouTube Music and other supported music platforms by `yt-dlp`.
 
 📌 Docker Hub: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
 📄 yt-dlp Documentation: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
