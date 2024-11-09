@@ -85,6 +85,10 @@ docker run
   # ONE URL PER LINE
   https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg
   ```
+  docker command:
+  ```plaintext
+  docker exec youtube-dl bash -c 'echo "URL" >> ./artists.txt'
+  ```
 
 - **pre-execution.sh / post-execution.sh**  
   these are the scripts that run before and after downloads to process and manage the music library.
