@@ -81,11 +81,12 @@ docker run
 - **artists.txt**  
   location: `/config/artists.txt`. artist list or playlist URLs to download.
   
+  adding a new link by txt editing:
   ```plaintext
   # ONE URL PER LINE
   https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg
   ```
-  docker command:
+  adding a new link by docker command:
   ```plaintext
   docker exec youtube-dl bash -c 'echo "URL" >> ./artists.txt'
   ```
