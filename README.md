@@ -81,7 +81,7 @@ docker run
 - **artists.txt**  
   location: `/config/artists.txt`. artist list or playlist URLs to download.
   
-  adding a new link by txt editing:
+  adding a new link by .txt editing:
   ```plaintext
   # ONE URL PER LINE
   https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg
@@ -99,5 +99,9 @@ docker run
 
 - **args.conf**  
   stores `yt-dlp` arguments, customizable for different needs.
+
+- **unsupported arguments**
+  --config-location, hardcoded to /config/args.conf.
+  --batch-file, hardcoded to /config/channels.txt.
 
 For more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
