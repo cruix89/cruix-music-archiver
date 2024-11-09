@@ -87,12 +87,12 @@ docker run
   ```
 
 - **pre-execution.sh / post-execution.sh**  
-  Optional user-defined scripts executed before and after downloads.
+  these are the scripts that run before and after downloads to process and manage the music library.
 
 - **archive.txt**  
-  Records downloaded music IDs. Delete to re-download all.
+  records downloaded music IDs, delete to re-download all.
 
 - **args.conf**  
-  Stores `yt-dlp` arguments, customizable for different needs.
+  stores `yt-dlp` arguments, customizable for different needs.
 
 For more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
