@@ -25,10 +25,10 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   default settings for optimal operation configured automatically.
   
 - **automatic updates**  
-  self-updating container with automatic image creation with each `yt-dlp` release
+  self-updating container with automatic image creation with each `yt-dlp` release.
   
 - **automated downloads**  
-  specify download ranges, use URL files, and easily manage permissions to download every new release from your favorite artists.
+  specify a download URL file, and easily manage permissions to download every new release from your favorite artists.
 
 - **yt-dlp customization**  
   includes support for SponsorBlock, Geo Bypass, Proxy, Metadata, and more.
@@ -58,21 +58,22 @@ docker run
 
 ## 🔧 ENVIRONMENT PARAMETERS
 
-| Parameter             | Default           | Description                                                       |
-|-----------------------|-------------------|-------------------------------------------------------------------|
-| `TZ`                  |`America/Sao_Paulo`| Set time zone for accurate log timestamps.                        |
-| `PUID`                | `1000`            | Specify user ID for file permissions.                             |
-| `PGID`                | `100`             | Specify group ID for file permissions.                            |
-| `UMASK`               | `000`             | Set umask for file permissions.                                   |
-| `youtubedl_interval`  | `1h`              | Set download interval, e.g., `1h`, `12h`, or `false` to disable.  |
+| Parameter             | Default           | Description                                                      |
+|-----------------------|-------------------|------------------------------------------------------------------|
+| `TZ`                  |`America/Sao_Paulo`| set time zone for accurate log timestamps.                       |
+| `PUID`                | `1000`            | specify user ID for file permissions.                            |
+| `PGID`                | `100`             | specify group ID for file permissions.                           |
+| `UMASK`               | `000`             | set UMASK for file permissions.                                  |
+| `youtubedl_interval`  | `1h`              | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
 
 ---
 
-## 🏷️ Image Tags
+## 🏷️ IMAGE TAGS
 
-- **`unstable`**: Built on new GitHub commits; updates `yt-dlp` to latest commit.
-- **`latest`**: Built on new `yt-dlp` releases; auto-updates during runtime.
-- **`v<VERSION>`**: Built on `yt-dlp` release; does not auto-update.
+- **`unstable`**: built on new ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+GitHub commits; updates `yt-dlp` to latest commit.
+- **`latest`**: built on new `yt-dlp` releases; auto-updates during runtime.
+- **`v<VERSION>`**: built on `yt-dlp` release; does not auto-update.
 
 ---
 
