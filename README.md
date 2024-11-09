@@ -101,7 +101,10 @@ docker run
   stores `yt-dlp` arguments, customizable for different needs.
 
 - **unsupported arguments**
+ ```plaintext
   --config-location, hardcoded to /config/args.conf.
   --batch-file, hardcoded to /config/channels.txt.
+  ```
+  
 
 For more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
