@@ -14,42 +14,49 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ---
 
-📌 Docker Hub: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
-📄 yt-dlp Documentation: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+📌 DOCKER HUB: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
+📄 yt-dlp documentation: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
 ---
 
-## ✨ Features
+## ✨ FEATURES
 
-- **Simple Setup & Usage**  
-  Configure audio quality, format, and startup arguments via environment variables.
+- **simple setup & usage**  
+  default settings for optimal operation configured automatically.
   
-- **Automatic Updates**  
-  Self-updating container with automatic image builds.
+- **automatic updates**  
+  self-updating container with automatic image creation with each `yt-dlp` release
   
-- **Automated Downloads**  
-  Specify download intervals, use URL files, and manage permissions easily.
+- **automated downloads**  
+  specify download ranges, use URL files, and easily manage permissions to download every new release from your favorite artists.
 
-- **yt-dlp Customization**  
-  Includes support for SponsorBlock, Geo bypass, Proxy, Metadata, and more.
+- **yt-dlp customization**  
+  includes support for SponsorBlock, Geo Bypass, Proxy, Metadata, and more.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 QUICK START
 
-"Download music from `artists.txt` URL file:"
+"download music from `artists.txt` URL file:"
 
 ```bash
-docker run -d --name='cruix-music-archiver' --privileged=true \
-  -e TZ="America/Sao_Paulo" -e 'youtubedl_interval'='1h' -e 'PUID'='1000' \
-  -e 'PGID'='100' -e 'UMASK'='000' -v '/config':'/config':'rw' \
-  -v '/downloads':'/downloads':'rw' -v '/music':'/music':'rw' \
-  cruix89/cruix-music-archiver
+docker run
+  -d
+  --name='cruix-music-archiver'
+  --privileged=true
+  -e TZ="America/Sao_Paulo"
+  -e 'youtubedl_interval'='1h'
+  -e 'PUID'='1000'
+  -e 'PGID'='100'
+  -e 'UMASK'='000'
+  -v 'PATH':'/config':'rw'
+  -v 'PATH':'/downloads':'rw'
+  -v 'PATH':'/music':'rw' 'cruix89/cruix-music-archiver'
 ```
 
 ---
 
-## 🔧 Environment Parameters
+## 🔧 ENVIRONMENT PARAMETERS
 
 | Parameter             | Default           | Description                                                       |
 |-----------------------|-------------------|-------------------------------------------------------------------|
