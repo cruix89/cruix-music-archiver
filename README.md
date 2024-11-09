@@ -70,8 +70,7 @@ docker run
 
 ## 🏷️ IMAGE TAGS
 
-- **`unstable`**: built on new ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-GitHub commits; updates `yt-dlp` to latest commit.
+- **`unstable`**: built on new 🐙 GitHub commits; updates `yt-dlp` to latest commit.
 - **`latest`**: built on new `yt-dlp` releases; auto-updates during runtime.
 - **`v<VERSION>`**: built on `yt-dlp` release; does not auto-update.
 
