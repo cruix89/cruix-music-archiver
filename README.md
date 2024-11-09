@@ -58,13 +58,13 @@ docker run
 
 ## 🔧: ENVIRONMENT PARAMETERS
 
-| Parameter             | Default           | Description                                                      |
-|-----------------------|-------------------|------------------------------------------------------------------|
-| `TZ`                  |`America/Sao_Paulo`| set time zone for accurate log timestamps.                       |
-| `PUID`                | `1000`            | specify user ID for file permissions.                            |
-| `PGID`                | `100`             | specify group ID for file permissions.                           |
-| `UMASK`               | `000`             | set UMASK for file permissions.                                  |
-| `youtubedl_interval`  | `1h`              | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
+| Parameter              | Default           | Description                                                      |
+|------------------------|-------------------|------------------------------------------------------------------|
+| `TZ`                   |`America/Sao_Paulo`| set time zone for accurate log timestamps.                       |
+| `PUID`                 | `1000`            | specify user ID for file permissions.                            |
+| `PGID`                 | `100`             | specify group ID for file permissions.                           |
+| `UMASK`                | `000`             | set UMASK for file permissions.                                  |
+| `youtubedl_interval`   | `1h`              | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
 
 ---
 
@@ -112,4 +112,28 @@ docker run
   
 ---
 
-For more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
+---
+
+## ⚙️:  DEFAULTS
+
+- **default arguments**
+
+| Parameter                | Default                                                | Description                                                           |
+|--------------------------|--------------------------------------------------------|-----------------------------------------------------------------------|
+| `--output`               | `"/downloads/%(channel)s/%(album)s/%(title)s.%(ext)s"` | organize the download directory by "/artist/album/song"               |
+| `--parse-metadata`       | `"channel:%(album_artist)s"`                           | adds the "album artist" tag if it doesn't exist in the song           |
+| `--format`               | `bestaudio`                                            | download the best possible audio quality                              |
+| `--force-overwrites`     | `--force-overwrites`                                   | prevents duplicate songs for the same album                           |
+| `--windows-filenames`    | `--windows-filenames`                                  | writes files with compatibility for windows system                    |
+| `--trim-filenames`       | `260`                                                  | maximum filename length                                               |
+| `--newline`              | `--newline`                                            | logs each download progress on a line separately for better debugging |
+| `--progress`             | `--progress`                                           | debug download progress                                               |
+| `--write-all-thumbnails` | `--write-all-thumbnails`                               | saves all thumbnail formats so the code can select the best one       |
+| `--extract-audio`        | `--extract-audio`                                      | send the audio extraction command                                     |
+| `--audio-format`         | `flac`                                                 | download without loss of quality format                               |
+| `--embed-metadata`       | `--embed-metadata`                                     | writes metadata to file                                               |
+| `--sleep-requests`       | `1.5`                                                  | waits for time to prevent request blocking                            |
+ 
+---
+
+for more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
