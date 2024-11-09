@@ -112,8 +112,6 @@ docker run
   
 ---
 
----
-
 ## ⚙️:  DEFAULTS
 
 - **default arguments**
