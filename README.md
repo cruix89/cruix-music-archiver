@@ -76,13 +76,13 @@ docker run
 
 ---
 
-## 📂 Configuration
+## 📂 CONFIGURATION
 
 - **artists.txt**  
-  Location: `/config/artists.txt`. List artist or playlist URLs to download.
+  location: `/config/artists.txt`. artist list or playlist URLs to download.
   
   ```plaintext
-  # One URL per line
+  # ONE URL PER LINE
   https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg
   ```
 
