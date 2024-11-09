@@ -9,7 +9,7 @@
 
 ---
 
-## 🎼 OVERVIEW
+## 🎼: OVERVIEW
 a fully automated `yt-dlp` docker image to easily download and manage a music library based in YouTube Music and other supported music platforms by `yt-dlp`.
 
 ---
@@ -19,7 +19,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ---
 
-## ✨ FEATURES
+## ✨: FEATURES
 
 - **simple setup & usage**  
   default settings for optimal operation configured automatically.
@@ -35,7 +35,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ---
 
-## 🚀 QUICK START
+## 🚀: QUICK START
 
 "download music from `artists.txt` URL file:"
 
@@ -56,7 +56,7 @@ docker run
 
 ---
 
-## 🔧 ENVIRONMENT PARAMETERS
+## 🔧: ENVIRONMENT PARAMETERS
 
 | Parameter             | Default           | Description                                                      |
 |-----------------------|-------------------|------------------------------------------------------------------|
@@ -68,7 +68,7 @@ docker run
 
 ---
 
-## 🏷️ IMAGE TAGS
+## 🏷️: IMAGE TAGS
 
 - **`unstable`**: built on new 🐙 GitHub commits; updates `yt-dlp` to latest commit.
 - **`latest`**: built on new `yt-dlp` releases; auto-updates during runtime.
@@ -76,7 +76,7 @@ docker run
 
 ---
 
-## 📂 CONFIGURATION
+## 📂: CONFIGURATION
 
 - **artists.txt**  
   location: `/config/artists.txt`. artist list or playlist URLs to download.
@@ -100,11 +100,16 @@ docker run
 - **args.conf**  
   stores `yt-dlp` arguments, customizable for different needs.
 
+---
+
+## ❌:  EXCEPTIONS
+
 - **unsupported arguments**
  ```plaintext
   --config-location, hardcoded to /config/args.conf.
   --batch-file, hardcoded to /config/channels.txt.
   ```
   
+---
 
 For more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
