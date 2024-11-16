@@ -52,7 +52,7 @@ for folder in os.listdir(downloads_dir):
             shutil.move(src_path, dest_path)
 
             # print the path of the moved file
-            print(f'moved: {src_path} -> {dest_path}')
+            print(f'moved: {src_path} to {dest_path}')
 
         # remove the original folder
         try:

@@ -52,7 +52,7 @@ process_file() {
         mv "$output_file.mp3" "${src_file%.*}.mp3"
 
         save_to_normalized_list "${src_file%.*}.mp3"
-        echo "processed and replaced: ${src_file%.*}.mp3"
+        echo -e "[ffmpeg] loudnorm (replaygain) successfully applied to the file: ${src_file%.*}.mp3"
     else
         echo "$(date '+%Y-%m-%d %H:%M:%S') - error processing file: $src_file" >> "$log_file"
     fi
