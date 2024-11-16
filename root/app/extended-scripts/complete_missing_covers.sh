@@ -99,7 +99,7 @@ process_directory() {
         return
     fi
 
-    log "[cruix-music-archiver] starting process in directory: $directory"
+    log "[cruix-music-archiver] starting process in directory: $directory ..."
 
     find "$directory" -type d | while read -r sub_dir; do
         # Search for images and audio files in the current subdirectory
@@ -139,7 +139,6 @@ process_directory() {
 }
 
 # script execution
-log ""
 log "[cruix-music-archiver] starting missing covers completion..."
 process_directory "$music_dir"
 log "[cruix-music-archiver] missing covers completion finished."
