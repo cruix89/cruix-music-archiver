@@ -2,7 +2,7 @@ import os
 import shutil
 import re
 
-print("[cruix-music-archiver] moving folders from /downloads to /music library...")
+print("[cruix-music-archiver] moving folders from /downloads to /music library...", flush=True)
 
 def normalize_folder_name(folder_name):
     """normalizes the folder name, removing spaces, underscores and numeric suffixes, converting it to lowercase."""
@@ -52,7 +52,7 @@ for folder in os.listdir(downloads_dir):
             shutil.move(src_path, dest_path)
 
             # print the path of the moved file
-            print(f'moved: {src_path} to {dest_path}')
+            print(f'moved: {src_path} to {dest_path}', flush=True)
 
         # remove the original folder
         try:
