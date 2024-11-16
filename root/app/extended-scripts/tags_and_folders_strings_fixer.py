@@ -25,20 +25,20 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         if current_tag:
             for old, new in replacements:
                 if current_tag.text[0] == old:
-                    logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{new}' in file: {file_path}\n")
+                    logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{new}' in file: {file_path}")
                     audiofile[tag_name] = tag_class(encoding=3, text=new)  # create a new tag instance
                     audiofile.save()  # save the changes
                     return audiofile.get(tag_name)
     except FileNotFoundError as e:
-        logging.error(f"error updating tag in '{file_path}': {e}\n")
+        logging.error(f"error updating tag in '{file_path}': {e}")
     except Exception as e:
         if "no ID3 header found" in str(e):
-            logging.warning(f"no ID3 header found in '{file_path}'. creating a new ID3 header.\n")
+            logging.warning(f"no ID3 header found in '{file_path}'. creating a new ID3 header.")
             audiofile = ID3()  # create a new ID3 instance
             audiofile[tag_name] = tag_class(encoding=3, text=replacements[0][1])  # set the new tag
             audiofile.save(file_path)  # save the new file
         else:
-            logging.error(f"Error updating tag in '{file_path}': {e}\n")
+            logging.error(f"Error updating tag in '{file_path}': {e}")
     return None
 
 def rename_files_and_folders(music_directory, replacements):
@@ -52,9 +52,9 @@ def rename_files_and_folders(music_directory, replacements):
                     if os.path.exists(old_path):
                         try:
                             os.rename(old_path, new_path)
-                            logging.debug(f"renaming file '{file_name}' to '{new_file_name}'\n")
+                            logging.debug(f"renaming file '{file_name}' to '{new_file_name}'")
                         except FileNotFoundError as e:
-                            logging.error(f"error renaming file '{file_name}': {e}\n")
+                            logging.error(f"error renaming file '{file_name}': {e}")
 
         for folder_name in dirnames:
             for old, new in replacements:
@@ -71,9 +71,9 @@ def rename_files_and_folders(music_directory, replacements):
                                 os.rename(temp_path, new_path)
                             else:
                                 os.rename(old_path, new_path)
-                            logging.debug(f"renaming directory '{folder_name}' to '{new_folder_name}'\n")
+                            logging.debug(f"renaming directory '{folder_name}' to '{new_folder_name}'")
                         except FileNotFoundError as e:
-                            logging.error(f"error renaming directory '{folder_name}': {e}\n")
+                            logging.error(f"error renaming directory '{folder_name}': {e}")
 
 def main():
     logging.basicConfig(filename=os.path.join(LOGS_DIR, 'tags_and_folders_full_strings_fixer.log'),

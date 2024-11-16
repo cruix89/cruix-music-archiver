@@ -18,10 +18,10 @@ def load_invalid_characters( file_path ):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             invalid_chars = [line.encode().decode('unicode-escape').strip() for line in f if line.strip()]
-        logging.info(f"invalid characters loaded from list: {invalid_chars}\n")
+        logging.info(f"invalid characters loaded from list: {invalid_chars}")
         return invalid_chars
     except Exception as e:
-        logging.error(f"error loading invalid characters: {e}\n")
+        logging.error(f"error loading invalid characters: {e}")
         return []
 
 
@@ -29,31 +29,31 @@ def sanitize_name( name, invalid_chars ):
     original_name = name
     # replace spaces with "_"
     name = name.replace(' ', '_')
-    logging.debug(f"replacing spaces with '_' in '{original_name}'\n")
+    logging.debug(f"replacing spaces with '_' in '{original_name}'")
     # replace "-" with "_"
     name = name.replace('-', '_')
-    logging.debug(f"replacing '-' with '_' in '{original_name}'\n")
+    logging.debug(f"replacing '-' with '_' in '{original_name}'")
     # replace "," with "_"
     name = name.replace(',', '_')
-    logging.debug(f"replacing ',' with '_' in '{original_name}'\n")
+    logging.debug(f"replacing ',' with '_' in '{original_name}'")
     for char in invalid_chars:
         if char in name:
-            logging.debug(f"replacing '{char}' in '{original_name}'\n")
+            logging.debug(f"replacing '{char}' in '{original_name}'")
         name = name.replace(char, "_")
-    logging.info(f"standardizing '{original_name}' TO '{name}'\n")
+    logging.info(f"standardizing '{original_name}' TO '{name}'")
     return name
 
 
 def rename_item( path, old_name, new_name ):
     try:
         os.rename(os.path.join(path, old_name), os.path.join(path, new_name))
-        logging.info(f"renamed {old_name} TO {new_name}\n")
+        logging.info(f"renamed {old_name} TO {new_name}")
     except Exception as e:
-        logging.error(f"error renaming {old_name}: {e}\n")
+        logging.error(f"error renaming {old_name}: {e}")
 
 
 def rename_files_and_dirs( path, invalid_chars ):
-    logging.info("removing invalid characters...\n")
+    logging.info("removing invalid characters...")
     chars_removed = False
     for dirpath, dirnames, filenames in os.walk(path, topdown=False):
         for filename in filenames:
@@ -73,26 +73,26 @@ def rename_files_and_dirs( path, invalid_chars ):
                 chars_removed = True
 
     if not chars_removed:
-        logging.info("no invalid characters found.\n")
-    logging.info("invalid characters removed.\n")
+        logging.info("no invalid characters found.")
+    logging.info("invalid characters removed.")
 
 
 def main( download_path, lists_path ):
     invalid_chars_file = os.path.join(lists_path, 'invalid_characters.txt')
 
     if not os.path.exists(download_path):
-        logging.error(f"download directory does not exist: {download_path}\n")
+        logging.error(f"download directory does not exist: {download_path}")
         sys.exit(1)
 
     if not os.path.exists(lists_path):
-        logging.error(f"lists directory does not exist: {lists_path}\n")
+        logging.error(f"lists directory does not exist: {lists_path}")
         sys.exit(1)
 
     invalid_chars = load_invalid_characters(invalid_chars_file)
     rename_files_and_dirs(download_path, invalid_chars)
 
 # fixed print in terminal
-print("[cruix-music-archiver] invalid characters removed successfully...")
+print("[cruix-music-archiver] invalid characters removed successfully")
 
 if __name__ == "__main__":
 

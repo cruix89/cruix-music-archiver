@@ -32,7 +32,7 @@ def main():
     if not log_file.exists():
         print(f"[cruix-music-archiver] error: unable to create log file at {log_file}. check write permissions.")
     else:
-        print(f"[cruix-music-archiver] log file created at: {log_file}\n")
+        print(f"[cruix-music-archiver] log file created at: {log_file}")
 
     def validate_directory(directory):
         if not directory.is_dir():
@@ -49,9 +49,9 @@ def main():
             if img_width == width and img_height == height:
                 return True
         except UnidentifiedImageError:
-            logging.error(f'error identifying image: {source}\n')
+            logging.error(f'error identifying image: {source}')
         except Exception as e:
-            logging.error(f'error processing file {source}: {e}\n')
+            logging.error(f'error processing file {source}: {e}')
         return False
 
     def find_cover_in_deezer_db(mp3_name, width=720, height=720):
@@ -68,8 +68,8 @@ def main():
                             logging.info(f"image URL found: {img_url}")
                             return download_and_resize_image(img_url, width, height)
                 except Exception as e:
-                    logging.error(f'error reading file {txt_path}: {e}\n')
-                    print(f'error reading file {txt_path}: {e}\n')
+                    logging.error(f'error reading file {txt_path}: {e}')
+                    print(f'error reading file {txt_path}: {e}')
         return None
 
     def download_and_resize_image(url, width=720, height=720):
@@ -80,19 +80,19 @@ def main():
             img = img.resize((width, height))
             return img
         except requests.exceptions.RequestException as e:
-            logging.error(f'error downloading image: {e}\n')
-            print(f'error downloading image: {e}\n')
+            logging.error(f'error downloading image: {e}')
+            print(f'error downloading image: {e}')
             return None
         except Exception as e:
-            logging.error(f'error processing downloaded image: {e}\n')
-            print(f'error processing downloaded image: {e}\n')
+            logging.error(f'error processing downloaded image: {e}')
+            print(f'error processing downloaded image: {e}')
             return None
 
     def copy_first_image_to_lonely_mp3(directory, width=720, height=720):
         if not validate_directory(directory):
             return
 
-        logging.info(f'beginning process in directory: {directory}\n')
+        logging.info(f'beginning process in directory: {directory}')
         for root, _, files in os.walk(directory):
             jpg_files = [file for file in files if file.endswith('.jpg')]
             mp3_files = [file for file in files if file.endswith('.mp3')]
@@ -107,19 +107,19 @@ def main():
                         if process_image(source, width, height):
                             destination = Path(root) / f'{mp3_name}.jpg'
                             shutil.copy2(source, destination)
-                            logging.info(f'file copied: {source} TO {destination}\n')
+                            logging.info(f'file copied: {source} TO {destination}')
                             break
                     else:
                         img = find_cover_in_deezer_db(mp3_name, width, height)
                         if img:
                             destination = Path(root) / f'{mp3_name}.jpg'
                             img.save(destination)
-                            logging.info(f'cover downloaded and saved: {destination}\n')
+                            logging.info(f'cover downloaded and saved: {destination}')
                         else:
-                            logging.error(f'unable to find or download a cover for: {mp3_name}\n')
-                            print(f'unable to find or download a cover for: {mp3_name}\n')
+                            logging.error(f'unable to find or download a cover for: {mp3_name}')
+                            print(f'unable to find or download a cover for: {mp3_name}')
 
-        logging.info('process completed.\n')
+        logging.info('process completed.')
 
     # execute main function
     copy_first_image_to_lonely_mp3(music_dir)

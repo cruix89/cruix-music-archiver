@@ -41,7 +41,7 @@ def update_release_year(path):
                     audio.tag.save()
 
                     # log the update
-                    logging.info(f'formatting year tag to {year[:4]} for file {full_path}\n')
+                    logging.info(f'formatting year tag to {year[:4]} for file {full_path}')
 
     print("[cruix-music-archiver] release year formatted successfully.")
 

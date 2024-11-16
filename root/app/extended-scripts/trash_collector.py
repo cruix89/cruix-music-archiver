@@ -57,9 +57,9 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                 shutil.move(src_path, dest_path)
                 moved_files += 1
-                logging.info(f'file moved from {src_path} TO {dest_path}\n')
+                logging.info(f'file moved from {src_path} TO {dest_path}')
             except Exception as e:
-                logging.error(f'failed to move file from {src_path} TO {dest_path}: {e}\n')
+                logging.error(f'failed to move file from {src_path} TO {dest_path}: {e}')
         else:
             skipped_files += 1
             logging.info(f'[cruix-music-archiver] the file {src_path} was skipped because a corresponding audio file was found')
@@ -69,4 +69,5 @@ logging.info(
     f'[cruix-music-archiver] the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}')
 
 # print final summary to terminal
-print(f"[cruix-music-archiver] files recycled successfully.\ntotal files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}")
+print(f"[cruix-music-archiver] files recycled successfully.")
+print(f"[cruix-music-archiver] total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}")

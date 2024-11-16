@@ -58,7 +58,7 @@ def format_mp3_tags(directory):
                             tags_modified = True
                     if tags_modified:
                         tags.save()
-                        logging.info(f'tags formatted: {file_path}\n')
+                        logging.info(f'tags formatted: {file_path}')
                 except Exception as e:
                     logging.error(f'error formatting tags for file {file_path}: {e}')
 
@@ -75,9 +75,9 @@ def main():
     if os.path.exists(music_directory):
         rename_to_lowercase(music_directory)
         format_mp3_tags(music_directory)
-        print("directories and tags formatted.")
+        print("[cruix-music-archiver] directories and tags formatted")
     else:
-        logging.error(f'music directory not found: {music_directory}\n')
+        logging.error(f'music directory not found: {music_directory}')
 
     print("[cruix-music-archiver] directory and tag formatting successfully completed.")
 

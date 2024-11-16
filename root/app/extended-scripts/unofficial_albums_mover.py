@@ -37,8 +37,8 @@ for root, dirs, files in os.walk(music_dir):
                 if os.path.exists(destination):
                     shutil.rmtree(destination)
                 shutil.move(source, destination)
-                logging.info(f'the album {name} was successfully moved to {destination}\n')
+                logging.info(f'the album {name} was successfully moved to {destination}')
             except Exception as e:
-                logging.error(f'error moving album {name}: {e}\n')
+                logging.error(f'error moving album {name}: {e}')
 
 print("[cruix-music-archiver] unofficial albums moved successfully.")

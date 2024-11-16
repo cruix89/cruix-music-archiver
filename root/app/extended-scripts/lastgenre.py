@@ -32,7 +32,7 @@ def save_artist_list(artist_list):
     list_path = os.path.join(lists_dir, "genres_cache.txt")
     with open(list_path, "w") as file:
         for artist, genre in artist_list.items():
-            file.write(f"{artist}|{genre}\n")
+            file.write(f"{artist}|{genre}")
 
 
 def main():
@@ -45,7 +45,7 @@ def main():
     api_secret = "6f815b76ff0790c0fe172d372a6a5740"
 
     if not api_key or not api_secret:
-        logging.critical('API keys for last.fm not configured.\n')
+        logging.critical('API keys for last.fm not configured.')
         return
 
     network = pylast.LastFMNetwork(api_key=api_key, api_secret=api_secret)
@@ -63,21 +63,21 @@ def main():
         try:
             artist = network.get_artist(artist_name)
             if not artist:
-                logging.warning(f'artist not found: {artist_name}\n')
+                logging.warning(f'artist not found: {artist_name}')
                 return None
 
             top_tag = artist.get_top_tags(limit=1)
             genre_tag = top_tag[0].item.get_name() if top_tag else None
 
             if genre_tag:
-                logging.info(f'genre {genre_tag} found for artist {artist_name}\n')
+                logging.info(f'genre {genre_tag} found for artist {artist_name}')
             else:
-                logging.warning(f'no genre found for artist {artist_name}\n')
+                logging.warning(f'no genre found for artist {artist_name}')
 
             genre_cache[artist_name] = genre_tag
             return genre_tag
         except pylast.WSError as e:
-            logging.error(f'error retrieving genre tag for artist {artist_name}: {str(e)}\n')
+            logging.error(f'error retrieving genre tag for artist {artist_name}: {str(e)}')
             return None
 
     def process_directory(dir_path):
@@ -92,26 +92,26 @@ def main():
                     file_path = os.path.join(root, file)
                     processed_files += 1
                     print(f"processing file {processed_files}/{total_files}: {file_path}")
-                    logging.info(f'processing file: {file_path}\n')
+                    logging.info(f'processing file: {file_path}')
 
                     audio = File(file_path)
                     artist_frame = audio.get("TPE2")
                     if artist_frame:
                         artist_name = artist_frame.text[0]
-                        logging.info(f'artist found: {artist_name}\n')
+                        logging.info(f'artist found: {artist_name}')
                         genre_tag = get_genre_tags(artist_name)
                         if genre_tag:
                             audio["TCON"] = mutagen.id3.TCON(encoding=3, text=genre_tag)  # Using TCON from mutagen.id3
                             audio.save()
                             print(f"genre '{genre_tag}' added to {file_path}")
-                            logging.info(f'genre {genre_tag} added to file {file_path}\n')
+                            logging.info(f'genre {genre_tag} added to file {file_path}')
                             artist_list[artist_name] = genre_tag
                             save_artist_list(artist_list)
                         else:
-                            logging.warning(f'no genre found for artist {artist_name}, file: {file_path}\n')
+                            logging.warning(f'no genre found for artist {artist_name}, file: {file_path}')
                             print(f"[cruix-music-archiver] no genre found for {file_path}")
                     else:
-                        logging.warning(f'no artist tag found in file: {file_path}\n')
+                        logging.warning(f'no artist tag found in file: {file_path}')
                         print(f"[cruix-music-archiver] no artist tag found in {file_path}")
 
     process_directory(music_dir)

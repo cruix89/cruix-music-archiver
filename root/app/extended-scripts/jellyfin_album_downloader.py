@@ -41,14 +41,14 @@ def copy_first_jpg(directory):
 
                     if not os.path.exists(destination):
                         shutil.copy2(source, destination)  # copy to the same directory
-                        logging.info(f'cover copied: {source} to {destination}\n')
+                        logging.info(f'cover copied: {source} to {destination}')
                     else:
-                        logging.info(f'cover not copied: {destination} already exists.\n')
+                        logging.info(f'cover not copied: {destination} already exists.')
                     break  # stops after copying the first found file in each directory
     except (FileNotFoundError, PermissionError) as e:
-        logging.error(f'error copying cover: {e}\n')
+        logging.error(f'error copying cover: {e}')
     except Exception as e:
-        logging.error(f'unexpected error occurred: {e}\n')
+        logging.error(f'unexpected error occurred: {e}')
 
 
 # execute the function to copy .JPG files

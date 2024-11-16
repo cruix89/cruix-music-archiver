@@ -9,7 +9,7 @@ def setup_directories():
         lists_directory = '/app/lists'
         return music_directory, logs_directory, lists_directory
     except Exception as error:
-        logging.error(f'error setting up directories: {error}\n')
+        logging.error(f'error setting up directories: {error}')
         raise
 
 def rename_file(file_path, new_file_path):
@@ -26,7 +26,7 @@ def rename_file(file_path, new_file_path):
 
         os.rename(file_path, new_file_name)
     except Exception as error:
-        logging.error(f'error renaming file: {error}\n')
+        logging.error(f'error renaming file: {error}')
         raise
 
 def is_mp3(file_name):
@@ -75,7 +75,7 @@ def rename_files_and_folders(directory):
             new_file_path = os.path.join(root, new_file_name)
             if file_path != new_file_path:
                 rename_file(file_path, new_file_path)
-                logging.info(f'file renamed: {file_path} -> {new_file_path}\n')
+                logging.info(f'file renamed: {file_path} -> {new_file_path}')
 
         for folder_name in dirs:
             old_folder_path = os.path.join(root, folder_name)
@@ -83,11 +83,11 @@ def rename_files_and_folders(directory):
             new_folder_path = os.path.join(root, formatted_folder_name)
             if old_folder_path != new_folder_path:
                 rename_file(old_folder_path, new_folder_path)
-                logging.info(f'folder renamed: {old_folder_path} -> {new_folder_path}\n')
+                logging.info(f'folder renamed: {old_folder_path} -> {new_folder_path}')
 
 def update_tags_and_rename(directory, lowercase_terms):
     try:
-        logging.info("formatting tags and directories...\n")
+        logging.info("formatting tags and directories...")
         for root, dirs, files in os.walk(directory, topdown=False):
             for file_name in files:
                 file_path = os.path.join(root, file_name)
@@ -97,9 +97,9 @@ def update_tags_and_rename(directory, lowercase_terms):
 
             rename_files_and_folders(root)
 
-        logging.info("tags and directories formatted.\n")
+        logging.info("tags and directories formatted.")
     except Exception as error:
-        logging.error(f'error formatting tags, files, and folders: {error}\n')
+        logging.error(f'error formatting tags, files, and folders: {error}')
         raise
 
 # CONFIGURE LOGGING
@@ -108,7 +108,7 @@ try:
     log_path = os.path.join(logs_dir, 'capitalize_tags_files_and_folders.log')
     logging.basicConfig(filename=log_path, level=logging.INFO)
 except Exception as e:
-    print(f'error setting up logging: {e}\n')
+    print(f'error setting up logging: {e}')
     raise
 
 # LOAD LIST OF TERMS TO KEEP LOWERCASE
@@ -116,7 +116,7 @@ try:
     with open(os.path.join(lists_dir, 'keep_lowercase.txt'), 'r') as f:
         lowercase_terms_list = f.read().splitlines()
 except Exception as e:
-    logging.error(f'error loading list of lowercase terms: {e}\n')
+    logging.error(f'error loading list of lowercase terms: {e}')
     raise
 
 # NOTIFY START OF PROCESS
@@ -126,7 +126,7 @@ print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming 
 try:
     update_tags_and_rename(music_dir, lowercase_terms_list)
 except Exception as e:
-    logging.error(f'error executing script: {e}\n')
+    logging.error(f'error executing script: {e}')
     raise
 
 # NOTIFY END OF PROCESS

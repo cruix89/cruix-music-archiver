@@ -34,11 +34,11 @@ def rename_direct_folders(music_directory, replacements):
                                     os.rename(temp_path, new_folder_path)
                                 else:
                                     os.rename(folder_path, new_folder_path)
-                                logging.debug(f"renaming directory '{folder_name}' to '{new_folder_name}'\n")
+                                logging.debug(f"renaming directory '{folder_name}' to '{new_folder_name}'")
                             except FileNotFoundError as e:
-                                logging.error(f"error renaming directory '{folder_name}': {e}\n")
+                                logging.error(f"error renaming directory '{folder_name}': {e}")
     except Exception as e:
-        logging.error(f"error in renaming folders in '{music_directory}': {e}\n")
+        logging.error(f"error in renaming folders in '{music_directory}': {e}")
 
 def main():
     logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_folder_fixer.log'),
