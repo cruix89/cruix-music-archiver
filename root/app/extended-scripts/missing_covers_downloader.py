@@ -11,20 +11,20 @@ from pathlib import Path
 def setup_directories():
     # configured directories
     music_dir = Path('/music').resolve()
-    deezer_db_dir = Path('/config/dz-db').resolve()
+    dz_db_dir = Path('/config/dz-db').resolve()
     log_dir = Path('/config/logs').resolve()
 
     # ensure directories exist
     music_dir.mkdir(parents=True, exist_ok=True)
-    deezer_db_dir.mkdir(parents=True, exist_ok=True)
+    dz_db_dir.mkdir(parents=True, exist_ok=True)
     log_dir.mkdir(parents=True, exist_ok=True)
 
-    return music_dir, deezer_db_dir, log_dir
+    return music_dir, dz_db_dir, log_dir
 
 
 def main():
     # log setup
-    music_dir, deezer_db_dir, log_dir = setup_directories()
+    music_dir, dz_db_dir, log_dir = setup_directories()
     log_file = log_dir / 'missing_covers_downloader.log'
     logging.basicConfig(filename=str(log_file), level=logging.INFO)
 
@@ -54,8 +54,8 @@ def main():
             logging.error(f'error processing file {source}: {e}')
         return False
 
-    def find_cover_in_deezer_db(mp3_name, width=720, height=720):
-        for root, _, files in os.walk(deezer_db_dir):
+    def find_cover_in_dz_db(mp3_name, width=720, height=720):
+        for root, _, files in os.walk(dz_db_dir):
             txt_file = f'{mp3_name}.txt'
             if txt_file in files:
                 txt_path = Path(root) / txt_file
@@ -110,7 +110,7 @@ def main():
                             logging.info(f'file copied: {source} TO {destination}')
                             break
                     else:
-                        img = find_cover_in_deezer_db(mp3_name, width, height)
+                        img = find_cover_in_dz_db(mp3_name, width, height)
                         if img:
                             destination = Path(root) / f'{mp3_name}.jpg'
                             img.save(destination)

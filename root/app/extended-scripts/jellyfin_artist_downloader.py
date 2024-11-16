@@ -9,26 +9,26 @@ from io import BytesIO
 def setup_directories():
     # define absolute paths for directories
     music_dir = "/music"
-    deezer_db_dir = "/config/dz-db"
+    dz_db_dir = "/config/dz-db"
     log_dir = "/config/logs"
 
     # ensure that directories exist
     os.makedirs(music_dir, exist_ok=True)
-    os.makedirs(deezer_db_dir, exist_ok=True)
+    os.makedirs(dz_db_dir, exist_ok=True)
     os.makedirs(log_dir, exist_ok=True)
 
-    return music_dir, deezer_db_dir, log_dir
+    return music_dir, dz_db_dir, log_dir
 
 
 def main():
     print("[cruix-music-archiver] setting up jellyfin artist image...")
 
     # logging setup
-    music_dir, deezer_db_dir, log_dir = setup_directories()
+    music_dir, dz_db_dir, log_dir = setup_directories()
     logging.basicConfig(filename=os.path.join(log_dir, 'jellyfin_artist_downloader.log'), level=logging.DEBUG)
 
     logging.debug(f"music_dir: {music_dir}")
-    logging.debug(f"deezer_db_dir: {deezer_db_dir}")
+    logging.debug(f"dz_db_dir: {dz_db_dir}")
     logging.debug(f"log_dir: {log_dir}")
 
     if not os.path.exists(music_dir):
@@ -36,7 +36,7 @@ def main():
         return
 
     for folder in os.listdir(music_dir):
-        search_dir = os.path.join(deezer_db_dir, folder)
+        search_dir = os.path.join(dz_db_dir, folder)
         logging.debug(f"searching in directory: {search_dir}")
 
         if os.path.exists(search_dir):

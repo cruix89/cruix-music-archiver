@@ -7,7 +7,7 @@ cache_dir="/config/cache"
 logs_dir="/config/logs"
 recycle_bin_dir="/config/recycle-bin"
 unofficial_albums_dir="/config/unofficial-albums"
-deezer_db_dir="/config/dz-db"
+dz_db_dir="/config/dz-db"
 
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
@@ -70,7 +70,7 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/release_year_update.py
 
   sleep '5'
-  python3 /app/extended-scripts/deezer_db_downloader.py
+  python3 /app/extended-scripts/dz_db_downloader.py
 
   sleep '5'
   python3 /app/extended-scripts/lastgenre.py
@@ -135,10 +135,10 @@ if [ -d "$downloads_dir" ]; then
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
-  mkdir -p $deezer_db_dir
+  mkdir -p $dz_db_dir
   find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
-  find $deezer_db_dir -depth -mtime +6 -exec rm -rf {} \;
+  find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
   echo -e "[cruix-music-archiver] old files in /recycle-bin /dz-db /unofficial-albums successfully cleaned."
 

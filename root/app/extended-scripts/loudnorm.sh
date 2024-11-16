@@ -99,7 +99,7 @@ main() {
     # ensure the recycle bin directory exists
     if [[ ! -d "$recycle_bin_dir" ]]; then
         mkdir -p "$recycle_bin_dir"
-        echo "created recycle bin directory: $recycle_bin_dir"
+        echo -e "[cruix-music-archiver] created recycle bin directory: $recycle_bin_dir"
     fi
 
     while true; do

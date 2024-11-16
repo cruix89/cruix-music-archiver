@@ -4,7 +4,7 @@ import requests
 import logging
 
 # print in terminal
-print("[cruix-music-archiver] downloading deezer database...", flush=True)
+print("[cruix-music-archiver] downloading music database...", flush=True)
 
 def setup_directories():
     # absolute directories
@@ -29,7 +29,7 @@ def count_mp3_files(base_dir):
 def main():
     # logging configuration
     base_dir, db_dir, log_dir = setup_directories()
-    logging.basicConfig(filename=os.path.join(log_dir, 'deezer_db_downloader.log'), level=logging.INFO)
+    logging.basicConfig(filename=os.path.join(log_dir, 'dz_db_downloader.log'), level=logging.INFO)
 
     # file count to track progress
     total_files = count_mp3_files(base_dir)
@@ -55,7 +55,7 @@ def main():
                 album_name = audiofile.tag.album
                 artist_name = audiofile.tag.artist
 
-                # make request to deezer api
+                # make request to dz api
                 try:
                     response = requests.get(
                         f'https://api.deezer.com/search?q=track:"{track_name}" album:"{album_name}" artist:"{artist_name}"&limit=1')
@@ -83,7 +83,7 @@ def main():
                 logging.info(f"file {filename} processed. data saved to {txt_path}.")
 
     logging.info("processing completed.")
-    print("[cruix-music-archiver] deezer database updated.")
+    print("[cruix-music-archiver] music database updated.")
 
 
 if __name__ == "__main__":
