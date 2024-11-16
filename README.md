@@ -124,6 +124,10 @@ docker run
   docker exec youtube-dl bash -c 'echo "https://music.youtube.com/channel/UCkrV3aukHg-BB2xT8D3Hwyw" >> ./artists.txt'
   ```
 
+- **genres_cache.txt**  
+  this cache is built through an API and applied to the artist's musical style. If you do not agree with the information provided by the api, you can modify the .txt file and apply what you think is correct and the system will apply the artist genre tag to whatever is contained in the cache file without overwriting what was changed.
+
+
 - **loudnorm_cache.txt**  
   this cache file stores the files already processed by ffmpeg, if you want to reprocess your library, delete this file.
 
