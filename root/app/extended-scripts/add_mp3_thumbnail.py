@@ -64,7 +64,7 @@ def main():
             else:
                 logging.warning(f'file {os.path.join(root, filename)} is not an mp3 file')
 
-    print(f"thumbnails successfully added to {success_count} songs with {failure_count} failures.\n")
+    print(f"[cruix-music-archiver] thumbnails successfully added to {success_count} songs with {failure_count} failures.")
 
 if __name__ == "__main__":
     main()

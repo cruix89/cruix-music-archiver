@@ -21,7 +21,7 @@ def setup_directories():
 
 
 def main():
-    print("\nsetting up jellyfin artist image...")
+    print("[cruix-music-archiver] setting up jellyfin artist image...")
 
     # logging setup
     music_dir, deezer_db_dir, log_dir = setup_directories()
@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("jellyfin artist image set up successfully.")
+    print("[cruix-music-archiver] jellyfin artist image set up successfully.")
 
 
 if __name__ == "__main__":

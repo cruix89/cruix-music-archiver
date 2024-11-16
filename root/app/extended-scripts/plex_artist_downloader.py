@@ -21,11 +21,11 @@ def setup_directories():
 
 
 def main():
-    print("\nsetting up poweramp artist image...")
+    print("[cruix-music-archiver] setting up plex artist image...")
 
     # logging setup
     music_dir, deezer_db_dir, log_dir = setup_directories()
-    logging.basicConfig(filename=os.path.join(log_dir, 'poweramp_artist_downloader.log'), level=logging.DEBUG)
+    logging.basicConfig(filename=os.path.join(log_dir, 'plex_artist_downloader.log'), level=logging.DEBUG)
 
     logging.debug(f"music_dir: {music_dir}\n")
     logging.debug(f"deezer_db_dir: {deezer_db_dir}\n")
@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("poweramp artist image set up successfully.\n")
+    print("[cruix-music-archiver] plex artist image set up successfully.")
 
 
 if __name__ == "__main__":

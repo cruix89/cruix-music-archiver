@@ -12,7 +12,7 @@ def setup_logging( log_file ):
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 # fixes print in terminal
-print("\nremoving invalid characters from /downloads...")
+print("[cruix-music-archiver] removing invalid characters from /downloads...")
 
 def load_invalid_characters( file_path ):
     try:
@@ -92,7 +92,7 @@ def main( download_path, lists_path ):
     rename_files_and_dirs(download_path, invalid_chars)
 
 # fixed print in terminal
-print("invalid characters removed successfully...\n")
+print("[cruix-music-archiver] invalid characters removed successfully...\n")
 
 if __name__ == "__main__":
 

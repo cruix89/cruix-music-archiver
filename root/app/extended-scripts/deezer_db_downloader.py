@@ -4,7 +4,7 @@ import requests
 import logging
 
 # print in terminal
-print("\ndownloading deezer database...", flush=True)
+print("[cruix-music-archiver] downloading deezer database...", flush=True)
 
 def setup_directories():
     # absolute directories
@@ -83,7 +83,7 @@ def main():
                 logging.info(f"file {filename} processed. data saved to {txt_path}.")
 
     logging.info("processing completed.")
-    print("database updated.")
+    print("[cruix-music-archiver] deezer database updated.")
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ deezer_db_dir="/config/deezer-db"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "\ncleaning cache files in directory's: /cache /logs /downloads"
+  echo -e "[cruix-music-archiver] cleaning cache files in directory's: /cache /logs /downloads"
 
   sleep '5'
   mkdir -p $cache_dir
@@ -26,7 +26,7 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $logs_dir
   find $logs_dir -type f -delete
 
-  echo -e "executing post-processing scripts for the music library update"
+  echo -e "[cruix-music-archiver] executing cruix-music-archiver scripts for the music library update"
 
   # post-processing scripts in downloads folder
 
@@ -78,8 +78,8 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/capitalize_fixer.py
 
-  sleep '5'
-  python3 /app/extended-scripts/genre_fixer.py
+  # sleep '5'
+  # python3 /app/extended-scripts/genre_fixer.py
 
   sleep '5'
   umask "$UMASK"
@@ -105,10 +105,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/jellyfin_artist_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/poweramp_album_downloader.py
+  python3 /app/extended-scripts/plex_album_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/poweramp_artist_downloader.py
+  python3 /app/extended-scripts/plex_artist_downloader.py
 
   sleep '5'
   python3 /app/extended-scripts/artists_invalid_characters_remover.py
@@ -131,7 +131,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  echo -e "cleaning old files in /recycle-bin /deezer-db /unofficial-albums\n"
+  echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /deezer-db /unofficial-albums"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
@@ -140,8 +140,8 @@ if [ -d "$downloads_dir" ]; then
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $deezer_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "old files in /recycle-bin /deezer-db /unofficial-albums successfully cleaned.\n"
+  echo -e "[cruix-music-archiver] old files in /recycle-bin /deezer-db /unofficial-albums successfully cleaned."
 
 else
-  echo -e "output directory not found: $downloads_dir"
+  echo -e "[cruix-music-archiver] output directory not found: $downloads_dir"
 fi

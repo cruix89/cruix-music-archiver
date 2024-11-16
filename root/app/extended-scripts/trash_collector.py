@@ -16,7 +16,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("\nrecycling files without a corresponding audio file...", flush=True)
+print("[cruix-music-archiver] recycling files without a corresponding audio file...", flush=True)
 
 # supported audio formats
 audio_formats = (
@@ -62,11 +62,11 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
                 logging.error(f'failed to move file from {src_path} TO {dest_path}: {e}\n')
         else:
             skipped_files += 1
-            logging.info(f'the file {src_path} was skipped because a corresponding audio file was found\n')
+            logging.info(f'[cruix-music-archiver] the file {src_path} was skipped because a corresponding audio file was found')
 
 # log final summary
 logging.info(
-    f'the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}\n')
+    f'[cruix-music-archiver] the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}')
 
 # print final summary to terminal
-print(f"files recycled successfully.\ntotal files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}")
+print(f"[cruix-music-archiver] files recycled successfully.\ntotal files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}")

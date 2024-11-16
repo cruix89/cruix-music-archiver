@@ -99,7 +99,7 @@ process_directory() {
         return
     fi
 
-    log "starting process in directory: $directory"
+    log "[cruix-music-archiver] starting process in directory: $directory"
 
     find "$directory" -type d | while read -r sub_dir; do
         # Search for images and audio files in the current subdirectory
@@ -120,7 +120,6 @@ process_directory() {
         best_image=$(find_best_image "$sub_dir")
 
         if [[ -n "$best_image" ]]; then
-            log ""
             log "best image found: $best_image"
             for audio_file in "${audio_files[@]}"; do
                 audio_name=$(basename "$audio_file" | sed 's/\.[^.]*$//')
@@ -136,12 +135,11 @@ process_directory() {
         fi
     done
 
-    log ""
-    log "process completed in directory: $directory"
+    log "[cruix-music-archiver] process completed in directory: $directory"
 }
 
 # script execution
 log ""
-log "starting missing covers completion..."
+log "[cruix-music-archiver] starting missing covers completion..."
 process_directory "$music_dir"
-log "missing covers completion finished."
+log "[cruix-music-archiver] missing covers completion finished."

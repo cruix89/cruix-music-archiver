@@ -14,16 +14,16 @@ def setup_logging(log_file):
 
 
 # fixed print in terminal
-print("removing invalid characters from artist tags in MP3 files...")
+print("[cruix-music-archiver] removing invalid characters from artist tags in mp3 files...")
 
 def load_invalid_characters(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             invalid_chars = [line.encode().decode('unicode-escape').strip() for line in f if line.strip()]
-        logging.info(f"invalid characters loaded from list: {invalid_chars}\n")
+        logging.info(f"invalid characters loaded from list: {invalid_chars}")
         return invalid_chars
     except Exception as e:
-        logging.error(f"error loading invalid characters: {e}\n")
+        logging.error(f"error loading invalid characters: {e}")
         return []
 
 
@@ -31,18 +31,18 @@ def sanitize_artist_tag(artist_name, invalid_chars):
     original_name = artist_name
     # replace spaces with "_"
     artist_name = artist_name.replace(',', '/')
-    logging.debug(f"replacing ',' with '/' in artist tag '{original_name}'\n")
+    logging.debug(f"replacing ',' with '/' in artist tag '{original_name}'")
     # replace "-" with "_"
     artist_name = artist_name.replace('\\', '/')
-    logging.debug(f"replacing '\\' with '/' in artist tag '{original_name}'\n")
+    logging.debug(f"replacing '\\' with '/' in artist tag '{original_name}'")
     # replace "," with "_"
     artist_name = artist_name.replace(';', '/')
-    logging.debug(f"replacing ';' with '/' in artist tag '{original_name}'\n")
+    logging.debug(f"replacing ';' with '/' in artist tag '{original_name}'")
     for char in invalid_chars:
         if char in artist_name:
-            logging.debug(f"replacing '{char}' in artist tag '{original_name}'\n")
+            logging.debug(f"replacing '{char}' in artist tag '{original_name}'")
         artist_name = artist_name.replace(char, "_")
-    logging.info(f"standardizing artist tag '{original_name}' TO '{artist_name}'\n")
+    logging.info(f"standardizing artist tag '{original_name}' TO '{artist_name}'")
     return artist_name
 
 
@@ -51,7 +51,7 @@ def update_mp3_tag(path, invalid_chars):
         try:
             audiofile = eyed3.load(path)
             if audiofile is None:
-                logging.warning(f"unable to load MP3 file: {path}\n")
+                logging.warning(f"unable to load MP3 file: {path}")
                 return
 
             artist_tag = audiofile.tag.artist
@@ -60,33 +60,33 @@ def update_mp3_tag(path, invalid_chars):
                 if new_artist_tag != artist_tag:
                     audiofile.tag.artist = new_artist_tag
                     audiofile.tag.save()
-                    logging.info(f"updated artist tag in {path}\n")
+                    logging.info(f"updated artist tag in {path}")
                 else:
-                    logging.info(f"no changes needed for artist tag in {path}\n")
+                    logging.info(f"no changes needed for artist tag in {path}")
             else:
-                logging.info(f"no artist tag found in {path}\n")
+                logging.info(f"no artist tag found in {path}")
         except Exception as e:
-            logging.error(f"error updating artist tag in {path}: {e}\n")
+            logging.error(f"error updating artist tag in {path}: {e}")
 
 
 def process_mp3_tags(path, invalid_chars):
-    logging.info("processing MP3 artist tags...\n")
+    logging.info("processing MP3 artist tags...")
     for dirpath, _, filenames in os.walk(path):
         for filename in filenames:
             file_path = os.path.join(dirpath, filename)
             update_mp3_tag(file_path, invalid_chars)
-    logging.info("artist tags processed.\n")
+    logging.info("artist tags processed.")
 
 
 def main(download_path, lists_path):
     invalid_chars_file = os.path.join(lists_path, 'artists_invalid_characters.txt')
 
     if not os.path.exists(download_path):
-        logging.error(f"download directory does not exist: {download_path}\n")
+        logging.error(f"download directory does not exist: {download_path}")
         sys.exit(1)
 
     if not os.path.exists(lists_path):
-        logging.error(f"lists directory does not exist: {lists_path}\n")
+        logging.error(f"lists directory does not exist: {lists_path}")
         sys.exit(1)
 
     invalid_chars = load_invalid_characters(invalid_chars_file)
@@ -94,7 +94,7 @@ def main(download_path, lists_path):
 
 
 # fixed print in terminal
-print("artist tags updated successfully...\n")
+print("[cruix-music-archiver] artist tags updated successfully...")
 
 if __name__ == "__main__":
 

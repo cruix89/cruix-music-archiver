@@ -21,7 +21,7 @@ load_normalized_list() {
         touch "$normalized_list_file"
     fi
     mapfile -t normalized_files < "$normalized_list_file"
-    echo -e "\nnumber of normalized files in cache: ${#normalized_files[@]}"
+    echo -e "[cruix-music-archiver] number of normalized files in cache: ${#normalized_files[@]}"
 }
 
 # function to save to the normalized list
@@ -134,7 +134,7 @@ main() {
     done
 
     # final summary
-    echo "all files have been processed and normalized successfully."
+    echo -e "[cruix-music-archiver] all files have been processed and normalized successfully."
 }
 
 main

@@ -32,8 +32,8 @@ chmod +x /app/extended-scripts/lastgenre.py
 chmod +x /app/extended-scripts/loudnorm.sh
 chmod +x /app/extended-scripts/missing_covers_downloader.py
 chmod +x /app/extended-scripts/music_invalid_characters_remover.py
-chmod +x /app/extended-scripts/poweramp_album_downloader.py
-chmod +x /app/extended-scripts/poweramp_artist_downloader.py
+chmod +x /app/extended-scripts/plex_album_downloader.py
+chmod +x /app/extended-scripts/plex_artist_downloader.py
 chmod +x /app/extended-scripts/release_year_update.py
 chmod +x /app/extended-scripts/tags_and_folders_strings_fixer.py
 chmod +x /app/extended-scripts/trash_collector.py

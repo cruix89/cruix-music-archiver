@@ -83,7 +83,7 @@ def main():
     def process_directory(dir_path):
         # Count .mp3 files
         total_files = sum(len([file for file in files if file.endswith(".mp3")]) for _, _, files in os.walk(dir_path))
-        print(f"\ntotal MP3 files found: {total_files}")
+        print(f"[cruix-music-archiver] total mp3 files found: {total_files}")
 
         processed_files = 0
         for root, dirs, files in os.walk(dir_path):
@@ -109,10 +109,10 @@ def main():
                             save_artist_list(artist_list)
                         else:
                             logging.warning(f'no genre found for artist {artist_name}, file: {file_path}\n')
-                            print(f"no genre found for {file_path}")
+                            print(f"[cruix-music-archiver] no genre found for {file_path}")
                     else:
                         logging.warning(f'no artist tag found in file: {file_path}\n')
-                        print(f"no artist tag found in {file_path}")
+                        print(f"[cruix-music-archiver] no artist tag found in {file_path}")
 
     process_directory(music_dir)
 

@@ -15,7 +15,7 @@ for directory in [logs_dir, lists_dir, music_dir, unofficial_albums_dir]:
 # configure logging
 logging.basicConfig(filename=os.path.join(logs_dir, "unofficial_albums_mover.log"), level=logging.INFO)
 
-print("moving unofficial albums...")
+print("[cruix-music-archiver] moving unofficial albums to /config/unofficial-albums...")
 
 # read the folder list from the file
 try:
@@ -41,4 +41,4 @@ for root, dirs, files in os.walk(music_dir):
             except Exception as e:
                 logging.error(f'error moving album {name}: {e}\n')
 
-print("unofficial albums moved successfully.\n")
+print("[cruix-music-archiver] unofficial albums moved successfully.")
