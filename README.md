@@ -120,7 +120,8 @@ docker run
   ```
   adding a new link by docker command:
   ```plaintext
-  docker exec youtube-dl bash -c 'echo "URL" >> ./artists.txt'
+  docker exec youtube-dl bash -c 'echo "# ARTIST NAME" >> ./artists.txt'
+  docker exec youtube-dl bash -c 'echo "https://music.youtube.com/channel/UCkrV3aukHg-BB2xT8D3Hwyw" >> ./artists.txt'
   ```
 
 - **loudnorm_cache.txt**  
