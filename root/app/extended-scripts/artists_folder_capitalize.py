@@ -1,19 +1,23 @@
 import os
 
-# Define o diretório de música
+print("[cruix-music-archiver] capitalizing artists folders...")
+
+# set the music directory
 music_dir = '/music'
 
-# Percorre todos os itens no diretório de música
+# cycle through all items in the music directory
 for item in os.listdir(music_dir):
     item_path = os.path.join(music_dir, item)
 
-    # Verifica se o item é um diretório
+    # check if the item is a directory
     if os.path.isdir(item_path):
-        # Capitaliza o nome do diretório
+        # capitalize the directory name
         capitalized_name = item.title()
         capitalized_path = os.path.join(music_dir, capitalized_name)
 
-        # Renomeia o diretório
-        if item != capitalized_name:  # Evita renomeações desnecessárias
+        # rename the directory
+        if item != capitalized_name:
             os.rename(item_path, capitalized_path)
-            print(f'capitalizing: {item} -> {capitalized_name}')
+            print(f'capitalized: {item} to {capitalized_name}')
+
+print("[cruix-music-archiver] artists folders looks awesome")
