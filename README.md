@@ -115,8 +115,8 @@ docker run
   
   adding a new link by .txt editing:
   ```plaintext
-  # ONE URL PER LINE
-  https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg
+  # ARTIST NAME
+  https://music.youtube.com/channel/UCkrV3aukHg-BB2xT8D3Hwyw
   ```
   adding a new link by docker command:
   ```plaintext
