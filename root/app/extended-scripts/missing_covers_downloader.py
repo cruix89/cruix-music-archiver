@@ -11,7 +11,7 @@ from pathlib import Path
 def setup_directories():
     # configured directories
     music_dir = Path('/music').resolve()
-    deezer_db_dir = Path('/config/deezer-db').resolve()
+    deezer_db_dir = Path('/config/dz-db').resolve()
     log_dir = Path('/config/logs').resolve()
 
     # ensure directories exist

@@ -7,7 +7,7 @@ cache_dir="/config/cache"
 logs_dir="/config/logs"
 recycle_bin_dir="/config/recycle-bin"
 unofficial_albums_dir="/config/unofficial-albums"
-deezer_db_dir="/config/deezer-db"
+deezer_db_dir="/config/dz-db"
 
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
@@ -131,7 +131,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /deezer-db /unofficial-albums"
+  echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /dz-db /unofficial-albums"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
@@ -140,7 +140,7 @@ if [ -d "$downloads_dir" ]; then
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $deezer_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] old files in /recycle-bin /deezer-db /unofficial-albums successfully cleaned."
+  echo -e "[cruix-music-archiver] old files in /recycle-bin /dz-db /unofficial-albums successfully cleaned."
 
 else
   echo -e "[cruix-music-archiver] output directory not found: $downloads_dir"

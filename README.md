@@ -33,6 +33,9 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 - **yt-dlp customization**  
   includes support for SponsorBlock, Geo Bypass, Proxy, Metadata, and more.
 
+- **smart caches and config files**  
+  folders, cache and configuration files in the /config directory for full control of execution processes.
+
 ---
 
 ## 🚀: QUICK START
@@ -58,13 +61,13 @@ docker run
 
 ## 🔧: ENVIRONMENT PARAMETERS
 
-| Parameter              | Default           | Description                                                      |
-|------------------------|-------------------|------------------------------------------------------------------|
-| `TZ`                   |`America/Sao_Paulo`| set time zone for accurate log timestamps.                       |
-| `PUID`                 | `1000`            | specify user ID for file permissions.                            |
-| `PGID`                 | `100`             | specify group ID for file permissions.                           |
-| `UMASK`                | `000`             | set UMASK for file permissions.                                  |
-| `youtubedl_interval`   | `1h`              | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
+| Parameter            | Default             | Description                                                      |
+|----------------------|---------------------|------------------------------------------------------------------|
+| `TZ`                 | `America/Sao_Paulo` | set time zone for accurate log timestamps.                       |
+| `PUID`               | `1000`              | specify user ID for file permissions.                            |
+| `PGID`               | `100`               | specify group ID for file permissions.                           |
+| `UMASK`              | `000`               | set UMASK for file permissions.                                  |
+| `youtubedl_interval` | `1h`                | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
 
 ---
 
@@ -77,6 +80,35 @@ docker run
 ---
 
 ## 📂: CONFIGURATION
+
+- **cache folder**  
+  temporary directory where files are processed, the script automatically cleans the directory. 
+
+
+- **dz-db folder**  
+  music information database directory, the database is updated with each script run. 
+
+
+- **logs folder**  
+  all system logs are stored in this directory and restarted with each run for better space and process control.
+
+
+- **recycle-bin folder**  
+  directory where unnecessary thumbnails and corrupted files are moved. The directory stores files for 7 days, check the files you want to check within this period.
+
+  
+- **unofficial-albums folder**  
+  this directory stores albums and playlists added to the artist that are not official. The directory stores the albums for 7 days, if you wish, you can retrieve the albums and manually move them to your library within this period. 
+  **ATTENTION:** if you save the albums to your library, move them to a folder other than /music , because if you do, the unofficial album will be moved again to the unofficial albums directory the next time the script is run.
+
+
+- **archive.txt**  
+  records downloaded music IDs, delete to re-download all.
+
+
+- **args.conf**  
+  stores `yt-dlp` arguments, customizable for different needs.
+
 
 - **artists.txt**  
   location: `/config/artists.txt`. artist list or playlist URLs to download.
@@ -91,14 +123,16 @@ docker run
   docker exec youtube-dl bash -c 'echo "URL" >> ./artists.txt'
   ```
 
-- **pre-execution.sh / post-execution.sh**  
-  these are the scripts that run before and after downloads to process and manage the music library.
+- **loudnorm_cache.txt**  
+  this cache file stores the files already processed by ffmpeg, if you want to reprocess your library, delete this file.
 
-- **archive.txt**  
-  records downloaded music IDs, delete to re-download all.
 
-- **args.conf**  
-  stores `yt-dlp` arguments, customizable for different needs.
+- **loudnorm_failed_files_cache.txt**  
+  this cache stores library files that were corrupted and removed by the system. If this file appears in your /config, examine the files and add another link to download the file again if you want.
+
+
+- **post-execution.sh**  
+  these are the script that run before and after downloads to process and manage the music library.
 
 ---
 

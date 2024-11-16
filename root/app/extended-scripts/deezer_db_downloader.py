@@ -9,7 +9,7 @@ print("[cruix-music-archiver] downloading deezer database...", flush=True)
 def setup_directories():
     # absolute directories
     base_dir = '/music'
-    db_dir = '/config/deezer-db'
+    db_dir = '/config/dz-db'
     log_dir = '/config/logs'
 
     # create directories if they do not exist

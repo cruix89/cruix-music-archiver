@@ -9,7 +9,7 @@ from io import BytesIO
 def setup_directories():
     # define absolute paths for directories
     music_dir = "/music"
-    deezer_db_dir = "/config/deezer-db"
+    deezer_db_dir = "/config/dz-db"
     log_dir = "/config/logs"
 
     # ensure that directories exist
