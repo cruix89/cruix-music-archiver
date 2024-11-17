@@ -41,6 +41,9 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 - **smart caches and config files**  
   folders, cache and configuration files in the /config directory for full control of execution processes.
 
+- **LUFS-based normalization**
+  audio processing using [ffmpeg](https://github.com/FFmpeg/FFmpeg) to calculate the audio LUFS and normalize the entire library, using the same parameters that major streaming platforms use. Improving the sound experience and reducing volume differences between different sounds
+
 - **designed for excellent compatibility with large media center projects**  
   organized library for great viewing on [plex](https://github.com/plexinc/pms-docker) and [jellyfin](https://jellyfin.org/docs/general/installation/container/)
 
@@ -181,7 +184,6 @@ docker run
  
 ---
 
----
 
 ## 📄:  USER AGREEMENT AND DONATIONS
 
