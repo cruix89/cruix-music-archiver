@@ -28,7 +28,7 @@ def move_files_based_on_list(file_path):
 
             # Verifica se a pasta de origem existe
             if not os.path.exists(origin):
-                print(f"[cruix-music-archiver] verifying next folder... ")
+                print(f"[cruix-music-archiver] disambiguator verifying next folder... ")
                 continue
 
             # Cria a pasta de destino, se não existir
