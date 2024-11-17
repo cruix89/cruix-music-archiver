@@ -131,6 +131,12 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
+  sleep '5'
+  python3 /app/extended-scripts/artist_disambiguator.py
+
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
+
   echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /dz-db /unofficial-albums"
 
   mkdir -p $recycle_bin_dir
