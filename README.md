@@ -6,24 +6,21 @@
 [![Image Size](https://img.shields.io/docker/image-size/cruix89/cruix-music-archiver/latest?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
 [![Docker Stars](https://img.shields.io/docker/stars/cruix89/cruix-music-archiver?style=flat&logo=docker)](https://hub.docker.com/r/cruix89/cruix-music-archiver/)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-%23FF813F?style=flat&logo=buymeacoffee)](https://buymeacoffee.com/cruix89)
 
----
+
+--- 
 
 ## 🎼: OVERVIEW
-a fully automated `yt-dlp` docker image to easily download and manage a music library based in YouTube Music and other supported music platforms by `yt-dlp`.
+a fully automated `yt-dlp` docker image to easily download and manage a music library based in YT Music and other supported music platforms by `yt-dlp`.
 
 ---
 
-## 💖 Support This Project
+## 💖 GENEROSITY
 
-if you find this project useful, consider buy me a coffee 😊:
-
-[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-%23EA4AAA?style=for-the-badge&logo=github)](https://github.com/cruix89/cruix-music-archiver/sponsor)
-
-THANK YOU! for your support! 😊
-
-📌 docker hub: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
-📄 yt-dlp documentation: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+- 😊 **if you like my work, consider** [buy me a coffee](https://buymeacoffee.com/cruix89)
+- 📌 **docker hub:** [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
+- 📄 **yt-dlp documentation:** [yt-dlp](https://github.com/yt-dlp/yt-dlp)   
 
 ---
 
@@ -36,13 +33,16 @@ THANK YOU! for your support! 😊
   self-updating container with automatic image creation with each `yt-dlp` release.
   
 - **automated downloads**  
-  specify a download URL file, and easily manage permissions to download every new release from your favorite artists.
+  specify a download URL file, and easily manage permissions to download.
 
 - **yt-dlp customization**  
   includes support for SponsorBlock, Geo Bypass, Proxy, Metadata, and more.
 
 - **smart caches and config files**  
   folders, cache and configuration files in the /config directory for full control of execution processes.
+
+- **designed for excellent compatibility with large media center projects**  
+  organized library for great viewing on [plex](https://github.com/plexinc/pms-docker) and [jellyfin](https://jellyfin.org/docs/general/installation/container/)
 
 ---
 
@@ -124,12 +124,12 @@ docker run
   adding a new link by .txt editing:
   ```plaintext
   # ARTIST NAME
-  https://music.youtube.com/channel/UCkrV3aukHg-BB2xT8D3Hwyw
+  https://music.youtube.com/channel/UCkkHg-BBHwyw
   ```
   adding a new link by docker command:
   ```plaintext
   docker exec youtube-dl bash -c 'echo "# ARTIST NAME" >> ./artists.txt'
-  docker exec youtube-dl bash -c 'echo "https://music.youtube.com/channel/UCkrV3aukHg-BB2xT8D3Hwyw" >> ./artists.txt'
+  docker exec youtube-dl bash -c 'echo "https://music.youtube.com/channel/UCHg-BBwyw" >> ./artists.txt'
   ```
 
 - **genres_cache.txt**  
@@ -179,6 +179,24 @@ docker run
 | `--embed-metadata`       | `--embed-metadata`                                     | writes metadata to file                                               |
 | `--sleep-requests`       | `1.5`                                                  | waits for time to prevent request blocking                            |
  
+---
+
+---
+
+## 📄:  USER AGREEMENT AND DONATIONS
+
+This project was developed exclusively for **educational purposes and personal use**, and aims to assist users in organizing and managing their music libraries. The software uses `yt-dlp`, an open-source tool, to download content only from publicly accessible sources. It is strictly prohibited to use the software to download, distribute, or share any content protected by copyright without explicit authorization from the copyright holder.
+
+**Important Notice:** The software does not host, store, or distribute any media files. It does not provide direct access to any content. All downloads are initiated, managed, and controlled entirely by the user. The user is solely responsible for ensuring that the use of the software complies with all applicable copyright laws, the terms of service of the websites from which content is downloaded, and relevant local regulations. It is the user's responsibility to ensure that the downloaded content is legally available for download and distribution and that they have the proper permissions. Any unauthorized download or distribution of copyrighted content is illegal, and the user assumes full legal responsibility for such actions.
+
+***Legal Compliance:*** By using this software, the user agrees to comply with all applicable copyright laws, the terms of service of any websites from which content is downloaded, and relevant local regulations. The developers assume no responsibility for actions taken by users that violate copyright laws or terms of service. The responsibility for legal compliance lies entirely with the user. The user must ensure that the downloaded content is legally available for download and distribution.
+
+***Prohibition of Illegal Use:*** This software is not intended for, and must not be used for, any illegal activity. This includes, but is not limited to, downloading, distributing, or sharing copyrighted content without proper authorization. The user must not use the software to circumvent any digital rights management (DRM) or other similar protections.
+
+***Legal Disclaimer:*** The developers do not endorse, facilitate, or support the illegal use of this software. By using the software, the user acknowledges that they are fully responsible for their actions and commit to complying with current legislation. The developers will not be responsible for any legal actions resulting from the misuse of the software.
+
+***Donations and Sponsor:*** Donations are voluntary and do not provide any special access to content, nor do they allow bypassing legal restrictions or altering the functionality of the software in any way. Donations do not affect the user's ability to use the software and are in no way related to any access to illegal content.
+
 ---
 
 for more `yt-dlp` options, check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp#usage-and-options).
