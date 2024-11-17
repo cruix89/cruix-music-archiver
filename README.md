@@ -14,6 +14,14 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ---
 
+## 💖 Support This Project
+
+if you find this project useful, consider buy me a coffee 😊:
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-%23EA4AAA?style=for-the-badge&logo=github)](https://github.com/cruix89/cruix-music-archiver/sponsor)
+
+THANK YOU! for your support! 😊
+
 📌 docker hub: [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
 📄 yt-dlp documentation: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
