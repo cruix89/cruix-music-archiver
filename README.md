@@ -42,7 +42,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   folders, cache and configuration files in the /config directory for full control of execution processes.
 
 - **smart tag search engines by apis**  
-  genre, missing covers and artist images search automatic engines
+  genre, missing covers and artist images automatic search engines
 
 - **smart correction and normalization of tags and files**  
   a large library of patches are applied to standardize and correct filenames and tags
