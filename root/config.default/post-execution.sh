@@ -99,18 +99,6 @@ if [ -d "$downloads_dir" ]; then
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
   sleep '5'
-  python3 /app/extended-scripts/jellyfin_album_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/jellyfin_artist_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/plex_album_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/plex_artist_downloader.py
-
-  sleep '5'
   python3 /app/extended-scripts/artists_invalid_characters_remover.py
 
   sleep '5'
@@ -136,6 +124,18 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
+
+  sleep '5'
+  python3 /app/extended-scripts/jellyfin_album_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/jellyfin_artist_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/plex_album_downloader.py
+
+  sleep '5'
+  python3 /app/extended-scripts/plex_artist_downloader.py
 
   echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /dz-db /unofficial-albums"
 

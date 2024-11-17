@@ -42,7 +42,7 @@ def move_files_based_on_list(file_path):
                 if os.path.isfile(src_file):
                     # Move o arquivo para o destino
                     shutil.move(src_file, dst_file)
-                    print(f"disambiguation: {src_file} to {dst_file}")
+                    print(f"[cruix-music-archiver] disambiguating: {src_file} to {dst_file}")
 
     except Exception as e:
         print(f"[cruix-music-archiver] error to process the list: {e}")
