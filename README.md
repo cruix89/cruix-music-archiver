@@ -1,5 +1,5 @@
 
-# 🎶 cruix89 / cruix-music-archiver 🎶
+# <img src="https://i.imgur.com/KGjEr5m.png" alt="Logo do Projeto" width="32" height="32"> cruix89 / cruix-music-archiver <img src="https://i.imgur.com/KGjEr5m.png" alt="Logo do Projeto" width="32" height="32">
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/cruix89/cruix-music-archiver?logo=github)](https://github.com/cruix89/cruix-music-archiver/actions/workflows/push-unstable-image.yml/)
 [![GitHub Automated build](https://img.shields.io/github/actions/workflow/status/cruix89/cruix-music-archiver/push-release-version-image.yml?logo=github)](https://github.com/cruix89/cruix-music-archiver/actions/workflows/push-release-version-image.yml/)
@@ -18,7 +18,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ## 💖 GENEROSITY
 
-- 😊 **if you like my work, consider** [buy me a coffee](https://buymeacoffee.com/cruix89)
+- 😊 **if you like me, consider** [buy me a coffee](https://buymeacoffee.com/cruix89)
 - 📌 **docker hub:** [cruix-music-archiver](https://hub.docker.com/r/cruix89/cruix-music-archiver)  
 - 📄 **yt-dlp documentation:** [yt-dlp](https://github.com/yt-dlp/yt-dlp)   
 
@@ -42,7 +42,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   folders, cache and configuration files in the /config directory for full control of execution processes.
 
 - **smart tag search engines by apis**  
-  genre search engines, missing covers and artist images automatically
+  genre, missing covers and artist images search automatic engines
 
 - **smart correction and normalization of tags and files**  
   a large library of patches are applied to standardize and correct filenames and tags
@@ -56,7 +56,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   using the same parameters that major streaming platforms use, improving the sound experience and reducing volume differences between different sounds
 
 - **designed for excellent compatibility with large media center projects**  
-  organized library for great viewing on [plex](https://github.com/plexinc/pms-docker) and [jellyfin](https://jellyfin.org/docs/general/installation/container/)
+  the library structure is organized for great viewing on [plex](https://github.com/plexinc/pms-docker) and [jellyfin](https://jellyfin.org/docs/general/installation/container/)
 
 ---
 
@@ -200,7 +200,7 @@ docker run
 
 This project was developed exclusively for **educational purposes and personal use**, and aims to assist users in organizing and managing their music libraries. The software uses `yt-dlp`, an open-source tool, to download content only from publicly accessible sources. It is strictly prohibited to use the software to download, distribute, or share any content protected by copyright without explicit authorization from the copyright holder.
 
-**Important Notice:** The software does not host, store, or distribute any media files. It does not provide direct access to any content. All downloads are initiated, managed, and controlled entirely by the user. The user is solely responsible for ensuring that the use of the software complies with all applicable copyright laws, the terms of service of the websites from which content is downloaded, and relevant local regulations. It is the user's responsibility to ensure that the downloaded content is legally available for download and distribution and that they have the proper permissions. Any unauthorized download or distribution of copyrighted content is illegal, and the user assumes full legal responsibility for such actions.
+***Important Notice:*** The software does not host, store, or distribute any media files. It does not provide direct access to any content. All downloads are initiated, managed, and controlled entirely by the user. The user is solely responsible for ensuring that the use of the software complies with all applicable copyright laws, the terms of service of the websites from which content is downloaded, and relevant local regulations. It is the user's responsibility to ensure that the downloaded content is legally available for download and distribution and that they have the proper permissions. Any unauthorized download or distribution of copyrighted content is illegal, and the user assumes full legal responsibility for such actions.
 
 ***Legal Compliance:*** By using this software, the user agrees to comply with all applicable copyright laws, the terms of service of any websites from which content is downloaded, and relevant local regulations. The developers assume no responsibility for actions taken by users that violate copyright laws or terms of service. The responsibility for legal compliance lies entirely with the user. The user must ensure that the downloaded content is legally available for download and distribution.
 
