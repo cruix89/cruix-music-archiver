@@ -70,7 +70,7 @@ docker run
   --name='cruix-music-archiver'
   --privileged=true
   -e TZ="America/Sao_Paulo"
-  -e 'youtubedl_interval'='1h'
+  -e 'yt_dlp_interval'='1h'
   -e 'PUID'='1000'
   -e 'PGID'='100'
   -e 'UMASK'='000'
@@ -89,7 +89,7 @@ docker run
 | `PUID`               | `1000`              | specify user ID for file permissions.                            |
 | `PGID`               | `100`               | specify group ID for file permissions.                           |
 | `UMASK`              | `000`               | set UMASK for file permissions.                                  |
-| `youtubedl_interval` | `1h`                | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
+| `yt_dlp_interval` | `1h`                | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
 
 ---
 

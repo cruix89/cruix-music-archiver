@@ -20,8 +20,8 @@ cp -f /config.default/genres_cache.txt /config/
 
 ln -fs /config/args.conf /etc/yt-dlp.conf
 
-# check if youtubedl_quality is set, else assign default
-youtubedl_quality="${youtubedl_quality:-best}"
+# check if yt_dlp_quality is set, else assign default
+yt_dlp_quality="${yt_dlp_quality:-best}"
 
 # shellcheck disable=SC2016
-sed -i -E 's!\$youtubedl_quality!'"${youtubedl_quality}"'!g' /config.default/format
+sed -i -E 's!\$yt_dlp_quality!'"${yt_dlp_quality}"'!g' /config.default/format
