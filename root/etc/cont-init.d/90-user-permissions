@@ -40,3 +40,5 @@ chmod +x /app/extended-scripts/tags_and_folders_strings_fixer.py
 chmod +x /app/extended-scripts/trash_collector.py
 chmod +x /app/extended-scripts/unofficial_albums_mover.py
 chmod +x /app/extended-scripts/various_artists.py
+chmod +x /app/extended-scripts/various_songs_folder.py
+chmod +x /app/extended-scripts/various_songs_tag.py

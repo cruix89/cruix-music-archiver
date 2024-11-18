@@ -129,6 +129,12 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/dz_db_downloader.py
 
   sleep '5'
+  python3 /app/extended-scripts/various_songs_folder.py
+
+  sleep '5'
+  python3 /app/extended-scripts/various_songs_tag.py
+
+  sleep '5'
   python3 /app/extended-scripts/jellyfin_album_downloader.py
 
   sleep '5'
