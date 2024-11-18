@@ -33,7 +33,7 @@ fi
 while [ -f '/tmp/updater-running' ]; do sleep 1s; done
 yt_dlp_version="$($yt_dlp_binary --version)"
 yt_dlp_last_run_time="$(date '+%s')"
-echo ''; echo "$(date '+%Y-%m-%d %H:%M:%S') - starting execution"
+echo ''; echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - starting execution\033[0m"
 
 if $yt_dlp_lockfile; then
     touch '/downloads/.yt_dlp-running' && rm -f '/downloads/.yt_dlp-completed'
@@ -60,15 +60,15 @@ fi
 # Correct arithmetic checks
 elapsed_time=$(( $(date '+%s') - yt_dlp_last_run_time ))
 if (( elapsed_time / 60 >= 2 )); then
-  echo ''; echo "$(date '+%Y-%m-%d %H:%M:%S') - execution took $(( elapsed_time / 60 )) minutes"
+  echo ''; echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - execution took $(( elapsed_time / 60 )) minutes\033[0m"
 else
-  echo ''; echo "$(date '+%Y-%m-%d %H:%M:%S') - execution took $elapsed_time seconds"
+  echo ''; echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - execution took $elapsed_time seconds\033[0m"
 fi
 
 if [ -f '/config/post-execution.sh' ]; then
-  echo '[post-execution] running post-execution script...'
+  echo -e "\033[1;35m[post-execution] running post-execution script...\033[0m"
   bash '/config/post-execution.sh'
-  echo '[post-execution] finished post-execution script.'
+  echo -e "\033[1;35m[post-execution] finished post-execution script.\033[0m"
 fi
 
 echo "$yt_dlp_binary version: $yt_dlp_version"

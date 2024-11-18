@@ -147,7 +147,7 @@ docker run
   ```
 
 - **genres_cache.txt**  
-  this cache is built through an API and applied to the artist's musical style. If you do not agree with the information provided by the api, you can modify the .txt file and apply what you think is correct and the system will apply the artist genre tag to whatever is contained in the cache file without overwriting what was changed.
+  this cache is built through an api and applied to the artist's musical style. If you do not agree with the information provided by the api, send me a message 😊
 
 
 - **loudnorm_cache.txt**  
