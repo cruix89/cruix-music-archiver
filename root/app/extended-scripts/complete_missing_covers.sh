@@ -135,10 +135,10 @@ process_directory() {
         fi
     done
 
-    log "[cruix-music-archiver] process completed in directory: $directory"
+    echo -e "[cruix-music-archiver] mission complete in directory: $directory 🏆🎧"
 }
 
 # script execution
-log "[cruix-music-archiver] starting missing covers completion..."
+echo -e "[cruix-music-archiver] cover rescue mission engaged! 🦸‍♂️ commencing the epic quest to complete missing covers... 📀"
 process_directory "$music_dir"
-log "[cruix-music-archiver] missing covers completion finished."
+echo -e "[cruix-music-archiver] missing covers quest finished. 🏆 all missing covers have been restored! 📀"
