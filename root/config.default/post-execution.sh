@@ -12,7 +12,7 @@ dz_db_dir="/config/dz-db"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "[cruix-music-archiver] cleaning cache files in directory's: /cache /logs /downloads"
+  echo -e "[cruix-music-archiver] engaging cleanup protocol... purging cache files from the following directories: /cache, /logs, and /downloads. ★"
 
   sleep '5'
   mkdir -p $cache_dir
