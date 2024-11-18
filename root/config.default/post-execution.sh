@@ -140,6 +140,9 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/plex_artist_downloader.py
 
+  sleep '5'
+  python3 /app/extended-scripts/various_artists.py
+
   echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /dz-db /unofficial-albums"
 
   mkdir -p $recycle_bin_dir
