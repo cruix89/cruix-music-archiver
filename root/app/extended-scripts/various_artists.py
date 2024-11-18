@@ -8,9 +8,13 @@ default_cover = os.path.join(default_images_directory, "cover.jpg")
 default_folder = os.path.join(default_images_directory, "folder.jpg")
 
 def check_and_copy_images():
-    # percorre todos os subdiretórios de /music
+    # percorre apenas os subdiretórios de /music
     for root, dirs, files in os.walk(music_directory):
-        # verifica se os arquivos cover.jpg ou folder.jpg existem no diretório atual
+        # ignora o diretório raiz /music
+        if root == music_directory:
+            continue
+
+        # verifica se os arquivos cover.jpg ou folder.jpg existem no subdiretório atual
         has_cover = "cover.jpg" in files
         has_folder = "folder.jpg" in files
 
