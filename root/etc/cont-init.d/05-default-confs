@@ -1,18 +1,22 @@
 #!/usr/bin/with-contenv sh
 
 if ! [ -f "/config/args.conf" ]; then
-  echo "[default-confs] restoring default 'args.conf'."
+  echo "[default-configs] restoring default 'args.conf'."
   cp /config.default/args.conf /config/
 fi
 
 if ! [ -f "/config/artists.txt" ]; then
-  echo "[default-confs] restoring default 'artists.txt'."
+  echo "[default-configs] restoring default 'artists.txt'."
   cp /config.default/artists.txt /config/
 fi
 
 # always update the post-execution.sh script
-echo "[default-confs] updating default 'post-execution.sh'."
+echo "[default-configs] updating default 'post-execution.sh'."
 cp -f /config.default/post-execution.sh /config/
+
+# always update the genres_cache.txt
+echo "[default-configs] updating default 'genres_cache.txt'."
+cp -f /config.default/genres_cache.txt /config/
 
 ln -fs /config/args.conf /etc/yt-dlp.conf
 

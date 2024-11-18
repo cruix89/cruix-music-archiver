@@ -32,7 +32,7 @@ def save_artist_list(artist_list):
     list_path = os.path.join(lists_dir, "genres_cache.txt")
     with open(list_path, "w") as file:
         for artist, genre in artist_list.items():
-            file.write(f"{artist}|{genre}")
+            file.write(f"{artist}|{genre}\n")
 
 
 def main():

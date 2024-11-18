@@ -37,6 +37,7 @@ chmod +x /app/extended-scripts/plex_album_downloader.py
 chmod +x /app/extended-scripts/plex_artist_downloader.py
 chmod +x /app/extended-scripts/release_year_update.py
 chmod +x /app/extended-scripts/tags_and_folders_strings_fixer.py
+chmod +x /app/extended-scripts/tracks_updater.py
 chmod +x /app/extended-scripts/trash_collector.py
 chmod +x /app/extended-scripts/unofficial_albums_mover.py
 chmod +x /app/extended-scripts/various_artists.py
