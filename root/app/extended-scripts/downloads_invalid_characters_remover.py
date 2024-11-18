@@ -12,7 +12,7 @@ def setup_logging( log_file ):
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 # fixes print in terminal
-print("[cruix-music-archiver] removing invalid characters from /downloads...")
+print("[cruix-music-archiver] defeating the evil invalid characters in /downloads... 🛡️⚔️")
 
 def load_invalid_characters( file_path ):
     try:

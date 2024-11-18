@@ -26,7 +26,7 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $logs_dir
   find $logs_dir -type f -delete
 
-  echo -e "[cruix-music-archiver] executing cruix-music-archiver scripts for the music library update"
+  echo -e "[cruix-music-archiver] running the cruix-music-archiver scripts... preparing to update the music library with the precision of a time-traveling DJ! 🕰️🎶"
 
   # post-processing scripts in downloads folder
 
