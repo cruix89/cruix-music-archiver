@@ -74,9 +74,9 @@ fi
 echo "$yt_dlp_binary version: $yt_dlp_version"
 
 if [ "$yt_dlp_interval" != 'false' ]; then
-  echo "waiting $yt_dlp_interval.."
+  echo -e "\033[1;33mwaiting $yt_dlp_interval..\033[0m"
   sleep "$yt_dlp_interval"
 else
-  echo "yt_dlp_interval is set to 'false', container will now exit."
+  echo -e "\033[1;31myt_dlp_interval is set to 'false', container will now exit.\033[0m"
   s6-svscanctl -t '/var/run/s6/services'
 fi
