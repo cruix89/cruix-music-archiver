@@ -152,7 +152,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/tracks_updater.py
 
-  echo -e "[cruix-music-archiver] cleaning old files in /recycle-bin /dz-db /unofficial-albums"
+  echo -e "[cruix-music-archiver] 🧹  cleaning up the digital cobwebs in /recycle-bin, /dz-db, and /unofficial-albums. out with the old, in with the tidy!"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
@@ -161,8 +161,8 @@ if [ -d "$downloads_dir" ]; then
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] old files in /recycle-bin /dz-db /unofficial-albums successfully cleaned."
+  echo -e "[cruix-music-archiver] 🧹  mission accomplished! old files in /recycle-bin, /dz-db, and /unofficial-albums have been successfully swept away.  🗑️✨"
 
 else
-  echo -e "[cruix-music-archiver] output directory not found: $downloads_dir"
+  echo -e "[cruix-music-archiver] ⚠️  oops! output directory not found: $downloads_dir. did it get lost in the void? 🌌"
 fi
