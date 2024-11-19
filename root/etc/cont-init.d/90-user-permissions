@@ -10,8 +10,8 @@ chown -R abc:abc /music
 chown -R abc:abc /var/run/s6/services
 chown -R abc:abc /root
 
-chmod +x /app/youtube-dl/updater.sh
-chmod +x /app/youtube-dl/youtube-dl.sh
+chmod +x /app/yt-dlp/updater.sh
+chmod +x /app/yt-dlp/yt-dlp.sh
 chmod +x /config/post-execution.sh
 chmod +x /app/extended-scripts/add_mp3_thumbnail.py
 chmod +x /app/extended-scripts/artist_disambiguator.py

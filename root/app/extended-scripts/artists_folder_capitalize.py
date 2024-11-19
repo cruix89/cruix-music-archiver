@@ -1,6 +1,6 @@
 import os
 
-print("[cruix-music-archiver] capitalizing artists folders...")
+print("[cruix-music-archiver] capitalizing artists' folders... 🚀  the folders are leveling up in style!")
 
 # set the music directory
 music_dir = '/music'
@@ -20,4 +20,4 @@ for item in os.listdir(music_dir):
             os.rename(item_path, capitalized_path)
             print(f'capitalized: {item} to {capitalized_name}')
 
-print("[cruix-music-archiver] artists folders looks awesome")
+print("[cruix-music-archiver] artists' folders look awesome! ⚡  Like a perfectly executed game plan!")

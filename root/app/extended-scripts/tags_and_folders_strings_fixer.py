@@ -83,7 +83,7 @@ def main():
     replacements_path = os.path.join(LISTS_DIR, 'fixer.txt')
     replacements = load_replacements(replacements_path)
 
-    print("[cruix-music-archiver] formatting tags, files, and folders...")
+    print("[cruix-music-archiver] formatting tags, files, and folders... 🛠️  system upgrade in progress, preparing for optimal organization!")
     logging.debug("formatting tags, files, and folders...")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
@@ -99,7 +99,7 @@ def main():
     # rename files and folders
     rename_files_and_folders(MUSIC_DIR, replacements)
 
-    print("[cruix-music-archiver] tags, files, and folders formatted successfully.")
+    print("[cruix-music-archiver] tags, files, and folders formatted successfully. 🎉  everything’s in place and looking sharp!")
     logging.debug("tags, files, and folders formatted successfully.")
 
 if __name__ == "__main__":

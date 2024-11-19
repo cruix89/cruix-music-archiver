@@ -30,9 +30,9 @@ def main():
 
     # check if log file is created correctly
     if not log_file.exists():
-        print(f"[cruix-music-archiver] error: unable to create log file at {log_file}. check write permissions.")
+        print(f"[cruix-music-archiver] error: unable to create log file at {log_file} 🛑  check write permissions... looks like the system's playing hard to get!")
     else:
-        print(f"[cruix-music-archiver] log file created at: {log_file}")
+        print(f"[cruix-music-archiver] log file created at: {log_file} 🚀  the logs have been successfully launched into the data stratosphere!")
 
     def validate_directory(directory):
         if not directory.is_dir():
@@ -69,7 +69,7 @@ def main():
                             return download_and_resize_image(img_url, width, height)
                 except Exception as e:
                     logging.error(f'error reading file {txt_path}: {e}')
-                    print(f'error reading file {txt_path}: {e}')
+                    print(f"error reading file {txt_path}: {e} ⚡  something's blocking the data stream... the file might be in a parallel universe!")
         return None
 
     def download_and_resize_image(url, width=720, height=720):
@@ -81,11 +81,11 @@ def main():
             return img
         except requests.exceptions.RequestException as e:
             logging.error(f'error downloading image: {e}')
-            print(f'error downloading image: {e}')
+            print(f"error downloading image: {e} 🚫  the image has eluded us... it must have jumped into another dimension!")
             return None
         except Exception as e:
             logging.error(f'error processing downloaded image: {e}')
-            print(f'error processing downloaded image: {e}')
+            print(f"error processing downloaded image: {e} 🖼️  looks like the image got stuck in a time loop... we'll get it next time!")
             return None
 
     def copy_first_image_to_lonely_mp3(directory, width=720, height=720):
@@ -117,14 +117,14 @@ def main():
                             logging.info(f'cover downloaded and saved: {destination}')
                         else:
                             logging.error(f'unable to find or download a cover for: {mp3_name}')
-                            print(f'unable to find or download a cover for: {mp3_name}')
+                            print(f"unable to find or download a cover for: {mp3_name} 😞  the cover went on a coffee break. we'll find it soon!")
 
         logging.info('process completed.')
 
     # execute main function
     copy_first_image_to_lonely_mp3(music_dir)
 
-    print("[cruix-music-archiver] covers downloader api completed successfully.")
+    print("[cruix-music-archiver] covers downloader api completed successfully. 🎉  the covers have been saved to the digital kingdom!")
 
 
 if __name__ == "__main__":

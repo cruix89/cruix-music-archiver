@@ -13,9 +13,9 @@ def rename_na_to_various_songs(base_directory="/music"):
 
                 try:
                     os.rename(old_path, new_path)
-                    print(f"[cruix-music-archiver] renamed: {old_path} to {new_path}")
+                    print(f"[cruix-music-archiver] renamed: {old_path} to {new_path}. it’s like a folder evolution—leveling up! 🚀🎮")
                 except Exception as e:
-                    print(f"[cruix-music-archiver] error renaming {old_path} to {new_path}: {e}")
+                    print(f"[cruix-music-archiver] oops! failed to rename {old_path} to {new_path}. something went wrong: {e}. 🔥😱")
 
 
 if __name__ == "__main__":

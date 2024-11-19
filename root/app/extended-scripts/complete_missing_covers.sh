@@ -127,11 +127,11 @@ process_directory() {
                 if [[ ! -f "$sub_dir/$audio_name.jpg" ]]; then
                     destination="$sub_dir/$audio_name.jpg"
                     crop_image_to_square "$best_image" "$destination"
-                    log "image cropped and copied: $best_image TO $destination"
+                    echo -e "🖼️  image cropped and teleported: $best_image → $destination. ready for display in the gallery of awesomeness!"
                 fi
             done
         else
-            log "no suitable image found in: $sub_dir"
+            echo -e "🔍  no suitable image found in: $sub_dir. looks like the photo shoot got canceled!"
         fi
     done
 

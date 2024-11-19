@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Mensagem inicial
-print("[cruix-music-archiver] starting disambiguation process...")
+print("[cruix-music-archiver] starting disambiguation process... ⚡  the mission begins to sort out the chaos!")
 
 # caminho absoluto para o arquivo de configuração
 config_file_path = "/app/lists/artist_disambiguator.txt"  # Substitua pelo caminho do seu arquivo .txt
@@ -26,7 +26,7 @@ def move_files_based_on_list(file_path):
             try:
                 origin, destination = map(str.strip, line.split("|"))
             except ValueError:
-                print(f"[cruix-music-archiver] invalid format in: {line.strip()}")
+                print(f"[cruix-music-archiver] invalid format in: {line.strip()} ⚠️  something’s not quite right in this file!")
                 continue
 
             # Verifica se a pasta de origem existe
@@ -44,10 +44,10 @@ def move_files_based_on_list(file_path):
                 if os.path.isfile(src_file):
                     # Move o arquivo para o destino
                     shutil.move(src_file, dst_file)
-                    print(f"[cruix-music-archiver] disambiguated: {src_file} to {dst_file}")
+                    print(f"[cruix-music-archiver] disambiguated: {src_file} to {dst_file} 🛠️  transformation complete — clarity achieved!")
 
     except Exception as e:
-        print(f"[cruix-music-archiver] error to process the list: {e}")
+        print(f"[cruix-music-archiver] error processing the list: {e} 💥  the list fought back — mission failed!")
 
 
 # Executa o script

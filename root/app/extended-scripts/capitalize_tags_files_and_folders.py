@@ -108,7 +108,7 @@ try:
     log_path = os.path.join(logs_dir, 'capitalize_tags_files_and_folders.log')
     logging.basicConfig(filename=log_path, level=logging.INFO)
 except Exception as e:
-    print(f'error setting up logging: {e}')
+    print(f'[cruix-music-archiver] error setting up logging: 😱  oh no! something went horribly wrong — {e}')
     raise
 
 # LOAD LIST OF TERMS TO KEEP LOWERCASE
@@ -120,7 +120,7 @@ except Exception as e:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process...")
+print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶💥  let the transformation begin!")
 
 # PROCESS MUSIC DIRECTORY
 try:
@@ -130,4 +130,4 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully.")
+print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine!")

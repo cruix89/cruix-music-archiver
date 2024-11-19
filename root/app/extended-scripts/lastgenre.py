@@ -83,7 +83,7 @@ def main():
     def process_directory(dir_path):
         # Count .mp3 files
         total_files = sum(len([file for file in files if file.endswith(".mp3")]) for _, _, files in os.walk(dir_path))
-        print(f"[cruix-music-archiver] total mp3 files found: {total_files} , processing...", flush=True)
+        print(f"[cruix-music-archiver] total mp3 files found: {total_files} 🎧  the musical journey begins... Processing in progress!")
 
         processed_files = 0
         for root, dirs, files in os.walk(dir_path):
@@ -91,7 +91,7 @@ def main():
                 if file.endswith(".mp3"):
                     file_path = os.path.join(root, file)
                     processed_files += 1
-                    print(f"processing file {processed_files}/{total_files}: {file_path}")
+                    print(f"processing file {processed_files}/{total_files}: {file_path} 🎶  almost there... every file is a new melody!")
                     logging.info(f'processing file: {file_path}')
 
                     audio = File(file_path)
@@ -103,16 +103,16 @@ def main():
                         if genre_tag:
                             audio["TCON"] = mutagen.id3.TCON(encoding=3, text=genre_tag)  # Using TCON from mutagen.id3
                             audio.save()
-                            print(f"genre '{genre_tag}' added to {file_path}")
+                            print(f"genre '{genre_tag}' added to {file_path} 🎧  your track is now officially categorized and ready to groove!")
                             logging.info(f'genre {genre_tag} added to file {file_path}')
                             artist_list[artist_name] = genre_tag
                             save_artist_list(artist_list)
                         else:
                             logging.warning(f'no genre found for artist {artist_name}, file: {file_path}')
-                            print(f"[cruix-music-archiver] no genre found for {file_path}")
+                            print(f"[cruix-music-archiver] no genre found for {file_path} 🤔  the mystery continues... time to dig deeper!")
                     else:
                         logging.warning(f'no artist tag found in file: {file_path}')
-                        print(f"[cruix-music-archiver] no artist tag found in {file_path}")
+                        print(f"[cruix-music-archiver] no artist tag found in {file_path} 🕵️‍♂️  the artist's identity is hidden... let the investigation begin!")
 
     process_directory(music_dir)
 

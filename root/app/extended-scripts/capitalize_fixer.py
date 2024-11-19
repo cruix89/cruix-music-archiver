@@ -63,7 +63,7 @@ def format_mp3_tags(directory):
                     logging.error(f'error formatting tags for file {file_path}: {e}')
 
 def main():
-    print("[cruix-music-archiver] running directory and tag formatting...", flush=True)
+    print("[cruix-music-archiver] running directory and tag formatting... 🛠️  let's clean up this mess and bring order to the music world!", flush=True)
 
     # replace with absolute paths
     music_directory = '/music'
@@ -75,11 +75,11 @@ def main():
     if os.path.exists(music_directory):
         rename_to_lowercase(music_directory)
         format_mp3_tags(music_directory)
-        print("[cruix-music-archiver] directories and tags formatted")
+        print("[cruix-music-archiver] directories and tags formatted... ⚡  ready for launch — the music universe is aligned!")
     else:
         logging.error(f'music directory not found: {music_directory}')
 
-    print("[cruix-music-archiver] directory and tag formatting successfully completed.")
+    print("[cruix-music-archiver] directory and tag formatting successfully completed... 🎉  everything is in its place, ready to groove!")
 
 if __name__ == "__main__":
     main()

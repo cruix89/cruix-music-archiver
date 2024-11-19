@@ -2,4 +2,4 @@
 
 sleep 30s
 umask "$UMASK"
-exec s6-setuidgid abc /app/youtube-dl/youtube-dl.sh
+exec s6-setuidgid abc /app/yt-dlp/yt-dlp.sh

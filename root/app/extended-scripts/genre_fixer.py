@@ -10,7 +10,7 @@ def main():
         os.makedirs(logs_dir)
 
     logging.basicConfig(filename=os.path.join(logs_dir, "genre_fixer.log"), level=logging.DEBUG)
-    print("formatting genre tags...")
+    print("formatting genre tags... ⚙️  aligning genres to the universal music matrix!")
     logging.debug("formatting genre tags...")
 
     for dirpath, _, filenames in os.walk(music_dir):
@@ -32,7 +32,7 @@ def main():
                 except Exception as e:
                     logging.error(f"error processing file: {filename} - {str(e)}")
 
-    print("genre tag formatting completed...")
+    print("genre tag formatting completed... 🚀  music genres aligned for maximum playback satisfaction!")
     logging.debug("genre tag formatting completed...")
 
 if __name__ == "__main__":

@@ -142,8 +142,8 @@ docker run
   ```
   adding a new link by docker command:
   ```plaintext
-  docker exec youtube-dl bash -c 'echo "# ARTIST NAME" >> ./artists.txt'
-  docker exec youtube-dl bash -c 'echo "https://music.youtube.com/channel/UCHg-BBwyw" >> ./artists.txt'
+  docker exec cruix-music-archiver bash -c 'echo "# ARTIST NAME" >> ./artists.txt'
+  docker exec cruix-music-archiver bash -c 'echo "https://music.youtube.com/channel/UCHg-BBwyw" >> ./artists.txt'
   ```
 
 - **genres_cache.txt**  

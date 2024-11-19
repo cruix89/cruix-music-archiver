@@ -82,7 +82,7 @@ def main():
     replacements = load_replacements(replacements_path)
 
     logging.debug("Starting tag formatting for artist tags in files...")
-    print("[cruix-music-archiver] formatting artist tags in files...")
+    print("[cruix-music-archiver] formatting artist tags in files... 🧑‍💻  polishing the audio gems to perfection!")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
         for file_name in filenames:
@@ -93,7 +93,7 @@ def main():
                 update_tag(file_path, mutagen.id3.TPE1, 'TPE1', replacements)  # update artist tag
 
     logging.debug("Artist tags formatted successfully.")
-    print("[cruix-music-archiver] artist tags formatted successfully.")
+    print("[cruix-music-archiver] artist tags formatted successfully... 🎉  the tags are now as polished as a grammy trophy!")
 
 
 if __name__ == "__main__":

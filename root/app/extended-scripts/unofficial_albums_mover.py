@@ -15,7 +15,7 @@ for directory in [logs_dir, lists_dir, music_dir, unofficial_albums_dir]:
 # configure logging
 logging.basicConfig(filename=os.path.join(logs_dir, "unofficial_albums_mover.log"), level=logging.INFO)
 
-print("[cruix-music-archiver] moving unofficial albums to /config/unofficial-albums...")
+print("[cruix-music-archiver] moving unofficial albums to /config/unofficial-albums... 🚀  warp drive engaged, albums are in transit!")
 
 # read the folder list from the file
 try:
@@ -23,7 +23,7 @@ try:
         folders = [line.strip() for line in f if line.strip()]
 except FileNotFoundError:
     logging.error("file unofficial_albums.txt not found.")
-    print("error: file not found.")
+    print("error: file not found... the file has vanished into the digital black hole! 🌌")
     exit(1)
 
 # walk through the download directory
@@ -41,4 +41,4 @@ for root, dirs, files in os.walk(music_dir):
             except Exception as e:
                 logging.error(f'error moving album {name}: {e}')
 
-print("[cruix-music-archiver] unofficial albums moved successfully.")
+print("[cruix-music-archiver] unofficial albums moved to the hidden vault...  mission accomplished! 🏆🚀")
