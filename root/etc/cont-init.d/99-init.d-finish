@@ -1,13 +1,11 @@
 #!/usr/bin/with-contenv sh
 
-echo -e "
-\033[1;36mUID/GID
+echo -e "\033[1;36mUID/GID
 ---------------------------------------
-USER UID:  \$(id -u abc)
-USER GID:  \$(id -g abc)
+USER UID:  $(id -u abc)
+USER GID:  $(id -g abc)
 ---------------------------------------
 
 Image Made By: cruix89
 https://github.com/cruix89/cruix-music-archiver
-https://hub.docker.com/r/cruix89/cruix-music-archiver\033[0m
-"
+https://hub.docker.com/r/cruix89/cruix-music-archiver\033[0m"

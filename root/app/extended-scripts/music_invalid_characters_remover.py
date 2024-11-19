@@ -12,7 +12,7 @@ def setup_logging( log_file ):
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 # fixed print in terminal
-print("[cruix-music-archiver] engaging the character cleansing protocol... 🚿 removing invalid characters from /music... 🎶💻")
+print("[cruix-music-archiver] engaging the character cleansing protocol... 🚿  removing invalid characters from /music... 🎶💻")
 
 def load_invalid_characters( file_path ):
     try:
@@ -92,7 +92,7 @@ def main( download_path, lists_path ):
     rename_files_and_dirs(download_path, invalid_chars)
 
 # fixed print in terminal
-print("[cruix-music-archiver] invalid characters deleted like a boss... 🎮💥 mission successful!")
+print("[cruix-music-archiver] invalid characters deleted like a boss... 🎮💥  mission successful!")
 
 if __name__ == "__main__":
 

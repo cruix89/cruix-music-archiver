@@ -2,7 +2,7 @@ import os
 import shutil
 import re
 
-print("[cruix-music-archiver] initiating folder migration... ⚡ moving data from /downloads to the mystical /music library... 📚", flush=True)
+print("[cruix-music-archiver] initiating folder migration... ⚡  moving data from /downloads to the mystical /music library... 📚", flush=True)
 
 def normalize_folder_name(folder_name):
     """normalizes the folder name, removing spaces, underscores and numeric suffixes, converting it to lowercase."""
@@ -61,4 +61,4 @@ for folder in os.listdir(downloads_dir):
         except Exception as e:
             print(f'error removing folder {folder_path}: {e}')
 
-print('[cruix-music-archiver] move completed successfully... 🏆 the files have been safely transferred through the space-time continuum! 🌌')
+print('[cruix-music-archiver] move completed successfully... 🏆  the files have been safely transferred through the space-time continuum! 🌌')

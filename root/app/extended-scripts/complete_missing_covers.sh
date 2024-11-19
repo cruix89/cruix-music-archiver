@@ -99,7 +99,7 @@ process_directory() {
         return
     fi
 
-    log "[cruix-music-archiver] starting process in directory: $directory ..."
+    echo -e "[cruix-music-archiver] initiating operations in directory: $directory... ⚙️🚀  let the music magic begin!"
 
     find "$directory" -type d | while read -r sub_dir; do
         # Search for images and audio files in the current subdirectory
@@ -139,6 +139,6 @@ process_directory() {
 }
 
 # script execution
-echo -e "[cruix-music-archiver] cover rescue mission engaged! 🦸‍♂️ commencing the epic quest to complete missing covers... 📀"
+echo -e "[cruix-music-archiver] cover rescue mission engaged! 🦸‍♂️  commencing the epic quest to complete missing covers... 📀"
 process_directory "$music_dir"
-echo -e "[cruix-music-archiver] missing covers quest finished. 🏆 all missing covers have been restored! 📀"
+echo -e "[cruix-music-archiver] missing covers quest finished. 🏆  all missing covers have been restored! 📀"

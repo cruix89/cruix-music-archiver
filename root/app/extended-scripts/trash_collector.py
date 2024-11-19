@@ -16,7 +16,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("[cruix-music-archiver] recycling files without a corresponding audio file...", flush=True)
+print("[cruix-music-archiver] eliminating stray files... 🚮  bringing order to the music universe! 🌌", flush=True)
 
 # supported audio formats
 audio_formats = (
@@ -69,5 +69,5 @@ logging.info(
     f'[cruix-music-archiver] the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}')
 
 # print final summary to terminal
-print(f"[cruix-music-archiver] files recycled successfully.")
-print(f"[cruix-music-archiver] total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}")
+print("[cruix-music-archiver] files recycled successfully! ♻️  clean and green! 🌱")
+print(f"[cruix-music-archiver] total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}. 🎮  efficiency level: 100%! 🚀")
