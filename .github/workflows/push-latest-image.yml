@@ -39,7 +39,7 @@ jobs:
       - name: Print image tag
         run: |
           echo "Branch: $CI_ACTION_REF_NAME"
-          echo "Image Tag: ${{ env.IMAGE_TAG }}"
+          echo "Image Tag: $IMAGE_TAG"
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
