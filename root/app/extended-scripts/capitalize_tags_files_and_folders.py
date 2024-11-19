@@ -98,47 +98,47 @@ def merge_folders_with_cache(base_directory, cache_directory='/config/cache'):
     try:
         logging.info("merging duplicate folders using cache...")
 
+        # Dicionário para mapear diretórios com nomes iguais, considerando o sufixo '_copy'
+        folder_map = {}
+
+        # Identificando pastas duplicadas
         for root, dirs, _ in os.walk(base_directory, topdown=False):
-            folder_map = {}
-
-            # Identify duplicate folders
             for folder_name in dirs:
-                base_name = folder_name.split('_copy')[0]
-                folder_map.setdefault(base_name, []).append(folder_name)
+                base_name = folder_name.split('_copy')[0]  # Remover sufixo '_copy' para comparar
+                folder_map.setdefault(base_name, []).append(os.path.join(root, folder_name))
 
-            for base_name, folder_group in folder_map.items():
-                if len(folder_group) > 1:
-                    target_cache_folder = os.path.join(cache_directory, base_name)
+        # Para cada grupo de pastas duplicadas, cria o diretório único no cache e move o conteúdo
+        for base_name, folder_group in folder_map.items():
+            if len(folder_group) > 1:
+                # Criar diretório único no cache
+                target_cache_folder = os.path.join(cache_directory, base_name)
 
-                    # Ensure the cache directory exists
-                    if not os.path.exists(target_cache_folder):
-                        os.makedirs(target_cache_folder)
+                if not os.path.exists(target_cache_folder):
+                    os.makedirs(target_cache_folder)
 
-                    # Move all duplicates to the cache
-                    for folder_name in folder_group:
-                        source_folder = os.path.join(root, folder_name)
+                for folder_path in folder_group:
+                    for item in os.listdir(folder_path):
+                        source_path = os.path.join(folder_path, item)
+                        target_path = os.path.join(target_cache_folder, item)
 
-                        for item in os.listdir(source_folder):
-                            source_path = os.path.join(source_folder, item)
-                            target_path = os.path.join(target_cache_folder, item)
-
-                            if os.path.exists(target_path):
-                                if os.path.isfile(source_path):
-                                    os.remove(target_path)
-                                    shutil.move(source_path, target_path)
-                                elif os.path.isdir(source_path):
-                                    merge_folders_with_cache(source_path, cache_directory)
-                            else:
+                        # Se o destino já existir, substituir o arquivo ou mesclar as pastas
+                        if os.path.exists(target_path):
+                            if os.path.isfile(source_path):
+                                os.remove(target_path)  # Remove o arquivo existente
                                 shutil.move(source_path, target_path)
+                            elif os.path.isdir(source_path):
+                                merge_folders_with_cache(source_path, target_cache_folder)
+                        else:
+                            shutil.move(source_path, target_path)
 
-                        # Clean up the source folder
-                        os.rmdir(source_folder)
+                    # Remover o diretório original após mover seu conteúdo
+                    os.rmdir(folder_path)
 
-                    # Move the merged folder back to the original location
-                    final_target_folder = os.path.join(root, base_name)
-                    if os.path.exists(final_target_folder):
-                        shutil.rmtree(final_target_folder)
-                    shutil.move(target_cache_folder, final_target_folder)
+                # Mover a pasta mesclada de volta para o diretório de origem
+                final_target_folder = os.path.join(base_directory, base_name)
+                if os.path.exists(final_target_folder):
+                    shutil.rmtree(final_target_folder)  # Remover se já existir
+                shutil.move(target_cache_folder, final_target_folder)
 
         logging.info("duplicate folders merged successfully using cache.")
     except Exception as error:
@@ -182,8 +182,7 @@ except Exception as e:
     raise
 
 # NOTIFY START OF PROCESS
-print(
-    "[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin!")
+print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin!")
 
 # PROCESS MUSIC DIRECTORY
 try:
@@ -194,5 +193,4 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print(
-    "[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine!")
+print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine!")
