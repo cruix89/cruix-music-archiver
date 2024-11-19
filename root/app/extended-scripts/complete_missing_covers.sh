@@ -127,7 +127,7 @@ process_directory() {
                 if [[ ! -f "$sub_dir/$audio_name.jpg" ]]; then
                     destination="$sub_dir/$audio_name.jpg"
                     crop_image_to_square "$best_image" "$destination"
-                    echo -e "🖼️  image cropped and teleported: $best_image → $destination. ready for display in the gallery of awesomeness!"
+                    echo -e "🖼️  image cropped and teleported to: $destination. ready for display in the gallery of awesomeness!"
                 fi
             done
         else

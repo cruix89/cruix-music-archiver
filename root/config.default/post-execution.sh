@@ -12,7 +12,7 @@ dz_db_dir="/config/dz-db"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "[cruix-music-archiver] initiating cleanup protocol... purging cache files from the following directories: /cache, /logs, and /downloads. 🧹✨"
+  echo -e "[cruix-music-archiver] initiating cleanup protocol... purging cache files from the following directories: /cache, /logs, and /downloads. 🧹  ✨"
 
   sleep '5'
   mkdir -p $cache_dir
@@ -161,7 +161,7 @@ if [ -d "$downloads_dir" ]; then
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] 🧹  mission accomplished! old files in /recycle-bin, /dz-db, and /unofficial-albums have been successfully swept away.  🗑️✨"
+  echo -e "[cruix-music-archiver] 🧹  mission accomplished! old files in /recycle-bin, /dz-db, and /unofficial-albums have been successfully swept away.  🗑️  ✨"
 
 else
   echo -e "[cruix-music-archiver] ⚠️  oops! output directory not found: $downloads_dir. did it get lost in the void? 🌌"
