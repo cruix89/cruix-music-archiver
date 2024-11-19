@@ -1,5 +1,6 @@
 #!/usr/bin/with-contenv sh
 
+echo ""
 echo "\033[1;36mUID/GID\033[0m"
 echo "---------------------------------------"
 echo "\033[1;36mUSER UID:\033[0m  $(id -u abc)"
@@ -7,5 +8,6 @@ echo "\033[1;36mUSER GID:\033[0m  $(id -g abc)"
 echo "---------------------------------------"
 echo ""
 echo "\033[1;36mImage Made By:\033[0m cruix89"
-echo "\033[1;36mhttps://github.com/cruix89/cruix-music-archiver"
-echo "https://hub.docker.com/r/cruix89/cruix-music-archiver\033[0m"
+echo "\033[1;36mhttps://github.com/cruix89/cruix-music-archiver\033[0m"
+echo "\033[1;36mhttps://hub.docker.com/r/cruix89/cruix-music-archiver\033[0m"
+echo ""
