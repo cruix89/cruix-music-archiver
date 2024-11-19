@@ -13,7 +13,7 @@ def add_thumbnail_to_mp3(mp3_path: str, image_path: str) -> None:
             with open(image_path, 'rb') as img:
                 audiofile.tag.images.set(3, img.read(), 'image/jpeg')
             audiofile.tag.save()
-            logging.info(f'image {image_path} was successfully added to mp3 file: {mp3_path}')
+            logging.info(f'image {image_path} was successfully added to mp3 file')
         else:
             logging.warning(f'image {image_path} does not exist or is empty')
     except Exception as exc:

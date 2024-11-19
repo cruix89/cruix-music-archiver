@@ -60,15 +60,17 @@ fi
 # Correct arithmetic checks
 elapsed_time=$(( $(date '+%s') - yt_dlp_last_run_time ))
 if (( elapsed_time / 60 >= 2 )); then
-  echo ''; echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - execution took $(( elapsed_time / 60 )) minutes\033[0m"
+  echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - execution took $(( elapsed_time / 60 )) minutes\033[0m"
 else
-  echo ''; echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - execution took $elapsed_time seconds\033[0m"
+  echo -e "\033[1;32m$(date '+%Y-%m-%d %H:%M:%S') - execution took $elapsed_time seconds\033[0m"
 fi
 
 if [ -f '/config/post-execution.sh' ]; then
+  echo ""
   echo -e "\033[1;35m[post-execution] running post-execution script...\033[0m"
   bash '/config/post-execution.sh'
   echo -e "\033[1;35m[post-execution] finished post-execution script.\033[0m"
+  echo ""
 fi
 
 echo "$yt_dlp_binary version: $yt_dlp_version"
