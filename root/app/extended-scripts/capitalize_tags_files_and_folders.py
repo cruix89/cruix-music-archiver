@@ -2,6 +2,7 @@ import os
 import eyed3
 import logging
 
+
 def setup_directories():
     try:
         music_directory = '/music'
@@ -12,13 +13,12 @@ def setup_directories():
         logging.error(f'error setting up directories: {error}')
         raise
 
+
 def rename_file(file_path, new_file_path):
     try:
-        # Converte o nome completo para letras minúsculas, mantendo a extensão original
         base, extension = os.path.splitext(new_file_path)
         new_file_name = base + extension
 
-        # Verifica se o arquivo já existe e adiciona o sufixo _copyN
         counter = 1
         while os.path.exists(new_file_name):
             new_file_name = f"{base}_copy{counter}{extension}"
@@ -29,8 +29,10 @@ def rename_file(file_path, new_file_path):
         logging.error(f'error renaming file: {error}')
         raise
 
+
 def is_mp3(file_name):
     return file_name.lower().endswith('.mp3')
+
 
 def capitalize_words(text, lowercase_terms):
     words = text.split()
@@ -45,15 +47,18 @@ def capitalize_words(text, lowercase_terms):
             formatted_words.append(word.lower())
     return ' '.join(formatted_words)
 
+
 def format_name(name, lowercase_terms):
     if name:
         return capitalize_words(name, lowercase_terms)
     return name
 
+
 def format_file_name(name):
     if name:
         return name.lower()
     return name
+
 
 def process_mp3_tags(file_path, lowercase_terms):
     audiofile = eyed3.load(file_path)
@@ -66,6 +71,7 @@ def process_mp3_tags(file_path, lowercase_terms):
     if audiofile.tag.album_artist:
         audiofile.tag.album_artist = format_name(audiofile.tag.album_artist, lowercase_terms)
     audiofile.tag.save()
+
 
 def rename_files_and_folders(directory):
     for root, dirs, files in os.walk(directory, topdown=False):
@@ -85,6 +91,7 @@ def rename_files_and_folders(directory):
                 rename_file(old_folder_path, new_folder_path)
                 logging.info(f'folder renamed: {old_folder_path} -> {new_folder_path}')
 
+
 def update_tags_and_rename(directory, lowercase_terms):
     try:
         logging.info("formatting tags and directories...")
@@ -101,6 +108,46 @@ def update_tags_and_rename(directory, lowercase_terms):
     except Exception as error:
         logging.error(f'error formatting tags, files, and folders: {error}')
         raise
+
+
+def merge_folders(base_directory):
+    try:
+        logging.info("merging duplicate folders...")
+
+        for root, dirs, _ in os.walk(base_directory):
+            folder_map = {}
+            for folder_name in dirs:
+                base_name = folder_name.split('_copy')[0]
+                folder_map.setdefault(base_name, []).append(folder_name)
+
+            for base_name, folder_group in folder_map.items():
+                if len(folder_group) > 1:
+                    target_folder = os.path.join(root, base_name)
+                    if not os.path.exists(target_folder):
+                        os.makedirs(target_folder)
+
+                    for folder_name in folder_group:
+                        source_folder = os.path.join(root, folder_name)
+
+                        for item in os.listdir(source_folder):
+                            source_path = os.path.join(source_folder, item)
+                            target_path = os.path.join(target_folder, item)
+
+                            if os.path.exists(target_path):
+                                if os.path.isfile(source_path):
+                                    os.remove(target_path)
+                                elif os.path.isdir(source_path):
+                                    merge_folders(source_path)
+
+                            os.rename(source_path, target_path)
+
+                        os.rmdir(source_folder)
+
+        logging.info("duplicate folders merged successfully.")
+    except Exception as error:
+        logging.error(f"error merging folders: {error}")
+        raise
+
 
 # CONFIGURE LOGGING
 try:
@@ -125,6 +172,7 @@ print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming 
 # PROCESS MUSIC DIRECTORY
 try:
     update_tags_and_rename(music_dir, lowercase_terms_list)
+    merge_folders(music_dir)  # Mescla pastas duplicadas ao final
 except Exception as e:
     logging.error(f'error executing script: {e}')
     raise
