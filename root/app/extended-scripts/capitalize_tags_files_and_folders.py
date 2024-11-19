@@ -1,6 +1,7 @@
 import os
 import eyed3
 import logging
+import shutil
 
 
 def setup_directories():
@@ -92,6 +93,46 @@ def rename_files_and_folders(directory):
                 logging.info(f'folder renamed: {old_folder_path} -> {new_folder_path}')
 
 
+def merge_folders(base_directory):
+    try:
+        logging.info("merging duplicate folders...")
+
+        for root, dirs, _ in os.walk(base_directory, topdown=False):
+            folder_map = {}
+
+            for folder_name in dirs:
+                base_name = folder_name.split('_copy')[0]
+                folder_map.setdefault(base_name, []).append(folder_name)
+
+            for base_name, folder_group in folder_map.items():
+                if len(folder_group) > 1:
+                    target_folder = os.path.join(root, base_name)
+
+                    if not os.path.exists(target_folder):
+                        os.makedirs(target_folder)
+
+                    for folder_name in folder_group:
+                        source_folder = os.path.join(root, folder_name)
+
+                        for item in os.listdir(source_folder):
+                            source_path = os.path.join(source_folder, item)
+                            target_path = os.path.join(target_folder, item)
+
+                            if os.path.exists(target_path):
+                                if os.path.isfile(source_path):
+                                    os.remove(target_path)
+                                    shutil.move(source_path, target_path)
+                                elif os.path.isdir(source_path):
+                                    merge_folders(source_path)
+                            else:
+                                shutil.move(source_path, target_path)
+
+        logging.info("duplicate folders merged successfully.")
+    except Exception as error:
+        logging.error(f"error merging folders: {error}")
+        raise
+
+
 def update_tags_and_rename(directory, lowercase_terms):
     try:
         logging.info("formatting tags and directories...")
@@ -107,45 +148,6 @@ def update_tags_and_rename(directory, lowercase_terms):
         logging.info("tags and directories formatted.")
     except Exception as error:
         logging.error(f'error formatting tags, files, and folders: {error}')
-        raise
-
-
-def merge_folders(base_directory):
-    try:
-        logging.info("merging duplicate folders...")
-
-        for root, dirs, _ in os.walk(base_directory):
-            folder_map = {}
-            for folder_name in dirs:
-                base_name = folder_name.split('_copy')[0]
-                folder_map.setdefault(base_name, []).append(folder_name)
-
-            for base_name, folder_group in folder_map.items():
-                if len(folder_group) > 1:
-                    target_folder = os.path.join(root, base_name)
-                    if not os.path.exists(target_folder):
-                        os.makedirs(target_folder)
-
-                    for folder_name in folder_group:
-                        source_folder = os.path.join(root, folder_name)
-
-                        for item in os.listdir(source_folder):
-                            source_path = os.path.join(source_folder, item)
-                            target_path = os.path.join(target_folder, item)
-
-                            if os.path.exists(target_path):
-                                if os.path.isfile(source_path):
-                                    os.remove(target_path)
-                                elif os.path.isdir(source_path):
-                                    merge_folders(source_path)
-
-                            os.rename(source_path, target_path)
-
-                        os.rmdir(source_folder)
-
-        logging.info("duplicate folders merged successfully.")
-    except Exception as error:
-        logging.error(f"error merging folders: {error}")
         raise
 
 
@@ -167,7 +169,8 @@ except Exception as e:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin!")
+print(
+    "[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin!")
 
 # PROCESS MUSIC DIRECTORY
 try:
@@ -178,4 +181,5 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine!")
+print(
+    "[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine!")
