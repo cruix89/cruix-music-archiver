@@ -24,6 +24,7 @@ chmod +x /app/extended-scripts/capitalize_folders_and_tags_accents.py
 chmod +x /app/extended-scripts/capitalize_tags_files_and_folders.py
 chmod +x /app/extended-scripts/complete_missing_covers.sh
 chmod +x /app/extended-scripts/dz_db_downloader.py
+chmod +x /app/extended-scripts/folders_merger.py
 chmod +x /app/extended-scripts/downloads_invalid_characters_remover.py
 chmod +x /app/extended-scripts/downloads_mover.py
 chmod +x /app/extended-scripts/genre_fixer.py
