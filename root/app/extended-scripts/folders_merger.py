@@ -51,7 +51,7 @@ def merge_folders_with_cache(base_directory, cache_directory='/config/cache'):
                             shutil.move(source_path, target_path)
 
                     # remove the original directory after moving its contents
-                    os.rmdir(folder_path)
+                    shutil.rmtree(folder_path)  # changed from os.rmdir to shutil.rmtree
 
                 # determine the final path in the base directory
                 final_target_folder = os.path.join(root, base_name)
