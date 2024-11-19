@@ -41,4 +41,4 @@ for root, dirs, files in os.walk(music_dir):
             except Exception as e:
                 logging.error(f'error moving album {name}: {e}')
 
-print("[cruix-music-archiver] unofficial albums moved to the hidden vault...  mission accomplished! 🏆🚀")
+print("[cruix-music-archiver] unofficial albums moved to the hidden vault...  mission accomplished! 🏆  🚀")

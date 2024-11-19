@@ -47,6 +47,9 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 - **smart correction and normalization of tags and files**  
   a large library of patches are applied to standardize and correct filenames and tags
 
+- **tracks number correction engine**  
+  some songs may have the wrong or missing track numbers. the system uses a solid database to correct the number of tracks
+
 - **unofficial albums and disambiguation**  
   unofficial albums are moved to a specific directory for library cleanup.  
   artists with ambiguous names are correctly renamed by adding valid information using a disambiguation library

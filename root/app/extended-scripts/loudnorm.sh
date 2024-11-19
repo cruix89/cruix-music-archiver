@@ -124,7 +124,7 @@ main() {
 
         # if the file has been attempted max_attempts times, move it to recycle bin
         if [[ ${attempt_count["$src_file"]} -gt $max_attempts ]]; then
-            echo -e "moving $src_file to the recycle bin after $max_attempts failed attempts. 💾🚮  game over, file!"
+            echo -e "moving $src_file to the recycle bin after $max_attempts failed attempts. 💾  🚮  game over, file!"
             move_to_recycle_bin "$src_file"
             continue
         fi
@@ -134,7 +134,7 @@ main() {
     done
 
     # final summary
-    echo -e "[cruix-music-archiver] all files have been processed and normalized successfully! 🎉🎶  the library is in harmony!"
+    echo -e "[cruix-music-archiver] all files have been processed and normalized successfully! 🎉  🎶  the library is in harmony!"
 }
 
 main
