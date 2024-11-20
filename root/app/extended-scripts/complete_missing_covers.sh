@@ -120,7 +120,7 @@ process_directory() {
         best_image=$(find_best_image "$sub_dir")
 
         if [[ -n "$best_image" ]]; then
-            log "best image found: $best_image"
+            echo -e "🖼️  best image found: $best_image"
             for audio_file in "${audio_files[@]}"; do
                 audio_name=$(basename "$audio_file" | sed 's/\.[^.]*$//')
                 # if the audio file does not have a corresponding image, crop and copy the best image

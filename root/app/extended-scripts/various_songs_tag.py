@@ -20,9 +20,9 @@ def update_tag_if_needed(mp3_file_path):
             audio_file.tag.album = "Various Songs"
             # Salvar as alterações
             audio_file.tag.save()
-            print(f"[cruix-music-archiver] 🛠️  tag updated for {mp3_file_path}. it's like a software patch, but for your music collection! 🎧")
+            print(f"[cruix-music-archiver] tag updated for {mp3_file_path}. it's like a software patch, but for your music collection! 🎧")
     except Exception as e:
-        print(f"[cruix-music-archiver] 🚨  error to process {mp3_file_path}: {e}. it's like we hit a '404' in the music universe! 🌌")
+        print(f"[cruix-music-archiver] error to process {mp3_file_path}: {e}. it's like we hit a '404' in the music universe! 🌌")
 
 
 # Percorrer todos os arquivos na pasta /music
@@ -33,4 +33,4 @@ for root, dirs, files in os.walk(music_folder):
             file_path_in_directory = os.path.join(root, file)
             update_tag_if_needed(file_path_in_directory)
 
-print("[cruix-music-archiver] ✅  process done! like a true hero in the digital world! 🦸‍♂️")
+print("[cruix-music-archiver] process done! like a true hero in the digital world! ✅  🦸‍♂️")
