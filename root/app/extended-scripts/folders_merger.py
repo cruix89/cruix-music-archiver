@@ -1,6 +1,7 @@
 import os
 import logging
 import shutil
+import re
 
 def setup_directories():
     try:
@@ -31,11 +32,12 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
             if not os.path.isdir(artist_path):
                 continue
 
-            # extract base name by removing any translation of "copy"
+            # extract base name by removing any translation of "copy" and characters following them
             base_name = folder_name
             for suffix in COPY_SUFFIXES:
+                # Regex to remove the suffix and everything after it
                 if base_name.endswith(suffix):
-                    base_name = base_name.rsplit(suffix, 1)[0]  # remove the suffix
+                    base_name = re.sub(f"{re.escape(suffix)}.*", "", base_name)  # remove the suffix and everything after it
                     break
 
             # group directories by base name
