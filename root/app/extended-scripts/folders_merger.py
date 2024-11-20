@@ -2,7 +2,6 @@ import os
 import logging
 import shutil
 
-
 def setup_directories():
     try:
         music_directory = '/music'
@@ -14,6 +13,8 @@ def setup_directories():
         logging.error(f'error setting up directories: {error}')
         raise
 
+# Lista de traduções de "copy" em diferentes idiomas
+COPY_SUFFIXES = ['_copy', '_copia', '_kopie', '_copie', '_kopija', '_copiar', '_コピー', '_克隆', '_복사', '_клон']
 
 def process_artists_top_level(base_directory, duplicate_folders_directory, cache_directory):
     try:
@@ -30,8 +31,12 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
             if not os.path.isdir(artist_path):
                 continue
 
-            # extract base name (e.g., `elana_dara` from `elana_dara_copy1`)
-            base_name = folder_name.split('_copy')[0]
+            # extract base name by removing any translation of "copy"
+            base_name = folder_name
+            for suffix in COPY_SUFFIXES:
+                if base_name.endswith(suffix):
+                    base_name = base_name.rsplit(suffix, 1)[0]  # remove the suffix
+                    break
 
             # group directories by base name
             artist_map.setdefault(base_name, []).append(artist_path)
@@ -59,10 +64,10 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
             for folder in artist_group:
                 target_folder = os.path.join(duplicate_folders_directory, os.path.basename(folder))
 
-                # verificar se o diretório de destino já existe
+                # check if the destination directory already exists
                 if os.path.exists(target_folder):
                     logging.info(f"destination path '{target_folder}' already exists. removing and overwriting.")
-                    shutil.rmtree(target_folder)  # Remove o diretório existente
+                    shutil.rmtree(target_folder)  # Remove the existing directory
 
                 logging.info(f"moving original folder: {folder} -> {target_folder}")
                 shutil.move(folder, target_folder)
