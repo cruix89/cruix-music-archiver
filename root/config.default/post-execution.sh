@@ -60,8 +60,8 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
 
-  sleep '5'
-  python3 /app/extended-scripts/folders_merger.py
+  # sleep '5'
+  # python3 /app/extended-scripts/folders_merger.py
 
   sleep '5'
   python3 /app/extended-scripts/capitalize_folders_and_tags_accents.py
