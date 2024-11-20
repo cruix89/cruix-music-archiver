@@ -7,7 +7,7 @@ def setup_directories():
     try:
         music_directory = '/music'
         logs_directory = '/config/logs'
-        duplicate_folders_directory = '/config/duplicate-folders'
+        duplicate_folders_directory = '/config/duplicate-artists-folders'
         cache_directory = '/config/cache'
         return music_directory, logs_directory, duplicate_folders_directory, cache_directory
     except Exception as error:
