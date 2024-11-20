@@ -52,13 +52,13 @@ for folder in os.listdir(downloads_dir):
             shutil.move(src_path, dest_path)
 
             # print the path of the moved file
-            print(f'moved: {src_path} to {dest_path}', flush=True)
+            print(f'[cruix-music-archiver] moved: {src_path} to {dest_path}', flush=True)
 
         # remove the original folder
         try:
             os.rmdir(folder_path)
-            print(f"removing empty folder {folder_path}... 🧹  clearing out the ghost towns!")
+            print(f"[cruix-music-archiver] removing empty folder {folder_path}... 🧹  clearing out the ghost towns!")
         except Exception as e:
-            print(f"error removing folder {folder_path}: {e}... ⚠️  the folder resisted deletion — perhaps it holds ancient secrets?")
+            print(f"[cruix-music-archiver] error removing folder {folder_path}: {e}... ⚠️  the folder resisted deletion — perhaps it holds ancient secrets?")
 
 print('[cruix-music-archiver] move completed successfully... 🏆  the files have been safely transferred through the space-time continuum! 🌌')

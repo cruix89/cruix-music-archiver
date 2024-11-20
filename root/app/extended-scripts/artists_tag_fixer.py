@@ -82,7 +82,7 @@ def main():
     replacements = load_replacements(replacements_path)
 
     logging.debug("Starting tag formatting for artist tags in files...")
-    print("[cruix-music-archiver] formatting artist tags in files... 🧑‍💻    polishing the audio gems to perfection!")
+    print("[cruix-music-archiver] formatting artist tags in files... 🧑‍  polishing the audio gems to perfection!")
 
     for dirpath, _, filenames in os.walk(MUSIC_DIR):
         for file_name in filenames:
