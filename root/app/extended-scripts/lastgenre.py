@@ -91,7 +91,7 @@ def main():
                 if file.endswith(".mp3"):
                     file_path = os.path.join(root, file)
                     processed_files += 1
-                    print(f"processing file {processed_files}/{total_files}: {file_path} 🎶  almost there... every file is a new melody!")
+                    print(f"[cruix-music-archiver] processing file {processed_files}/{total_files}: {file_path} 🎶  almost there... every file is a new melody!")
                     logging.info(f'processing file: {file_path}')
 
                     audio = File(file_path)
@@ -103,7 +103,7 @@ def main():
                         if genre_tag:
                             audio["TCON"] = mutagen.id3.TCON(encoding=3, text=genre_tag)  # Using TCON from mutagen.id3
                             audio.save()
-                            print(f"genre '{genre_tag}' added to {file_path} 🎧  your track is now officially categorized and ready to groove!")
+                            print(f"[cruix-music-archiver] genre '{genre_tag}' added to {file_path} 🎧  your track is now officially categorized and ready to groove!")
                             logging.info(f'genre {genre_tag} added to file {file_path}')
                             artist_list[artist_name] = genre_tag
                             save_artist_list(artist_list)

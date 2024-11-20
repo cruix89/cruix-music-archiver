@@ -12,7 +12,7 @@ dz_db_dir="/config/dz-db"
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "[cruix-music-archiver] 🧹  ✨ initiating cleanup protocol... purging cache files from the following directories: /cache, /logs, and /downloads. 🧹  ✨"
+  echo -e "[cruix-music-archiver] initiating cleanup protocol... purging cache files from the following directories: /cache, /logs, and /downloads. 🧹  ✨"
 
   sleep '5'
   mkdir -p $cache_dir
@@ -26,7 +26,7 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $logs_dir
   find $logs_dir -type f -delete
 
-  echo -e "[cruix-music-archiver] 🕰️  🎶 running the cruix-music-archiver scripts... preparing to update the music library with the precision of a time-traveling DJ! 🕰️  🎶"
+  echo -e "[cruix-music-archiver] running the cruix-music-archiver scripts... preparing to update the music library with the precision of a time-traveling DJ! 🕰️  🎶"
 
   # post-processing scripts in downloads folder
 
@@ -155,7 +155,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/tracks_updater.py
 
-  echo -e "[cruix-music-archiver] 🧹  cleaning up the digital cobwebs in /recycle-bin, /dz-db, and /unofficial-albums. out with the old, in with the tidy!"
+  echo -e "[cruix-music-archiver] cleaning up the digital cobwebs in /recycle-bin, /dz-db, and /unofficial-albums. out with the old, in with the tidy!"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
@@ -164,7 +164,7 @@ if [ -d "$downloads_dir" ]; then
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] 🧹  mission accomplished! old files in /recycle-bin, /dz-db, and /unofficial-albums have been successfully swept away.  🗑️  ✨"
+  echo -e "[cruix-music-archiver] mission accomplished! old files in /recycle-bin, /dz-db, and /unofficial-albums have been successfully swept away.  🗑️  ✨"
 
 else
   echo -e "[cruix-music-archiver] ⚠️  oops! output directory not found: $downloads_dir. did it get lost in the void? 🌌"

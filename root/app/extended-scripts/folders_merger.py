@@ -8,13 +8,14 @@ def setup_directories():
         music_directory = '/music'
         logs_directory = '/config/logs'
         duplicate_folders_directory = '/config/duplicate-folders'
-        return music_directory, logs_directory, duplicate_folders_directory
+        cache_directory = '/config/cache'
+        return music_directory, logs_directory, duplicate_folders_directory, cache_directory
     except Exception as error:
         logging.error(f'error setting up directories: {error}')
         raise
 
 
-def process_artists_top_level(base_directory, duplicate_folders_directory):
+def process_artists_top_level(base_directory, duplicate_folders_directory, cache_directory):
     try:
         logging.info("processing artist directories at the top level...")
 
@@ -35,16 +36,35 @@ def process_artists_top_level(base_directory, duplicate_folders_directory):
             # group directories by base name
             artist_map.setdefault(base_name, []).append(artist_path)
 
-        # process duplicates for each artist base name
+        # process each group in the artist map
         for base_name, artist_group in artist_map.items():
-            if len(artist_group) > 1:
-                logging.info(f"found duplicate artist directories for '{base_name}': {artist_group}")
+            # create a directory in /config/cache for the base name
+            cache_folder = os.path.join(cache_directory, base_name)
+            os.makedirs(cache_folder, exist_ok=True)
 
-                # move duplicate artist directories to /config/duplicate-folders
-                for duplicate_path in artist_group[1:]:
-                    target_folder = os.path.join(duplicate_folders_directory, os.path.basename(duplicate_path))
-                    logging.info(f"moving duplicate artist directory: {duplicate_path} -> {target_folder}")
-                    shutil.move(duplicate_path, target_folder)
+            # copy content of all grouped folders to the cache directory
+            for folder in artist_group:
+                for item in os.listdir(folder):
+                    source_path = os.path.join(folder, item)
+                    target_path = os.path.join(cache_folder, item)
+
+                    if os.path.isdir(source_path):
+                        logging.info(f"copying directory: {source_path} -> {target_path}")
+                        shutil.copytree(source_path, target_path, dirs_exist_ok=True)
+                    else:
+                        logging.info(f"copying file: {source_path} -> {target_path}")
+                        shutil.copy2(source_path, target_path)
+
+            # move original folders to the duplicate folder directory
+            for folder in artist_group:
+                target_folder = os.path.join(duplicate_folders_directory, os.path.basename(folder))
+                logging.info(f"moving original folder: {folder} -> {target_folder}")
+                shutil.move(folder, target_folder)
+
+            # move the merged cache folder back to the original directory
+            target_path = os.path.join(base_directory, base_name)
+            logging.info(f"moving merged directory: {cache_folder} -> {target_path}")
+            shutil.move(cache_folder, target_path)
 
         logging.info("artist directory processing completed successfully.")
     except Exception as error:
@@ -54,8 +74,9 @@ def process_artists_top_level(base_directory, duplicate_folders_directory):
 
 # CONFIGURE LOGGING
 try:
-    music_dir, logs_dir, duplicate_dir = setup_directories()
+    music_dir, logs_dir, duplicate_dir, cache_dir = setup_directories()
     log_path = os.path.join(logs_dir, 'artist_folders_merger.log')
+    os.makedirs(logs_dir, exist_ok=True)  # ensure the logs directory exists
     logging.basicConfig(filename=log_path, level=logging.INFO)
 except Exception as e:
     print(f'[cruix-music-archiver] error setting up logging: {e}')
@@ -66,7 +87,7 @@ print("[cruix-music-archiver] starting the artist folder merging process... 🎶
 
 # PROCESS MUSIC DIRECTORY
 try:
-    process_artists_top_level(music_dir, duplicate_dir)  # process artist folders at the top level
+    process_artists_top_level(music_dir, duplicate_dir, cache_dir)  # process artist folders at the top level
 except Exception as e:
     logging.error(f'error executing script: {e}')
     raise
