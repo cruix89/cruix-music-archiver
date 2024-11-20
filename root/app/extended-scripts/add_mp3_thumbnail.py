@@ -13,7 +13,7 @@ def add_thumbnail_to_mp3(mp3_path: str, image_path: str) -> None:
             with open(image_path, 'rb') as img:
                 audiofile.tag.images.set(3, img.read(), 'image/jpeg')
             audiofile.tag.save()
-            logging.info(f'image {image_path} was successfully added to mp3 file')
+            logging.info(f'[cruix-music-archiver] image {image_path} was successfully added to mp3 file')
         else:
             logging.warning(f'image {image_path} does not exist or is empty')
     except Exception as exc:
@@ -62,7 +62,7 @@ def main():
                 if not image_file_found:
                     logging.warning(f'no valid image file found for {mp3_file}')
             else:
-                logging.warning(f'file {os.path.join(root, filename)} is not an mp3 file')
+                logging.warning(f'[cruix-music-archiver] file {os.path.join(root, filename)} is not an mp3 file')
 
     print(f"[cruix-music-archiver] thumbnails successfully added to {success_count} songs with {failure_count} failures. 🎉  all set for the visual upgrade!")
 
