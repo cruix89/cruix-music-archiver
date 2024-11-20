@@ -58,6 +58,12 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
             # move original folders to the duplicate folder directory
             for folder in artist_group:
                 target_folder = os.path.join(duplicate_folders_directory, os.path.basename(folder))
+
+                # verificar se o diretório de destino já existe
+                if os.path.exists(target_folder):
+                    logging.info(f"destination path '{target_folder}' already exists. removing and overwriting.")
+                    shutil.rmtree(target_folder)  # Remove o diretório existente
+
                 logging.info(f"moving original folder: {folder} -> {target_folder}")
                 shutil.move(folder, target_folder)
 
@@ -93,4 +99,4 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] artist folder processing completed successfully... 🎉  your files are now perfectly organized and ready to shine!")
+print("[cruix-music-archiver] artist folder merged successfully... 🎉  your files are now perfectly organized and ready to shine!")
