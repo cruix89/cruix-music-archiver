@@ -8,6 +8,7 @@ logs_dir="/config/logs"
 recycle_bin_dir="/config/recycle-bin"
 unofficial_albums_dir="/config/unofficial-albums"
 dz_db_dir="/config/dz-db"
+duplicate_artist_dir="/config/duplicate-artists-folders"
 
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
@@ -166,9 +167,11 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
   mkdir -p $dz_db_dir
+  mkdir -p $duplicate_artist_dir
   find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
+  find $duplicate_artist_dir -depth -mtime +6 -exec rm -rf {} \;
 
   echo -e "[cruix-music-archiver] mission accomplished! old files in /recycle-bin, /dz-db, and /unofficial-albums have been successfully swept away.  🗑️  ✨"
 
