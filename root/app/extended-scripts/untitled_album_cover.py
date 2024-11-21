@@ -14,7 +14,7 @@ def check_and_copy_images():
         # verifica se o nome do diretório atual é "untitled_album"
         if os.path.basename(root) == "untitled_album":
             print(
-                f"[cruix-music-archiver] 'untitled_album' detected, applying 'untitled_album' cover. time to give this album some personality! 🎤 🎶 : {root} 🎤 🎶")
+                f"[cruix-music-archiver] 'untitled_album' detected, applying 'untitled_album' cover. time to give this album some personality! 🎤  🎶 : {root} 🎤  🎶")
 
             # verifica a existência dos arquivos padrão
             print(f"[cruix-music-archiver] checking if {default_cover} exists: {os.path.exists(default_cover)} ✅")
