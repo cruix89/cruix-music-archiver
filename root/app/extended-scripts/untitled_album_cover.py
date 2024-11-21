@@ -3,7 +3,7 @@ import shutil
 
 # caminhos absolutos
 music_directory = "/music"
-default_images_directory = "/root/config.default/untitled-album"
+default_images_directory = "/app/default-covers/untitled-album"
 default_cover = os.path.join(default_images_directory, "cover.jpg")
 default_folder = os.path.join(default_images_directory, "folder.jpg")
 
