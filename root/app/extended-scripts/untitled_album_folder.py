@@ -9,7 +9,7 @@ def rename_na_to_various_songs(base_directory="/music"):
         for dir_name in dirs:
             if dir_name.lower() == "na":
                 old_path = os.path.join(root, dir_name)
-                new_path = os.path.join(root, "various_songs")
+                new_path = os.path.join(root, "untitled_album")
 
                 try:
                     os.rename(old_path, new_path)

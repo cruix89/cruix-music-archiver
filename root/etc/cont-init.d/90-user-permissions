@@ -24,9 +24,9 @@ chmod +x /app/extended-scripts/capitalize_fixer.py
 chmod +x /app/extended-scripts/capitalize_folders_and_tags_accents.py
 chmod +x /app/extended-scripts/capitalize_tags_files_and_folders.py
 chmod +x /app/extended-scripts/complete_missing_covers.sh
-chmod +x /app/extended-scripts/dz_db_downloader.py
 chmod +x /app/extended-scripts/downloads_invalid_characters_remover.py
 chmod +x /app/extended-scripts/downloads_mover.py
+chmod +x /app/extended-scripts/dz_db_downloader.py
 chmod +x /app/extended-scripts/genre_fixer.py
 chmod +x /app/extended-scripts/jellyfin_album_downloader.py
 chmod +x /app/extended-scripts/jellyfin_artist_downloader.py
@@ -41,6 +41,7 @@ chmod +x /app/extended-scripts/tags_and_folders_strings_fixer.py
 chmod +x /app/extended-scripts/tracks_updater.py
 chmod +x /app/extended-scripts/trash_collector.py
 chmod +x /app/extended-scripts/unofficial_albums_mover.py
-chmod +x /app/extended-scripts/various_artists.py
-chmod +x /app/extended-scripts/various_songs_folder.py
-chmod +x /app/extended-scripts/various_songs_tag.py
+chmod +x /app/extended-scripts/untitled_album_cover.py
+chmod +x /app/extended-scripts/untitled_album_folder.py
+chmod +x /app/extended-scripts/untitled_album_tag.py
+chmod +x /app/extended-scripts/various_artists_cover.py

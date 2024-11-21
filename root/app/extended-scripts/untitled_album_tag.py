@@ -17,7 +17,7 @@ def update_tag_if_needed(mp3_file_path):
         # Verificar se a tag de álbum contém a palavra "na" ou está vazia
         if "na" in album_tag.lower() or not album_tag:
             # Se a condição for atendida, aplicar a tag "Various Songs"
-            audio_file.tag.album = "Various Songs"
+            audio_file.tag.album = "Untitled Album"
             # Salvar as alterações
             audio_file.tag.save()
             print(f"[cruix-music-archiver] tag updated for {mp3_file_path}. it's like a software patch, but for your music collection! 🎧")

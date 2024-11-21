@@ -135,10 +135,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/dz_db_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/various_songs_folder.py
+  python3 /app/extended-scripts/untitled_album_folder.py
 
   sleep '5'
-  python3 /app/extended-scripts/various_songs_tag.py
+  python3 /app/extended-scripts/untitled_album_tag.py
 
   sleep '5'
   python3 /app/extended-scripts/jellyfin_album_downloader.py
@@ -153,10 +153,13 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/plex_artist_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/various_artists.py
+  python3 /app/extended-scripts/various_artists_cover.py
 
   sleep '5'
   python3 /app/extended-scripts/tracks_updater.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_cover.py
 
   echo -e "[cruix-music-archiver] cleaning up the digital cobwebs in /recycle-bin, /dz-db, and /unofficial-albums. out with the old, in with the tidy!"
 
