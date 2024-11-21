@@ -47,12 +47,20 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 - **smart correction and normalization of tags and files**  
   a large library of patches are applied to standardize and correct filenames and tags
 
+- **various artists and albums cataloging**  
+  if the downloaded song does not belong to a specific album, it is cataloged as "Untitled Album" and assigned an appropriate cover for the album.
+  if the artist does not have an artist image in the database, an appropriate cover is also assigned, similar to how "Various Artists" is assigned in MusicBrainz.
+
 - **tracks number correction engine**  
   some songs may have the wrong or missing track numbers. the system uses a solid database to correct the number of tracks
 
 - **unofficial albums and disambiguation**  
   unofficial albums are moved to a specific directory for library cleanup.  
   artists with ambiguous names are correctly renamed by adding valid information using a disambiguation library
+
+- **duplicate artist folders merging**  
+  if for any reason a duplicate artist folder is downloaded or created, the system merges the folders, 
+  preserving all albums but always keeping the library clean, with a single artist folder
 
 - **LUFS-based normalization**  
   audio processing using [ffmpeg](https://github.com/FFmpeg/FFmpeg) to calculate the audio LUFS and normalize the entire library,  
@@ -108,6 +116,11 @@ docker run
 
 - **cache folder**  
   temporary directory where files are processed, the script automatically cleans the directory. 
+
+
+- **duplicate-artists-folders**  
+  directory where duplicate folders found are moved for possible user analysis, they are preserved in the file system for 7 days then automatically deleted
+  if you wish to retrieve any of its content, you can do so manually within this period (although this will most likely never be necessary)
 
 
 - **dz-db folder**  
