@@ -52,7 +52,7 @@ for folder in os.listdir(downloads_dir):
             shutil.move(src_path, dest_path)
 
             # print the path of the moved file
-            print(f'[cruix-music-archiver] moved: {src_path} to {dest_path}', flush=True)
+            print(f'[cruix-music-archiver] moved: {src_path} to {dest_path}  💻', flush=True)
 
         # remove the original folder
         try:

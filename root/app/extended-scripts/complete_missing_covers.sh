@@ -120,14 +120,14 @@ process_directory() {
         best_image=$(find_best_image "$sub_dir")
 
         if [[ -n "$best_image" ]]; then
-            echo -e "[cruix-music-archiver] best image found: $best_image"
+            echo -e "[cruix-music-archiver] best image found: $best_image ✅"
             for audio_file in "${audio_files[@]}"; do
                 audio_name=$(basename "$audio_file" | sed 's/\.[^.]*$//')
                 # if the audio file does not have a corresponding image, crop and copy the best image
                 if [[ ! -f "$sub_dir/$audio_name.jpg" ]]; then
                     destination="$sub_dir/$audio_name.jpg"
                     crop_image_to_square "$best_image" "$destination"
-                    echo -e "[cruix-music-archiver] image cropped and teleported to: $destination. ready for display in the gallery of awesomeness!"
+                    echo -e "[cruix-music-archiver] image cropped and teleported to: $destination. ready for display in the gallery of awesomeness! ✨"
                 fi
             done
         else
@@ -139,6 +139,6 @@ process_directory() {
 }
 
 # script execution
-echo -e "[cruix-music-archiver] cover rescue mission engaged! 🦸‍♂️  commencing the epic quest to complete missing covers... 📀"
+echo -e "[cruix-music-archiver] cover rescue mission engaged! 🦸‍♂️    commencing the epic quest to complete missing covers... 📀"
 process_directory "$music_dir"
 echo -e "[cruix-music-archiver] missing covers quest finished. 🏆  all missing covers have been restored! 📀"

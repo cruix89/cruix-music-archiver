@@ -18,6 +18,6 @@ for item in os.listdir(music_dir):
         # rename the directory
         if item != capitalized_name:
             os.rename(item_path, capitalized_path)
-            print(f'[cruix-music-archiver] capitalized: {item} to {capitalized_name}')
+            print(f'[cruix-music-archiver] capitalized: {item} to {capitalized_name} ✅')
 
 print("[cruix-music-archiver] artists' folders look awesome! ⚡  Like a perfectly executed game plan! ⚡  ")
