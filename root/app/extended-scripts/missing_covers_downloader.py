@@ -32,7 +32,7 @@ def main():
     if not log_file.exists():
         print(f"[cruix-music-archiver] error: unable to create log file at {log_file} 🛑  check write permissions... looks like the system's playing hard to get!")
     else:
-        print(f"[cruix-music-archiver] log file created at: {log_file} 🚀  the logs have been successfully launched into the data stratosphere!")
+        print(f"[cruix-music-archiver] log file created at: {log_file} 🚀  the logs have been successfully launched into the data stratosphere! 🚀  ")
 
     def validate_directory(directory):
         if not directory.is_dir():
@@ -124,7 +124,7 @@ def main():
     # execute main function
     copy_first_image_to_lonely_mp3(music_dir)
 
-    print("[cruix-music-archiver] covers downloader api completed successfully. 🎉  the covers have been saved to the digital kingdom!")
+    print("[cruix-music-archiver] covers downloader api completed successfully. 🎉  the covers have been saved to the digital kingdom! 🎉  ")
 
 
 if __name__ == "__main__":

@@ -122,4 +122,4 @@ if os.path.exists(music_dir):
 else:
     logging.error(f'the directory {music_dir} does not exist.')
 
-print("[cruix-music-archiver] accents formatted successfully... 🎉  the text is now smooth and polished, ready to impress!")
+print("[cruix-music-archiver] accents formatted successfully... 🎉  the text is now smooth and polished, ready to impress! 🎉")

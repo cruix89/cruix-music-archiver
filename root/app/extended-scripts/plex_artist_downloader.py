@@ -21,7 +21,7 @@ def setup_directories():
 
 
 def main():
-    print("[cruix-music-archiver] setting up plex artist image... ⚡  preparing the artist’s image for ultimate streaming power!")
+    print("[cruix-music-archiver] setting up plex artist image... ⚡  preparing the artist’s image for ultimate streaming power! ⚡  ")
 
     # logging setup
     music_dir, dz_db_dir, log_dir = setup_directories()
@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("[cruix-music-archiver] plex artist image set up successfully. 🎉  the artist is now ready for their close-up!")
+    print("[cruix-music-archiver] plex artist image set up successfully. 🎉  the artist is now ready for their close-up! 🎉 ")
 
 
 if __name__ == "__main__":

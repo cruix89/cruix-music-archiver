@@ -99,7 +99,7 @@ main() {
     # ensure the recycle bin directory exists
     if [[ ! -d "$recycle_bin_dir" ]]; then
         mkdir -p "$recycle_bin_dir"
-        echo -e "[cruix-music-archiver] created recycle bin directory: $recycle_bin_dir ♻️  ready to catch some strays!"
+        echo -e "[cruix-music-archiver] created recycle bin directory: $recycle_bin_dir ♻️  ready to catch some strays! ♻️"
     fi
 
     while true; do
@@ -134,7 +134,7 @@ main() {
     done
 
     # final summary
-    echo -e "[cruix-music-archiver] all files have been processed and normalized successfully! 🎉  🎶  the library is in harmony!"
+    echo -e "[cruix-music-archiver] all files have been processed and normalized successfully! 🎉  🎶  the library is in harmony! 🎉  🎶"
 }
 
 main

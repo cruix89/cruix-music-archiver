@@ -83,7 +83,7 @@ def main():
     def process_directory(dir_path):
         # Count .mp3 files
         total_files = sum(len([file for file in files if file.endswith(".mp3")]) for _, _, files in os.walk(dir_path))
-        print(f"[cruix-music-archiver] total mp3 files found: {total_files} 🎧  the musical journey begins... processing in progress!")
+        print(f"[cruix-music-archiver] total mp3 files found: {total_files} 🎧  the musical journey begins... processing in progress! 🎧  ")
 
         processed_files = 0
         for root, dirs, files in os.walk(dir_path):

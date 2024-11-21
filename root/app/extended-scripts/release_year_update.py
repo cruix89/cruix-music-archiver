@@ -15,7 +15,7 @@ def setup_directories():
 
 def update_release_year(path):
     """update the release year tag in MP3 files."""
-    print("[cruix-music-archiver] formatting release year of mp3 files... ⏳  time travel initiated, adjusting release years!")
+    print("[cruix-music-archiver] formatting release year of mp3 files... ⏳  time travel initiated, adjusting release years! ⏳  ")
 
     # Set up logging
     logs_dir = setup_directories()
@@ -43,7 +43,7 @@ def update_release_year(path):
                     # log the update
                     logging.info(f'formatting year tag to {year[:4]} for file {full_path}')
 
-    print("[cruix-music-archiver] release year formatted successfully. 🚀  the timeline is now corrected and ready for launch!")
+    print("[cruix-music-archiver] release year formatted successfully. 🚀  the timeline is now corrected and ready for launch! 🚀  ")
 
 if __name__ == "__main__":
     # define the absolute path to the music directory

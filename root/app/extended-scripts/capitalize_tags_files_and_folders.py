@@ -120,7 +120,7 @@ except Exception as e:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin!")
+print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin! 🎶  💥")
 
 # PROCESS MUSIC DIRECTORY
 try:
@@ -130,4 +130,4 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine!")
+print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine! 🎉")

@@ -17,9 +17,9 @@ def check_and_copy_images():
                 f"[cruix-music-archiver] 'untitled_album' detected, applying 'untitled_album' cover. time to give this album some personality! 🎤 🎶 : {root}")
 
             # verifica a existência dos arquivos padrão
-            print(f"[cruix-music-archiver] checking if {default_cover} exists: {os.path.exists(default_cover)}")
-            print(f"[cruix-music-archiver] checking if {default_folder} exists: {os.path.exists(default_folder)}")
-            print(f"[cruix-music-archiver] checking write access to {root}: {os.access(root, os.W_OK)}")
+            print(f"[cruix-music-archiver] checking if {default_cover} exists: {os.path.exists(default_cover)} ✅")
+            print(f"[cruix-music-archiver] checking if {default_folder} exists: {os.path.exists(default_folder)} ✅")
+            print(f"[cruix-music-archiver] checking write access to {root}: {os.access(root, os.W_OK)} ✅")
 
             # copia o arquivo cover.jpg, sobrescrevendo se necessário
             if os.path.exists(default_cover):

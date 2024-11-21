@@ -99,7 +99,7 @@ process_directory() {
         return
     fi
 
-    echo -e "[cruix-music-archiver] initiating operations in directory: $directory... ⚙️  🚀  let the music magic begin!"
+    echo -e "[cruix-music-archiver] initiating operations in directory: $directory... ⚙️  🚀  let the music magic begin! ⚙️  🚀"
 
     find "$directory" -type d | while read -r sub_dir; do
         # Search for images and audio files in the current subdirectory

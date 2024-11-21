@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Mensagem inicial
-print("[cruix-music-archiver] starting disambiguation process... ⚡  the mission begins to sort out the chaos!")
+print("[cruix-music-archiver] starting disambiguation process... ⚡  the mission begins to sort out the chaos! ⚡  ")
 
 # caminho absoluto para o arquivo de configuração
 config_file_path = "/app/lists/artist_disambiguator.txt"  # Substitua pelo caminho do seu arquivo .txt

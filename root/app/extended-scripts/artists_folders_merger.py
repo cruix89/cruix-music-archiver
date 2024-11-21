@@ -91,7 +91,7 @@ except Exception as e:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] starting the artist folder merging process... 🎶  💥  let the transformation begin!", flush=True)
+print("[cruix-music-archiver] starting the artist folder merging process... 🎶  💥  let the transformation begin! 🎶  💥", flush=True)
 
 # PROCESS MUSIC DIRECTORY
 try:
@@ -101,4 +101,4 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] artist folder merged successfully... 🎉  your files are now perfectly organized and ready to shine!")
+print("[cruix-music-archiver] artist folder merged successfully... 🎉  your files are now perfectly organized and ready to shine! 🎉")

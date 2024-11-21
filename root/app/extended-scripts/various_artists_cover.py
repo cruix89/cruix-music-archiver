@@ -20,7 +20,7 @@ def check_and_copy_images():
 
         # se ambos estiverem ausentes, copia as imagens padrão
         if not has_cover and not has_folder:
-            print(f"[cruix-music-archiver] artist not found in database, applying 'Various Artists' cover. who needs a solo artist anyway? 🎤  🎶 : {root}")
+            print(f"[cruix-music-archiver] artist not found in database, applying 'Various Artists' cover. who needs a solo artist anyway? 🎤  🎶 : {root} 🎤  🎶")
             if os.path.exists(default_cover):
                 shutil.copy(default_cover, os.path.join(root, "cover.jpg"))
                 print(f"[cruix-music-archiver] copied: cover.jpg for {root}. the cover is now as legendary as the album! 📀  ✨")

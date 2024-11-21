@@ -21,7 +21,7 @@ def setup_directories():
 
 
 def main():
-    print("[cruix-music-archiver] setting up jellyfin artist image... 🎨  crafting the perfect visual tribute to your favorite artist!")
+    print("[cruix-music-archiver] setting up jellyfin artist image... 🎨  crafting the perfect visual tribute to your favorite artist! 🎨  ")
 
     # logging setup
     music_dir, dz_db_dir, log_dir = setup_directories()
@@ -71,7 +71,7 @@ def main():
                     continue
                 break
 
-    print("[cruix-music-archiver] jellyfin artist image set up successfully... 🎉  the artist's visual masterpiece is now on display!")
+    print("[cruix-music-archiver] jellyfin artist image set up successfully... 🎉  the artist's visual masterpiece is now on display! 🎉  ")
 
 
 if __name__ == "__main__":

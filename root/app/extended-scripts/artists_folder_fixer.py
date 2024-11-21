@@ -48,13 +48,13 @@ def main():
     replacements_path = os.path.join(LISTS_DIR, 'artists_folder_fixer.txt')
     replacements = load_replacements(replacements_path)
 
-    print("[cruix-music-archiver] fixing artists' folders... 🔧  time to tidy up and make everything look perfect!")
+    print("[cruix-music-archiver] fixing artists' folders... 🔧  time to tidy up and make everything look perfect! 🔧  ")
     logging.debug("fixing artists folders...")
 
     # rename only direct folders in /music
     rename_direct_folders(MUSIC_DIR, replacements)
 
-    print("[cruix-music-archiver] artists' folders fixed successfully! ⚡  mission accomplished, folders upgraded!")
+    print("[cruix-music-archiver] artists' folders fixed successfully! ⚡  mission accomplished, folders upgraded! ⚡  ")
     logging.debug("artists folders fixed successfully.")
 
 if __name__ == "__main__":
