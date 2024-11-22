@@ -64,6 +64,12 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
 
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_folder.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_tag.py
+
   # sleep '5'
   # python3 /app/extended-scripts/artists_folders_merger.py
 
@@ -134,12 +140,6 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/extended-scripts/dz_db_downloader.py
-
-  sleep '5'
-  python3 /app/extended-scripts/untitled_album_folder.py
-
-  sleep '5'
-  python3 /app/extended-scripts/untitled_album_tag.py
 
   sleep '5'
   python3 /app/extended-scripts/jellyfin_album_downloader.py
