@@ -45,7 +45,7 @@ def main():
                         level=logging.DEBUG)
 
     # absolute path to the replacements file
-    replacements_path = os.path.join(LISTS_DIR, 'artist_folder_fixer.txt')
+    replacements_path = os.path.join(LISTS_DIR, 'artists_folders_fixer.txt')
     replacements = load_replacements(replacements_path)
 
     print("[cruix-music-archiver] fixing artists' folders... 🔧  time to tidy up and make everything look perfect! 🔧  ")
