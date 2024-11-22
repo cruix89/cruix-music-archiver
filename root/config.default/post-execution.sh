@@ -64,8 +64,8 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
 
-  sleep '5'
-  python3 /app/extended-scripts/artists_folders_merger.py
+  # sleep '5'
+  # python3 /app/extended-scripts/artists_folders_merger.py
 
   sleep '5'
   python3 /app/extended-scripts/capitalize_folders_and_tags_accents.py
