@@ -16,7 +16,7 @@ chmod +x /config/post-execution.sh
 chmod +x /app/extended-scripts/add_mp3_thumbnail.py
 chmod +x /app/extended-scripts/artist_disambiguator.py
 chmod +x /app/extended-scripts/artists_folder_capitalize.py
-chmod +x /app/extended-scripts/artists_folder_fixer.py
+chmod +x /app/extended-scripts/artist_folder_fixer.py
 chmod +x /app/extended-scripts/artists_folders_merger.py
 chmod +x /app/extended-scripts/artists_invalid_characters_remover.py
 chmod +x /app/extended-scripts/artists_tag_fixer.py

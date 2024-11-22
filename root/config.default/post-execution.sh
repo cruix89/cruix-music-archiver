@@ -61,8 +61,11 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
 
+  # sleep '5'
+  # python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
+
   sleep '5'
-  python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
+  python3 /app/extended-scripts/artist_folder_fixer.py
 
   sleep '5'
   python3 /app/extended-scripts/untitled_album_folder.py
@@ -124,7 +127,7 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/artists_folder_capitalize.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folder_fixer.py
+  python3 /app/extended-scripts/artist_folder_fixer.py
 
   sleep '5'
   python3 /app/extended-scripts/unofficial_albums_mover.py
