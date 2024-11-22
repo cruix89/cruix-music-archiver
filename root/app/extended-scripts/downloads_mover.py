@@ -57,7 +57,7 @@ for folder in os.listdir(downloads_dir):
         # remove the original folder
         try:
             os.rmdir(folder_path)
-            print(f"[cruix-music-archiver] removing empty folder {folder_path}... 🧹  clearing out the ghost towns!")
+            print(f"[cruix-music-archiver] removing empty folder {folder_path}... 🧹  clearing out the ghost towns! 🧹  ")
         except Exception as e:
             print(f"[cruix-music-archiver] error removing folder {folder_path}: {e}... ⚠️  the folder resisted deletion — perhaps it holds ancient secrets?")
 
