@@ -61,9 +61,6 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
 
-  # sleep '5'
-  # python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
-
   sleep '5'
   python3 /app/extended-scripts/artists_folders_fixer.py
 
@@ -124,12 +121,6 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/extended-scripts/add_mp3_thumbnail.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folder_capitalize.py
-
-  sleep '5'
-  python3 /app/extended-scripts/artists_folders_fixer.py
-
-  sleep '5'
   python3 /app/extended-scripts/unofficial_albums_mover.py
 
   sleep '5'
@@ -164,6 +155,9 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/extended-scripts/untitled_album_cover.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folder_capitalize.py
 
   echo -e "[cruix-music-archiver] cleaning up the digital cobwebs in /recycle-bin, /dz-db, /duplicate-artists-folders and /unofficial-albums. out with the old, in with the tidy!   🗑️  ✨"
 

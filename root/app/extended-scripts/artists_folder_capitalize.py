@@ -11,13 +11,13 @@ for item in os.listdir(music_dir):
 
     # check if the item is a directory
     if os.path.isdir(item_path):
-        # capitalize the directory name
-        capitalized_name = item.title()
-        capitalized_path = os.path.join(music_dir, capitalized_name)
+        # replace underscores with spaces and capitalize the directory name
+        cleaned_name = item.replace('_', ' ').title()
+        cleaned_path = os.path.join(music_dir, cleaned_name)
 
         # rename the directory
-        if item != capitalized_name:
-            os.rename(item_path, capitalized_path)
-            print(f'[cruix-music-archiver] capitalized: {item} to {capitalized_name} ✅')
+        if item != cleaned_name:
+            os.rename(item_path, cleaned_path)
+            print(f'[cruix-music-archiver] renamed: {item} to {cleaned_name} ✅')
 
 print("[cruix-music-archiver] artists' folders look awesome! ⚡  Like a perfectly executed game plan! ⚡  ")
