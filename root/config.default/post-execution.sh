@@ -56,7 +56,7 @@ if [ -d "$downloads_dir" ]; then
   umask "$UMASK"
   /app/extended-scripts/loudnorm.sh
 
-  # scripts running only in mp3 files
+  # folder merger correction
 
   sleep '5'
   python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
@@ -72,6 +72,11 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/extended-scripts/artists_folders_merger.py
+
+  # scripts running only in mp3 files
+
+  sleep '5'
+  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
 
   sleep '5'
   python3 /app/extended-scripts/artists_folders_fixer.py
