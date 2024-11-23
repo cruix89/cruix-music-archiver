@@ -10,6 +10,15 @@ unofficial_albums_dir="/config/unofficial-albums"
 dz_db_dir="/config/dz-db"
 duplicate_artist_dir="/config/duplicate-artists-folders"
 
+mkdir -p $downloads_dir
+mkdir -p $music_dir
+mkdir -p $cache_dir
+mkdir -p $logs_dir
+mkdir -p $recycle_bin_dir
+mkdir -p $unofficial_albums_dir
+mkdir -p $dz_db_dir
+mkdir -p $duplicate_artist_dir
+
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 

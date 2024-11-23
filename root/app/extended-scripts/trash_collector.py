@@ -16,7 +16,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("[cruix-music-archiver] eliminating stray files... 🚮  bringing order to the music universe! 🌌", flush=True)
+print("[cruix-music-archiver] trash collector eliminating stray files... ♻️  bringing order to the music universe! 🌌", flush=True)
 
 # supported audio formats
 audio_formats = (
