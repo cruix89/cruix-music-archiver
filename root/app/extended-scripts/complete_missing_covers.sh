@@ -131,7 +131,7 @@ process_directory() {
                 fi
             done
         else
-            echo -e "🔍  no suitable image found in: $sub_dir. looks like the photo shoot got canceled!"
+            echo -e "[cruix-music-archiver] no suitable image found in: $sub_dir. looks like the photo shoot got canceled! 🔍"
         fi
     done
 

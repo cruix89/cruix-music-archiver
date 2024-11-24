@@ -17,6 +17,7 @@ def load_replacements(replacements_path):
         return [line.strip().split('|') for line in f.readlines() if line.strip()]
 
 def rename_direct_folders(music_directory, replacements):
+    any_renamed = False
     try:
         for folder_name in os.listdir(music_directory):
             folder_path = os.path.join(music_directory, folder_name)
@@ -35,10 +36,12 @@ def rename_direct_folders(music_directory, replacements):
                                 else:
                                     os.rename(folder_path, new_folder_path)
                                 logging.debug(f"renaming directory '{folder_name}' to '{new_folder_name}'")
+                                any_renamed = True
                             except FileNotFoundError as e:
                                 logging.error(f"error renaming directory '{folder_name}': {e}")
     except Exception as e:
         logging.error(f"error in renaming folders in '{music_directory}': {e}")
+    return any_renamed
 
 def main():
     logging.basicConfig(filename=os.path.join(LOGS_DIR, 'artists_folder_fixer.log'),
@@ -51,8 +54,11 @@ def main():
     print("[cruix-music-archiver] fixing artists' folders... 🔧  time to tidy up and make everything look perfect! 🔧  ")
     logging.debug("fixing artists folders...")
 
-    # rename only direct folders in /music
-    rename_direct_folders(MUSIC_DIR, replacements)
+    # continuously loop until no renaming occurs
+    while True:
+        renamed = rename_direct_folders(MUSIC_DIR, replacements)
+        if not renamed:
+            break
 
     print("[cruix-music-archiver] artists' folders fixed successfully! ⚡  mission accomplished, folders upgraded! ⚡  ")
     logging.debug("artists folders fixed successfully.")
