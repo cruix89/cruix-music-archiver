@@ -37,7 +37,7 @@ def rename_direct_folders(music_directory, replacements):
                                     os.rename(temp_path, new_folder_path)
                                 else:
                                     os.rename(folder_path, new_folder_path)
-                                logging.debug(f"renaming directory '{folder_name}' to '{new_folder_name}'")
+                                print(f"[cruix-music-archiver] renaming directory '{folder_name}' to '{new_folder_name}' ♻️")
                             except FileNotFoundError as e:
                                 logging.error(f"error renaming directory '{folder_name}': {e}")
     except Exception as e:
