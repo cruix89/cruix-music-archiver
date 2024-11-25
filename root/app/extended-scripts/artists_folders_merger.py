@@ -46,7 +46,7 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
                 continue
 
             # extract base name (e.g., `elana_dara` from `elana_dara_copy1`)
-            base_name = folder_name.split('_copy')[0]
+            base_name = folder_name.split('copy')[0]
 
             # group directories by base name
             artist_map.setdefault(base_name, []).append(artist_path)
