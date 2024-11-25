@@ -1,9 +1,9 @@
 import os
 import logging
 import shutil
+from typing import Tuple
 
-
-def setup_directories():
+def setup_directories() -> Tuple[str, str, str, str]:
     try:
         music_directory = '/music'
         logs_directory = '/config/logs'
@@ -15,7 +15,7 @@ def setup_directories():
         raise
 
 
-def process_artists_top_level(base_directory, duplicate_folders_directory, cache_directory):
+def process_artists_top_level(base_directory: str, duplicate_folders_directory: str, cache_directory: str):
     try:
         logging.info("processing artist directories at the top level...")
 
@@ -30,8 +30,11 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
             if not os.path.isdir(artist_path):
                 continue
 
-            # extract base name (e.g., `elana_dara` from `elana_dara_copy1`)
-            base_name = folder_name.split('_copy')[0]
+            # normalize the name: remove underscores only before "copy"
+            normalized_name = folder_name.split('_copy')[0].replace('_', '') + '_copy'.join(folder_name.split('_copy')[1:])
+
+            # extract base name by removing "copy"
+            base_name = normalized_name.split('copy')[0]
 
             # group directories by base name
             artist_map.setdefault(base_name, []).append(artist_path)
@@ -61,10 +64,10 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
                 for folder in artist_group:
                     target_folder = os.path.join(duplicate_folders_directory, os.path.basename(folder))
 
-                    # verificar se o diretório de destino já existe
+                    # check if the destination directory already exists
                     if os.path.exists(target_folder):
                         logging.info(f"destination path '{target_folder}' already exists. removing and overwriting.")
-                        shutil.rmtree(target_folder)  # Remove o diretório existente
+                        shutil.rmtree(target_folder)  # Remove the existing directory
 
                     logging.info(f"moving original folder: {folder} -> {target_folder}")
                     shutil.move(folder, target_folder)
