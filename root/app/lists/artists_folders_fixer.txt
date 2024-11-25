@@ -1,5 +1,5 @@
-_____|_
-____|_
-___|_
-__|_
 _copia|_copy999
+__copia|_copy999
+___copia|_copy999
+____copia|_copy999
+_____copia|_copy999
