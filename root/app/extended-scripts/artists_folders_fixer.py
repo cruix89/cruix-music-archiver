@@ -26,14 +26,14 @@ def rename_direct_folders(music_directory, replacements):
             folder_path = os.path.join(music_directory, folder_name)
             if os.path.isdir(folder_path):
                 for old, new in replacements:
-                    if old in folder_name:
-                        # Use regex for precise substitution
-                        pattern = re.escape(old)  # Ensure the pattern is treated literally
-                        new_folder_name = re.sub(pattern, new, folder_name)
+                    # Use regex para aplicar o padrão
+                    pattern = re.compile(old)  # Constrói o regex a partir da lista
+                    if pattern.search(folder_name):  # Verifica se o padrão corresponde
+                        new_folder_name = pattern.sub(new, folder_name)  # Substitui o padrão
                         new_folder_path = os.path.join(music_directory, new_folder_name)
                         if os.path.exists(folder_path):
                             try:
-                                # Temporary renaming if names only differ in case
+                                # Renomeia pastas, lidando com diferenças de maiúsculas/minúsculas
                                 if folder_path.lower() == new_folder_path.lower():
                                     temp_path = os.path.join(music_directory, new_folder_name + "_temp")
                                     os.rename(folder_path, temp_path)
