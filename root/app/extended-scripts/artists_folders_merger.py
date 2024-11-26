@@ -9,12 +9,12 @@ def setup_directories():
     setup directories and ensure they exist
     """
     try:
-        music_directory = Path('/music').resolve()  # Usando Path para garantir o tipo correto
+        music_directory = Path('/music').resolve()  # ensuring the correct type with Path
         logs_directory = Path('/config/logs').resolve()
         duplicate_folders_directory = Path('/config/duplicate-artists-folders').resolve()
         cache_directory = Path('/config/cache').resolve()
 
-        # Ensure directories exist
+        # ensure directories exist
         music_directory.mkdir(parents=True, exist_ok=True)
         logs_directory.mkdir(parents=True, exist_ok=True)
         duplicate_folders_directory.mkdir(parents=True, exist_ok=True)
@@ -77,18 +77,25 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
                 for folder in artist_group:
                     target_folder = duplicate_folders_directory / folder.name
 
-                    # check if the target directory already exists
-                    if target_folder.exists():
-                        logging.info(f"destination path '{target_folder}' already exists. removing and overwriting.")
-                        shutil.rmtree(target_folder)
-
-                    logging.info(f"moving original folder: {folder} -> {target_folder}")
-                    shutil.move(str(folder), str(target_folder))
+                    try:
+                        logging.info(f"copying folder: {folder} -> {target_folder}")
+                        shutil.copytree(folder, target_folder, dirs_exist_ok=True)
+                        logging.info(f"deleting original folder: {folder}")
+                        shutil.rmtree(folder)
+                    except Exception as error:
+                        logging.error(f"error moving folder '{folder}' to '{target_folder}': {error}")
+                        raise
 
                 # move the merged cache folder back to the original directory
                 target_path = base_directory / base_name
-                logging.info(f"moving merged directory: {cache_folder} -> {target_path}")
-                shutil.move(str(cache_folder), str(target_path))
+                try:
+                    logging.info(f"copying merged directory: {cache_folder} -> {target_path}")
+                    shutil.copytree(cache_folder, target_path, dirs_exist_ok=True)
+                    logging.info(f"deleting cache folder: {cache_folder}")
+                    shutil.rmtree(cache_folder)
+                except Exception as error:
+                    logging.error(f"error moving merged folder '{cache_folder}' to '{target_path}': {error}")
+                    raise
 
         logging.info("artist directory processing completed successfully.")
     except Exception as error:
