@@ -67,7 +67,75 @@ if [ -d "$downloads_dir" ]; then
 
   # the processes below are only executed in the mp3 extension
 
-  # folder merger correction
+  # folder merger correction 1
+
+  sleep '5'
+  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_fixer.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_folder.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_tag.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_merger.py
+
+# folder merger correction 2
+
+  sleep '5'
+  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_fixer.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_folder.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_tag.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_merger.py
+
+# folder merger correction 3
+
+  sleep '5'
+  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_fixer.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_folder.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_tag.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_merger.py
+
+# folder merger correction 4
+
+  sleep '5'
+  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_fixer.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_folder.py
+
+  sleep '5'
+  python3 /app/extended-scripts/untitled_album_tag.py
+
+  sleep '5'
+  python3 /app/extended-scripts/artists_folders_merger.py
+
+# folder merger correction 5
 
   sleep '5'
   python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
