@@ -63,7 +63,7 @@ def main():
 
     # Execute the entire renaming process the same number of times as the number of replacements
     for i in range(num_replacements):
-        print(f"[cruix-music-archiver] executing renaming process {i + 1} of {num_replacements}...")
+        print(f"[cruix-music-archiver] executing renaming process {i + 1} of {num_replacements}... 🔧 ")
         logging.debug(f"executing renaming process {i + 1} of {num_replacements}...")
 
         # Apply all replacements each time
