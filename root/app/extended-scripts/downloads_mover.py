@@ -6,7 +6,7 @@ print("[cruix-music-archiver] initiating folder migration... ⚡  moving data fr
 
 def normalize_folder_name(folder_name):
     """normalizes the folder name, removing spaces, underscores and numeric suffixes, converting it to lowercase."""
-    normalized_name = folder_name.replace('__', '_').replace('_', ' ').lower()  # replace underscores with spaces
+    normalized_name = folder_name.replace('___', '_').replace('__', '_').replace('_', ' ').lower()  # replace underscores with spaces
     normalized_name = re.sub(r'\s\d+$', '', normalized_name)  # remove numeric suffixes at the end
     return normalized_name
 
