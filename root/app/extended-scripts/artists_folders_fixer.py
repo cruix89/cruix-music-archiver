@@ -1,5 +1,6 @@
 import os
 import logging
+import re  # Importação para uso de expressões regulares
 
 # define absolute paths for directories
 LOGS_DIR = '/config/logs'
@@ -26,11 +27,13 @@ def rename_direct_folders(music_directory, replacements):
             if os.path.isdir(folder_path):
                 for old, new in replacements:
                     if old in folder_name:
-                        new_folder_name = folder_name.replace(old, new)
+                        # Use regex for precise substitution
+                        pattern = re.escape(old)  # Ensure the pattern is treated literally
+                        new_folder_name = re.sub(pattern, new, folder_name)
                         new_folder_path = os.path.join(music_directory, new_folder_name)
                         if os.path.exists(folder_path):
                             try:
-                                # temporary renaming if names only differ in case
+                                # Temporary renaming if names only differ in case
                                 if folder_path.lower() == new_folder_path.lower():
                                     temp_path = os.path.join(music_directory, new_folder_name + "_temp")
                                     os.rename(folder_path, temp_path)
