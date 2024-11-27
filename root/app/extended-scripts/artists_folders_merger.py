@@ -11,7 +11,7 @@ def setup_directories():
     try:
         music_directory = Path('/music').resolve()  # ensuring the correct type with Path
         logs_directory = Path('/config/logs').resolve()
-        duplicate_folders_directory = Path('/config/duplicate-artists-folders').resolve()
+        duplicate_folders_directory = Path('/config/duplicated-artists-folders').resolve()
         cache_directory = Path('/config/cache').resolve()
 
         # ensure directories exist

@@ -118,7 +118,7 @@ docker run
   temporary directory where files are processed, the script automatically cleans the directory. 
 
 
-- **duplicate-artists-folders**  
+- **duplicated-artists-folders**  
   directory where duplicate folders found are moved for possible user analysis, they are preserved in the file system for 7 days then automatically deleted
   if you wish to retrieve any of its content, you can do so manually within this period (although this will most likely never be necessary)
 
