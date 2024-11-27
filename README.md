@@ -58,8 +58,8 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   unofficial albums are moved to a specific directory for library cleanup.  
   artists with ambiguous names are correctly renamed by adding valid information using a disambiguation library
 
-- **duplicate artist folders merging**  
-  if for any reason a duplicate artist folder is downloaded or created, the system merges the folders, 
+- **duplicated artist folders merging**  
+  if for any reason a duplicated artist folder is downloaded or created, the system merges the folders, 
   preserving all albums but always keeping the library clean, with a single artist folder
 
 - **LUFS-based normalization**  
@@ -94,13 +94,13 @@ docker run
 
 ## 🔧: ENVIRONMENT PARAMETERS
 
-| Parameter            | Default             | Description                                                      |
-|----------------------|---------------------|------------------------------------------------------------------|
-| `TZ`                 | `America/Sao_Paulo` | set time zone for accurate log timestamps.                       |
-| `PUID`               | `1000`              | specify user ID for file permissions.                            |
-| `PGID`               | `100`               | specify group ID for file permissions.                           |
-| `UMASK`              | `000`               | set UMASK for file permissions.                                  |
-| `yt_dlp_interval` | `1h`                | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
+| Parameter           | Default             | Description                                                      |
+|---------------------|---------------------|------------------------------------------------------------------|
+| `TZ`                | `America/Sao_Paulo` | set time zone for accurate log timestamps.                       |
+| `PUID`              | `1000`              | specify user ID for file permissions.                            |
+| `PGID`              | `100`               | specify group ID for file permissions.                           |
+| `UMASK`             | `000`               | set UMASK for file permissions.                                  |
+| `yt_dlp_interval`   | `1h`                | set download interval, e.g., `1h`, `12h`, or `false` to disable. |
 
 ---
 
