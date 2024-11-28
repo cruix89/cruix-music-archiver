@@ -16,6 +16,6 @@ Avenged Sevenfold/Life Is But a Dream…/Cosmic|05
 Avenged Sevenfold/Life Is But a Dream…/Beautiful Morning|06
 Avenged Sevenfold/Life Is But a Dream…/Easier|07
 Avenged Sevenfold/Life Is But a Dream…/G|08
-Avenged Sevenfold/Life Is But a Dream…/(O)rdinary|09
-Avenged Sevenfold/Life Is But a Dream…/(D)eath|10
+Avenged Sevenfold/Life Is But a Dream…/[O]rdinary|09
+Avenged Sevenfold/Life Is But a Dream…/[D]eath|10
 Avenged Sevenfold/Life Is But a Dream…/Life Is But a Dream...|11
