@@ -1,2 +1,2 @@
-[D] Eath|[D]eath
-[O] Rdinary|[O]rdinary
+[d] Eath|[D]eath
+[o] Rdinary|[O]rdinary
