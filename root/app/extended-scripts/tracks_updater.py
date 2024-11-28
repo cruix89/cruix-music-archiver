@@ -10,10 +10,11 @@ def update_track_number_tag(mp3_file, track_number):
     """Updates the 'track number' tag of the MP3 file."""
     audio_file = eyed3.load(mp3_file)
     if audio_file.tag is None:
-        audio_file.tag = eyed3.id3.tag.Tag(mp3_file)
+        audio_file.tag = eyed3.id3.tag.Tag()
+        audio_file.tag.file_info = eyed3.id3.FileInfo(mp3_file)
 
     # Update the 'track number' tag
-    audio_file.tag.track_set(track_number)
+    audio_file.tag.track_num = int(track_number)
     audio_file.tag.save()
 
 
@@ -56,7 +57,7 @@ def process_music():
                         update_track_number_tag(mp3_file, track_number)
                         print(f"[cruix-music-archiver] updated {file} with track number: {track_number} 🚀  now it's officially part of the soundtrack of the galaxy!")
                     else:
-                        print(f"[cruix-music-archiver] not found in db: {artist}/{album}/{track} 🤖  the database couldn't locate this track. it's in another dimension! 🤖  ")
+                        print(f"[cruix-music-archiver] not found in db: {artist}/{album}/{track} 🤖  the database couldn't locate this track. it's in another dimension! 🤖")
                 else:
                     print(f"[cruix-music-archiver] incomplete tags for file: {file} 🛠️  looks like this file missed its tag upgrade!")
 
