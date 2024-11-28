@@ -24,7 +24,7 @@ def update_tag(file_path, tag_class, tag_name, replacements):
         current_tag = audiofile.get(tag_name)  # get the current tag
         if current_tag:
             for old, new in replacements:
-                if current_tag.text[0] == old:
+                if current_tag.text[0] == old:  # exact match, case-sensitive
                     logging.debug(f"replacing tag '{tag_name}' from '{old}' to '{new}' in file: {file_path}")
                     audiofile[tag_name] = tag_class(encoding=3, text=new)  # create a new tag instance
                     audiofile.save()  # save the changes
@@ -45,8 +45,8 @@ def rename_files_and_folders(music_directory, replacements):
     for dirpath, dirnames, filenames in os.walk(music_directory):
         for file_name in filenames:
             for old, new in replacements:
-                if old in file_name:
-                    new_file_name = file_name.replace(old, new)
+                if file_name == old:  # exact match, case-sensitive
+                    new_file_name = new
                     old_path = os.path.join(dirpath, file_name)
                     new_path = os.path.join(dirpath, new_file_name)
                     if os.path.exists(old_path):
@@ -58,8 +58,8 @@ def rename_files_and_folders(music_directory, replacements):
 
         for folder_name in dirnames:
             for old, new in replacements:
-                if old in folder_name:
-                    new_folder_name = folder_name.replace(old, new)
+                if folder_name == old:  # exact match, case-sensitive
+                    new_folder_name = new
                     old_path = os.path.join(dirpath, folder_name)
                     new_path = os.path.join(dirpath, new_folder_name)
                     if os.path.exists(old_path):
