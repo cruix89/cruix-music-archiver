@@ -58,12 +58,11 @@ def main():
     # Count the number of lines (replacements) in the file
     num_replacements = len(replacements)
 
-    print(f"[cruix-music-archiver] fixing artists' folders... 🔧  time to tidy up and make everything look perfect! 🔧  ")
     logging.debug("fixing artists folders...")
 
     # Execute the entire renaming process the same number of times as the number of replacements
     for i in range(num_replacements):
-        print(f"[cruix-music-archiver] executing renaming process {i + 1} of {num_replacements}... 🔧 ")
+        print(f"[cruix-music-archiver] executing artists renaming process {i + 1} of {num_replacements}... 🔧 ")
         logging.debug(f"executing renaming process {i + 1} of {num_replacements}...")
 
         # Apply all replacements each time

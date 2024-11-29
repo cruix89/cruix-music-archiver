@@ -33,4 +33,4 @@ for root, dirs, files in os.walk(music_folder):
             file_path_in_directory = os.path.join(root, file)
             update_tag_if_needed(file_path_in_directory)
 
-print("[cruix-music-archiver] process done! like a true hero in the digital world! ✅  🦸‍♂️")
+print("[cruix-music-archiver] untitled tag process done! like a true hero in the digital world! ✅  🦸‍♂️")

@@ -119,9 +119,6 @@ except Exception as e:
     logging.error(f'error loading list of lowercase terms: {e}')
     raise
 
-# NOTIFY START OF PROCESS
-print("[cruix-music-archiver] starting the mp3 tag formatting and file renaming process... 🎶  💥  let the transformation begin! 🎶  💥")
-
 # PROCESS MUSIC DIRECTORY
 try:
     update_tags_and_rename(music_dir, lowercase_terms_list)

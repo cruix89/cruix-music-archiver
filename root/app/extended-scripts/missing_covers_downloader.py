@@ -29,10 +29,6 @@ def main():
     logging.basicConfig(filename=str(log_file), level=logging.INFO)
 
     # check if log file is created correctly
-    if not log_file.exists():
-        print(f"[cruix-music-archiver] error: unable to create log file at {log_file} 🛑  check write permissions... looks like the system's playing hard to get!")
-    else:
-        print(f"[cruix-music-archiver] log file created at: {log_file} 🚀  the logs have been successfully launched into the data stratosphere! 🚀  ")
 
     def validate_directory(directory):
         if not directory.is_dir():
