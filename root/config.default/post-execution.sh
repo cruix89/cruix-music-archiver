@@ -8,7 +8,7 @@ logs_dir="/config/logs"
 recycle_bin_dir="/config/recycle-bin"
 unofficial_albums_dir="/config/unofficial-albums"
 dz_db_dir="/config/dz-db"
-duplicate_artist_dir="/config/duplicated-artists-folders"
+duplicated_artist_dir="/config/duplicated-artists-folders"
 
 mkdir -p $downloads_dir
 mkdir -p $music_dir
@@ -17,12 +17,12 @@ mkdir -p $logs_dir
 mkdir -p $recycle_bin_dir
 mkdir -p $unofficial_albums_dir
 mkdir -p $dz_db_dir
-mkdir -p $duplicate_artist_dir
+mkdir -p $duplicated_artist_dir
 
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "[cruix-music-archiver] initiating cleanup protocol... purging cache files from the following directories: /cache, /logs, and /downloads. 🧹  ✨"
+  echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From The Following Directories: /cache /logs /downloads. 🧹  ✨"
 
   sleep '5'
   mkdir -p $cache_dir
@@ -36,7 +36,7 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $logs_dir
   find $logs_dir -type f -delete
 
-  echo -e "[cruix-music-archiver] running the cruix-music-archiver scripts... preparing to update the music library with the precision of a time-traveling DJ! 🕰️  🎶"
+  echo -e "[cruix-music-archiver] Running The [cruix-music-archiver] Scripts... Preparing To Update The Music Library With The Precision of a Time-Traveling DJ! 🕰️  🎶"
 
   # post-processing scripts in downloads folder
 
@@ -270,19 +270,19 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/artists_folder_capitalize.py
 
-  echo -e "[cruix-music-archiver] cleaning up the digital cobwebs in /recycle-bin, /dz-db, /duplicated-artists-folders and /unofficial-albums. out with the old, in with the tidy!   🗑️  ✨"
+  echo -e "[cruix-music-archiver] Cleaning Up The Digital Cobwebs in /recycle-bin /dz-db /duplicated-artists-folders /unofficial-albums. Out With The Old, In With The Tidy!   🗑️  ✨"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
   mkdir -p $dz_db_dir
-  mkdir -p $duplicate_artist_dir
+  mkdir -p $duplicated_artist_dir
   find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
-  find $duplicate_artist_dir -depth -mtime +6 -exec rm -rf {} \;
+  find $duplicated_artist_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] mission accomplished! old files in /recycle-bin, /dz-db, /duplicated-artists-folders and /unofficial-albums have been successfully swept away.  🗑️  ✨"
+  echo -e "[cruix-music-archiver] Mission Accomplished! Old Files In /recycle-bin /dz-db /duplicated-artists-folders /unofficial-albums Have Been Successfully Swept Away.  🗑️  ✨"
 
 else
-  echo -e "[cruix-music-archiver] ⚠️  oops! output directory not found: $downloads_dir. did it get lost in the void? 🌌"
+  echo -e "[cruix-music-archiver] ⚠️  Oops! Output Directory Not Found: $downloads_dir. Did It Get Lost In The Void? 🌌"
 fi
