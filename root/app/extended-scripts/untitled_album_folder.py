@@ -3,7 +3,7 @@ import os
 
 def rename_na_to_various_songs(base_directory="/music"):
     """
-    percorre todos os subdiretórios a partir de base_directory e renomeia pastas chamadas 'na' para 'various_songs'.
+    traverses all subdirectories from base_directory and renames folders named 'na' to 'various_songs'.
     """
     for root, dirs, _ in os.walk(base_directory):
         for dir_name in dirs:
@@ -13,9 +13,9 @@ def rename_na_to_various_songs(base_directory="/music"):
 
                 try:
                     os.rename(old_path, new_path)
-                    print(f"[cruix-music-archiver] renamed: {old_path} to {new_path}. it’s like a folder evolution—leveling up! 🚀  🎮")
+                    print(f"[cruix-music-archiver] Renamed: {old_path} to {new_path}. It’s Like a Folder Evolution—Leveling Up! 📂  ⬆️")
                 except Exception as e:
-                    print(f"[cruix-music-archiver] oops! failed to rename {old_path} to {new_path}. something went wrong: {e}. 🔥  😱")
+                    print(f"[cruix-music-archiver] Oops! Failed to Rename {old_path} to {new_path}. Something Went Wrong: {e}. 🔥  😱")
 
 
 if __name__ == "__main__":

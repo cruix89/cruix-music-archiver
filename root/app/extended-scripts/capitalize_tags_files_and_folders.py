@@ -14,11 +14,11 @@ def setup_directories():
 
 def rename_file(file_path, new_file_path):
     try:
-        # Converte o nome completo para letras minúsculas, mantendo a extensão original
+        # converts the full name to lowercase letters, keeping the original extension
         base, extension = os.path.splitext(new_file_path)
         new_file_name = base + extension
 
-        # Verifica se o arquivo já existe e adiciona o sufixo _copyN
+        # check if the file already exists and add the _copyN suffix
         counter = 1
         while os.path.exists(new_file_name):
             new_file_name = f"{base}_copy{counter}{extension}"
@@ -75,7 +75,7 @@ def rename_files_and_folders(directory):
             new_file_path = os.path.join(root, new_file_name)
             if file_path != new_file_path:
                 rename_file(file_path, new_file_path)
-                logging.info(f'file renamed: {file_path} -> {new_file_path}')
+                logging.info(f'file renamed: {file_path} to {new_file_path}')
 
         for folder_name in dirs:
             old_folder_path = os.path.join(root, folder_name)
@@ -83,7 +83,7 @@ def rename_files_and_folders(directory):
             new_folder_path = os.path.join(root, formatted_folder_name)
             if old_folder_path != new_folder_path:
                 rename_file(old_folder_path, new_folder_path)
-                logging.info(f'folder renamed: {old_folder_path} -> {new_folder_path}')
+                logging.info(f'folder renamed: {old_folder_path} to {new_folder_path}')
 
 def update_tags_and_rename(directory, lowercase_terms):
     try:
@@ -108,7 +108,7 @@ try:
     log_path = os.path.join(logs_dir, 'capitalize_tags_files_and_folders.log')
     logging.basicConfig(filename=log_path, level=logging.INFO)
 except Exception as e:
-    print(f'[cruix-music-archiver] error setting up logging: 😱  oh no! something went horribly wrong — {e}')
+    print(f'[cruix-music-archiver] Error Setting Up Logging: 😱  Oh No! Something Went Horribly Wrong — {e}')
     raise
 
 # LOAD LIST OF TERMS TO KEEP LOWERCASE
@@ -127,4 +127,4 @@ except Exception as e:
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] mp3 tag formatting and file renaming process completed successfully... 🎉  your files are now perfectly organized and ready to shine! 🎉")
+print("[cruix-music-archiver] MP3 Tag Formatting and File Renaming Process Completed Successfully... ✏️  Your Files are Now Perfectly Organized! ✅ ")

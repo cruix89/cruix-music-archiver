@@ -1,55 +1,55 @@
 import os
 import shutil
 
-# Mensagem inicial
-print("[cruix-music-archiver] starting disambiguation process... ⚡  the mission begins to sort out the chaos! ⚡  ")
+# initial message
+print("[cruix-music-archiver] Starting Disambiguation Process...  🧩  The Mission Begins to Sort Out the Chaos!  🔄  ")
 
-# caminho absoluto para o arquivo de configuração
-config_file_path = "/app/lists/artist_disambiguator.txt"  # Substitua pelo caminho do seu arquivo .txt
+# absolute path to the configuration file
+config_file_path = "/app/lists/artist_disambiguator.txt"
 
 def move_files_based_on_list(file_path):
     """
-    lê uma lista no formato 'origem|destino' e move os arquivos da pasta de origem para a pasta de destino.
+    reads a list in the format 'source|destination' and moves files from the source folder to the destination folder.
 
-    :param file_path: caminho para o arquivo .txt contendo as informações de origem e destino
+    :param file_path: path to the .txt file containing the source and destination information
     """
     try:
         with open(file_path, "r") as file:
             lines = file.readlines()
 
         for line in lines:
-            # Ignora linhas vazias ou comentários
+            # ignore empty lines or comments
             if not line.strip() or line.startswith("#"):
                 continue
 
-            # Divide a linha pelo delimitador '|'
+            # divide the line by the delimiter '|'
             try:
                 origin, destination = map(str.strip, line.split("|"))
             except ValueError:
-                print(f"[cruix-music-archiver] invalid format in: {line.strip()} ⚠️  something’s not quite right in this file!")
+                print(f"[cruix-music-archiver] Invalid Format In: {line.strip()} ⚠️  Something’s Not Quite Right In This File! ⚠️ ")
                 continue
 
-            # Verifica se a pasta de origem existe
+            # check if the source folder exists
             if not os.path.exists(origin):
                 continue
 
-            # Cria a pasta de destino, se não existir
+            # create the destination folder if it does not exist
             os.makedirs(destination, exist_ok=True)
 
-            # Itera sobre os arquivos na pasta de origem
+            # iterate over the files in the source folder
             for filename in os.listdir(origin):
                 src_file = os.path.join(origin, filename)
                 dst_file = os.path.join(destination, filename)
 
                 if os.path.isfile(src_file):
-                    # Move o arquivo para o destino
+                    # move the file to the destination
                     shutil.move(src_file, dst_file)
-                    print(f"[cruix-music-archiver] disambiguated: {src_file} to {dst_file} 🛠️  transformation complete — clarity achieved!")
+                    print(f"[cruix-music-archiver] Disambiguated: {src_file} to {dst_file}  🛠️ Transformation Complete — Clarity Achieved! 🛠️ ")
 
     except Exception as e:
-        print(f"[cruix-music-archiver] error processing the list: {e} 💥  the list fought back — mission failed!")
+        print(f"[cruix-music-archiver] Error Processing the List: {e} ⚠️  The List Fought Back — Mission Failed!  ⚠️  ")
 
 
-# Executa o script
+# execute the script
 if __name__ == "__main__":
     move_files_based_on_list(config_file_path)

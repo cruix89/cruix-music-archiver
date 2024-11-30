@@ -1,36 +1,34 @@
 import os
 import eyed3
 
-# Caminho da pasta onde os arquivos MP3 estão armazenados
+# path of the folder where the MP3 files are stored
 music_folder = '/music'
 
 
-# Função para verificar e alterar a tag de álbum
+# function to check and change album tag
 def update_tag_if_needed(mp3_file_path):
     try:
-        # Carregar o arquivo MP3
+        # upload the MP3 file
         audio_file = eyed3.load(mp3_file_path)
 
-        # Verificar se a tag de álbum existe e obter o valor
+        # check if the album tag exists and get the value
         album_tag = audio_file.tag.album if audio_file.tag.album else ""
 
-        # Verificar se a tag de álbum contém a palavra "na" ou está vazia
+        # check if the album tag contains the word "na" or is empty
         if "na" in album_tag.lower() or not album_tag:
-            # Se a condição for atendida, aplicar a tag "Various Songs"
+            # if the condition is met, apply the "Various Songs" tag
             audio_file.tag.album = "Untitled Album"
-            # Salvar as alterações
+            # save changes
             audio_file.tag.save()
-            print(f"[cruix-music-archiver] tag updated for {mp3_file_path}. it's like a software patch, but for your music collection! 🎧")
+            print(f"[cruix-music-archiver] Tag Updated For {mp3_file_path}. It's Like a Software Patch, But For Your Music Collection! 🎧")
     except Exception as e:
-        print(f"[cruix-music-archiver] error to process {mp3_file_path}: {e}. it's like we hit a '404' in the music universe! 🌌")
+        print(f"[cruix-music-archiver] Error to Process {mp3_file_path}: {e}. It's Like We Hit a '404' In the Music Universe! 🌌")
 
 
-# Percorrer todos os arquivos na pasta /music
+# browse all files in the /music folder
 for root, dirs, files in os.walk(music_folder):
     for file in files:
-        # Verificar se o arquivo é um MP3
+        # check if the file is an MP3
         if file.lower().endswith('.mp3'):
             file_path_in_directory = os.path.join(root, file)
             update_tag_if_needed(file_path_in_directory)
-
-print("[cruix-music-archiver] untitled tag process done! like a true hero in the digital world! ✅  🦸‍♂️")

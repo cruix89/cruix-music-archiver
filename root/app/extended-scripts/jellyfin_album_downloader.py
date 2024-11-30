@@ -19,7 +19,7 @@ def setup_directories():
 # call the function to set up directories
 logs_directory, music_directory = setup_directories()
 
-print("[cruix-music-archiver] configuring jellyfin album covers... 🎨  transforming your music collection into a visual masterpiece! 🎨  ")
+print("[cruix-music-archiver] Configuring Jellyfin Album Covers... 🎨  Transforming Your Music Collection Into a Visual Masterpiece! 🎨  ")
 
 # set up logging
 log_filename = os.path.join(logs_directory, 'jellyfin_album_downloader.log')
@@ -53,5 +53,3 @@ def copy_first_jpg(directory):
 
 # execute the function to copy .JPG files
 copy_first_jpg(music_directory)
-
-print("[cruix-music-archiver] jellyfin album covers configured successfully... 🚀  the visual upgrade is complete, prepare for liftoff! 🚀  ")

@@ -16,7 +16,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'trash_collector.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-print("[cruix-music-archiver] trash collector eliminating stray files... ♻️  bringing order to the music universe! 🌌", flush=True)
+print("[cruix-music-archiver] Trash Collector Eliminating Stray Files... ♻️  Bringing Order to the Music Universe! 🌌", flush=True)
 
 # supported audio formats
 audio_formats = (
@@ -57,17 +57,16 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                 shutil.move(src_path, dest_path)
                 moved_files += 1
-                logging.info(f'file moved from {src_path} TO {dest_path}')
+                logging.info(f'file moved from {src_path} to {dest_path}')
             except Exception as e:
-                logging.error(f'failed to move file from {src_path} TO {dest_path}: {e}')
+                logging.error(f'failed to move file from {src_path} to {dest_path}: {e}')
         else:
             skipped_files += 1
-            logging.info(f'[cruix-music-archiver] the file {src_path} was skipped because a corresponding audio file was found')
+            logging.info(f'[cruix-music-archiver] The File {src_path} Was Skipped Because a Corresponding Audio File Was Found')
 
 # log final summary
-logging.info(
-    f'[cruix-music-archiver] the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}')
+logging.info(f'[cruix-music-archiver] the operation was successfully completed. total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}')
 
 # print final summary to terminal
-print("[cruix-music-archiver] files recycled successfully! ♻️  clean and green! 🌱")
-print(f"[cruix-music-archiver] total files processed: {total_files}, recycled: {moved_files}, skipped: {skipped_files}. 🎮  efficiency level: 100%! 🚀")
+print("[cruix-music-archiver] Files Recycled Successfully! ♻️  Clean and Green! 🌱")
+print(f"[cruix-music-archiver] Total Files Processed: {total_files}, Recycled: {moved_files}, Skipped: {skipped_files}. 🎮  Efficiency Level: 100%! 🚀")

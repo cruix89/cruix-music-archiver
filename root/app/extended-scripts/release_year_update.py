@@ -42,7 +42,7 @@ def update_release_year(path):
                     # log the update
                     logging.info(f'formatting year tag to {year[:4]} for file {full_path}')
 
-    print("[cruix-music-archiver] files release year formatted successfully. 🚀  the timeline is now corrected and ready for launch! 🚀  ")
+    print("[cruix-music-archiver] Files Release Year Formatted Successfully.  🗓️  The Timeline is Now Corrected and Ready For Launch! 🚀  ")
 
 if __name__ == "__main__":
     # define the absolute path to the music directory

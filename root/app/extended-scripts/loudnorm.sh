@@ -10,7 +10,7 @@ failed_log_file="/config/loudnorm_failed_files_cache.txt"  # log file for failed
 # function to check if ffmpeg is installed
 check_ffmpeg() {
     if ! command -v ffmpeg &> /dev/null; then
-        echo -e "ffmpeg is not installed. 🚫  the force is weak in this system, no media manipulation powers!"
+        echo -e "FFMPEG is Not Installed. 🚫  The Force is Weak in This System, No Media Manipulation Powers!"
         exit 1
     fi
 }
@@ -21,7 +21,7 @@ load_normalized_list() {
         touch "$normalized_list_file"
     fi
     mapfile -t normalized_files < "$normalized_list_file"
-    echo -e "[cruix-music-archiver] number of normalized files in cache: ${#normalized_files[@]} 🎵  cache is grooving! 🕺"
+    echo -e "[cruix-music-archiver] Number of Normalized Files In Cache: ${#normalized_files[@]}  🗄️  Cache is Grooving! 🕺"
 }
 
 # function to save to the normalized list
@@ -52,9 +52,9 @@ process_file() {
         mv "$output_file.mp3" "${src_file%.*}.mp3"
 
         save_to_normalized_list "${src_file%.*}.mp3"
-        echo -e "[ffmpeg] loudnorm (replaygain) successfully applied to the file: ${src_file%.*}.mp3 🎶  the audio is now perfectly balanced! ⚖️"
+        echo -e "[ffmpeg] Loudnorm (ReplayGain) Successfully Applied to the File: ${src_file%.*}.mp3 🎶  The Audio is Now Perfectly Balanced! ⚖️"
     else
-        echo -e "$(date '+%Y-%m-%d %H:%M:%S') - error processing file: $src_file 💾  file not found... or did it just disappear into the void?"
+        echo -e "[ffmpeg] $(date '+%Y-%m-%d %H:%M:%S') - Error Processing File: $src_file 💾  File Not Found... Or Did it Just Disappear Into the Void? 💾 "
     fi
 }
 
@@ -72,11 +72,11 @@ move_to_recycle_bin() {
     if cp "$src_file" "$dest_file"; then
         # remove the original file after copying
         rm -f "$src_file"
-        echo -e "copied and removed $src_file to recycle bin: $dest_file ⚡  the file has been deleted from the matrix!"
+        echo -e "[cruix-music-archiver] Copied and Removed $src_file to Recycle Bin: $dest_file  💾  The File Has Been Deleted From the Matrix!  🌀 "
         # log the file path to loudnorm_failed_files.log
-        echo -e "$(date '+%Y-%m-%d %H:%M:%S') - moved to recycle bin: $src_file 🗑️  it's gone, but not forgotten! rescue time!" >> "$failed_log_file"
+        echo -e "[cruix-music-archiver] $(date '+%Y-%m-%d %H:%M:%S') - Moved to Recycle Bin: $src_file" >> "$failed_log_file"
     else
-        echo "failed to copy $src_file to recycle bin: $dest_file 💾  transfer failed — the file has gone rogue!"
+        echo -e "[cruix-music-archiver] Failed to Copy $src_file to Recycle Bin: $dest_file 💾  Transfer Failed — The File Has Gone Rogue! 💾"
     fi
 }
 
@@ -93,13 +93,13 @@ main() {
     # ensure the cache directory exists
     if [[ ! -d "$cache_dir" ]]; then
         mkdir -p "$cache_dir"
-        echo -e "created cache directory: $cache_dir 🧹✨  the cache is ready for action!"
+        echo -e "[cruix-music-archiver] Created Cache Directory: $cache_dir ✨  The Cache is Ready for Action! ✨"
     fi
 
     # ensure the recycle bin directory exists
     if [[ ! -d "$recycle_bin_dir" ]]; then
         mkdir -p "$recycle_bin_dir"
-        echo -e "[cruix-music-archiver] created recycle bin directory: $recycle_bin_dir ♻️  ready to catch some strays! ♻️"
+        echo -e "[cruix-music-archiver] Created Recycle Bin Directory: $recycle_bin_dir ♻️  Ready to Catch Some Strays! ♻️"
     fi
 
     while true; do
@@ -115,7 +115,7 @@ main() {
         # check if the file was skipped
         if grep -qx "$src_file" "$normalized_list_file"; then
             ((skipped_files++))
-            echo -e "skipped: $src_file ⚡  file dodged the process like a pro!"
+            echo -e "[cruix-music-archiver] Skipped: $src_file  🏃‍♂️ File Dodged the Process Like a Pro!  🏅 "
             continue
         fi
 
@@ -124,7 +124,7 @@ main() {
 
         # if the file has been attempted max_attempts times, move it to recycle bin
         if [[ ${attempt_count["$src_file"]} -gt $max_attempts ]]; then
-            echo -e "moving $src_file to the recycle bin after $max_attempts failed attempts. 💾  🚮  game over, file!"
+            echo -e "[cruix-music-archiver] Moving $src_file to The Recycle Bin After $max_attempts Failed Attempts. 💾  🚮  Game Over, File! 💾  🚮"
             move_to_recycle_bin "$src_file"
             continue
         fi
@@ -134,7 +134,7 @@ main() {
     done
 
     # final summary
-    echo -e "[cruix-music-archiver] all files have been processed and normalized successfully! 🎉  🎶  the library is in harmony! 🎉  🎶"
+    echo -e "[cruix-music-archiver] All Files Have Been Processed and Normalized Successfully! ✅  The Library is In Harmony!  🕊️ "
 }
 
 main

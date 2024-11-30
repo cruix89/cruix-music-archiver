@@ -4,7 +4,7 @@ import requests
 import logging
 
 # print in terminal
-print("[cruix-music-archiver] downloading music database... 🚀  initiating data stream from the audio archives! 🚀  ", flush=True)
+print("[cruix-music-archiver] Downloading Music Database... 🚀  Initiating Data Stream From the Audio Archives! 🚀  ", flush=True)
 
 def setup_directories():
     # absolute directories
@@ -83,7 +83,6 @@ def main():
                 logging.info(f"file {filename} processed. data saved to {txt_path}.")
 
     logging.info("processing completed.")
-    print("[cruix-music-archiver] music database updated... 🚀  synchronization complete — the library is now in perfect harmony! 🚀  ")
 
 
 if __name__ == "__main__":

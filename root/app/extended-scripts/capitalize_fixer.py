@@ -17,7 +17,7 @@ def rename_to_lowercase(directory):
             new_dir_path = os.path.join(root, new_dir_name)
             if dir_path != new_dir_path:
                 os.rename(dir_path, new_dir_path)
-                logging.info(f'directory renamed: {dir_path} -> {new_dir_path}')
+                logging.info(f'directory renamed: {dir_path} to {new_dir_path}')
 
         for file_name in files:
             file_path = os.path.join(root, file_name)
@@ -25,7 +25,7 @@ def rename_to_lowercase(directory):
             new_file_path = os.path.join(root, new_file_name)
             if file_path != new_file_path:
                 os.rename(file_path, new_file_path)
-                logging.info(f'file renamed: {file_path} -> {new_file_path}')
+                logging.info(f'file renamed: {file_path} to {new_file_path}')
 
 def format_first_letter(name):
     if not name:
@@ -63,7 +63,7 @@ def format_mp3_tags(directory):
                     logging.error(f'error formatting tags for file {file_path}: {e}')
 
 def main():
-    print("[cruix-music-archiver] directory and tag formatting... 🛠️  let's clean up this mess and bring order to the music world! 🛠️  ", flush=True)
+    print("[cruix-music-archiver] Directory and Tag Formatting... 🛠️  Let's Clean Up This Mess and Bring Order to the Music World! 🛠️  ", flush=True)
 
     # replace with absolute paths
     music_directory = '/music'
@@ -75,7 +75,6 @@ def main():
     if os.path.exists(music_directory):
         rename_to_lowercase(music_directory)
         format_mp3_tags(music_directory)
-        print("[cruix-music-archiver] directories and tags formatted... ⚡  ready for launch — the music universe is aligned! ⚡  ")
     else:
         logging.error(f'music directory not found: {music_directory}')
 

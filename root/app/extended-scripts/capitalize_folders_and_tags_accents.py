@@ -55,31 +55,31 @@ def change_tags_and_rename_file(substitutions_list):
                             if new_title:
                                 audiofile.tag.title = new_title
                                 changes_made = True
-                                logging.info(f'title changed: {audiofile.tag.title} -> {new_title}')
+                                logging.info(f'title changed: {audiofile.tag.title} to {new_title}')
                         if audiofile.tag.album:
                             new_album = format_name(audiofile.tag.album, substitutions_list)
                             if new_album:
                                 audiofile.tag.album = new_album
                                 changes_made = True
-                                logging.info(f'album changed: {audiofile.tag.album} -> {new_album}')
+                                logging.info(f'album changed: {audiofile.tag.album} to {new_album}')
                         if audiofile.tag.artist:
                             new_artist = format_name(audiofile.tag.artist, substitutions_list)
                             if new_artist:
                                 audiofile.tag.artist = new_artist
                                 changes_made = True
-                                logging.info(f'artist changed: {audiofile.tag.artist} -> {new_artist}')
+                                logging.info(f'artist changed: {audiofile.tag.artist} to {new_artist}')
                         if audiofile.tag.album_artist:
                             new_album_artist = format_name(audiofile.tag.album_artist, substitutions_list)
                             if new_album_artist:
                                 audiofile.tag.album_artist = new_album_artist
                                 changes_made = True
-                                logging.info(f'album artist changed: {audiofile.tag.album_artist} -> {new_album_artist}')
+                                logging.info(f'album artist changed: {audiofile.tag.album_artist} to {new_album_artist}')
                         if audiofile.tag.genre and audiofile.tag.genre.name:
                             new_genre = format_name(audiofile.tag.genre.name, substitutions_list)
                             if new_genre:
                                 audiofile.tag.genre = new_genre
                                 changes_made = True
-                                logging.info(f'genre changed: {audiofile.tag.genre.name} -> {new_genre}')
+                                logging.info(f'genre changed: {audiofile.tag.genre.name} to {new_genre}')
 
                         if changes_made:
                             audiofile.tag.save(version=ID3_V2_4)
@@ -105,7 +105,7 @@ def rename_directories(directory, substitutions_list):
                     if dir_path != new_dir_path:
                         try:
                             os.rename(dir_path, new_dir_path)
-                            logging.info(f'formatted directory: {dir_path} -> {new_dir_path}')
+                            logging.info(f'formatted directory: {dir_path} to {new_dir_path}')
                         except Exception as e:
                             logging.error(f'error renaming directory {dir_path}: {e}')
 
@@ -122,4 +122,4 @@ if os.path.exists(music_dir):
 else:
     logging.error(f'the directory {music_dir} does not exist.')
 
-print("[cruix-music-archiver] accents capitalized successfully... 🎉  the text is now smooth and polished, ready to impress! 🎉")
+print("[cruix-music-archiver] Accents Capitalized Successfully... ✔️ The Text is Now Smooth and Polished, Ready to Impress! 🔠 ")

@@ -56,11 +56,11 @@ def process_music():
                     if track_number:
                         # if found, update the 'track number' tag
                         update_track_number_tag(mp3_file, track_number)
-                        print(f"[cruix-music-archiver] updated {file} with track number: {track_number} 🚀  now it's officially part of the soundtrack of the galaxy!")
+                        print(f"[cruix-music-archiver] Updated {file} With Track Number: {track_number} 🚀  Now It's Officially Part of the Soundtrack of the Galaxy!  🌌  ")
                     else:
-                        print(f"[cruix-music-archiver] not found in db: {artist}/{album}/{track} 🤖  the database couldn't locate this track. it's in another dimension! 🤖")
+                        print(f"[cruix-music-archiver] Not Found in DB: {artist}/{album}/{track} 🤖  The Database Couldn't Locate This Track. It's in Another Dimension! 🤖")
                 else:
-                    print(f"[cruix-music-archiver] incomplete tags for file: {file} 🛠️  looks like this file missed its tag upgrade!")
+                    print(f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️  Looks Like This File Missed Its Tag Upgrade! 🛠️ ")
 
 
 if __name__ == '__main__':

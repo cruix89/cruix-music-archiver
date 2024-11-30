@@ -45,7 +45,7 @@ def sanitize_name( name, invalid_chars ):
 def rename_item( path, old_name, new_name ):
     try:
         os.rename(os.path.join(path, old_name), os.path.join(path, new_name))
-        logging.info(f"renamed {old_name} TO {new_name}")
+        logging.info(f"renamed {old_name} to {new_name}")
     except Exception as e:
         logging.error(f"error renaming {old_name}: {e}")
 
@@ -90,7 +90,7 @@ def main( download_path, lists_path ):
     rename_files_and_dirs(download_path, invalid_chars)
 
 # fixed print in terminal
-print("[cruix-music-archiver] invalid characters deleted like a boss... 🎮 💥  mission successful! 🎮 💥")
+print("[cruix-music-archiver] Invalid Characters Deleted Like a Boss... ✂️  Mission Successful! 😎 ")
 
 if __name__ == "__main__":
 

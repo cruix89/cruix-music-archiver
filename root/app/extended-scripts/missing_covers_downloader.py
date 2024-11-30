@@ -65,7 +65,7 @@ def main():
                             return download_and_resize_image(img_url, width, height)
                 except Exception as e:
                     logging.error(f'error reading file {txt_path}: {e}')
-                    print(f"error reading file {txt_path}: {e} ⚡  something's blocking the data stream... the file might be in a parallel universe!")
+                    print(f"[cruix-music-archiver] Error Reading File {txt_path}: {e} ❌ Something's Blocking the Data Stream... The File Might Be in a Parallel Universe!")
         return None
 
     def download_and_resize_image(url, width=720, height=720):
@@ -77,11 +77,11 @@ def main():
             return img
         except requests.exceptions.RequestException as e:
             logging.error(f'error downloading image: {e}')
-            print(f"error downloading image: {e} 🚫  the image has eluded us... it must have jumped into another dimension!")
+            print(f"[cruix-music-archiver] Error Downloading Image: {e} 🚫  The Image Has Eluded Us... It Must Have Jumped Into Another Dimension! 🚫 ")
             return None
         except Exception as e:
             logging.error(f'error processing downloaded image: {e}')
-            print(f"error processing downloaded image: {e} 🖼️  looks like the image got stuck in a time loop... we'll get it next time!")
+            print(f"[cruix-music-archiver] Error Processing Downloaded Image: {e} 🚫 Looks Like the Image Got Stuck in a Time Loop... We'll Get it Next Time! 🚫 ")
             return None
 
     def copy_first_image_to_lonely_mp3(directory, width=720, height=720):
@@ -103,7 +103,7 @@ def main():
                         if process_image(source, width, height):
                             destination = Path(root) / f'{mp3_name}.jpg'
                             shutil.copy2(source, destination)
-                            logging.info(f'file copied: {source} TO {destination}')
+                            logging.info(f'file copied: {source} to {destination}')
                             break
                     else:
                         img = find_cover_in_dz_db(mp3_name, width, height)
@@ -113,14 +113,14 @@ def main():
                             logging.info(f'cover downloaded and saved: {destination}')
                         else:
                             logging.error(f'unable to find or download a cover for: {mp3_name}')
-                            print(f"unable to find or download a cover for: {mp3_name} 😞  the cover went on a coffee break. we'll find it soon!")
+                            print(f"[cruix-music-archiver] Unable to Find or Download a Cover For: {mp3_name} 😞  The Cover Went on a Coffee Break. We'll Find it Soon!  🔍 ")
 
         logging.info('process completed.')
 
     # execute main function
     copy_first_image_to_lonely_mp3(music_dir)
 
-    print("[cruix-music-archiver] covers downloader api completed successfully. 🎉  the covers have been saved to the digital kingdom! 🎉  ")
+    print("[cruix-music-archiver] Covers API is Done. 📦  The Covers Have Been Saved to the Digital Kingdom!  👑  ")
 
 
 if __name__ == "__main__":

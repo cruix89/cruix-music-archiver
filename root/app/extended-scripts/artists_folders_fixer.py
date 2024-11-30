@@ -1,6 +1,6 @@
 import os
 import logging
-import re  # Importação para uso de expressões regulares
+import re  # import to use regular expressions
 
 # define absolute paths for directories
 LOGS_DIR = '/config/logs'
@@ -16,7 +16,7 @@ for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:
 def load_replacements(replacements_path):
     absolute_path = os.path.abspath(replacements_path)
     with open(absolute_path, 'r', encoding='utf-8') as f:
-        # Create a list of replacements, each as a tuple (old, new)
+        # create a list of replacements, each as a tuple (old, new)
         return [line.strip().split('|') for line in f.readlines() if line.strip()]
 
 
@@ -26,21 +26,21 @@ def rename_direct_folders(music_directory, replacements):
             folder_path = os.path.join(music_directory, folder_name)
             if os.path.isdir(folder_path):
                 for old, new in replacements:
-                    # Use regex para aplicar o padrão
-                    pattern = re.compile(old)  # Constrói o regex a partir da lista
-                    if pattern.search(folder_name):  # Verifica se o padrão corresponde
-                        new_folder_name = pattern.sub(new, folder_name)  # Substitui o padrão
+                    # use regex to apply the pattern
+                    pattern = re.compile(old)  # build the regex from the list
+                    if pattern.search(folder_name):  # check if the pattern matches
+                        new_folder_name = pattern.sub(new, folder_name)  # override the default
                         new_folder_path = os.path.join(music_directory, new_folder_name)
                         if os.path.exists(folder_path):
                             try:
-                                # Renomeia pastas, lidando com diferenças de maiúsculas/minúsculas
+                                # rename folders, handling case differences
                                 if folder_path.lower() == new_folder_path.lower():
                                     temp_path = os.path.join(music_directory, new_folder_name + "_temp")
                                     os.rename(folder_path, temp_path)
                                     os.rename(temp_path, new_folder_path)
                                 else:
                                     os.rename(folder_path, new_folder_path)
-                                print(f"[cruix-music-archiver] renaming directory '{folder_name}' to '{new_folder_name}' ♻️")
+                                print(f"[cruix-music-archiver] Renaming Directory '{folder_name}' to '{new_folder_name}'  ✏️ ")
                             except FileNotFoundError as e:
                                 logging.error(f"error renaming directory '{folder_name}': {e}")
     except Exception as e:
@@ -62,13 +62,13 @@ def main():
 
     # Execute the entire renaming process the same number of times as the number of replacements
     for i in range(num_replacements):
-        print(f"[cruix-music-archiver] executing artists renaming process {i + 1} of {num_replacements}... 🔧 ")
+        print(f"[cruix-music-archiver] Executing Artists Renaming Process {i + 1} of {num_replacements}... 🔧 ")
         logging.debug(f"executing renaming process {i + 1} of {num_replacements}...")
 
         # Apply all replacements each time
         rename_direct_folders(MUSIC_DIR, replacements)
 
-    print("[cruix-music-archiver] artists' folders fixed successfully! ⚡  mission accomplished, folders upgraded! ⚡  ")
+    print("[cruix-music-archiver] Artists Folders Fixed Successfully! ✅   Mission Accomplished, Folders Upgraded!  📂  ⚡  ")
     logging.debug("artists folders fixed successfully.")
 
 

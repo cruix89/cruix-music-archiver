@@ -106,7 +106,7 @@ def main():
 
     if not replacements:
         logging.warning("no replacements loaded. process aborted.")
-        print("[cruix-music-archiver] no replacements loaded. check the replacements file.")
+        print("[cruix-music-archiver] No Replacements Loaded. Check the Replacements File.  📝 ")
         return
 
     logging.info("starting tag updates...")
@@ -122,7 +122,7 @@ def main():
     rename_files_and_folders(MUSIC_DIR, replacements)
 
     logging.info("tags and folders fixer process completed successfully.")
-    print("[cruix-music-archiver] tags, files, and folders formatted successfully. 🎉")
+    print("[cruix-music-archiver] Tags, Files and Folders Formatted Successfully. 🏷️ ")
 
 
 if __name__ == "__main__":
