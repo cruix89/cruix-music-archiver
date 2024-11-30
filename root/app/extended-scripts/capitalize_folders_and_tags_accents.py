@@ -122,4 +122,4 @@ if os.path.exists(music_dir):
 else:
     logging.error(f'the directory {music_dir} does not exist.')
 
-print("[cruix-music-archiver] Accents Capitalized Successfully... ✔️ The Text is Now Smooth and Polished, Ready to Impress! 🔠 ")
+print("[cruix-music-archiver] Accents Capitalized Successfully... ✔️  The Text is Now Smooth and Polished, Ready to Impress! 🔠 ")

@@ -14,7 +14,7 @@ def setup_logging(log_file):
 
 
 # fixed print in terminal
-print("[cruix-music-archiver] Removing Invalid Characters From Artist Tags in MP3 Files... ✏️ Purging the Dark Side of the Tags!  🚫  ")
+print("[cruix-music-archiver] Removing Invalid Characters From Artist Tags in MP3 Files... ✏️  Purging the Dark Side of the Tags! 🚫  ")
 
 def load_invalid_characters(file_path):
     try:

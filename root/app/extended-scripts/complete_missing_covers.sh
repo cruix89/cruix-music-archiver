@@ -136,5 +136,5 @@ process_directory() {
 }
 
 # script execution
-echo -e "[cruix-music-archiver] Cover Rescue Mission Engaged! 🦸‍♂️  🎧  Commencing the Epic Quest to Complete Missing Covers... 📀  🚀"
+echo -e "[cruix-music-archiver] Cover Rescue Mission Engaged! 🔍 🎧  Commencing the Epic Quest to Complete Missing Covers... 📀  🚀"
 process_directory "$music_dir"

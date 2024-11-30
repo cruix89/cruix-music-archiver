@@ -21,7 +21,7 @@ def setup_directories():
 
 
 def main():
-    print("[cruix-music-archiver] Setting Up Plex Artist Image...  📺  Preparing the Artist’s Image For Ultimate Streaming Power!  📡 ")
+    print("[cruix-music-archiver] Setting Up Plex Artist Image...  📺  Preparing the Artist’s Image For Ultimate Streaming Power! 📡 ")
 
     # logging setup
     music_dir, dz_db_dir, log_dir = setup_directories()

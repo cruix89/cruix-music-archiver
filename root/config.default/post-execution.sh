@@ -267,7 +267,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/extended-scripts/artists_folder_capitalize.py
 
-  echo -e "[cruix-music-archiver] Cleaning Up the Digital Cobwebs in /recycle-bin /dz-db /duplicated-artists-folders /unofficial-albums. Out With the Old, in With the Tidy!   🗑️  ✨"
+  echo -e "[cruix-music-archiver] Cleaning Up the Digital Cobwebs in /recycle-bin, /dz-db, /duplicated-artists-folders, /unofficial-albums. Out With the Old, in With the Tidy! 🗑️  ✨"
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
@@ -278,7 +278,7 @@ if [ -d "$downloads_dir" ]; then
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
   find $duplicated_artist_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] Mission Accomplished! Old Files In /recycle-bin /dz-db /duplicated-artists-folders /unofficial-albums Have Been Successfully Swept Away.  🗑️  ✨"
+  echo -e "[cruix-music-archiver] Mission Accomplished! Old Files In /recycle-bin, /dz-db, /duplicated-artists-folders, /unofficial-albums, Have Been Successfully Swept Away. 🗑️  ✨"
 
 else
   echo -e "[cruix-music-archiver] ⚠️  Oops! Output Directory Not Found: $downloads_dir. Did It Get Lost in the Void? 🌌"

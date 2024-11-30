@@ -68,7 +68,7 @@ def main():
         # Apply all replacements each time
         rename_direct_folders(MUSIC_DIR, replacements)
 
-    print("[cruix-music-archiver] Artists Folders Fixed Successfully! ✅   Mission Accomplished, Folders Upgraded!  📂  ⚡  ")
+    print("[cruix-music-archiver] Artists Folders Fixed Successfully! ✅   Mission Accomplished, Folders Upgraded! 📂  ⚡  ")
     logging.debug("artists folders fixed successfully.")
 
 

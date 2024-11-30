@@ -134,7 +134,7 @@ main() {
     done
 
     # final summary
-    echo -e "[cruix-music-archiver] All Files Have Been Processed and Normalized Successfully! ✅  The Library is In Harmony!  🕊️ "
+    echo -e "[cruix-music-archiver] All Files Have Been Processed and Normalized Successfully! ✅  The Library is In Harmony! 🕊️ "
 }
 
 main
