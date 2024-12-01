@@ -41,162 +41,162 @@ if [ -d "$downloads_dir" ]; then
   # post-processing scripts in downloads folder
 
   sleep '5'
-  python3 /app/extended-scripts/downloads_invalid_characters_remover.py
+  python3 /app/scripts/downloads_invalid_characters_remover.py
 
   sleep '5'
-  python3 /app/extended-scripts/downloads_mover.py
+  python3 /app/scripts/downloads_mover.py
 
   # post-processing scripts in music folder
 
   sleep '5'
-  python3 /app/extended-scripts/music_invalid_characters_remover.py
+  python3 /app/scripts/music_invalid_characters_remover.py
 
   sleep '5'
   umask "$UMASK"
-  /app/extended-scripts/complete_missing_covers.sh
+  /app/scripts/complete_missing_covers.sh
 
   sleep '5'
-  python3 /app/extended-scripts/trash_collector.py
+  python3 /app/scripts/trash_collector.py
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
   sleep '5'
   umask "$UMASK"
-  /app/extended-scripts/loudnorm.sh
+  /app/scripts/loudnorm.sh
 
   # the processes below are only executed in the mp3 extension
 
   # folder merger correction 1
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+  python3 /app/scripts/capitalize_tags_files_and_folders.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_fixer.py
+  python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_folder.py
+  python3 /app/scripts/untitled_album_folder.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_tag.py
+  python3 /app/scripts/untitled_album_tag.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_merger.py
+  python3 /app/scripts/artists_folders_merger.py
 
 # folder merger correction 2
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+  python3 /app/scripts/capitalize_tags_files_and_folders.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_fixer.py
+  python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_folder.py
+  python3 /app/scripts/untitled_album_folder.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_tag.py
+  python3 /app/scripts/untitled_album_tag.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_merger.py
+  python3 /app/scripts/artists_folders_merger.py
 
 # folder merger correction 3
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+  python3 /app/scripts/capitalize_tags_files_and_folders.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_fixer.py
+  python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_folder.py
+  python3 /app/scripts/untitled_album_folder.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_tag.py
+  python3 /app/scripts/untitled_album_tag.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_merger.py
+  python3 /app/scripts/artists_folders_merger.py
 
 # folder merger correction 4
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+  python3 /app/scripts/capitalize_tags_files_and_folders.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_fixer.py
+  python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_folder.py
+  python3 /app/scripts/untitled_album_folder.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_tag.py
+  python3 /app/scripts/untitled_album_tag.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_merger.py
+  python3 /app/scripts/artists_folders_merger.py
 
 # folder merger correction 5
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_tags_files_and_folders.py
+  python3 /app/scripts/capitalize_tags_files_and_folders.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_fixer.py
+  python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_folder.py
+  python3 /app/scripts/untitled_album_folder.py
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_tag.py
+  python3 /app/scripts/untitled_album_tag.py
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folders_merger.py
+  python3 /app/scripts/artists_folders_merger.py
 
   # capitalize accents do lowercase
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_folders_and_tags_accents.py
+  python3 /app/scripts/capitalize_folders_and_tags_accents.py
 
   # fixer strings based in fixer.txt
 
   sleep '5'
-  python3 /app/extended-scripts/tags_and_folders_strings_fixer.py
+  python3 /app/scripts/tags_and_folders_strings_fixer.py
 
   # fixer year tag do yyyy
 
   sleep '5'
-  python3 /app/extended-scripts/release_year_update.py
+  python3 /app/scripts/release_year_update.py
 
   # db download
 
   sleep '5'
-  python3 /app/extended-scripts/dz_db_downloader.py
+  python3 /app/scripts/dz_db_downloader.py
 
   # genre api
 
   sleep '5'
-  python3 /app/extended-scripts/lastgenre.py
+  python3 /app/scripts/lastgenre.py
 
   # capitalize
 
   sleep '5'
-  python3 /app/extended-scripts/capitalize_fixer.py
+  python3 /app/scripts/capitalize_fixer.py
 
   # covers configuration
 
   sleep '5'
   umask "$UMASK"
-  /app/extended-scripts/complete_missing_covers.sh
+  /app/scripts/complete_missing_covers.sh
 
   sleep '5'
-  python3 /app/extended-scripts/missing_covers_downloader.py
+  python3 /app/scripts/missing_covers_downloader.py
 
   sleep '5'
   umask "$UMASK"
-  /app/extended-scripts/complete_missing_covers.sh
+  /app/scripts/complete_missing_covers.sh
 
   sleep '5'
-  python3 /app/extended-scripts/trash_collector.py
+  python3 /app/scripts/trash_collector.py
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
@@ -204,22 +204,22 @@ if [ -d "$downloads_dir" ]; then
   # remove characters from artists
 
   sleep '5'
-  python3 /app/extended-scripts/artists_invalid_characters_remover.py
+  python3 /app/scripts/artists_invalid_characters_remover.py
 
   # fixer artists tag (multiple artists)
 
   sleep '5'
-  python3 /app/extended-scripts/artists_tag_fixer.py
+  python3 /app/scripts/artists_tag_fixer.py
 
   # add mp3 thumbs
 
   sleep '5'
-  python3 /app/extended-scripts/add_mp3_thumbnail.py
+  python3 /app/scripts/add_mp3_thumbnail.py
 
   # move unofficial albums
 
   sleep '5'
-  python3 /app/extended-scripts/unofficial_albums_mover.py
+  python3 /app/scripts/unofficial_albums_mover.py
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
@@ -227,7 +227,7 @@ if [ -d "$downloads_dir" ]; then
   # disambiguator process
 
   sleep '5'
-  python3 /app/extended-scripts/artist_disambiguator.py
+  python3 /app/scripts/artist_disambiguator.py
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
@@ -235,37 +235,37 @@ if [ -d "$downloads_dir" ]; then
   # media centers covers configuration
 
   sleep '5'
-  python3 /app/extended-scripts/dz_db_downloader.py
+  python3 /app/scripts/dz_db_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/jellyfin_album_downloader.py
+  python3 /app/scripts/jellyfin_album_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/jellyfin_artist_downloader.py
+  python3 /app/scripts/jellyfin_artist_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/plex_album_downloader.py
+  python3 /app/scripts/plex_album_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/plex_artist_downloader.py
+  python3 /app/scripts/plex_artist_downloader.py
 
   sleep '5'
-  python3 /app/extended-scripts/various_artists_cover.py
+  python3 /app/scripts/various_artists_cover.py
 
   # tracks fixer api
 
   sleep '5'
-  python3 /app/extended-scripts/tracks_updater.py
+  python3 /app/scripts/tracks_updater.py
 
   # untitled album cover fixer
 
   sleep '5'
-  python3 /app/extended-scripts/untitled_album_cover.py
+  python3 /app/scripts/untitled_album_cover.py
 
   # capitalization artists folders to uppercase
 
   sleep '5'
-  python3 /app/extended-scripts/artists_folder_capitalize.py
+  python3 /app/scripts/artists_folder_capitalize.py
 
   echo -e "[cruix-music-archiver] Cleaning Up the Digital Cobwebs in /recycle-bin, /dz-db, /duplicated-artists-folders, /unofficial-albums, Out With the Old, in With the Tidy! 🗑️  ✨"
 
