@@ -19,3 +19,6 @@ Avenged Sevenfold/Life Is But a Dream…/G|08
 Avenged Sevenfold/Life Is But a Dream…/[O]rdinary|09
 Avenged Sevenfold/Life Is But a Dream…/[D]eath|10
 Avenged Sevenfold/Life Is But a Dream…/Life Is But a Dream...|11
+Avenged Sevenfold/Afterlife/Afterlife|01
+Avenged Sevenfold/Afterlife/Critical Acclaim (Live In Hollywood)|02
+Avenged Sevenfold/Afterlife/Beast and the Harlot (Live In Hollywood)|03
