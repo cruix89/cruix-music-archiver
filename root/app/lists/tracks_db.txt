@@ -73,3 +73,14 @@ Avenged Sevenfold/Diamonds In the Rough/Set Me Free|13
 Avenged Sevenfold/Diamonds In the Rough/4:00 AM|14
 Avenged Sevenfold/Diamonds In the Rough/Lost It All|15
 Avenged Sevenfold/Diamonds In the Rough/Paranoid|16
+Avenged Sevenfold/Live at the Grammy Museum®/Opening (Live at the Grammy Museum®)|01
+Avenged Sevenfold/Live at the Grammy Museum®/Introduction to As Tears Go By (Live at the Grammy Museum®)|02
+Avenged Sevenfold/Live at the Grammy Museum®/As Tears Go By (Live at the Grammy Museum®)|03
+Avenged Sevenfold/Live at the Grammy Museum®/Introduction to Hail to the King (Live at the Grammy Museum®)|04
+Avenged Sevenfold/Live at the Grammy Museum®/Hail to the King (Live at the Grammy Museum®)|05
+Avenged Sevenfold/Live at the Grammy Museum®/Introduction to Roman Sky (Live at the Grammy Museum®)|06
+Avenged Sevenfold/Live at the Grammy Museum®/Roman Sky (Live at the Grammy Museum®)|07
+Avenged Sevenfold/Live at the Grammy Museum®/Introduction to Exist (Live at the Grammy Museum®)|08
+Avenged Sevenfold/Live at the Grammy Museum®/Exist (Live at the Grammy Museum®)|09
+Avenged Sevenfold/Live at the Grammy Museum®/Introduction to So Far Away (Live at the Grammy Museum®)|10
+Avenged Sevenfold/Live at the Grammy Museum®/So Far Away (Live at the Grammy Museum®)|11
