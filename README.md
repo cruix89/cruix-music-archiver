@@ -33,7 +33,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   self-updating container with automatic image creation with each `yt-dlp` release.
   
 - **automated downloads**  
-  specify a download URL file, and easily manage permissions to download.
+  specify a download URL file, and easily manage your downloads.
 
 - **yt-dlp customization**  
   includes support for SponsorBlock, Geo Bypass, Proxy, Metadata, and more.
@@ -42,17 +42,17 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
   folders, cache and configuration files in the /config directory for full control of execution processes.
 
 - **smart tag search engines by apis**  
-  genre, missing covers and artist images automatic search engines
+  automatic search engines for genre, missing covers, artist images and more
 
 - **smart correction and normalization of tags and files**  
   a large library of patches are applied to standardize and correct filenames and tags
 
 - **various artists and albums cataloging**  
   if the downloaded song does not belong to a specific album, it is cataloged as "Untitled Album" and assigned an appropriate cover for the album.
-  if the artist does not have an artist image in the database, an appropriate cover is also assigned, similar to how "Various Artists" is assigned in MusicBrainz.
+  If the artist does not have an artist image in the database, an appropriate cover is also assigned, similar to how "Various Artists" is assigned in MusicBrainz.
 
 - **tracks number correction engine**  
-  some songs may have the wrong or missing track numbers. the system uses a solid database to correct the number of tracks
+  some songs may have the wrong or missing track numbers, the system uses a solid database to correct the number of tracks
 
 - **unofficial albums and disambiguation**  
   unofficial albums are moved to a specific directory for library cleanup.  
@@ -73,7 +73,7 @@ a fully automated `yt-dlp` docker image to easily download and manage a music li
 
 ## 🚀: QUICK START
 
-"download music from `artists.txt` URL file:"
+"creating your docker container to download music from `artists.txt` URL file by docker run in your terminal:"
 
 ```bash
 docker run

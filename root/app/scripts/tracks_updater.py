@@ -1,5 +1,15 @@
 import eyed3
 import os
+import logging
+
+# configure logging
+log_file = '/config/logs/track_updater.log'
+os.makedirs(os.path.dirname(log_file), exist_ok=True)
+logging.basicConfig(
+    filename=log_file,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+)
 
 # directory paths
 music_dir = '/music'
@@ -56,11 +66,26 @@ def process_music():
                     if track_number:
                         # if found, update the 'track number' tag
                         update_track_number_tag(mp3_file, track_number)
-                        print(f"[cruix-music-archiver] Updated {file} With Track Number: {track_number} 🚀  Now It's Officially Part of the Soundtrack of the Galaxy!  🌌  ")
+                        message = (
+                            f"[cruix-music-archiver] Updated {file} With Track Number: {track_number} 🚀 "
+                            "Now It's Officially Part of the Soundtrack of the Galaxy! 🌌"
+                        )
+                        logging.info(message)
+                        print(message)
                     else:
-                        print(f"[cruix-music-archiver] Not Found in DB: {artist}/{album}/{track} 🤖  The Database Couldn't Locate This Track. It's in Another Dimension! 🤖")
+                        message = (
+                            f"[cruix-music-archiver] Not Found in DB: {artist}/{album}/{track} 🤖 "
+                            "The Database Couldn't Locate This Track. It's in Another Dimension! 🤖"
+                        )
+                        logging.warning(message)
+                        print(message)
                 else:
-                    print(f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️  Looks Like This File Missed Its Tag Upgrade! 🛠️ ")
+                    message = (
+                        f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️ "
+                        "Looks Like This File Missed Its Tag Upgrade! 🛠️"
+                    )
+                    logging.error(message)
+                    print(message)
 
 
 if __name__ == '__main__':
