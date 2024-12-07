@@ -28,10 +28,10 @@ def update_track_number_tag(mp3_file, track_number):
     audio_file.tag.save()
 
 
-def find_track_number(artist, album, track):
+def find_track_number(album_artist, album, track):
     """finds the track number in the tracks_db.txt file."""
     # build the search string
-    search_str = f"{artist}/{album}/{track}"
+    search_str = f"{album_artist}/{album}/{track}"
 
     # read the tracks_db.txt file and search for the exact match
     with open(db_file, 'r', encoding='utf-8') as db:
@@ -55,13 +55,13 @@ def process_music():
                     continue  # skip files without tags
 
                 # extract the necessary tags
-                artist = audio_file.tag.artist
+                album_artist = audio_file.tag.album_artist
                 album = audio_file.tag.album
                 track = audio_file.tag.title
 
-                if artist and album and track:
+                if album_artist and album and track:
                     # find the track number in the tracks_db.txt file
-                    track_number = find_track_number(artist, album, track)
+                    track_number = find_track_number(album_artist, album, track)
 
                     if track_number:
                         # if found, update the 'track number' tag
@@ -74,7 +74,7 @@ def process_music():
                         print(message)
                     else:
                         message = (
-                            f"[cruix-music-archiver] Not Found in DB: {artist}/{album}/{track} 🤖 "
+                            f"[cruix-music-archiver] Not Found in DB: {album_artist}/{album}/{track} 🤖 "
                             "The Database Couldn't Locate This Track. It's in Another Dimension! 🤖"
                         )
                         logging.warning(message)
