@@ -125,3 +125,65 @@ Avenged Sevenfold/Sounding the Seventh Trumpet/Forgotten Faces|10
 Avenged Sevenfold/Sounding the Seventh Trumpet/Thick and Thin|11
 Avenged Sevenfold/Sounding the Seventh Trumpet/Streets|12
 Avenged Sevenfold/Sounding the Seventh Trumpet/Shattered By Broken Dreams|13
+Avenged Sevenfold/The Stage/Angels|06
+Avenged Sevenfold/The Stage/As Tears Go By|16
+Avenged Sevenfold/The Stage/Creating God|05
+Avenged Sevenfold/The Stage/Dose|12
+Avenged Sevenfold/The Stage/Exist|11
+Avenged Sevenfold/The Stage/Fermi Paradox|10
+Avenged Sevenfold/The Stage/God Damn (Live From London)|22
+Avenged Sevenfold/The Stage/God Damn|4
+Avenged Sevenfold/The Stage/God Only Knows|18
+Avenged Sevenfold/The Stage/Higher|8
+Avenged Sevenfold/The Stage/Malagueña Salerosa|14
+Avenged Sevenfold/The Stage/Paradigm (Live From London)|20
+Avenged Sevenfold/The Stage/Paradigm|02
+Avenged Sevenfold/The Stage/Retrovertigo|13
+Avenged Sevenfold/The Stage/Roman Sky|09
+Avenged Sevenfold/The Stage/Runaway|15
+Avenged Sevenfold/The Stage/Simulation|07
+Avenged Sevenfold/The Stage/Sunny Disposition (Live From London)|21
+Avenged Sevenfold/The Stage/Sunny Disposition|03
+Avenged Sevenfold/The Stage/The Stage (Live From London)|19
+Avenged Sevenfold/The Stage/The Stage|01
+Avenged Sevenfold/The Stage/Wish You Were Here|17
+Avenged Sevenfold/Waking the Fallen: Resurrected/And All Things Will End|12
+Avenged Sevenfold/Waking the Fallen: Resurrected/Chapter Four (Demo)|15
+Avenged Sevenfold/Waking the Fallen: Resurrected/Chapter Four|03
+Avenged Sevenfold/Waking the Fallen: Resurrected/Clairvoyant Disease|11
+Avenged Sevenfold/Waking the Fallen: Resurrected/Desecrate Through Reverence (Live In Pomona)|20
+Avenged Sevenfold/Waking the Fallen: Resurrected/Desecrate Through Reverence|05
+Avenged Sevenfold/Waking the Fallen: Resurrected/Eternal Rest (Live In Pomona)|21
+Avenged Sevenfold/Waking the Fallen: Resurrected/Eternal Rest|06
+Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 1 (Demo)|17
+Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 1|09
+Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 2 (Demo)|18
+Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 2|10
+Avenged Sevenfold/Waking the Fallen: Resurrected/Intro / Chapter Four (Live In Ventura)|19
+Avenged Sevenfold/Waking the Fallen: Resurrected/Radiant Eclipse|08
+Avenged Sevenfold/Waking the Fallen: Resurrected/Remenissions (Demo)|16
+Avenged Sevenfold/Waking the Fallen: Resurrected/Remenissions|04
+Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat (Alternate Version)|14
+Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat (Live In Ventura)|23
+Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat|07
+Avenged Sevenfold/Waking the Fallen: Resurrected/Unholy Confessions (Live In Ventura)|22
+Avenged Sevenfold/Waking the Fallen: Resurrected/Unholy Confessions|02
+Avenged Sevenfold/Waking the Fallen: Resurrected/Waking the Fallen|01
+Avenged Sevenfold/Waking the Fallen: Resurrected/Waking the Fallen: Resurrected|13
+Avenged Sevenfold/Waking the Fallen/And All Things Will End|12
+Avenged Sevenfold/Waking the Fallen/Chapter Four|03
+Avenged Sevenfold/Waking the Fallen/Clairvoyant Disease|11
+Avenged Sevenfold/Waking the Fallen/Desecrate Through Reverence|05
+Avenged Sevenfold/Waking the Fallen/Eternal Rest|06
+Avenged Sevenfold/Waking the Fallen/I Won't See You Tonight Part 1|09
+Avenged Sevenfold/Waking the Fallen/I Won't See You Tonight Part 2|10
+Avenged Sevenfold/Waking the Fallen/Radiant Eclipse|08
+Avenged Sevenfold/Waking the Fallen/Remenissions|04
+Avenged Sevenfold/Waking the Fallen/Second Heartbeat|07
+Avenged Sevenfold/Waking the Fallen/Unholy Confessions|02
+Avenged Sevenfold/Waking the Fallen/Waking the Fallen|01
+Avenged Sevenfold/Walk/Walk|01
+Avenged Sevenfold/We Love You/We Love You|01
+Avenged Sevenfold/Welcome to the Family/4:00 AM|02
+Avenged Sevenfold/Welcome to the Family/Seize the Day (Live In Seattle)|03
+Avenged Sevenfold/Welcome to the Family/Welcome to the Family|01
