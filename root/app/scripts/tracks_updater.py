@@ -68,21 +68,21 @@ def process_music():
                         update_track_number_tag(mp3_file, track_number)
                         message = (
                             f"[cruix-music-archiver] Updated {file} With Track Number: {track_number} 🚀 "
-                            "Now It's Officially Part of the Soundtrack of the Galaxy! 🌌"
+                            " Now It's Officially Part of the Soundtrack of the Galaxy! 🌌"
                         )
                         logging.info(message)
                         print(message)
                     else:
                         message = (
                             f"[cruix-music-archiver] Not Found in DB: {album_artist}/{album}/{track} 🤖 "
-                            "The Database Couldn't Locate This Track. It's in Another Dimension! 🤖"
+                            " The Database Couldn't Locate This Track. It's in Another Dimension! 🤖"
                         )
                         logging.warning(message)
                         print(message)
                 else:
                     message = (
                         f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️ "
-                        "Looks Like This File Missed Its Tag Upgrade! 🛠️"
+                        " Looks Like This File Missed Its Tag Upgrade! 🛠️"
                     )
                     logging.error(message)
                     print(message)
