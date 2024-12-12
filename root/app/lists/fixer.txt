@@ -1,5 +1,5 @@
-[d] Eath|[D]eath
-[o] Rdinary|[O]rdinary
+[d] Eath|(D)eath
+[o] Rdinary|(O)rdinary
 Almost Easy (Jam-along Version)|Almost Easy (Jam-Along Version)
 Not Ready to Die (From "call of the Dead")|Not Ready to Die (From "Call of the Dead")
 M.i.a.|M.I.A.
