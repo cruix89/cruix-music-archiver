@@ -37,7 +37,7 @@ def find_track_number(album_artist, album, track):
     with open(db_file, 'r', encoding='utf-8') as db:
         for line in db:
             # split line into parts
-            db_entry, track_number = line.strip().split('|', 1)
+            db_entry, track_number = line.strip().split('‖', 1)
             if db_entry == search_str:  # ensure exact match
                 return track_number.strip()
     return None  # return None if the string is not found

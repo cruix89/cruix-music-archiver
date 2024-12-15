@@ -26,7 +26,7 @@ def load_replacements(replacements_path):
     try:
         absolute_path = os.path.abspath(replacements_path)
         with open(absolute_path, 'r', encoding='utf-8') as f:
-            replacements = [line.strip().split('|') for line in f.readlines() if line.strip()]
+            replacements = [line.strip().split('‖') for line in f.readlines() if line.strip()]
             logging.info(f"loaded {len(replacements)} replacement pairs.")
             return replacements
     except FileNotFoundError:
