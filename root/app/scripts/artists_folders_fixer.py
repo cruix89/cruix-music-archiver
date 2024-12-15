@@ -17,7 +17,7 @@ def load_replacements(replacements_path):
     absolute_path = os.path.abspath(replacements_path)
     with open(absolute_path, 'r', encoding='utf-8') as f:
         # create a list of replacements, each as a tuple (old, new)
-        return [line.strip().split('|') for line in f.readlines() if line.strip()]
+        return [line.strip().split('‖') for line in f.readlines() if line.strip()]
 
 
 def rename_direct_folders(music_directory, replacements):

@@ -1,2 +1,2 @@
-(_+)?copia|copy999
-(_+)?copy1|copy999
+(_+)?copia‖copy999
+(_+)?copy1‖copy999

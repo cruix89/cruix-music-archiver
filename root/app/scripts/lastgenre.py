@@ -21,7 +21,7 @@ def read_artist_list():
     if os.path.exists(list_path):
         with open(list_path, "r") as file:
             for line in file:
-                parts = line.strip().split("|")
+                parts = line.strip().split("‖")
                 if len(parts) == 2:
                     artist, genre = parts
                     artist_list[artist] = genre
@@ -32,7 +32,7 @@ def save_artist_list(artist_list):
     list_path = os.path.join(lists_dir, "genres_cache.txt")
     with open(list_path, "w") as file:
         for artist, genre in artist_list.items():
-            file.write(f"{artist}|{genre}\n")
+            file.write(f"{artist}‖{genre}\n")
 
 
 def main():

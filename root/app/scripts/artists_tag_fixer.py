@@ -21,7 +21,7 @@ def load_replacements(replacements_path):
         for line in f:
             if line.strip():
                 # split without stripping spaces from each replacement part
-                old, new = line.split('|')
+                old, new = line.split('‖')
                 replacements.append((old, new))
                 logging.debug(f"loaded replacement - old: '{old}', new: '{new}'")  # log each loaded replacement
     return replacements

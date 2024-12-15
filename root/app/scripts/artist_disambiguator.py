@@ -9,7 +9,7 @@ config_file_path = "/app/lists/artist_disambiguator.txt"
 
 def move_files_based_on_list(file_path):
     """
-    reads a list in the format 'source|destination' and moves files from the source folder to the destination folder.
+    reads a list in the format 'source‖destination' and moves files from the source folder to the destination folder.
 
     :param file_path: path to the .txt file containing the source and destination information
     """
@@ -22,9 +22,9 @@ def move_files_based_on_list(file_path):
             if not line.strip() or line.startswith("#"):
                 continue
 
-            # divide the line by the delimiter '|'
+            # divide the line by the delimiter '‖'
             try:
-                origin, destination = map(str.strip, line.split("|"))
+                origin, destination = map(str.strip, line.split("‖"))
             except ValueError:
                 print(f"[cruix-music-archiver] Invalid Format In: {line.strip()} ⚠️  Something’s Not Quite Right In This File! ⚠️ ")
                 continue
