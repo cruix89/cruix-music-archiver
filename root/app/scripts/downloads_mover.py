@@ -2,7 +2,7 @@ import os
 import shutil
 import re
 
-print("[cruix-music-archiver] Initiating Folder Migration... 🚚  Moving Data From /downloads to the Mystical /music Library... 📚", flush=True)
+print("[cruix-music-archiver] Initiating Folder Migration... 🚚   Moving Data From /downloads to the Mystical /music Library... 📚", flush=True)
 
 def normalize_folder_name(folder_name):
     """normalizes the folder name, removing spaces and numeric suffixes, converting it to lowercase."""
