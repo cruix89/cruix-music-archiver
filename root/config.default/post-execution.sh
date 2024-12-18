@@ -267,6 +267,9 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/artists_folder_capitalize.py
 
+  sleep '5'
+  python3 /app/scripts/artists_folders_fixer.py
+
   echo -e "[cruix-music-archiver] Cleaning Up the Digital Cobwebs in /recycle-bin, /dz-db, /duplicated-artists-folders, /unofficial-albums, Out With the Old, in With the Tidy! 🗑️  ✨"
 
   mkdir -p $recycle_bin_dir
