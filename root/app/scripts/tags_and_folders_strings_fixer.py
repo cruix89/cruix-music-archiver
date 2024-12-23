@@ -15,7 +15,7 @@ for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:
 
 # configure detailed logging
 logging.basicConfig(
-    filename=os.path.join(LOGS_DIR, 'tags_and_folders_full_strings_fixer.log'),
+    filename=os.path.join(LOGS_DIR, 'tags_and_folders_strings_fixer.log'),
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
