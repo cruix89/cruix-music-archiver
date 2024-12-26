@@ -16,3 +16,5 @@ at
 feat.
 to
 and
+as
+or
