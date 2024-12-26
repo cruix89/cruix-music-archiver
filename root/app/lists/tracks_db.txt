@@ -980,7 +980,7 @@ Taylor Swift/Red (Taylor’s Version): From the Vault Chapter/Forever Winter (Ta
 Taylor Swift/Red (Taylor’s Version): From the Vault Chapter/Nothing New (Taylor's Version) (From the Vault)‖01
 Taylor Swift/Red (Taylor’s Version): From the Vault Chapter/Run (Taylor's Version) (From the Vault)‖02
 Taylor Swift/Red (Taylor’s Version): From the Vault Chapter/The Very First Night (Taylor's Version) (From the Vault)‖03
-Taylor Swift/Red (Taylor’s Version): She Wrote a Song About Me Chapter/I Almost do (Taylor's Version)‖06
+Taylor Swift/Red (Taylor’s Version): She Wrote a Song About Me Chapter/I Almost Do (Taylor's Version)‖06
 Taylor Swift/Red (Taylor’s Version): She Wrote a Song About Me Chapter/I Bet You Think About Me (Taylor's Version) (From the Vault)‖01
 Taylor Swift/Red (Taylor’s Version): She Wrote a Song About Me Chapter/I Knew You Were Trouble (Taylor's Version)‖03
 Taylor Swift/Red (Taylor’s Version): She Wrote a Song About Me Chapter/Red (Taylor's Version)‖04
@@ -1118,9 +1118,9 @@ Taylor Swift/Taylor Swift/A Place In This World‖08
 Taylor Swift/Taylor Swift/A Place In This World (Commentary)‖07
 Taylor Swift/Taylor Swift/A Place In This World (Instrumental W/ BG Vocals)‖04
 Taylor Swift/Taylor Swift/A Place In This World‖04
-Taylor Swift/Taylor Swift/Cold As You‖10
-Taylor Swift/Taylor Swift/Cold As You (Commentary)‖09
-Taylor Swift/Taylor Swift/Cold As You (Instrumental W/ BG Vocals)‖05
+Taylor Swift/Taylor Swift/Cold as You‖10
+Taylor Swift/Taylor Swift/Cold as You (Commentary)‖09
+Taylor Swift/Taylor Swift/Cold as You (Instrumental W/ BG Vocals)‖05
 Taylor Swift/Taylor Swift/I'm Only Me When I'm With You‖24
 Taylor Swift/Taylor Swift/I'm Only Me When I'm With You (Instrumental W/ BG Vocals)‖12
 Taylor Swift/Taylor Swift/I’m Only Me When I’m With You (Commentary)‖23
@@ -1185,12 +1185,12 @@ Taylor Swift/THE TORTURED POETS DEPARTMENT/Fresh Out the Slammer‖07
 Taylor Swift/THE TORTURED POETS DEPARTMENT/Guilty as Sin?‖09
 Taylor Swift/THE TORTURED POETS DEPARTMENT/I Can do It With a Broken Heart‖13
 Taylor Swift/THE TORTURED POETS DEPARTMENT/I Can Fix Him (No Really I Can)‖11
-Taylor Swift/THE TORTURED POETS DEPARTMENT/loml‖12
+Taylor Swift/THE TORTURED POETS DEPARTMENT/LOML‖12
 Taylor Swift/THE TORTURED POETS DEPARTMENT/My Boy Only Breaks His Favorite Toys‖03
 Taylor Swift/THE TORTURED POETS DEPARTMENT/So Long, London‖05
 Taylor Swift/THE TORTURED POETS DEPARTMENT/The Alchemy‖15
 Taylor Swift/THE TORTURED POETS DEPARTMENT/The Smallest Man Who Ever Lived‖14
-Taylor Swift/THE TORTURED POETS DEPARTMENT/The Tortured Poets Department‖02
+Taylor Swift/THE TORTURED POETS DEPARTMENT/THE TORTURED POETS DEPARTMENT‖02
 Taylor Swift/THE TORTURED POETS DEPARTMENT/Who’s Afraid of Little Old Me?‖10
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/But Daddy I Love Him‖06
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/Cassandra‖27
@@ -1221,7 +1221,7 @@ Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/The Bolter‖29
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/The Manuscript‖31
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/The Prophecy‖26
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/The Smallest Man Who Ever Lived‖14
-Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/The Tortured Poets Department‖02
+Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/THE TORTURED POETS DEPARTMENT‖02
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/Who’s Afraid of Little Old Me?‖10
 Taylor Swift/THE TORTURED POETS DEPARTMENT | TS the Eras Tour Setlist/But Daddy I Love Him‖01
 Taylor Swift/THE TORTURED POETS DEPARTMENT | TS the Eras Tour Setlist/Down Bad‖04
@@ -1230,18 +1230,18 @@ Taylor Swift/THE TORTURED POETS DEPARTMENT | TS the Eras Tour Setlist/I Can do I
 Taylor Swift/THE TORTURED POETS DEPARTMENT | TS the Eras Tour Setlist/So High School‖02
 Taylor Swift/THE TORTURED POETS DEPARTMENT | TS the Eras Tour Setlist/The Smallest Man Who Ever Lived‖06
 Taylor Swift/THE TORTURED POETS DEPARTMENT | TS the Eras Tour Setlist/Who’s Afraid of Little Old Me?‖03
-Taylor Swift/The Forever Is the Sweetest Con" Chapter"/Cowboy Like Me‖01
-Taylor Swift/The Forever Is the Sweetest Con" Chapter"/Evermore‖03
-Taylor Swift/The Forever Is the Sweetest Con" Chapter"/Invisible String‖05
-Taylor Swift/The Forever Is the Sweetest Con" Chapter"/Long Story Short‖04
-Taylor Swift/The Forever Is the Sweetest Con" Chapter"/Mirrorball‖02
-Taylor Swift/The Forever Is the Sweetest Con" Chapter"/Willow‖06
-Taylor Swift/The Ladies Lunching" Chapter"/August‖04
-Taylor Swift/The Ladies Lunching" Chapter"/Betty‖01
-Taylor Swift/The Ladies Lunching" Chapter"/Dorothea‖02
-Taylor Swift/The Ladies Lunching" Chapter"/Marjorie‖03
-Taylor Swift/The Ladies Lunching" Chapter"/No Body, No Crime‖05
-Taylor Swift/The Ladies Lunching" Chapter"/Right Where You Left Me‖06
+Taylor Swift/The "Forever Is the Sweetest Con" Chapter/Cowboy Like Me‖01
+Taylor Swift/The "Forever Is the Sweetest Con" Chapter/Evermore‖03
+Taylor Swift/The "Forever Is the Sweetest Con" Chapter/Invisible String‖05
+Taylor Swift/The "Forever Is the Sweetest Con" Chapter/Long Story Short‖04
+Taylor Swift/The "Forever Is the Sweetest Con" Chapter/Mirrorball‖02
+Taylor Swift/The "Forever Is the Sweetest Con" Chapter/Willow‖06
+Taylor Swift/The "Ladies Lunching" Chapter/August‖04
+Taylor Swift/The "Ladies Lunching" Chapter/Betty‖01
+Taylor Swift/The "Ladies Lunching" Chapter/Dorothea‖02
+Taylor Swift/The "Ladies Lunching" Chapter/Marjorie‖03
+Taylor Swift/The "Ladies Lunching" Chapter/No Body, No Crime‖05
+Taylor Swift/The "Ladies Lunching" Chapter/Right Where You Left Me‖06
 Taylor Swift/This Love (Taylor’s Version)/This Love (Taylor’s Version)‖01
 Taylor Swift/This Love (Taylor’s Version)/Wildest Dreams (Taylor's Version)‖02
 Taylor Swift/Today Was a Fairytale/Today Was a Fairytale‖01
