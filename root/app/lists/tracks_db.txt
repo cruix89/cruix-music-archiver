@@ -579,7 +579,7 @@ Taylor Swift/1989/I Know Places‖24
 Taylor Swift/1989/I Know Places (Commentary)‖23
 Taylor Swift/1989/I Wish You Would‖14
 Taylor Swift/1989/I Wish You Would (Commentary)‖13
-Taylor Swift/1989/New Romantics‖16
+Taylor Swift/1989/New Romantics‖29
 Taylor Swift/1989/Out of the Woods‖08
 Taylor Swift/1989/Out of the Woods (Commentary)‖07
 Taylor Swift/1989/Shake It Off‖12
@@ -592,8 +592,8 @@ Taylor Swift/1989/Welcome to New York‖02
 Taylor Swift/1989/Welcome to New York (Commentary)‖01
 Taylor Swift/1989/Wildest Dreams‖18
 Taylor Swift/1989/Wildest Dreams (Commentary)‖17
-Taylor Swift/1989/Wonderland‖14
-Taylor Swift/1989/You Are In Love‖15
+Taylor Swift/1989/Wonderland‖27
+Taylor Swift/1989/You Are In Love‖28
 Taylor Swift/1989 (Taylor's Version)/Slut!" (Taylor's Version) (From the Vault)"‖17
 Taylor Swift/1989 (Taylor's Version)/All You Had to do Was Stay (Taylor's Version)‖05
 Taylor Swift/1989 (Taylor's Version)/Bad Blood (Taylor's Version)‖08
@@ -636,52 +636,52 @@ Taylor Swift/Everything Has Changed/Everything Has Changed (Remix)‖01
 Taylor Swift/Eyes Open (Taylor's Version)/Eyes Open (Taylor's Version)‖01
 Taylor Swift/Fearless/Breathe‖14
 Taylor Swift/Fearless/Breathe (Commentary)‖13
-Taylor Swift/Fearless/Breathe (Instrumental Only, No BV)‖07
+Taylor Swift/Fearless/Breathe (Instrumental Only, No BV)‖39
 Taylor Swift/Fearless/Change‖26
 Taylor Swift/Fearless/Change (Commentary)‖25
-Taylor Swift/Fearless/Change (Instrumental With BGV)‖13
-Taylor Swift/Fearless/Come In With the Rain‖04
+Taylor Swift/Fearless/Change (Instrumental With BGV)‖45
+Taylor Swift/Fearless/Come In With the Rain‖34
 Taylor Swift/Fearless/Fearless‖02
 Taylor Swift/Fearless/Fearless (Commentary)‖01
-Taylor Swift/Fearless/Fearless (Instrumental With BGV)‖01
+Taylor Swift/Fearless/Fearless (Instrumental With BGV)‖27
 Taylor Swift/Fearless/Fifteen‖04
 Taylor Swift/Fearless/Fifteen (Commentary)‖03
-Taylor Swift/Fearless/Fifteen (Instrumental With BGV)‖02
+Taylor Swift/Fearless/Fifteen (Instrumental With BGV)‖30
 Taylor Swift/Fearless/Forever & Always‖22
 Taylor Swift/Fearless/Forever & Always (Commentary)‖21
-Taylor Swift/Fearless/Forever & Always (Instrumental With BGV)‖11
-Taylor Swift/Fearless/Forever & Always (Piano Version)‖01
+Taylor Swift/Fearless/Forever & Always (Instrumental With BGV)‖43
+Taylor Swift/Fearless/Forever & Always (Piano Version)‖29
 Taylor Swift/Fearless/Hey Stephen‖08
 Taylor Swift/Fearless/Hey Stephen (Commentary)‖07
-Taylor Swift/Fearless/Hey Stephen (Instrumental With BGV)‖04
-Taylor Swift/Fearless/Jump Then Fall‖01
+Taylor Swift/Fearless/Hey Stephen (Instrumental With BGV)‖33
+Taylor Swift/Fearless/Jump Then Fall‖28
 Taylor Swift/Fearless/Love Story‖06
 Taylor Swift/Fearless/Love Story (Commentary)‖05
-Taylor Swift/Fearless/Love Story (Instrumental With BGV)‖03
-Taylor Swift/Fearless/Our Song (International Mix)‖14
-Taylor Swift/Fearless/Should've Said No (International Mix)‖16
-Taylor Swift/Fearless/Superstar‖05
-Taylor Swift/Fearless/Teardrops On My Guitar (International Mix)‖15
+Taylor Swift/Fearless/Love Story (Instrumental With BGV)‖32
+Taylor Swift/Fearless/Our Song (International Mix)‖46
+Taylor Swift/Fearless/Should've Said No (International Mix)‖48
+Taylor Swift/Fearless/Superstar‖36
+Taylor Swift/Fearless/Teardrops On My Guitar (International Mix)‖47
 Taylor Swift/Fearless/Tell Me Why‖16
 Taylor Swift/Fearless/Tell Me Why (Commentary)‖15
-Taylor Swift/Fearless/Tell Me Why (Instrumental With BGV)‖08
+Taylor Swift/Fearless/Tell Me Why (Instrumental With BGV)‖40
 Taylor Swift/Fearless/The Best Day‖24
 Taylor Swift/Fearless/The Best Day (Commentary)‖23
-Taylor Swift/Fearless/The Best Day (Instrumental With BGV)‖12
-Taylor Swift/Fearless/The Other Side of the Door‖06
+Taylor Swift/Fearless/The Best Day (Instrumental With BGV)‖44
+Taylor Swift/Fearless/The Other Side of the Door‖37
 Taylor Swift/Fearless/The Way I Loved You‖20
 Taylor Swift/Fearless/The Way I Loved You (Commentary)‖19
-Taylor Swift/Fearless/The Way I Loved You (Instrumental With BGV)‖10
-Taylor Swift/Fearless/Untouchable‖02
+Taylor Swift/Fearless/The Way I Loved You (Instrumental With BGV)‖42
+Taylor Swift/Fearless/Untouchable‖31
 Taylor Swift/Fearless/White Horse‖10
 Taylor Swift/Fearless/White Horse (Commentary)‖09
-Taylor Swift/Fearless/White Horse (Instrumental With BGV)‖05
+Taylor Swift/Fearless/White Horse (Instrumental With BGV)‖35
 Taylor Swift/Fearless/You Belong With Me‖12
 Taylor Swift/Fearless/You Belong With Me (Commentary)‖11
-Taylor Swift/Fearless/You Belong With Me (Instrumental With BGV)‖06
+Taylor Swift/Fearless/You Belong With Me (Instrumental With BGV)‖38
 Taylor Swift/Fearless/You're Not Sorry‖18
 Taylor Swift/Fearless/You're Not Sorry (Commentary)‖17
-Taylor Swift/Fearless/You're Not Sorry (Instrumental With BGV)‖09
+Taylor Swift/Fearless/You're Not Sorry (Instrumental With BGV)‖41
 Taylor Swift/Fearless (Taylor's Version)/Breathe (Taylor’s Version)‖07
 Taylor Swift/Fearless (Taylor's Version)/Bye Bye Baby (Taylor’s Version) (From the Vault)‖26
 Taylor Swift/Fearless (Taylor's Version)/Change (Taylor’s Version)‖13
@@ -808,7 +808,7 @@ Taylor Swift/Folklore: The Yeah I Showed Up at Your Party Chapter/Mirrorball‖0
 Taylor Swift/Folklore: The Yeah I Showed Up at Your Party Chapter/The 1‖02
 Taylor Swift/Folklore: The Yeah I Showed Up at Your Party Chapter/The Last Great American Dynasty‖04
 Taylor Swift/Fortnight/Fortnight‖03
-Taylor Swift/Fortnight/Fortnight (Acoustic Version)‖01
+Taylor Swift/Fortnight/Fortnight (Acoustic Version)‖04
 Taylor Swift/Fortnight/Fortnight (BLOND:ISH Remix)‖01
 Taylor Swift/Fortnight/Fortnight (Cults Remix)‖02
 Taylor Swift/If This Was a Movie (Taylor’s Version)/If This Was a Movie (Taylor’s Version)‖01
@@ -886,58 +886,58 @@ Taylor Swift/Only the Young/Only the Young (Featured In Miss Americana)‖01
 Taylor Swift/Our Song - Taylor Swift/Our Song - Taylor Swift‖01
 Taylor Swift/Red/22‖12
 Taylor Swift/Red/22 (Commentary)‖11
-Taylor Swift/Red/22 (Karaoke Version)‖06
+Taylor Swift/Red/22 (Karaoke Version)‖38
 Taylor Swift/Red/All Too Well‖10
 Taylor Swift/Red/All Too Well (Commentary)‖09
-Taylor Swift/Red/All Too Well (Karaoke Version)‖05
+Taylor Swift/Red/All Too Well (Karaoke Version)‖37
 Taylor Swift/Red/Begin Again‖32
 Taylor Swift/Red/Begin Again (Commentary)‖31
-Taylor Swift/Red/Begin Again (Karaoke Version)‖16
-Taylor Swift/Red/Come Back... Be Here‖18
+Taylor Swift/Red/Begin Again (Karaoke Version)‖47
+Taylor Swift/Red/Come Back... Be Here‖49
 Taylor Swift/Red/Everything Has Changed‖28
 Taylor Swift/Red/Everything Has Changed (Commentary)‖27
-Taylor Swift/Red/Everything Has Changed (Karaoke Version)‖14
-Taylor Swift/Red/Girl at Home‖19
+Taylor Swift/Red/Everything Has Changed (Karaoke Version)‖46
+Taylor Swift/Red/Girl at Home‖50
 Taylor Swift/Red/Holy Ground‖22
 Taylor Swift/Red/Holy Ground (Commentary)‖21
-Taylor Swift/Red/Holy Ground (Karaoke Version)‖11
+Taylor Swift/Red/Holy Ground (Karaoke Version)‖43
 Taylor Swift/Red/I Almost Do‖14
 Taylor Swift/Red/I Almost Do (Commentary)‖13
-Taylor Swift/Red/I Almost Do (Karaoke Version)‖07
+Taylor Swift/Red/I Almost Do (Karaoke Version)‖39
 Taylor Swift/Red/I Knew You Were Trouble. (Commentary)‖07
-Taylor Swift/Red/I Knew You Were Trouble. (Karaoke Version)‖04
+Taylor Swift/Red/I Knew You Were Trouble. (Karaoke Version)‖36
 Taylor Swift/Red/I Knew You Were Trouble.‖08
 Taylor Swift/Red/Red‖04
 Taylor Swift/Red/Red (Commentary)‖03
-Taylor Swift/Red/Red (Karaoke Version)‖02
-Taylor Swift/Red/Red (Original Demo Recording)‖21
+Taylor Swift/Red/Red (Karaoke Version)‖34
+Taylor Swift/Red/Red (Original Demo Recording)‖52
 Taylor Swift/Red/Sad Beautiful Tragic‖24
 Taylor Swift/Red/Sad Beautiful Tragic (Commentary)‖23
-Taylor Swift/Red/Sad Beautiful Tragic (Karaoke Version)‖12
+Taylor Swift/Red/Sad Beautiful Tragic (Karaoke Version)‖44
 Taylor Swift/Red/Starlight‖30
 Taylor Swift/Red/Starlight (Commentary)‖29
-Taylor Swift/Red/Starlight (Karaoke Version)‖15
+Taylor Swift/Red/Starlight (Karaoke Version)‖46
 Taylor Swift/Red/State of Grace‖02
-Taylor Swift/Red/State of Grace (Acoustic)‖22
+Taylor Swift/Red/State of Grace (Acoustic)‖53
 Taylor Swift/Red/State of Grace (Commentary)‖01
-Taylor Swift/Red/State of Grace (Karaoke Version)‖01
+Taylor Swift/Red/State of Grace (Karaoke Version)‖33
 Taylor Swift/Red/Stay Stay Stay‖18
 Taylor Swift/Red/Stay Stay Stay (Commentary)‖17
-Taylor Swift/Red/Stay Stay Stay (Karaoke Version)‖09
+Taylor Swift/Red/Stay Stay Stay (Karaoke Version)‖41
 Taylor Swift/Red/The Last Time‖20
 Taylor Swift/Red/The Last Time (Commentary)‖19
-Taylor Swift/Red/The Last Time (Karaoke Version)‖10
+Taylor Swift/Red/The Last Time (Karaoke Version)‖42
 Taylor Swift/Red/The Lucky One‖26
 Taylor Swift/Red/The Lucky One (Commentary)‖25
-Taylor Swift/Red/The Lucky One (Karaoke Version)‖13
-Taylor Swift/Red/The Moment I Knew‖17
+Taylor Swift/Red/The Lucky One (Karaoke Version)‖45
+Taylor Swift/Red/The Moment I Knew‖48
 Taylor Swift/Red/Treacherous‖06
 Taylor Swift/Red/Treacherous (Commentary)‖05
-Taylor Swift/Red/Treacherous (Karaoke Version)‖03
-Taylor Swift/Red/Treacherous (Original Demo Recording)‖20
+Taylor Swift/Red/Treacherous (Karaoke Version)‖35
+Taylor Swift/Red/Treacherous (Original Demo Recording)‖51
 Taylor Swift/Red/We Are Never Ever Getting Back Together‖16
 Taylor Swift/Red/We Are Never Ever Getting Back Together (Commentary)‖15
-Taylor Swift/Red/We Are Never Ever Getting Back Together (Karaoke Version)‖08
+Taylor Swift/Red/We Are Never Ever Getting Back Together (Karaoke Version)‖40
 Taylor Swift/Red (Taylor's Version)/22 (Taylor's Version)‖06
 Taylor Swift/Red (Taylor's Version)/All Too Well (10 Minute Version) (Taylor's Version) (From the Vault)‖30
 Taylor Swift/Red (Taylor's Version)/All Too Well (Taylor's Version)‖05
@@ -1026,53 +1026,53 @@ Taylor Swift/Reputation/This Is Why We Can't Have Nice Things (Commentary)‖25
 Taylor Swift/Untitled Album/Ronan‖01
 Taylor Swift/Safe & Sound (Taylor's Version)/Safe & Sound (Taylor's Version)‖01
 Taylor Swift/Speak Now/Back to December‖06
-Taylor Swift/Speak Now/Back to December (Acoustic)‖18
+Taylor Swift/Speak Now/Back to December (Acoustic)‖47
 Taylor Swift/Speak Now/Back to December (Commentary)‖05
-Taylor Swift/Speak Now/Back to December (Instrumental With Background Vocals)‖03
+Taylor Swift/Speak Now/Back to December (Instrumental With Background Vocals)‖32
 Taylor Swift/Speak Now/Better Than Revenge‖20
 Taylor Swift/Speak Now/Better Than Revenge (Commentary)‖19
-Taylor Swift/Speak Now/Better Than Revenge (Instrumental With Background Vocals)‖10
+Taylor Swift/Speak Now/Better Than Revenge (Instrumental With Background Vocals)‖39
 Taylor Swift/Speak Now/Dear John‖10
 Taylor Swift/Speak Now/Dear John (Commentary)‖09
-Taylor Swift/Speak Now/Dear John (Instrumental With Background Vocals)‖05
+Taylor Swift/Speak Now/Dear John (Instrumental With Background Vocals)‖34
 Taylor Swift/Speak Now/Enchanted‖18
 Taylor Swift/Speak Now/Enchanted (Commentary)‖17
-Taylor Swift/Speak Now/Enchanted (Instrumental With Background Vocals)‖09
+Taylor Swift/Speak Now/Enchanted (Instrumental With Background Vocals)‖38
 Taylor Swift/Speak Now/Haunted‖24
-Taylor Swift/Speak Now/Haunted (Acoustic Version)‖19
+Taylor Swift/Speak Now/Haunted (Acoustic Version)‖48
 Taylor Swift/Speak Now/Haunted (Commentary)‖23
-Taylor Swift/Speak Now/Haunted (Instrumental With Background Vocals)‖12
-Taylor Swift/Speak Now/If This Was a Movie‖16
+Taylor Swift/Speak Now/Haunted (Instrumental With Background Vocals)‖41
+Taylor Swift/Speak Now/If This Was a Movie‖45
 Taylor Swift/Speak Now/Innocent‖22
 Taylor Swift/Speak Now/Innocent (Commentary)‖21
-Taylor Swift/Speak Now/Innocent (Instrumental With Background Vocals)‖11
+Taylor Swift/Speak Now/Innocent (Instrumental With Background Vocals)‖40
 Taylor Swift/Speak Now/Last Kiss‖26
 Taylor Swift/Speak Now/Last Kiss (Commentary)‖25
-Taylor Swift/Speak Now/Last Kiss (Instrumental With Background Vocals)‖13
+Taylor Swift/Speak Now/Last Kiss (Instrumental With Background Vocals)‖42
 Taylor Swift/Speak Now/Long Live‖28
 Taylor Swift/Speak Now/Long Live (Commentary)‖27
-Taylor Swift/Speak Now/Long Live (Instrumental With Background Vocals)‖14
+Taylor Swift/Speak Now/Long Live (Instrumental With Background Vocals)‖43
 Taylor Swift/Speak Now/Mean‖12
 Taylor Swift/Speak Now/Mean (Commentary)‖11
-Taylor Swift/Speak Now/Mean (Instrumental With Background Vocals)‖06
+Taylor Swift/Speak Now/Mean (Instrumental With Background Vocals)‖35
 Taylor Swift/Speak Now/Mine‖02
 Taylor Swift/Speak Now/Mine (Commentary)‖01
-Taylor Swift/Speak Now/Mine (Instrumental With Background Vocals)‖01
-Taylor Swift/Speak Now/Mine (POP Mix)‖01
+Taylor Swift/Speak Now/Mine (Instrumental With Background Vocals)‖29
+Taylor Swift/Speak Now/Mine (POP Mix)‖30
 Taylor Swift/Speak Now/Never Grow Up‖16
 Taylor Swift/Speak Now/Never Grow Up (Commentary)‖15
-Taylor Swift/Speak Now/Never Grow Up (Instrumental With Background Vocals)‖08
-Taylor Swift/Speak Now/Ours‖15
+Taylor Swift/Speak Now/Never Grow Up (Instrumental With Background Vocals)‖37
+Taylor Swift/Speak Now/Ours‖44
 Taylor Swift/Speak Now/Sparks Fly‖04
 Taylor Swift/Speak Now/Sparks Fly (Commentary)‖03
-Taylor Swift/Speak Now/Sparks Fly (Instrumental With Background Vocals)‖02
+Taylor Swift/Speak Now/Sparks Fly (Instrumental With Background Vocals)‖31
 Taylor Swift/Speak Now/Speak Now‖08
 Taylor Swift/Speak Now/Speak Now (Commentary)‖07
-Taylor Swift/Speak Now/Speak Now (Instrumental With Background Vocals)‖04
-Taylor Swift/Speak Now/Superman‖17
+Taylor Swift/Speak Now/Speak Now (Instrumental With Background Vocals)‖33
+Taylor Swift/Speak Now/Superman‖46
 Taylor Swift/Speak Now/The Story of Us‖14
 Taylor Swift/Speak Now/The Story of Us (Commentary)‖13
-Taylor Swift/Speak Now/The Story of Us (Instrumental With Background Vocals)‖07
+Taylor Swift/Speak Now/The Story of Us (Instrumental With Background Vocals)‖36
 Taylor Swift/Speak Now World Tour Live/Back to December / Apologize / You're Not Sorry (Live/2011/medley)‖06
 Taylor Swift/Speak Now World Tour Live/Bette Davis Eyes (Live/2011)‖11
 Taylor Swift/Speak Now World Tour Live/Better Than Revenge (Live/2011)‖07
