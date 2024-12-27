@@ -892,12 +892,12 @@ Taylor Swift/Red/All Too Well (Commentary)‖09
 Taylor Swift/Red/All Too Well (Karaoke Version)‖37
 Taylor Swift/Red/Begin Again‖32
 Taylor Swift/Red/Begin Again (Commentary)‖31
-Taylor Swift/Red/Begin Again (Karaoke Version)‖47
-Taylor Swift/Red/Come Back... Be Here‖49
+Taylor Swift/Red/Begin Again (Karaoke Version)‖48
+Taylor Swift/Red/Come Back... Be Here‖50
 Taylor Swift/Red/Everything Has Changed‖28
 Taylor Swift/Red/Everything Has Changed (Commentary)‖27
 Taylor Swift/Red/Everything Has Changed (Karaoke Version)‖46
-Taylor Swift/Red/Girl at Home‖50
+Taylor Swift/Red/Girl at Home‖51
 Taylor Swift/Red/Holy Ground‖22
 Taylor Swift/Red/Holy Ground (Commentary)‖21
 Taylor Swift/Red/Holy Ground (Karaoke Version)‖43
@@ -910,15 +910,15 @@ Taylor Swift/Red/I Knew You Were Trouble.‖08
 Taylor Swift/Red/Red‖04
 Taylor Swift/Red/Red (Commentary)‖03
 Taylor Swift/Red/Red (Karaoke Version)‖34
-Taylor Swift/Red/Red (Original Demo Recording)‖52
+Taylor Swift/Red/Red (Original Demo Recording)‖53
 Taylor Swift/Red/Sad Beautiful Tragic‖24
 Taylor Swift/Red/Sad Beautiful Tragic (Commentary)‖23
 Taylor Swift/Red/Sad Beautiful Tragic (Karaoke Version)‖44
 Taylor Swift/Red/Starlight‖30
 Taylor Swift/Red/Starlight (Commentary)‖29
-Taylor Swift/Red/Starlight (Karaoke Version)‖46
+Taylor Swift/Red/Starlight (Karaoke Version)‖47
 Taylor Swift/Red/State of Grace‖02
-Taylor Swift/Red/State of Grace (Acoustic)‖53
+Taylor Swift/Red/State of Grace (Acoustic)‖54
 Taylor Swift/Red/State of Grace (Commentary)‖01
 Taylor Swift/Red/State of Grace (Karaoke Version)‖33
 Taylor Swift/Red/Stay Stay Stay‖18
@@ -930,11 +930,11 @@ Taylor Swift/Red/The Last Time (Karaoke Version)‖42
 Taylor Swift/Red/The Lucky One‖26
 Taylor Swift/Red/The Lucky One (Commentary)‖25
 Taylor Swift/Red/The Lucky One (Karaoke Version)‖45
-Taylor Swift/Red/The Moment I Knew‖48
+Taylor Swift/Red/The Moment I Knew‖49
 Taylor Swift/Red/Treacherous‖06
 Taylor Swift/Red/Treacherous (Commentary)‖05
 Taylor Swift/Red/Treacherous (Karaoke Version)‖35
-Taylor Swift/Red/Treacherous (Original Demo Recording)‖51
+Taylor Swift/Red/Treacherous (Original Demo Recording)‖52
 Taylor Swift/Red/We Are Never Ever Getting Back Together‖16
 Taylor Swift/Red/We Are Never Ever Getting Back Together (Commentary)‖15
 Taylor Swift/Red/We Are Never Ever Getting Back Together (Karaoke Version)‖40
@@ -1113,35 +1113,35 @@ Taylor Swift/Speak Now (Taylor's Version)/Timeless (Taylor’s Version) (From th
 Taylor Swift/Speak Now (Taylor's Version)/When Emma Falls In Love (Taylor’s Version) (From the Vault)‖18
 Taylor Swift/Taylor Swift/A Perfectly Good Heart‖28
 Taylor Swift/Taylor Swift/A Perfectly Good Heart (Commentary)‖27
-Taylor Swift/Taylor Swift/A Perfectly Good Heart (Instrumental W/ BG Vocals)‖14
+Taylor Swift/Taylor Swift/A Perfectly Good Heart (Instrumental W/ BG Vocals)‖43
 Taylor Swift/Taylor Swift/A Place In This World‖08
 Taylor Swift/Taylor Swift/A Place In This World (Commentary)‖07
-Taylor Swift/Taylor Swift/A Place In This World (Instrumental W/ BG Vocals)‖04
+Taylor Swift/Taylor Swift/A Place In This World (Instrumental W/ BG Vocals)‖34
 Taylor Swift/Taylor Swift/A Place In This World‖04
 Taylor Swift/Taylor Swift/Cold as You‖10
 Taylor Swift/Taylor Swift/Cold as You (Commentary)‖09
-Taylor Swift/Taylor Swift/Cold as You (Instrumental W/ BG Vocals)‖05
+Taylor Swift/Taylor Swift/Cold as You (Instrumental W/ BG Vocals)‖35
 Taylor Swift/Taylor Swift/I'm Only Me When I'm With You‖24
-Taylor Swift/Taylor Swift/I'm Only Me When I'm With You (Instrumental W/ BG Vocals)‖12
+Taylor Swift/Taylor Swift/I'm Only Me When I'm With You (Instrumental W/ BG Vocals)‖41
 Taylor Swift/Taylor Swift/I’m Only Me When I’m With You (Commentary)‖23
 Taylor Swift/Taylor Swift/Invisible‖26
 Taylor Swift/Taylor Swift/Invisible (Commentary)‖25
-Taylor Swift/Taylor Swift/Invisible (Instrumental W/ BG Vocals)‖13
+Taylor Swift/Taylor Swift/Invisible (Instrumental W/ BG Vocals)‖42
 Taylor Swift/Taylor Swift/Mary's Song (Oh My My My)‖20
 Taylor Swift/Taylor Swift/Mary's Song (Oh My My My) (Commentary)‖19
 Taylor Swift/Taylor Swift/Our Song‖22
 Taylor Swift/Taylor Swift/Our Song (Commentary)‖21
-Taylor Swift/Taylor Swift/Our Song (Instrumental W/ BG Vocals)‖11
+Taylor Swift/Taylor Swift/Our Song (Instrumental W/ BG Vocals)‖40
 Taylor Swift/Taylor Swift/Picture to Burn‖04
 Taylor Swift/Taylor Swift/Picture to Burn (Commentary)‖03
-Taylor Swift/Taylor Swift/Picture to Burn (Instrumental W/ BG Vocals)‖02
+Taylor Swift/Taylor Swift/Picture to Burn (Instrumental W/ BG Vocals)‖32
 Taylor Swift/Taylor Swift/Should've Said No‖18
-Taylor Swift/Taylor Swift/Should've Said No (Instrumental W/ BG Vocals)‖09
+Taylor Swift/Taylor Swift/Should've Said No (Instrumental W/ BG Vocals)‖39
 Taylor Swift/Taylor Swift/Should’ve Said No (Commentary)‖17
 Taylor Swift/Taylor Swift/Stay Beautiful‖16
 Taylor Swift/Taylor Swift/Stay Beautiful (Commentary)‖15
-Taylor Swift/Taylor Swift/Stay Beautiful (Instrumental W/ BG Vocals)‖08
-Taylor Swift/Taylor Swift/Teardrops On My Guitar (Instrumental W/ BG Vocals)‖03
+Taylor Swift/Taylor Swift/Stay Beautiful (Instrumental W/ BG Vocals)‖38
+Taylor Swift/Taylor Swift/Teardrops On My Guitar (Instrumental W/ BG Vocals)‖33
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Pop Version)‖30
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Pop Version / Commentary)‖29
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Pop Version)‖30
@@ -1149,14 +1149,14 @@ Taylor Swift/Taylor Swift/Teardrops On My Guitar (Radio Single Remix)‖06
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Radio Single Remix / Commentary)‖05
 Taylor Swift/Taylor Swift/The Outside‖12
 Taylor Swift/Taylor Swift/The Outside (Commentary)‖11
-Taylor Swift/Taylor Swift/The Outside (Instrumental W/ BG Vocals)‖06
+Taylor Swift/Taylor Swift/The Outside (Instrumental W/ BG Vocals)‖36
 Taylor Swift/Taylor Swift/Tied Together With a Smile‖14
 Taylor Swift/Taylor Swift/Tied Together With a Smile (Commentary)‖13
-Taylor Swift/Taylor Swift/Tied Together With a Smile (Instrumental W/ BG Vocals)‖07
+Taylor Swift/Taylor Swift/Tied Together With a Smile (Instrumental W/ BG Vocals)‖37
 Taylor Swift/Taylor Swift/Tied Together With a Smile‖07
 Taylor Swift/Taylor Swift/Tim McGraw‖02
 Taylor Swift/Taylor Swift/Tim McGraw (Commentary)‖01
-Taylor Swift/Taylor Swift/Tim McGraw (Instrumental W/ BG Vocals)‖01
+Taylor Swift/Taylor Swift/Tim McGraw (Instrumental W/ BG Vocals)‖31
 Taylor Swift/The Archer/The Archer (Live From Paris)‖01
 Taylor Swift/The Lakes/The Lakes (Original Version)‖01
 Taylor Swift/The Man/The Man (Live From Paris)‖01
