@@ -48,7 +48,18 @@ def update_tag(file_path, tag_class, tag_name, replacements):
 
             # remove empty entries resulting from replacements
             entries = [entry.strip() for entry in entries if entry.strip()]
-            modified_tag_text = ' / '.join(entries) if entries else ""  # set empty string if no valid entries left
+
+            # remove duplicates while preserving the order
+            seen = set()
+            unique_entries = []
+            for entry in entries:
+                if entry not in seen:
+                    unique_entries.append(entry)
+                    seen.add(entry)
+            logging.debug(f"Unique entries after removing duplicates: {unique_entries}")
+
+            # join entries back into a single string
+            modified_tag_text = ' / '.join(unique_entries) if unique_entries else ""
             logging.debug(f"final formatted tag text: '{modified_tag_text}'")
 
             # update tag only if it was modified
