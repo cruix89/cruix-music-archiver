@@ -1279,7 +1279,7 @@ Froid/Drill Nota Mil/Drill Nota Mil‖01
 Froid/Egito/A Pior Música do Ano Pt. 2‖05
 Froid/Egito/Esquema de Pirâmide‖03
 Froid/Egito/Lugar Bacana‖04
-Froid/Egito/Nasci Pra Ser Grande "Tributo F.R."‖01
+Froid/Egito/Nasci pra Ser Grande "Tributo F.R."‖01
 Froid/Egito/Radin‖02
 Froid/Esquema de Pirâmide/Esquema de Pirâmide‖01
 Froid/Faz Fila (Freestyle)/Faz Fila (Freestyle)‖01
@@ -1425,10 +1425,11 @@ Froid/Untitled Album/Intro‖01
 Froid/Untitled Album/Inverno‖03
 Froid/Untitled Album/Lugar Bacana‖13
 Froid/Untitled Album/Lupa Nova‖10
-Froid/Untitled Album/Nasci Pra Ser Grande Tributo F.R.""‖14
+Froid/Untitled Album/Nasci pra Ser Grande Tributo F.R.""‖14
 Froid/Untitled Album/Nunca Taque Pedras na Caixa de Abelhas‖15
 Froid/Untitled Album/O Mundo é Mal‖05
 Froid/Untitled Album/Sem Teto‖04
 Froid/Untitled Album/Seu Edson‖06
 Froid/Untitled Album/Tio Phill‖09
 Froid/Untitled Album/Vapor‖07
+Froid/Gado/+ Que Amizade‖19
