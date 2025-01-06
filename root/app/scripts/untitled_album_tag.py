@@ -4,7 +4,6 @@ import eyed3
 # path of the folder where the MP3 files are stored
 music_folder = '/music'
 
-
 # function to check and change album tag
 def update_tag_if_needed(mp3_file_path):
     try:
@@ -14,9 +13,9 @@ def update_tag_if_needed(mp3_file_path):
         # check if the album tag exists and get the value
         album_tag = audio_file.tag.album if audio_file.tag.album else ""
 
-        # check if the album tag contains the word "na" or is empty
-        if "na" in album_tag.lower() or not album_tag:
-            # if the condition is met, apply the "Various Songs" tag
+        # check if the album tag is exactly "na" or is empty
+        if album_tag.strip().lower() == "na" or not album_tag:
+            # if the condition is met, apply the "Untitled Album" tag
             audio_file.tag.album = "Untitled Album"
             # save changes
             audio_file.tag.save()
