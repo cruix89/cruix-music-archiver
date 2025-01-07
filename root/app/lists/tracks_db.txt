@@ -1502,7 +1502,7 @@ Natiruts/Box Natiruts/Um Céu, Um Sol e Um Mar‖10
 Natiruts/Box Natiruts/Vento, Sol, Coração‖06
 Natiruts/Box Natiruts/Verbalize (Ao Vivo)‖30
 Natiruts/De Tanto Sol (Acústico)/De Tanto Sol (Acústico)‖01
-Natiruts/Deezer Sessions/Donde No Alcanza Mi Verso (Gravado na Deezer, São Paulo)‖01
+Natiruts/Deezer Sessions/Donde no Alcanza Mi Verso (Gravado na Deezer, São Paulo)‖01
 Natiruts/Deezer Sessions/I Love (Gravado na Deezer, São Paulo)‖02
 Natiruts/Deezer Sessions/Serei Luz (Gravado na Deezer, São Paulo)‖03
 Natiruts/Deezer Sessions/Você Me Encantou Demais (Gravado na Deezer, São Paulo)‖04
