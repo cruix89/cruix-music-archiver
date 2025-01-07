@@ -19,3 +19,5 @@ and
 as
 or
 pra
+os
+pro
