@@ -1296,7 +1296,7 @@ Froid/Gado/Bala‖06
 Froid/Gado/Beijinho‖10
 Froid/Gado/Carta Aberta pra Julieta‖16
 Froid/Gado/Clareou‖01
-Froid/Gado/Dança Pro Fim do Milênio‖14
+Froid/Gado/Dança pro Fim do Milênio‖14
 Froid/Gado/Fanfic‖15
 Froid/Gado/Fantasmas‖18
 Froid/Gado/Flash‖08
@@ -1368,7 +1368,7 @@ Froid/O Queridinho de Deus/Swish‖02
 Froid/O Queridinho de Deus/Tell Me‖10
 Froid/O Queridinho de Deus/Wifi‖09
 Froid/O Veneno do Escorpião/Bandida‖03
-Froid/O Veneno do Escorpião/Bloq No Ex‖06
+Froid/O Veneno do Escorpião/Bloq no Ex‖06
 Froid/O Veneno do Escorpião/Bluetooth‖05
 Froid/O Veneno do Escorpião/Menózin Infrator‖04
 Froid/O Veneno do Escorpião/Sabiá‖01
@@ -1417,21 +1417,6 @@ Froid/Teoria do Ciclo da Água/Teoria do Ciclo da Água‖02
 Froid/Teoria do Ciclo da Água (Youtube Music Sessions)/Teoria do Ciclo da Água (Youtube Music Sessions)‖01
 Froid/Tiffany/Tiffany‖01
 Froid/Transformers/Transformers‖01
-Froid/Untitled Album/A Culpa é das Igrejas / Sinais‖11
-Froid/Untitled Album/Best Friend‖02
-Froid/Untitled Album/Grana, a Teoria de Tudo‖12
-Froid/Untitled Album/Indea Moss‖08
-Froid/Untitled Album/Intro‖01
-Froid/Untitled Album/Inverno‖03
-Froid/Untitled Album/Lugar Bacana‖13
-Froid/Untitled Album/Lupa Nova‖10
-Froid/Untitled Album/Nasci pra Ser Grande "Tributo F.R."‖14
-Froid/Untitled Album/Nunca Taque Pedras na Caixa de Abelhas‖15
-Froid/Untitled Album/O Mundo é Mal‖05
-Froid/Untitled Album/Sem Teto‖04
-Froid/Untitled Album/Seu Edson‖06
-Froid/Untitled Album/Tio Phill‖09
-Froid/Untitled Album/Vapor‖07
 Froid/Gado/+ Que Amizade‖19
 Natiruts/#NOFILTER (Ao Vivo)/Au de Cabeça (Ao Vivo)‖03
 Natiruts/#NOFILTER (Ao Vivo)/Deixa o Menino Jogar (Ao Vivo)‖15
@@ -1738,3 +1723,18 @@ Natiruts/Verbalize/Tenha os Olhos Sempre Abertos‖05
 Natiruts/Verbalize/Tô de Bem‖13
 Natiruts/Verbalize/Verbalize‖03
 Natiruts/Verbalize/Voô do Carcará / Jamaica Roots (Medley)‖14
+Froid/A Culpa é das Igrejas / Sinais/A Culpa é das Igrejas / Sinais‖01
+Froid/Grana, a Teoria de Tudo/Grana, a Teoria de Tudo‖01
+Froid/Lugar Bacana/Lugar Bacana‖01
+Froid/Nasci pra Ser Grande Tributo "F.R."/Nasci pra Ser Grande Tributo "F.R."‖01
+Froid/Nunca Taque Pedras na Caixa de Abelhas/Nunca Taque Pedras na Caixa de Abelhas‖01
+Froid/Oxigênio (Corona Disco)/Best Friend‖02
+Froid/Oxigênio (Corona Disco)/Indea Moss‖08
+Froid/Oxigênio (Corona Disco)/Intro‖01
+Froid/Oxigênio (Corona Disco)/Inverno‖03
+Froid/Oxigênio (Corona Disco)/Lupa Nova‖10
+Froid/Oxigênio (Corona Disco)/O Mundo é Mal‖05
+Froid/Oxigênio (Corona Disco)/Sem Teto‖04
+Froid/Oxigênio (Corona Disco)/Seu Edson‖06
+Froid/Oxigênio (Corona Disco)/Tio Phill‖09
+Froid/Oxigênio (Corona Disco)/Vapor‖07
