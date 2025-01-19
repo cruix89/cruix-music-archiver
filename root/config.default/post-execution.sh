@@ -182,6 +182,9 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/capitalize_fixer.py
 
+  sleep '5'
+  python3 /app/scripts/tags_and_folders_strings_fixer.py
+
   # covers configuration
 
   sleep '5'
