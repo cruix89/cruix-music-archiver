@@ -45,6 +45,15 @@ def main():
                 # full file path
                 full_path = os.path.join(dirpath, filename)
 
+                # corresponding text file path in db directory
+                relative_path = os.path.relpath(full_path, base_dir)
+                txt_path = os.path.join(db_dir, os.path.splitext(relative_path)[0] + '.txt')
+
+                # check if the text file already exists
+                if os.path.exists(txt_path):
+                    logging.info(f"file {filename} already processed. skipping.")
+                    continue
+
                 # load mp3 tags
                 audiofile = eyed3.load(full_path)
                 if audiofile is None or audiofile.tag is None:
@@ -67,10 +76,6 @@ def main():
                 except requests.exceptions.JSONDecodeError as e:
                     logging.error(f"json decoding error: {e}")
                     continue  # skip to next file
-
-                # corresponding text file path in db directory
-                relative_path = os.path.relpath(full_path, base_dir)
-                txt_path = os.path.join(db_dir, os.path.splitext(relative_path)[0] + '.txt')
 
                 # create subdirectories if necessary
                 os.makedirs(os.path.dirname(txt_path), exist_ok=True)
