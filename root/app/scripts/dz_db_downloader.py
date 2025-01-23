@@ -18,13 +18,11 @@ def setup_directories():
 
     return base_dir, db_dir, log_dir
 
-
 def count_mp3_files(base_dir):
     total_files = 0
     for _, _, files in os.walk(base_dir):
         total_files += sum(1 for file in files if file.endswith('.mp3'))
     return total_files
-
 
 def remove_empty_files(db_dir):
     # iterate over all .txt files in db_dir
@@ -42,7 +40,6 @@ def remove_empty_files(db_dir):
                         logging.info(f"file {txt_path} had empty data and was deleted.")
                 except Exception as e:
                     logging.error(f"error while processing file {txt_path}: {e}")
-
 
 def main():
     # logging configuration
@@ -78,14 +75,19 @@ def main():
                     logging.warning(f"file {filename} does not contain valid id3 tags.")
                     continue
 
-                track_name = audiofile.tag.title
+                album_artist = audiofile.tag.album_artist  # busca o artista do álbum
                 album_name = audiofile.tag.album
-                artist_name = audiofile.tag.artist
+                track_name = audiofile.tag.title
 
-                # make request to dz api
+                # fallback caso album_artist não esteja preenchido
+                if not album_artist:
+                    album_artist = audiofile.tag.artist
+
+                # make request to dz api with the new order: album artist -> album -> track
                 try:
                     response = requests.get(
-                        f'https://api.deezer.com/search?q=track:"{track_name}" album:"{album_name}" artist:"{artist_name}"&limit=1')
+                        f'https://api.deezer.com/search?q=artist:"{album_artist}" album:"{album_name}" track:"{track_name}"&limit=1'
+                    )
                     response.raise_for_status()  # raises exception for http error status codes
                     data = response.json()
                 except requests.exceptions.RequestException as e:
@@ -110,7 +112,6 @@ def main():
 
     # check and remove empty files
     remove_empty_files(db_dir)
-
 
 if __name__ == "__main__":
     main()
