@@ -246,6 +246,9 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/dz_db_downloader.py
 
   sleep '5'
+  find $dz_db_dir -type d -empty -mindepth 1 -delete
+
+  sleep '5'
   python3 /app/scripts/jellyfin_album_downloader.py
 
   sleep '5'
