@@ -172,6 +172,11 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/dz_db_downloader.py
 
+  # db cleaner
+
+  sleep '5'
+  find $dz_db_dir -type d -empty -mindepth 1 -delete
+
   # genre api
 
   sleep '5'
