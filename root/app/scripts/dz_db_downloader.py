@@ -26,6 +26,24 @@ def count_mp3_files(base_dir):
     return total_files
 
 
+def remove_empty_files(db_dir):
+    # iterate over all .txt files in db_dir
+    for dirpath, _, filenames in os.walk(db_dir):
+        for filename in filenames:
+            if filename.endswith('.txt'):
+                txt_path = os.path.join(dirpath, filename)
+                try:
+                    # read the content of the file
+                    with open(txt_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    # if the content matches the specified value, delete the file
+                    if content.strip() == "{'data': [], 'total': 0}":
+                        os.remove(txt_path)
+                        logging.info(f"file {txt_path} had empty data and was deleted.")
+                except Exception as e:
+                    logging.error(f"error while processing file {txt_path}: {e}")
+
+
 def main():
     # logging configuration
     base_dir, db_dir, log_dir = setup_directories()
@@ -87,7 +105,11 @@ def main():
                 # log action
                 logging.info(f"file {filename} processed. data saved to {txt_path}.")
 
+    # process completed
     logging.info("processing completed.")
+
+    # check and remove empty files
+    remove_empty_files(db_dir)
 
 
 if __name__ == "__main__":
