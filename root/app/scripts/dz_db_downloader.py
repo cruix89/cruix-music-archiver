@@ -83,18 +83,25 @@ def main():
                 if not album_artist:
                     album_artist = audiofile.tag.artist
 
+                # prepare API query string
+                query_string = f'artist:"{album_artist}" album:"{album_name}" track:"{track_name}"'
+                logging.info(f"api query string for file {filename}: {query_string}")
+
                 # make request to dz api with the new order: album artist -> album -> track
                 try:
                     response = requests.get(
-                        f'https://api.deezer.com/search?q=artist:"{album_artist}" album:"{album_name}" track:"{track_name}"&limit=1'
+                        f'https://api.deezer.com/search?q={query_string}&limit=1'
                     )
                     response.raise_for_status()  # raises exception for http error status codes
                     data = response.json()
+
+                    # log success
+                    logging.info(f"api responded successfully for file {filename}. data received.")
                 except requests.exceptions.RequestException as e:
-                    logging.error(f"http request error: {e}")
+                    logging.error(f"http request error for file {filename}: {e}")
                     continue  # skip to next file
                 except requests.exceptions.JSONDecodeError as e:
-                    logging.error(f"json decoding error: {e}")
+                    logging.error(f"json decoding error for file {filename}: {e}")
                     continue  # skip to next file
 
                 # create subdirectories if necessary
