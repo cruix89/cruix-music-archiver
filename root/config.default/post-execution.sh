@@ -270,8 +270,8 @@ if [ -d "$downloads_dir" ]; then
 
   # untitled album cover fixer
 
-  sleep '5'
-  python3 /app/scripts/untitled_album_cover.py
+  # sleep '5'
+  # python3 /app/scripts/untitled_album_cover.py
 
   # capitalization artists folders to uppercase
 
