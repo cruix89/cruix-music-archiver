@@ -16,7 +16,7 @@ logging.basicConfig(
 music_dir = '/music'
 db_file = '/app/lists/tracks_db.txt'
 
-# sequential track number counter for "YouTube Tracks"
+# sequential track number counter for "Youtube Tracks"
 youtube_tracks_counter = {}
 
 
@@ -48,7 +48,7 @@ def find_track_number(album_artist, album, track):
 
 
 def assign_sequential_track(album):
-    """assigns a sequential track number for the album 'YouTube Tracks'."""
+    """assigns a sequential track number for the album 'Youtube Tracks'."""
     if album not in youtube_tracks_counter:
         youtube_tracks_counter[album] = 1  # start sequence from 1
 
@@ -75,13 +75,13 @@ def process_music():
                 album = audio_file.tag.album
                 track = audio_file.tag.title
 
-                if album == "YouTube Tracks":
+                if album == "Youtube Tracks":
                     # assign a sequential track number
                     track_number = assign_sequential_track(album)
                     update_track_number_tag(mp3_file, track_number)
                     message = (
                         f"[cruix-music-archiver] Sequential Track Number Assigned: {file} -> {track_number} 🚀 "
-                        " For Album: 'YouTube Tracks' 🌌"
+                        " For Album: 'Youtube Tracks' 🌌"
                     )
                     logging.info(message)
                     print(message)
