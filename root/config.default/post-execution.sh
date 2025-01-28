@@ -76,10 +76,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_folder.py
+  python3 /app/scripts/youtube_tracks_folder.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_tag.py
+  python3 /app/scripts/youtube_tracks_tag.py
 
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
@@ -93,10 +93,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_folder.py
+  python3 /app/scripts/youtube_tracks_folder.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_tag.py
+  python3 /app/scripts/youtube_tracks_tag.py
 
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
@@ -110,10 +110,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_folder.py
+  python3 /app/scripts/youtube_tracks_folder.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_tag.py
+  python3 /app/scripts/youtube_tracks_tag.py
 
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
@@ -127,10 +127,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_folder.py
+  python3 /app/scripts/youtube_tracks_folder.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_tag.py
+  python3 /app/scripts/youtube_tracks_tag.py
 
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
@@ -144,10 +144,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/artists_folders_fixer.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_folder.py
+  python3 /app/scripts/youtube_tracks_folder.py
 
   sleep '5'
-  python3 /app/scripts/untitled_album_tag.py
+  python3 /app/scripts/youtube_tracks_tag.py
 
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
@@ -267,11 +267,6 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/scripts/tracks_updater.py
-
-  # untitled album cover fixer
-
-  # sleep '5'
-  # python3 /app/scripts/untitled_album_cover.py
 
   # capitalization artists folders to uppercase
 

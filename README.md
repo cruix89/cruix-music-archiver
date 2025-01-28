@@ -48,8 +48,8 @@ a fully automated docker image to easily download and manage a music library bas
   a large library of patches are applied to standardize and correct filenames and tags
 
 - **various artists and albums cataloging**  
-  if the downloaded song does not belong to a specific album, it is cataloged as "Untitled Album" and assigned an appropriate cover for the album.
-  If the artist does not have an artist image in the database, an appropriate cover is also assigned, similar to how "Various Artists" is assigned in MusicBrainz.
+  if the downloaded song does not belong to a specific album, it is cataloged as "YT Tracks" and assigned an appropriate cover for the album.
+  If the artist does not have an artist image in the database, an appropriate cover is also assigned, similar to how "Unknown Artist" is assigned in MusicBrainz.
 
 - **tracks number correction engine**  
   some songs may have the wrong or missing track numbers, the system uses a solid database to correct the number of tracks

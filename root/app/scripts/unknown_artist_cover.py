@@ -3,7 +3,7 @@ import shutil
 
 # absolute paths
 music_directory = "/music"
-default_images_directory = "/app/default-covers/various-artists"
+default_images_directory = "/app/default-covers/unknown-artist"
 default_cover = os.path.join(default_images_directory, "cover.jpg")
 default_folder = os.path.join(default_images_directory, "folder.jpg")
 
@@ -20,7 +20,7 @@ def check_and_copy_images():
 
         # if both are missing, copy the default images
         if not has_cover and not has_folder:
-            print(f"[cruix-music-archiver] Artist Not Found in Database, Applying 'Various Artists' Cover. Who Needs a Solo Artist Anyway? 🎤  🎶 : {root} 🎤  🎶")
+            print(f"[cruix-music-archiver] Artist Not Found in Database, Applying 'Unknown Artist' Cover. Who Needs a Solo Artist Anyway? 🎤  🎶 : {root} 🎤  🎶")
             if os.path.exists(default_cover):
                 shutil.copy(default_cover, os.path.join(root, "cover.jpg"))
                 print(f"[cruix-music-archiver] Copied: cover.jpg For {root}. The Cover is Now as Legendary as the Album! 📀  ✨")

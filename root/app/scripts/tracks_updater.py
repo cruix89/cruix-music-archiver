@@ -1,4 +1,5 @@
 import eyed3
+from eyed3.id3 import Tag
 import os
 import logging
 
@@ -15,8 +16,8 @@ logging.basicConfig(
 music_dir = '/music'
 db_file = '/app/lists/tracks_db.txt'
 
-# sequential track number counter for "Untitled Album"
-untitled_album_counter = {}
+# sequential track number counter for "YouTube Tracks"
+youtube_tracks_counter = {}
 
 
 def update_track_number_tag(mp3_file, track_number):
@@ -46,13 +47,13 @@ def find_track_number(album_artist, album, track):
     return None  # return None if the string is not found
 
 
-def assign_sequential_track(album, file_path):
-    """assigns a sequential track number for the album 'Untitled Album'."""
-    if album not in untitled_album_counter:
-        untitled_album_counter[album] = 1  # start sequence from 1
+def assign_sequential_track(album):
+    """assigns a sequential track number for the album 'YouTube Tracks'."""
+    if album not in youtube_tracks_counter:
+        youtube_tracks_counter[album] = 1  # start sequence from 1
 
-    track_number = untitled_album_counter[album]
-    untitled_album_counter[album] += 1  # increment for the next file
+    track_number = youtube_tracks_counter[album]
+    youtube_tracks_counter[album] += 1  # increment for the next file
 
     # format the track number as two digits (01, 02, etc.)
     return f"{track_number:02}"
@@ -74,13 +75,13 @@ def process_music():
                 album = audio_file.tag.album
                 track = audio_file.tag.title
 
-                if album == "Untitled Album":
+                if album == "YouTube Tracks":
                     # assign a sequential track number
-                    track_number = assign_sequential_track(album, mp3_file)
+                    track_number = assign_sequential_track(album)
                     update_track_number_tag(mp3_file, track_number)
                     message = (
                         f"[cruix-music-archiver] Sequential Track Number Assigned: {file} -> {track_number} 🚀 "
-                        " For Album: 'Untitled Album' 🌌"
+                        " For Album: 'YouTube Tracks' 🌌"
                     )
                     logging.info(message)
                     print(message)

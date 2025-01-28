@@ -15,8 +15,8 @@ def update_tag_if_needed(mp3_file_path):
 
         # check if the album tag is exactly "na" or is empty
         if album_tag.strip().lower() == "na" or not album_tag:
-            # if the condition is met, apply the "Untitled Album" tag
-            audio_file.tag.album = "Untitled Album"
+            # if the condition is met, apply the "YouTube Tracks" tag
+            audio_file.tag.album = "YouTube Tracks"
             # save changes
             audio_file.tag.save()
             print(f"[cruix-music-archiver] Tag Updated For {mp3_file_path}. It's Like a Software Patch, But For Your Music Collection! 🎧")
