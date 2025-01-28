@@ -20,8 +20,8 @@ Avenged Sevenfold/Life Is But a Dream…/(O)rdinary‖09
 Avenged Sevenfold/Life Is But a Dream…/(D)eath‖10
 Avenged Sevenfold/Life Is But a Dream…/Life Is But a Dream...‖11
 Avenged Sevenfold/Afterlife/Afterlife‖01
-Avenged Sevenfold/Afterlife/Critical Acclaim (Live In Hollywood)‖02
-Avenged Sevenfold/Afterlife/Beast and the Harlot (Live In Hollywood)‖03
+Avenged Sevenfold/Afterlife/Critical Acclaim (Live in Hollywood)‖02
+Avenged Sevenfold/Afterlife/Beast and the Harlot (Live in Hollywood)‖03
 Avenged Sevenfold/Almost Easy/Almost Easy‖01
 Avenged Sevenfold/Almost Easy/Walk‖02
 Avenged Sevenfold/Almost Easy/Almost Easy (Live)‖03
@@ -38,7 +38,7 @@ Avenged Sevenfold/Avenged Sevenfold/Dear God‖10
 Avenged Sevenfold/Avenged Sevenfold/Almost Easy (Jam-Along Version)‖11
 Avenged Sevenfold/Avenged Sevenfold/Bat Country (Live at Hammerstein Ballroom)‖12
 Avenged Sevenfold/Beast and the Harlot/Beast and the Harlot (Radio Edit)‖01
-Avenged Sevenfold/Beast and the Harlot/Burn It Down (Live In San Diego)‖02
+Avenged Sevenfold/Beast and the Harlot/Burn It Down (Live in San Diego)‖02
 Avenged Sevenfold/Black Reign/Mad Hatter‖01
 Avenged Sevenfold/Black Reign/Carry On‖02
 Avenged Sevenfold/Black Reign/Not Ready to Die (From "Call of the Dead")‖03
@@ -46,7 +46,7 @@ Avenged Sevenfold/Black Reign/Jade Helm (Instrumental)‖04
 Avenged Sevenfold/Carry On/Carry On‖01
 Avenged Sevenfold/City of Evil/Beast and the Harlot‖01
 Avenged Sevenfold/City of Evil/Burn It Down‖02
-Avenged Sevenfold/City of Evil/Blinded In Chains‖03
+Avenged Sevenfold/City of Evil/Blinded in Chains‖03
 Avenged Sevenfold/City of Evil/Bat Country‖04
 Avenged Sevenfold/City of Evil/Trashed and Scattered‖05
 Avenged Sevenfold/City of Evil/Seize the Day‖06
@@ -57,24 +57,24 @@ Avenged Sevenfold/City of Evil/Betrayed‖10
 Avenged Sevenfold/City of Evil/M.I.A.‖11
 Avenged Sevenfold/Crossroads/Crossroads‖01
 Avenged Sevenfold/Dear God/Dear God‖01
-Avenged Sevenfold/Diamonds In the Rough/Demons‖01
-Avenged Sevenfold/Diamonds In the Rough/Girl I Know‖02
-Avenged Sevenfold/Diamonds In the Rough/Crossroads‖03
-Avenged Sevenfold/Diamonds In the Rough/Flash of the Blade‖04
-Avenged Sevenfold/Diamonds In the Rough/Until the End‖05
-Avenged Sevenfold/Diamonds In the Rough/Tension‖06
-Avenged Sevenfold/Diamonds In the Rough/Walk‖07
-Avenged Sevenfold/Diamonds In the Rough/The Fight‖08
-Avenged Sevenfold/Diamonds In the Rough/Dancing Dead‖09
-Avenged Sevenfold/Diamonds In the Rough/Almost Easy (Chris Lord-Alge Mix)‖10
-Avenged Sevenfold/Diamonds In the Rough/Afterlife (Alternate Version)‖11
-Avenged Sevenfold/Diamonds In the Rough/St. James‖12
-Avenged Sevenfold/Diamonds In the Rough/Set Me Free‖13
-Avenged Sevenfold/Diamonds In the Rough/4:00 AM‖14
-Avenged Sevenfold/Diamonds In the Rough/Lost It All‖15
-Avenged Sevenfold/Diamonds In the Rough/Paranoid‖16
+Avenged Sevenfold/Diamonds in the Rough/Demons‖01
+Avenged Sevenfold/Diamonds in the Rough/Girl I Know‖02
+Avenged Sevenfold/Diamonds in the Rough/Crossroads‖03
+Avenged Sevenfold/Diamonds in the Rough/Flash of the Blade‖04
+Avenged Sevenfold/Diamonds in the Rough/Until the End‖05
+Avenged Sevenfold/Diamonds in the Rough/Tension‖06
+Avenged Sevenfold/Diamonds in the Rough/Walk‖07
+Avenged Sevenfold/Diamonds in the Rough/The Fight‖08
+Avenged Sevenfold/Diamonds in the Rough/Dancing Dead‖09
+Avenged Sevenfold/Diamonds in the Rough/Almost Easy (Chris Lord-Alge Mix)‖10
+Avenged Sevenfold/Diamonds in the Rough/Afterlife (Alternate Version)‖11
+Avenged Sevenfold/Diamonds in the Rough/St. James‖12
+Avenged Sevenfold/Diamonds in the Rough/Set Me Free‖13
+Avenged Sevenfold/Diamonds in the Rough/4:00 AM‖14
+Avenged Sevenfold/Diamonds in the Rough/Lost It All‖15
+Avenged Sevenfold/Diamonds in the Rough/Paranoid‖16
 Avenged Sevenfold/Live at the Grammy Museum®/Opening (Live at the Grammy Museum®)‖01
-Avenged Sevenfold/Live at the Grammy Museum®/Introduction to As Tears Go By (Live at the Grammy Museum®)‖02
+Avenged Sevenfold/Live at the Grammy Museum®/Introduction to as Tears Go By (Live at the Grammy Museum®)‖02
 Avenged Sevenfold/Live at the Grammy Museum®/As Tears Go By (Live at the Grammy Museum®)‖03
 Avenged Sevenfold/Live at the Grammy Museum®/Introduction to Hail to the King (Live at the Grammy Museum®)‖04
 Avenged Sevenfold/Live at the Grammy Museum®/Hail to the King (Live at the Grammy Museum®)‖05
@@ -84,19 +84,19 @@ Avenged Sevenfold/Live at the Grammy Museum®/Introduction to Exist (Live at the
 Avenged Sevenfold/Live at the Grammy Museum®/Exist (Live at the Grammy Museum®)‖09
 Avenged Sevenfold/Live at the Grammy Museum®/Introduction to So Far Away (Live at the Grammy Museum®)‖10
 Avenged Sevenfold/Live at the Grammy Museum®/So Far Away (Live at the Grammy Museum®)‖11
-Avenged Sevenfold/Live In the LBC/Intro (Live)‖01
-Avenged Sevenfold/Live In the LBC/Critical Acclaim (Live)‖02
-Avenged Sevenfold/Live In the LBC/Second Heartbeat (Live)‖03
-Avenged Sevenfold/Live In the LBC/Afterlife (Live)‖04
-Avenged Sevenfold/Live In the LBC/Beast and the Harlot (Live)‖05
-Avenged Sevenfold/Live In the LBC/Scream (Live)‖06
-Avenged Sevenfold/Live In the LBC/Seize the Day (Live)‖07
-Avenged Sevenfold/Live In the LBC/Walk (Live)‖08
-Avenged Sevenfold/Live In the LBC/Bat Country (Live)‖09
-Avenged Sevenfold/Live In the LBC/Almost Easy (Live)‖10
-Avenged Sevenfold/Live In the LBC/Gunslinger (Live)‖11
-Avenged Sevenfold/Live In the LBC/Unholy Confessions (Live)‖12
-Avenged Sevenfold/Live In the LBC/A Little Piece of Heaven (Live)‖13
+Avenged Sevenfold/Live in the LBC/Intro (Live)‖01
+Avenged Sevenfold/Live in the LBC/Critical Acclaim (Live)‖02
+Avenged Sevenfold/Live in the LBC/Second Heartbeat (Live)‖03
+Avenged Sevenfold/Live in the LBC/Afterlife (Live)‖04
+Avenged Sevenfold/Live in the LBC/Beast and the Harlot (Live)‖05
+Avenged Sevenfold/Live in the LBC/Scream (Live)‖06
+Avenged Sevenfold/Live in the LBC/Seize the Day (Live)‖07
+Avenged Sevenfold/Live in the LBC/Walk (Live)‖08
+Avenged Sevenfold/Live in the LBC/Bat Country (Live)‖09
+Avenged Sevenfold/Live in the LBC/Almost Easy (Live)‖10
+Avenged Sevenfold/Live in the LBC/Gunslinger (Live)‖11
+Avenged Sevenfold/Live in the LBC/Unholy Confessions (Live)‖12
+Avenged Sevenfold/Live in the LBC/A Little Piece of Heaven (Live)‖13
 Avenged Sevenfold/Mad Hatter/Mad Hatter‖01
 Avenged Sevenfold/Nightmare/Nightmare‖01
 Avenged Sevenfold/Nightmare/Welcome to the Family‖02
@@ -151,22 +151,22 @@ Avenged Sevenfold/Waking the Fallen: Resurrected/And All Things Will End‖12
 Avenged Sevenfold/Waking the Fallen: Resurrected/Chapter Four (Demo)‖15
 Avenged Sevenfold/Waking the Fallen: Resurrected/Chapter Four‖03
 Avenged Sevenfold/Waking the Fallen: Resurrected/Clairvoyant Disease‖11
-Avenged Sevenfold/Waking the Fallen: Resurrected/Desecrate Through Reverence (Live In Pomona)‖20
+Avenged Sevenfold/Waking the Fallen: Resurrected/Desecrate Through Reverence (Live in Pomona)‖20
 Avenged Sevenfold/Waking the Fallen: Resurrected/Desecrate Through Reverence‖05
-Avenged Sevenfold/Waking the Fallen: Resurrected/Eternal Rest (Live In Pomona)‖21
+Avenged Sevenfold/Waking the Fallen: Resurrected/Eternal Rest (Live in Pomona)‖21
 Avenged Sevenfold/Waking the Fallen: Resurrected/Eternal Rest‖06
 Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 1 (Demo)‖17
 Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 1‖09
 Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 2 (Demo)‖18
 Avenged Sevenfold/Waking the Fallen: Resurrected/I Won't See You Tonight Part 2‖10
-Avenged Sevenfold/Waking the Fallen: Resurrected/Intro / Chapter Four (Live In Ventura)‖19
+Avenged Sevenfold/Waking the Fallen: Resurrected/Intro / Chapter Four (Live in Ventura)‖19
 Avenged Sevenfold/Waking the Fallen: Resurrected/Radiant Eclipse‖08
 Avenged Sevenfold/Waking the Fallen: Resurrected/Remenissions (Demo)‖16
 Avenged Sevenfold/Waking the Fallen: Resurrected/Remenissions‖04
 Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat (Alternate Version)‖14
-Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat (Live In Ventura)‖23
+Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat (Live in Ventura)‖23
 Avenged Sevenfold/Waking the Fallen: Resurrected/Second Heartbeat‖07
-Avenged Sevenfold/Waking the Fallen: Resurrected/Unholy Confessions (Live In Ventura)‖22
+Avenged Sevenfold/Waking the Fallen: Resurrected/Unholy Confessions (Live in Ventura)‖22
 Avenged Sevenfold/Waking the Fallen: Resurrected/Unholy Confessions‖02
 Avenged Sevenfold/Waking the Fallen: Resurrected/Waking the Fallen‖01
 Avenged Sevenfold/Waking the Fallen: Resurrected/Waking the Fallen: Resurrected‖13
@@ -185,7 +185,7 @@ Avenged Sevenfold/Waking the Fallen/Waking the Fallen‖01
 Avenged Sevenfold/Walk/Walk‖01
 Avenged Sevenfold/We Love You/We Love You‖01
 Avenged Sevenfold/Welcome to the Family/4:00 AM‖02
-Avenged Sevenfold/Welcome to the Family/Seize the Day (Live In Seattle)‖03
+Avenged Sevenfold/Welcome to the Family/Seize the Day (Live in Seattle)‖03
 Avenged Sevenfold/Welcome to the Family/Welcome to the Family‖01
 Kendrick Lamar/All the Stars/All the Stars‖01
 Kendrick Lamar/Alright/Alright‖01
@@ -254,7 +254,7 @@ Kendrick Lamar/Mr. Morale & The Big Steppers/Savior‖14
 Kendrick Lamar/Mr. Morale & The Big Steppers/Savior (Interlude)‖13
 Kendrick Lamar/Mr. Morale & The Big Steppers/Silent Hill‖12
 Kendrick Lamar/Mr. Morale & The Big Steppers/The Heart Part 5‖19
-Kendrick Lamar/Mr. Morale & The Big Steppers/United In Grief‖01
+Kendrick Lamar/Mr. Morale & The Big Steppers/United in Grief‖01
 Kendrick Lamar/Mr. Morale & The Big Steppers/We Cry Together‖08
 Kendrick Lamar/Mr. Morale & The Big Steppers/Worldwide Steppers‖03
 Kendrick Lamar/Not Like Us/Not Like Us‖01
@@ -759,7 +759,7 @@ Natiruts/Box Natiruts/Cheiro de Flor‖22
 Natiruts/Box Natiruts/Deixa o Menino Jogar (Ao Vivo)‖46
 Natiruts/Box Natiruts/Dentro da Música‖12
 Natiruts/Box Natiruts/Em Paz (Ao Vivo)‖34
-Natiruts/Box Natiruts/Eu e Ela / Waiting In Vain (Ao Vivo)‖40
+Natiruts/Box Natiruts/Eu e Ela / Waiting in Vain (Ao Vivo)‖40
 Natiruts/Box Natiruts/Eu Eternamente Cantarei a Paz‖21
 Natiruts/Box Natiruts/Fogueira de Desilusões‖04
 Natiruts/Box Natiruts/Forasteiro (Ao Vivo)‖42
@@ -854,7 +854,7 @@ Natiruts/Mega Hits - Natiruts/Au de Cabeça‖03
 Natiruts/Mega Hits - Natiruts/Caraíva‖04
 Natiruts/Mega Hits - Natiruts/Deixa o Menino Jogar (Ao Vivo)‖05
 Natiruts/Mega Hits - Natiruts/Em Paz (Ao Vivo)‖06
-Natiruts/Mega Hits - Natiruts/Eu e Ela / Waiting In Vain (Ao Vivo)‖07
+Natiruts/Mega Hits - Natiruts/Eu e Ela / Waiting in Vain (Ao Vivo)‖07
 Natiruts/Mega Hits - Natiruts/Forasteiro (Ao Vivo)‖08
 Natiruts/Mega Hits - Natiruts/Groove Bom‖09
 Natiruts/Mega Hits - Natiruts/Iluminar (Ao Vivo)‖10
@@ -995,7 +995,7 @@ Natiruts/Reggae Power (Ao Vivo)/Andei Só (Ao Vivo)‖21
 Natiruts/Reggae Power (Ao Vivo)/Caraíva (Ao Vivo)‖07
 Natiruts/Reggae Power (Ao Vivo)/Deixa o Menino Jogar (Ao Vivo)‖22
 Natiruts/Reggae Power (Ao Vivo)/Em Paz (Ao Vivo)‖10
-Natiruts/Reggae Power (Ao Vivo)/Eu e Ela / Waiting In Vain (Ao Vivo)‖16
+Natiruts/Reggae Power (Ao Vivo)/Eu e Ela / Waiting in Vain (Ao Vivo)‖16
 Natiruts/Reggae Power (Ao Vivo)/Forasteiro (Ao Vivo)‖18
 Natiruts/Reggae Power (Ao Vivo)/Iluminar (Ao Vivo)‖08
 Natiruts/Reggae Power (Ao Vivo)/Leve Com Você (Ao Vivo)‖19
@@ -1074,7 +1074,7 @@ Taylor Swift/1989/I Know Places‖24
 Taylor Swift/1989/Clean (Commentary)‖25
 Taylor Swift/1989/Clean‖26
 Taylor Swift/1989/Wonderland‖27
-Taylor Swift/1989/You Are In Love‖28
+Taylor Swift/1989/You Are in Love‖28
 Taylor Swift/1989/New Romantics‖29
 Taylor Swift/1989 (Taylor's Version)/Welcome to New York (Taylor's Version)‖01
 Taylor Swift/1989 (Taylor's Version)/Blank Space (Taylor's Version)‖02
@@ -1090,7 +1090,7 @@ Taylor Swift/1989 (Taylor's Version)/This Love (Taylor’s Version)‖11
 Taylor Swift/1989 (Taylor's Version)/I Know Places (Taylor's Version)‖12
 Taylor Swift/1989 (Taylor's Version)/Clean (Taylor's Version)‖13
 Taylor Swift/1989 (Taylor's Version)/Wonderland (Taylor's Version)‖14
-Taylor Swift/1989 (Taylor's Version)/You Are In Love (Taylor's Version)‖15
+Taylor Swift/1989 (Taylor's Version)/You Are in Love (Taylor's Version)‖15
 Taylor Swift/1989 (Taylor's Version)/New Romantics (Taylor's Version)‖16
 Taylor Swift/1989 (Taylor's Version)/Slut!" (Taylor's Version) (From the Vault)"‖17
 Taylor Swift/1989 (Taylor's Version)/Say Don't Go (Taylor's Version) (From the Vault)‖18
@@ -1108,7 +1108,7 @@ Taylor Swift/Anti-Hero/Anti-Hero‖01
 Taylor Swift/Anti-Hero/Anti-Hero (Acoustic Version)‖02
 Taylor Swift/Bad Blood/Bad Blood‖01
 Taylor Swift/Betty/Betty (Live From the 2020 Academy of Country Music Awards)‖01
-Taylor Swift/Cardigan/Cardigan (Cabin In Candlelight Version)‖01
+Taylor Swift/Cardigan/Cardigan (Cabin in Candlelight Version)‖01
 Taylor Swift/Cornelia Street/Cornelia Street (Live From Paris)‖01
 Taylor Swift/Daylight/Daylight (Live From Paris)‖01
 Taylor Swift/Death By a Thousand Cuts/Death By a Thousand Cuts (Live From Paris)‖01
@@ -1148,7 +1148,7 @@ Taylor Swift/Fearless/Should've Said no (International Mix)‖29
 Taylor Swift/Fearless/Jump Then Fall‖30
 Taylor Swift/Fearless/Untouchable‖31
 Taylor Swift/Fearless/Forever & Always (Piano Version)‖32
-Taylor Swift/Fearless/Come In with the Rain‖33
+Taylor Swift/Fearless/Come in with the Rain‖33
 Taylor Swift/Fearless/Superstar‖34
 Taylor Swift/Fearless/The Other Side of the Door‖35
 Taylor Swift/Fearless (Taylor's Version)/Fearless (Taylor’s Version)‖01
@@ -1167,7 +1167,7 @@ Taylor Swift/Fearless (Taylor's Version)/Change (Taylor’s Version)‖13
 Taylor Swift/Fearless (Taylor's Version)/Jump Then Fall (Taylor’s Version)‖14
 Taylor Swift/Fearless (Taylor's Version)/Untouchable (Taylor’s Version)‖15
 Taylor Swift/Fearless (Taylor's Version)/Forever & Always (Piano Version) (Taylor’s Version)‖16
-Taylor Swift/Fearless (Taylor's Version)/Come In with the Rain (Taylor’s Version)‖17
+Taylor Swift/Fearless (Taylor's Version)/Come in with the Rain (Taylor’s Version)‖17
 Taylor Swift/Fearless (Taylor's Version)/Superstar (Taylor’s Version)‖18
 Taylor Swift/Fearless (Taylor's Version)/The Other Side of the Door (Taylor’s Version)‖19
 Taylor Swift/Fearless (Taylor's Version)/Today Was a Fairytale (Taylor’s Version)‖20
@@ -1195,12 +1195,12 @@ Taylor Swift/Fearless (Taylor’s Version): The I Remember What You Said Last Ni
 Taylor Swift/Fearless (Taylor’s Version): The I Remember What You Said Last Night Chapter/Love Story (Taylor’s Version)‖04
 Taylor Swift/Fearless (Taylor’s Version): The I Remember What You Said Last Night Chapter/Forever & Always (Taylor’s Version)‖05
 Taylor Swift/Fearless (Taylor’s Version): The I Remember What You Said Last Night Chapter/Change (Taylor’s Version)‖06
-Taylor Swift/Fearless (Taylor's Version): The Kissing In the Rain Chapter/The Way I Loved You (Taylor’s Version)‖01
-Taylor Swift/Fearless (Taylor's Version): The Kissing In the Rain Chapter/Hey Stephen (Taylor’s Version)‖02
-Taylor Swift/Fearless (Taylor's Version): The Kissing In the Rain Chapter/Today Was a Fairytale (Taylor’s Version)‖03
-Taylor Swift/Fearless (Taylor's Version): The Kissing In the Rain Chapter/Fifteen (Taylor’s Version)‖04
-Taylor Swift/Fearless (Taylor's Version): The Kissing In the Rain Chapter/Superstar (Taylor’s Version)‖05
-Taylor Swift/Fearless (Taylor's Version): The Kissing In the Rain Chapter/Come In with the Rain (Taylor’s Version)‖06
+Taylor Swift/Fearless (Taylor's Version): The Kissing in the Rain Chapter/The Way I Loved You (Taylor’s Version)‖01
+Taylor Swift/Fearless (Taylor's Version): The Kissing in the Rain Chapter/Hey Stephen (Taylor’s Version)‖02
+Taylor Swift/Fearless (Taylor's Version): The Kissing in the Rain Chapter/Today Was a Fairytale (Taylor’s Version)‖03
+Taylor Swift/Fearless (Taylor's Version): The Kissing in the Rain Chapter/Fifteen (Taylor’s Version)‖04
+Taylor Swift/Fearless (Taylor's Version): The Kissing in the Rain Chapter/Superstar (Taylor’s Version)‖05
+Taylor Swift/Fearless (Taylor's Version): The Kissing in the Rain Chapter/Come in with the Rain (Taylor’s Version)‖06
 Taylor Swift/Folklore/The 1‖01
 Taylor Swift/Folklore/Cardigan‖02
 Taylor Swift/Folklore/The Last Great American Dynasty‖03
@@ -1325,8 +1325,8 @@ Taylor Swift/Lover/Lover (Remix)‖20
 Taylor Swift/Lover/Lover (First Dance Remix)‖21
 Taylor Swift/ME!/ME! (Live From Paris)‖01
 Taylor Swift/ME! (feat. Brendon Urie of Panic! at the Disco)/ME! (feat. Brendon Urie of Panic! at the Disco)‖01
-Taylor Swift/Message In a Bottle (Fat Max G Remix) (Taylor’s Version)/Message In a Bottle (Fat Max G Remix) (Taylor’s Version)‖01
-Taylor Swift/Message In a Bottle (Fat Max G Remix) (Taylor’s Version)/Message In a Bottle (Taylor's Version) (From the Vault)‖02
+Taylor Swift/Message in a Bottle (Fat Max G Remix) (Taylor’s Version)/Message in a Bottle (Fat Max G Remix) (Taylor’s Version)‖01
+Taylor Swift/Message in a Bottle (Fat Max G Remix) (Taylor’s Version)/Message in a Bottle (Taylor's Version) (From the Vault)‖02
 Taylor Swift/Midnights/Lavender Haze‖01
 Taylor Swift/Midnights/Maroon‖02
 Taylor Swift/Midnights/Anti-Hero‖03
@@ -1351,7 +1351,7 @@ Taylor Swift/Midnights/Hits Different‖21
 Taylor Swift/Midnights/Snow On the Beach‖22
 Taylor Swift/Mr. Perfectly Fine (Taylor’s Version) (From the Vault)/Mr. Perfectly Fine (Taylor’s Version) (From the Vault)‖01
 Taylor Swift/My Track/My Track‖01
-Taylor Swift/Only the Young/Only the Young (Featured In Miss Americana)‖01
+Taylor Swift/Only the Young/Only the Young (Featured in Miss Americana)‖01
 Taylor Swift/Our Song - Taylor Swift/Our Song - Taylor Swift‖01
 Taylor Swift/Red/State of Grace (Commentary)‖01
 Taylor Swift/Red/State of Grace‖02
@@ -1421,7 +1421,7 @@ Taylor Swift/Red (Taylor's Version)/Forever Winter (Taylor's Version) (From the 
 Taylor Swift/Red (Taylor's Version)/Run (Taylor's Version) (From the Vault)‖28
 Taylor Swift/Red (Taylor's Version)/The Very First Night (Taylor's Version) (From the Vault)‖29
 Taylor Swift/Red (Taylor's Version)/All Too Well (10 Minute Version) (Taylor's Version) (From the Vault)‖30
-Taylor Swift/Red (Taylor’s Version): Could You Be the One Chapter/Message In a Bottle (Taylor's Version) (From the Vault)‖01
+Taylor Swift/Red (Taylor’s Version): Could You Be the One Chapter/Message in a Bottle (Taylor's Version) (From the Vault)‖01
 Taylor Swift/Red (Taylor’s Version): Could You Be the One Chapter/State of Grace (Taylor's Version)‖02
 Taylor Swift/Red (Taylor’s Version): Could You Be the One Chapter/Treacherous (Taylor's Version)‖03
 Taylor Swift/Red (Taylor’s Version): Could You Be the One Chapter/Everything Has Changed (Taylor's Version)‖04
@@ -1529,7 +1529,7 @@ Taylor Swift/Speak Now (Taylor's Version)/Long Live (Taylor's Version)‖14
 Taylor Swift/Speak Now (Taylor's Version)/Ours (Taylor’s Version)‖15
 Taylor Swift/Speak Now (Taylor's Version)/Superman (Taylor’s Version)‖16
 Taylor Swift/Speak Now (Taylor's Version)/Electric Touch (Taylor’s Version) (From the Vault)‖17
-Taylor Swift/Speak Now (Taylor's Version)/When Emma Falls In Love (Taylor’s Version) (From the Vault)‖18
+Taylor Swift/Speak Now (Taylor's Version)/When Emma Falls in Love (Taylor’s Version) (From the Vault)‖18
 Taylor Swift/Speak Now (Taylor's Version)/I Can See You (Taylor’s Version) (From the Vault)‖19
 Taylor Swift/Speak Now (Taylor's Version)/Castles Crumbling (Taylor’s Version) (From the Vault)‖20
 Taylor Swift/Speak Now (Taylor's Version)/Foolish One (Taylor’s Version) (From the Vault)‖21
@@ -1558,8 +1558,8 @@ Taylor Swift/Taylor Swift/Picture to Burn (Commentary)‖03
 Taylor Swift/Taylor Swift/Picture to Burn‖04
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Radio Single Remix / Commentary)‖05
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Radio Single Remix)‖06
-Taylor Swift/Taylor Swift/A Place In This World (Commentary)‖07
-Taylor Swift/Taylor Swift/A Place In This World‖08
+Taylor Swift/Taylor Swift/A Place in This World (Commentary)‖07
+Taylor Swift/Taylor Swift/A Place in This World‖08
 Taylor Swift/Taylor Swift/Cold as You (Commentary)‖09
 Taylor Swift/Taylor Swift/Cold as You‖10
 Taylor Swift/Taylor Swift/The Outside (Commentary)‖11
@@ -1659,7 +1659,7 @@ Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/How Did It End?‖21
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/So High School‖22
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/I Hate It Here‖23
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/ThanK you aIMee‖24
-Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/I Look In People's Windows‖25
+Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/I Look in People's Windows‖25
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/The Prophecy‖26
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/Cassandra‖27
 Taylor Swift/THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY/Peter‖28
@@ -1728,7 +1728,7 @@ Taylor Swift/Speak Now/Long Live (Instrumental with Background Vocals)‖48
 Taylor Swift/Taylor Swift/Tim McGraw (Instrumental W/ BG Vocals)‖31
 Taylor Swift/Taylor Swift/Picture to Burn (Instrumental W/ BG Vocals)‖32
 Taylor Swift/Taylor Swift/Teardrops On My Guitar (Instrumental W/ BG Vocals)‖33
-Taylor Swift/Taylor Swift/A Place In This World (Instrumental W/ BG Vocals)‖34
+Taylor Swift/Taylor Swift/A Place in This World (Instrumental W/ BG Vocals)‖34
 Taylor Swift/Taylor Swift/Cold as You (Instrumental W/ BG Vocals)‖35
 Taylor Swift/Taylor Swift/The Outside (Instrumental W/ BG Vocals)‖36
 Taylor Swift/Taylor Swift/Tied Together with a Smile (Instrumental W/ BG Vocals)‖37
