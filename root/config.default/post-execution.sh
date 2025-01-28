@@ -261,7 +261,7 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/plex_artist_downloader.py
 
   sleep '5'
-  python3 /app/scripts/various_artists_cover.py
+  python3 /app/scripts/unknown_artist_cover.py
 
   # tracks fixer api
 

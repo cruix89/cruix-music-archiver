@@ -47,7 +47,7 @@ a fully automated docker image to easily download and manage a music library bas
 - **smart correction and normalization of tags and files**  
   a large library of patches are applied to standardize and correct filenames and tags
 
-- **various artists and albums cataloging**  
+- **unknown artists and albums cataloging**  
   if the downloaded song does not belong to a specific album, it is cataloged as "YT Tracks" and assigned an appropriate cover for the album.
   If the artist does not have an artist image in the database, an appropriate cover is also assigned, similar to how "Unknown Artist" is assigned in MusicBrainz.
 
