@@ -1,5 +1,5 @@
 
-# <img src="https://i.imgur.com/KGjEr5m.png" alt="Logo do Projeto" width="32" height="32"> cruix89 / cruix-music-archiver <img src="https://i.imgur.com/KGjEr5m.png" alt="Logo do Projeto" width="32" height="32">
+# <img src="https://i.imgur.com/jqUzHY9.png" alt="Logo do Projeto" width="32" height="32"> cruix89 / cruix-music-archiver <img src="https://i.imgur.com/jqUzHY9.png" alt="Logo do Projeto" width="32" height="32">
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/cruix89/cruix-music-archiver?logo=github)](https://github.com/cruix89/cruix-music-archiver/actions/workflows/push-unstable-image.yml/)
 [![GitHub Automated build](https://img.shields.io/github/actions/workflow/status/cruix89/cruix-music-archiver/push-release-version-image.yml?logo=github)](https://github.com/cruix89/cruix-music-archiver/actions/workflows/push-release-version-image.yml/)
@@ -207,7 +207,7 @@ docker run
 | `--extract-audio`        | `--extract-audio`                                      | send the audio extraction command                                     |
 | `--audio-format`         | `flac`                                                 | download without loss of quality format                               |
 | `--embed-metadata`       | `--embed-metadata`                                     | writes metadata to file                                               |
-| `--sleep-requests`       | `1.5`                                                  | waits for time to prevent request blocking                            |
+| `--sleep-requests`       | `0.1`                                                  | waits for time to prevent request blocking                            |
  
 ---
 
