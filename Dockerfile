@@ -26,7 +26,6 @@ RUN apt update && apt install -y \
         python3-eyed3 \
         python3-mutagen \
         python3-requests \
-        python3-beautifulsoup4 \
         python3-pylast \
         python3-pillow \
         libffi-dev \
@@ -46,7 +45,8 @@ RUN apt update && apt install -y \
         imagemagick && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
-# install yt-dlp using pip3
+# install using pip3
+RUN pip3 --no-cache-dir install --break-system-packages beautifulsoup4
 RUN pip3 --no-cache-dir install --break-system-packages yt-dlp
 
 # copy remaining files
