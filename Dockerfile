@@ -23,26 +23,26 @@ RUN apt update && apt install -y \
         python3-certifi \
         python3-brotli \
         python3-pycryptodome \
-		python3-eyed3 \
-		python3-mutagen \
-		python3-requests \
-		python3-beautifulsoup4 \
-		python3-pylast \
-		python3-pillow \
+	    python3-eyed3 \
+	    python3-mutagen \
+	    python3-requests \
+	    python3-beautifulsoup4 \
+	    python3-pylast \
+	    python3-pillow \
         libffi-dev \
         libgmp-dev \
         libbrotli-dev \
         gnupg \
         ffmpeg \
         gosu \
-		libjpeg-dev \
-		zlib1g-dev \
-		libpng-dev \
-		libtiff-dev \
-		liblcms2-dev \
-		libffi-dev \
-		libgdk-pixbuf2.0-dev \
-		libmagickwand-dev \
+	    libjpeg-dev \
+	    zlib1g-dev \
+	    libpng-dev \
+	    libtiff-dev \
+	    liblcms2-dev \
+	    libffi-dev \
+	    libgdk-pixbuf2.0-dev \
+	    libmagickwand-dev \
         imagemagick && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
