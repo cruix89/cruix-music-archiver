@@ -1,6 +1,9 @@
 #!/usr/bin/with-contenv bash
 
+echo -e ""
+echo -e "\033[1;35m[cruix-video-archiver] updating yt-dlp...\033[0m"
 touch '/tmp/updater-running'; sleep 1m
-python3 -m pip --no-cache-dir --quiet install --upgrade yt-dlp > /dev/null
+pip3 --no-cache-dir install --upgrade --break-system-packages yt-dlp 2>&1 | grep -v "WARNING: Running pip as the 'root'"
 rm -f '/tmp/updater-running'
-sleep 3h
+echo -e "\033[1;35m[cruix-video-archiver] yt-dlp is up to date.\033[0m"
+sleep 1h
