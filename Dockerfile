@@ -45,7 +45,7 @@ RUN apt update && apt install -y \
         imagemagick && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
-# install using pip3
+# install python libs using pip3
 RUN pip3 --no-cache-dir install --break-system-packages beautifulsoup4
 RUN pip3 --no-cache-dir install --break-system-packages yt-dlp
 
