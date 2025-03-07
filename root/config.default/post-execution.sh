@@ -22,7 +22,7 @@ mkdir -p $duplicated_artist_dir
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
 
-  echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache /logs /downloads. 🧹  ✨"
+  echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache /logs 🧹  ✨"
 
   sleep '5'
   mkdir -p $cache_dir
