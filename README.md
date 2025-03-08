@@ -64,7 +64,7 @@ a fully automated docker image to easily download and manage a music library bas
 
 - **LUFS-based normalization**  
   audio processing using [ffmpeg](https://github.com/FFmpeg/FFmpeg) to calculate the audio LUFS and normalize the entire library,  
-  using the same parameters that major streaming platforms use, improving the sound experience and reducing volume differences between different sounds
+  using the same parameters that major streaming platforms use, improving the sound experience and reducing volume differences between different medias
 
 - **designed for excellent compatibility with large media center projects**  
   the library structure is organized for great viewing on [plex](https://github.com/plexinc/pms-docker) and [jellyfin](https://jellyfin.org/docs/general/installation/container/)
@@ -79,7 +79,6 @@ a fully automated docker image to easily download and manage a music library bas
 docker run
   -d
   --name='cruix-music-archiver'
-  --privileged=true
   -e TZ="America/Sao_Paulo"
   -e 'yt_dlp_interval'='1h'
   -e 'PUID'='1000'
@@ -184,7 +183,7 @@ docker run
 - **unsupported arguments**
  ```plaintext
   --config-location, hardcoded to /config/args.conf.
-  --batch-file, hardcoded to /config/channels.txt.
+  --batch-file, hardcoded to /config/artists.txt.
   ```
   
 ---
