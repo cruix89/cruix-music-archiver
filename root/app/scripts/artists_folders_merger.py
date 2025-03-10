@@ -3,12 +3,13 @@ import logging
 import shutil
 from pathlib import Path
 
+
 def setup_directories():
     """
     setup directories and ensure they exist
     """
     try:
-        music_directory = Path('/music').resolve()
+        music_directory = Path('/music').resolve()  # ensuring the correct type with Path
         logs_directory = Path('/config/logs').resolve()
         duplicate_folders_directory = Path('/config/duplicated-artists-folders').resolve()
         cache_directory = Path('/config/cache').resolve()
@@ -23,6 +24,7 @@ def setup_directories():
     except Exception as error:
         logging.error(f'error setting up directories: {error}')
         raise
+
 
 def process_artists_top_level(base_directory, duplicate_folders_directory, cache_directory):
     """
@@ -59,39 +61,55 @@ def process_artists_top_level(base_directory, duplicate_folders_directory, cache
 
                 # copy content of all grouped folders to the cache directory
                 for folder in artist_group:
-                    for item in folder.iterdir():
-                        target_path = cache_folder / item.name
+                    for item in os.listdir(folder):
+                        item = str(item)  # ensure item is a string
+                        source_path = folder / item
+                        target_path = cache_folder / item
 
-                        if item.is_dir():
-                            shutil.copytree(item, target_path, dirs_exist_ok=True)
+                        if source_path.is_dir():
+                            logging.info(f"[cruix-music-archiver] Copying Directory: {source_path} to {target_path}")
+                            print(f"[cruix-music-archiver] Copying Directory: {source_path} to {target_path}  📂 ")
+                            shutil.copytree(source_path, target_path, dirs_exist_ok=True)
                         else:
-                            shutil.copy2(item, target_path)  # Sobrescreve arquivos existentes
+                            logging.info(f"[cruix-music-archiver] Copying File: {source_path} to {target_path}")
+                            print(f"[cruix-music-archiver] Copying File: {source_path} to {target_path}  🔄  ")
+                            shutil.copy2(source_path, target_path)
 
                 # move original folders to the duplicate folder directory
                 for folder in artist_group:
                     target_folder = duplicate_folders_directory / folder.name
-                    target_folder.mkdir(parents=True, exist_ok=True)
 
-                    for item in folder.iterdir():
-                        target_path = target_folder / item.name
-                        if item.is_dir():
-                            shutil.copytree(item, target_path, dirs_exist_ok=True)
-                        else:
-                            shutil.copy2(item, target_path)  # Sobrescreve arquivos existentes
-
-                    logging.info(f"[cruix-music-archiver] Deleting Original Folder: {folder}")
-                    print(f"[cruix-music-archiver] Deleting Original Folder: {folder}   🗑️  ")
-                    shutil.rmtree(folder)
+                    try:
+                        logging.info(f"[cruix-music-archiver] Copying Folder: {folder} to {target_folder}")
+                        print(f"[cruix-music-archiver] Copying Folder: {folder} to {target_folder}  📂 ")
+                        shutil.copytree(folder, target_folder, dirs_exist_ok=True)
+                        logging.info(f"[cruix-music-archiver] Deleting Original Folder: {folder}")
+                        print(f"[cruix-music-archiver] Deleting Original Folder: {folder}   🗑️  ")
+                        shutil.rmtree(folder)
+                    except Exception as error:
+                        logging.error(f"[cruix-music-archiver] Error Moving Folder '{folder}' to '{target_folder}': {error}")
+                        print(f"[cruix-music-archiver] Error Moving Folder '{folder}' to '{target_folder}': {error}  ❌  ")
+                        raise
 
                 # move the merged cache folder back to the original directory
                 target_path = base_directory / base_name
-                shutil.copytree(cache_folder, target_path, dirs_exist_ok=True)
-                shutil.rmtree(cache_folder)
+                try:
+                    logging.info(f"[cruix-music-archiver] Copying Merged Directory: {cache_folder} to {target_path}")
+                    print(f"[cruix-music-archiver] Copying Merged Directory: {cache_folder} to {target_path}   🗂️  ")
+                    shutil.copytree(cache_folder, target_path, dirs_exist_ok=True)
+                    logging.info(f"[cruix-music-archiver] Deleting Cache Folder: {cache_folder}")
+                    print(f"[cruix-music-archiver] Deleting Cache Folder: {cache_folder}  ♻️  ")
+                    shutil.rmtree(cache_folder)
+                except Exception as error:
+                    logging.error(f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}")
+                    print(f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}  ❌ ")
+                    raise
 
         logging.info("artist directory processing completed successfully.")
     except Exception as error:
         logging.error(f"error processing artist directories: {error}")
         raise
+
 
 # CONFIGURE LOGGING
 try:
