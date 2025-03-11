@@ -2,6 +2,7 @@ import os
 import logging
 import shutil
 from pathlib import Path
+from datetime import datetime
 
 
 def setup_directories():
@@ -12,13 +13,13 @@ def setup_directories():
         music_directory = Path('/music').resolve()
         logs_directory = Path('/config/logs').resolve()
         cache_directory = Path('/config/cache').resolve()
-        backup_directory = Path('/config/backup').resolve()  # New backup folder
+        backup_directory = Path('/config/backups').resolve()
 
         # Ensure directories exist
         music_directory.mkdir(parents=True, exist_ok=True)
         logs_directory.mkdir(parents=True, exist_ok=True)
         cache_directory.mkdir(parents=True, exist_ok=True)
-        backup_directory.mkdir(parents=True, exist_ok=True)  # Ensure backup directory exists
+        backup_directory.mkdir(parents=True, exist_ok=True)
 
         return music_directory, logs_directory, cache_directory, backup_directory
     except Exception as error:
@@ -56,9 +57,11 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                 # Backup the original folders before any modification
                 for folder in artist_group:
                     try:
+                        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                        backup_target_folder = backup_directory / f"{folder.name}_{timestamp}"
+
                         logging.info(f"[cruix-music-archiver] Creating Backup for Folder: {folder}  📂")
-                        backup_target_folder = backup_directory / folder.name  # Backup path
-                        shutil.copytree(folder, backup_target_folder, dirs_exist_ok=True)  # Create backup
+                        shutil.copytree(folder, backup_target_folder, dirs_exist_ok=True)
                     except Exception as error:
                         logging.error(f"[cruix-music-archiver] Error Creating Backup for Folder '{folder}': {error}")
                         raise
@@ -81,7 +84,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                 for folder in artist_group:
                     try:
                         logging.info(f"[cruix-music-archiver] Deleting Original Folder: {folder}")
-                        shutil.rmtree(folder)  # Delete the original folder
+                        shutil.rmtree(folder)
                     except Exception as error:
                         logging.error(f"[cruix-music-archiver] Error Deleting Folder '{folder}': {error}")
                         raise
@@ -94,7 +97,8 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                     logging.info(f"[cruix-music-archiver] Deleting Cache Folder: {cache_folder}")
                     shutil.rmtree(cache_folder)
                 except Exception as error:
-                    logging.error(f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}")
+                    logging.error(
+                        f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}")
                     raise
 
         logging.info("Artist directory processing completed successfully.")
@@ -113,7 +117,8 @@ except Exception as e:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] Artists Folders Merging Process...  📂  ➡️   Let the Transformation Begin!  🚀  🛠 ", flush=True)
+print("[cruix-music-archiver] Artists Folders Merging Process...  📂  ➡️   Let the Transformation Begin!  🚀  🛠 ",
+      flush=True)
 
 # PROCESS MUSIC DIRECTORY
 try:
