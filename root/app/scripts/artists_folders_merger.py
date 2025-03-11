@@ -26,7 +26,7 @@ def handle_remove_error(func, path, exc_info):
                 for entry in os.listdir(path):
                     full_entry = os.path.join(path, entry)
                     if os.path.isdir(full_entry):
-                        shutil.rmtree(full_entry, onerror=handle_remove_error)
+                        shutil.rmtree(full_entry, ignore_errors=True)
                     else:
                         os.remove(full_entry)
             except Exception as cleanup_error:
@@ -98,7 +98,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
                         backup_target_folder = backup_directory / f"{folder.name}_{timestamp}"
 
-                        logging.info(f"[cruix-music-archiver] Creating Backup for Folder: {folder}  📂")
+                        logging.info(f"[cruix-music-archiver] Creating Backup for Folder: {folder}  📚")
                         shutil.copytree(folder, backup_target_folder, dirs_exist_ok=True)
                     except Exception as backup_error:
                         logging.error(
@@ -123,7 +123,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                 for folder in artist_group:
                     try:
                         logging.info(f"[cruix-music-archiver] Deleting Original Folder: {folder}")
-                        shutil.rmtree(folder, onerror=handle_remove_error)
+                        shutil.rmtree(folder, ignore_errors=True)
                     except Exception as delete_error:
                         logging.error(f"[cruix-music-archiver] Error Deleting Folder '{folder}': {delete_error}")
                         raise
@@ -134,7 +134,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                     logging.info(f"[cruix-music-archiver] Copying Merged Directory: {cache_folder} to {target_path}")
                     shutil.copytree(cache_folder, target_path, dirs_exist_ok=True)
                     logging.info(f"[cruix-music-archiver] Deleting Cache Folder: {cache_folder}")
-                    shutil.rmtree(cache_folder, onerror=handle_remove_error)
+                    shutil.rmtree(cache_folder, ignore_errors=True)
                 except Exception as move_error:
                     logging.error(
                         f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {move_error}")
@@ -156,7 +156,7 @@ except Exception as logging_error:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] Artists Folders Merging Process...  📂  ➡️   Let the Transformation Begin!  🚀  🛠 ",
+print("[cruix-music-archiver] Artists Folders Merging Process...  📚  ➡️   Let the Transformation Begin!  🚀  🛠 ",
       flush=True)
 
 # PROCESS MUSIC DIRECTORY
@@ -168,4 +168,4 @@ except Exception as execution_error:
 
 # NOTIFY END OF PROCESS
 print(
-    "[cruix-music-archiver] Artists Folder Merged Successfully...  📂  ✅  Your Files Are Now Perfectly Organized and Ready to Shine! 🗂  ✨ ")
+    "[cruix-music-archiver] Artists Folder Merged Successfully...  📚  ✅  Your Files Are Now Perfectly Organized and Ready to Shine! 🗂  ✨ ")
