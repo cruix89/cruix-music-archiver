@@ -5,27 +5,43 @@ from pathlib import Path
 from datetime import datetime
 import time
 
+
 def handle_remove_error(func, path, exc_info):
     """
-    Handles errors during directory removal by waiting for a brief interval and trying again.
+    Handles errors during directory removal by waiting for a brief interval and retrying multiple times.
+
+    The parameter `exc_info` is logged to provide details about the original exception.
     """
-    time.sleep(0.5)  # Increase wait time to 0.5 seconds
-    # Attempt to remove any remaining contents in the directory
-    if os.path.isdir(path):
+    max_attempts = 5  # Maximum number of removal attempts
+    attempt = 0
+
+    # Log the original error information from exc_info once
+    logging.error(f"Initial error removing {path}. Exception info: {exc_info}")
+
+    while attempt < max_attempts:
+        time.sleep(5)  # Wait for 5 seconds between attempts
+        # If the directory exists, attempt to remove any residual content
+        if os.path.isdir(path):
+            try:
+                for entry in os.listdir(path):
+                    full_entry = os.path.join(path, entry)
+                    if os.path.isdir(full_entry):
+                        shutil.rmtree(full_entry, onerror=handle_remove_error)
+                    else:
+                        os.remove(full_entry)
+            except Exception as cleanup_error:
+                logging.error(f"Error cleaning directory {path}: {cleanup_error}")
+
         try:
-            for entry in os.listdir(path):
-                full_entry = os.path.join(path, entry)
-                if os.path.isdir(full_entry):
-                    shutil.rmtree(full_entry, onerror=handle_remove_error)
-                else:
-                    os.remove(full_entry)
-        except Exception as e:
-            logging.error(f"Error cleaning directory {path}: {e}")
-    try:
-        func(path)
-    except Exception as error:
-        logging.error(f"Failed to remove {path} again: {error}")
-        raise
+            func(path)
+            return  # Exit the function if removal is successful
+        except Exception as remove_error:
+            attempt += 1
+            logging.error(f"Attempt {attempt} failed to remove {path}: {remove_error}", exc_info=exc_info)
+
+    # If maximum attempts are exceeded, raise an exception
+    raise Exception(f"Failed to remove directory {path} after {max_attempts} attempts")
+
 
 def setup_directories():
     """
@@ -44,9 +60,10 @@ def setup_directories():
         backup_directory.mkdir(parents=True, exist_ok=True)
 
         return music_directory, logs_directory, cache_directory, backup_directory
-    except Exception as error:
-        logging.error(f'Error setting up directories: {error}')
+    except Exception as setup_error:
+        logging.error(f'Error setting up directories: {setup_error}')
         raise
+
 
 def process_artists_top_level(base_directory, cache_directory, backup_directory):
     """
@@ -83,8 +100,9 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
 
                         logging.info(f"[cruix-music-archiver] Creating Backup for Folder: {folder}  📂")
                         shutil.copytree(folder, backup_target_folder, dirs_exist_ok=True)
-                    except Exception as error:
-                        logging.error(f"[cruix-music-archiver] Error Creating Backup for Folder '{folder}': {error}")
+                    except Exception as backup_error:
+                        logging.error(
+                            f"[cruix-music-archiver] Error Creating Backup for Folder '{folder}': {backup_error}")
                         raise
 
                 # Copy contents of all grouped folders to the cache folder
@@ -106,8 +124,8 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                     try:
                         logging.info(f"[cruix-music-archiver] Deleting Original Folder: {folder}")
                         shutil.rmtree(folder, onerror=handle_remove_error)
-                    except Exception as error:
-                        logging.error(f"[cruix-music-archiver] Error Deleting Folder '{folder}': {error}")
+                    except Exception as delete_error:
+                        logging.error(f"[cruix-music-archiver] Error Deleting Folder '{folder}': {delete_error}")
                         raise
 
                 # Move the merged cache folder back to the original directory
@@ -117,33 +135,37 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                     shutil.copytree(cache_folder, target_path, dirs_exist_ok=True)
                     logging.info(f"[cruix-music-archiver] Deleting Cache Folder: {cache_folder}")
                     shutil.rmtree(cache_folder, onerror=handle_remove_error)
-                except Exception as error:
-                    logging.error(f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}")
+                except Exception as move_error:
+                    logging.error(
+                        f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {move_error}")
                     raise
 
         logging.info("Artist directory processing completed successfully.")
-    except Exception as error:
-        logging.error(f"Error processing artist directories: {error}")
+    except Exception as processing_error:
+        logging.error(f"Error processing artist directories: {processing_error}")
         raise
+
 
 # CONFIGURE LOGGING
 try:
     music_dir, logs_dir, cache_dir, backup_dir = setup_directories()
     log_path = logs_dir / 'artist_folders_merger.log'
     logging.basicConfig(filename=log_path, level=logging.INFO)
-except Exception as e:
-    print(f'[cruix-music-archiver] Error Setting Up Logging: {e}')
+except Exception as logging_error:
+    print(f'[cruix-music-archiver] Error Setting Up Logging: {logging_error}')
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] Artists Folders Merging Process...  📂  ➡️   Let the Transformation Begin!  🚀  🛠 ", flush=True)
+print("[cruix-music-archiver] Artists Folders Merging Process...  📂  ➡️   Let the Transformation Begin!  🚀  🛠 ",
+      flush=True)
 
 # PROCESS MUSIC DIRECTORY
 try:
     process_artists_top_level(music_dir, cache_dir, backup_dir)
-except Exception as e:
-    logging.error(f'Error executing script: {e}')
+except Exception as execution_error:
+    logging.error(f'Error executing script: {execution_error}')
     raise
 
 # NOTIFY END OF PROCESS
-print("[cruix-music-archiver] Artists Folder Merged Successfully...  📂  ✅  Your Files Are Now Perfectly Organized and Ready to Shine! 🗂  ✨ ")
+print(
+    "[cruix-music-archiver] Artists Folder Merged Successfully...  📂  ✅  Your Files Are Now Perfectly Organized and Ready to Shine! 🗂  ✨ ")
