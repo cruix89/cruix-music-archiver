@@ -7,18 +7,29 @@ import time
 
 def handle_remove_error(func, path, exc_info):
     """
-    Trata erros na remoção de diretórios, aguardando um breve intervalo e tentando novamente.
+    Handles errors during directory removal by waiting for a brief interval and trying again.
     """
-    time.sleep(0.1)
+    time.sleep(0.5)  # Increase wait time to 0.5 seconds
+    # Attempt to remove any remaining contents in the directory
+    if os.path.isdir(path):
+        try:
+            for entry in os.listdir(path):
+                full_entry = os.path.join(path, entry)
+                if os.path.isdir(full_entry):
+                    shutil.rmtree(full_entry, onerror=handle_remove_error)
+                else:
+                    os.remove(full_entry)
+        except Exception as e:
+            logging.error(f"Error cleaning directory {path}: {e}")
     try:
         func(path)
     except Exception as error:
-        logging.error(f"Falha ao tentar remover {path} novamente: {error}")
+        logging.error(f"Failed to remove {path} again: {error}")
         raise
 
 def setup_directories():
     """
-    Setup directories and ensure they exist.
+    Sets up directories and ensures they exist.
     """
     try:
         music_directory = Path('/music').resolve()
@@ -39,7 +50,7 @@ def setup_directories():
 
 def process_artists_top_level(base_directory, cache_directory, backup_directory):
     """
-    Process and merge artist directories at the top level.
+    Processes and merges artist directories at the top level.
     """
     try:
         logging.info("Processing artist directories at the top level...")
@@ -54,7 +65,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
             if not artist_path.is_dir():
                 continue
 
-            # Extract base name (e.g., `elana_dara` from `elana_dara_copy1`)
+            # Extract base name (e.g., 'elana_dara' from 'elana_dara_copy1')
             base_name = folder_name.split('copy')[0]
             artist_map.setdefault(base_name, []).append(artist_path)
 
@@ -64,7 +75,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                 cache_folder = cache_directory / base_name
                 cache_folder.mkdir(parents=True, exist_ok=True)
 
-                # Backup the original folders before any modification
+                # Backup the original folders before any modifications
                 for folder in artist_group:
                     try:
                         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
@@ -76,7 +87,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                         logging.error(f"[cruix-music-archiver] Error Creating Backup for Folder '{folder}': {error}")
                         raise
 
-                # Copy content of all grouped folders to cache folder
+                # Copy contents of all grouped folders to the cache folder
                 for folder in artist_group:
                     for item in os.listdir(folder):
                         item = str(item)
@@ -99,7 +110,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                         logging.error(f"[cruix-music-archiver] Error Deleting Folder '{folder}': {error}")
                         raise
 
-                # Move merged cache folder back to the original directory
+                # Move the merged cache folder back to the original directory
                 target_path = base_directory / base_name
                 try:
                     logging.info(f"[cruix-music-archiver] Copying Merged Directory: {cache_folder} to {target_path}")
@@ -107,8 +118,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                     logging.info(f"[cruix-music-archiver] Deleting Cache Folder: {cache_folder}")
                     shutil.rmtree(cache_folder, onerror=handle_remove_error)
                 except Exception as error:
-                    logging.error(
-                        f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}")
+                    logging.error(f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {error}")
                     raise
 
         logging.info("Artist directory processing completed successfully.")
