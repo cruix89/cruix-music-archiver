@@ -8,19 +8,19 @@ import time
 
 def handle_remove_error(func, path, exc_info):
     """
-    Handles errors during directory removal by waiting for a brief interval and retrying multiple times.
+    handles errors during directory removal by waiting for a brief interval and retrying multiple times.
 
-    The parameter `exc_info` is logged to provide details about the original exception.
+    the parameter `exc_info` is logged to provide details about the original exception.
     """
-    max_attempts = 5  # Maximum number of removal attempts
+    max_attempts = 5  # maximum number of removal attempts
     attempt = 0
 
-    # Log the original error information from exc_info once
+    # log the original error information from exc_info once
     logging.error(f"Initial error removing {path}. Exception info: {exc_info}")
 
     while attempt < max_attempts:
-        time.sleep(5)  # Wait for 5 seconds between attempts
-        # If the directory exists, attempt to remove any residual content
+        time.sleep(5)  # wait for 5 seconds between attempts
+        # if the directory exists, attempt to remove any residual content
         if os.path.isdir(path):
             try:
                 for entry in os.listdir(path):
@@ -30,22 +30,22 @@ def handle_remove_error(func, path, exc_info):
                     else:
                         os.remove(full_entry)
             except Exception as cleanup_error:
-                logging.error(f"Error cleaning directory {path}: {cleanup_error}")
+                logging.error(f"error cleaning directory {path}: {cleanup_error}")
 
         try:
             func(path)
-            return  # Exit the function if removal is successful
+            return  # exit the function if removal is successful
         except Exception as remove_error:
             attempt += 1
-            logging.error(f"Attempt {attempt} failed to remove {path}: {remove_error}", exc_info=exc_info)
+            logging.error(f"attempt {attempt} failed to remove {path}: {remove_error}", exc_info=exc_info)
 
-    # If maximum attempts are exceeded, raise an exception
-    raise Exception(f"Failed to remove directory {path} after {max_attempts} attempts")
+    # if maximum attempts are exceeded, raise an exception
+    raise Exception(f"failed to remove directory {path} after {max_attempts} attempts")
 
 
 def setup_directories():
     """
-    Sets up directories and ensures they exist.
+    sets up directories and ensures they exist.
     """
     try:
         music_directory = Path('/music').resolve()
@@ -53,7 +53,7 @@ def setup_directories():
         cache_directory = Path('/config/cache').resolve()
         backup_directory = Path('/config/merged-folders-backup').resolve()
 
-        # Ensure directories exist
+        # ensure directories exist
         music_directory.mkdir(parents=True, exist_ok=True)
         logs_directory.mkdir(parents=True, exist_ok=True)
         cache_directory.mkdir(parents=True, exist_ok=True)
@@ -61,20 +61,20 @@ def setup_directories():
 
         return music_directory, logs_directory, cache_directory, backup_directory
     except Exception as setup_error:
-        logging.error(f'Error setting up directories: {setup_error}')
+        logging.error(f'error setting up directories: {setup_error}')
         raise
 
 
 def process_artists_top_level(base_directory, cache_directory, backup_directory):
     """
-    Processes and merges artist directories at the top level.
+    processes and merges artist directories at the top level.
     """
     try:
-        logging.info("Processing artist directories at the top level...")
+        logging.info("processing artist directories at the top level...")
 
         artist_map = {}
 
-        # Iterate over directories at the top level
+        # iterate over directories at the top level
         for folder_name in os.listdir(base_directory):
             folder_name = str(folder_name)
             artist_path = base_directory / folder_name
@@ -82,17 +82,17 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
             if not artist_path.is_dir():
                 continue
 
-            # Extract base name (e.g., 'elana_dara' from 'elana_dara_copy1')
+            # extract base name
             base_name = folder_name.split('copy')[0]
             artist_map.setdefault(base_name, []).append(artist_path)
 
-        # Process each group of artist directories
+        # process each group of artist directories
         for base_name, artist_group in artist_map.items():
             if len(artist_group) > 1:
                 cache_folder = cache_directory / base_name
                 cache_folder.mkdir(parents=True, exist_ok=True)
 
-                # Backup the original folders before any modifications
+                # backup the original folders before any modifications
                 for folder in artist_group:
                     try:
                         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
@@ -105,7 +105,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                             f"[cruix-music-archiver] Error Creating Backup for Folder '{folder}': {backup_error}")
                         raise
 
-                # Copy contents of all grouped folders to the cache folder
+                # copy contents of all grouped folders to the cache folder
                 for folder in artist_group:
                     for item in os.listdir(folder):
                         item = str(item)
@@ -119,7 +119,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                             logging.info(f"[cruix-music-archiver] Copying File: {source_path} to {target_path}")
                             shutil.copy2(source_path, target_path)
 
-                # Delete original folders after creating the backup
+                # delete original folders after creating the backup
                 for folder in artist_group:
                     try:
                         logging.info(f"[cruix-music-archiver] Deleting Original Folder: {folder}")
@@ -128,7 +128,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                         logging.error(f"[cruix-music-archiver] Error Deleting Folder '{folder}': {delete_error}")
                         raise
 
-                # Move the merged cache folder back to the original directory
+                # move the merged cache folder back to the original directory
                 target_path = base_directory / base_name
                 try:
                     logging.info(f"[cruix-music-archiver] Copying Merged Directory: {cache_folder} to {target_path}")
