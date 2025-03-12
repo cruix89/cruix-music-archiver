@@ -126,7 +126,7 @@ docker run
 
 
 - **merged-folders-backup**  
-  directory where duplicate folders found are moved for backup, they are preserved in the file system for 7 days and then they are automatically deleted. This backup is for in case your system crashes and you want to recover any content, you can do it manually within this period (although this will probably never be necessary)
+  directory where duplicate folders found are moved for backup, they are preserved in the file system. This backup is for in case your system crashes, and you want to recover any content, you can do it manually. I advise you to clean this folder from time to time so that it doesn't accumulate too much garbage.
 
 
 - **recycle-bin folder**  
