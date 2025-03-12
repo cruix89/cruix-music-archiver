@@ -284,7 +284,7 @@ if [ -d "$downloads_dir" ]; then
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
 
-  echo -e "[cruix-music-archiver] Mission Accomplished! Old Files In /recycle-bin, /dz-db and /unofficial-albums Have Been Successfully Swept Away! 🗑️  ✨"
+  echo -e "[cruix-music-archiver] Mission Accomplished! Old Files in /recycle-bin, /dz-db and /unofficial-albums Have Been Successfully Swept Away! 🗑️  ✨"
 
 else
   echo -e "[cruix-music-archiver] ⚠️  Oops! Output Directory Not Found: $downloads_dir. Did It Get Lost in the Void? 🌌"
