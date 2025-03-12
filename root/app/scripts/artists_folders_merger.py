@@ -140,9 +140,9 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
                         f"[cruix-music-archiver] Error Moving Merged Folder '{cache_folder}' to '{target_path}': {move_error}")
                     raise
 
-        logging.info("Artist directory processing completed successfully.")
+        logging.info("artist directory processing completed successfully.")
     except Exception as processing_error:
-        logging.error(f"Error processing artist directories: {processing_error}")
+        logging.error(f"error processing artist directories: {processing_error}")
         raise
 
 
@@ -163,7 +163,7 @@ print("[cruix-music-archiver] Artists Folders Merging Process...  📚  ➡️  
 try:
     process_artists_top_level(music_dir, cache_dir, backup_dir)
 except Exception as execution_error:
-    logging.error(f'Error executing script: {execution_error}')
+    logging.error(f'error executing script: {execution_error}')
     raise
 
 # NOTIFY END OF PROCESS
