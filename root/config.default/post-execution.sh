@@ -8,7 +8,7 @@ logs_dir="/config/logs"
 recycle_bin_dir="/config/recycle-bin"
 unofficial_albums_dir="/config/unofficial-albums"
 dz_db_dir="/config/dz-db"
-duplicated_artist_dir="/config/duplicated-artists-folders"
+merged_backup_dir="/config/merged-folders-backup"
 
 mkdir -p $downloads_dir
 mkdir -p $music_dir
@@ -17,7 +17,7 @@ mkdir -p $logs_dir
 mkdir -p $recycle_bin_dir
 mkdir -p $unofficial_albums_dir
 mkdir -p $dz_db_dir
-mkdir -p $duplicated_artist_dir
+mkdir -p $merged_backup_dir
 
 # remove cache files in the output directory and process post-processing scripts
 if [ -d "$downloads_dir" ]; then
@@ -28,11 +28,6 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $cache_dir
   find $cache_dir -type f -delete
   find $cache_dir -type d -empty -mindepth 1 -delete
-
-  sleep '5'
-  mkdir -p $duplicated_artist_dir
-  find $duplicated_artist_dir -type f -delete
-  find $duplicated_artist_dir -type d -empty -mindepth 1 -delete
 
   sleep '5'
   find "$downloads_dir" -mindepth 1 -type d -empty -delete
@@ -286,11 +281,11 @@ if [ -d "$downloads_dir" ]; then
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
   mkdir -p $dz_db_dir
-  mkdir -p $duplicated_artist_dir
+  mkdir -p $merged_backup_dir
   find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
   find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
   find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
-  find $duplicated_artist_dir -depth -mtime +6 -exec rm -rf {} \;
+  find $merged_backup_dir -depth -mtime +6 -exec rm -rf {} \;
 
   echo -e "[cruix-music-archiver] Mission Accomplished! Old Files In /recycle-bin, /dz-db, /duplicated-artists-folders, /unofficial-albums, Have Been Successfully Swept Away! 🗑️  ✨"
 

@@ -51,7 +51,7 @@ def setup_directories():
         music_directory = Path('/music').resolve()
         logs_directory = Path('/config/logs').resolve()
         cache_directory = Path('/config/cache').resolve()
-        backup_directory = Path('/config/merger-backup').resolve()
+        backup_directory = Path('/config/merged-folders-backup').resolve()
 
         # Ensure directories exist
         music_directory.mkdir(parents=True, exist_ok=True)

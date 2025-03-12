@@ -117,17 +117,16 @@ docker run
   temporary directory where files are processed, the script automatically cleans the directory. 
 
 
-- **duplicated-artists-folders**  
-  directory where duplicate folders found are moved for possible user analysis, they are preserved in the file system for 7 days then automatically deleted
-  if you wish to retrieve any of its content, you can do so manually within this period (although this will most likely never be necessary)
-
-
 - **dz-db folder**  
   music information database directory, the database is updated with each script run. 
 
 
 - **logs folder**  
   all system logs are stored in this directory and restarted with each run for better space and process control.
+
+
+- **merged-folders-backup**  
+  directory where duplicate folders found are moved for backup, they are preserved in the file system for 7 days and then they are automatically deleted. This backup is for in case your system crashes and you want to recover any content, you can do it manually within this period (although this will probably never be necessary)
 
 
 - **recycle-bin folder**  
