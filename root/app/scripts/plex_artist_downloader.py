@@ -40,7 +40,7 @@ def main():
         logging.debug(f"searching in directory: {search_dir}")
 
         if os.path.exists(search_dir):
-            url_counts = {}  # Dicionário para armazenar as URLs e suas contagens
+            url_counts = {}  # dictionary to store URLs and their counts
 
             for root, dirs, files in os.walk(search_dir):
                 logging.debug(f"checking files in: {root}")
@@ -58,9 +58,9 @@ def main():
                                 logging.debug(f"image url found: {img_url}")
                                 url_counts[img_url] = url_counts.get(img_url, 0) + 1
 
-            # Após ler todos os arquivos .txt, verificar se algum resultado foi obtido
+            # after reading all .txt files, check if any results were obtained
             if url_counts:
-                # Seleciona a URL que se repete o maior número de vezes
+                # select the URL that repeats the most times
                 most_common_url = max(url_counts, key=url_counts.get)
                 logging.debug(f"Most common image url: {most_common_url} with count: {url_counts[most_common_url]}")
 
@@ -78,7 +78,7 @@ def main():
             else:
                 logging.debug(f"No valid image url found in {search_dir}")
 
-    # O loop continua para todos os diretórios dentro de music_dir
+    # the loop continues for all directories inside music_dir
 
 
 if __name__ == "__main__":
