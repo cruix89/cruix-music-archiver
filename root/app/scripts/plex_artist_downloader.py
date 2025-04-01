@@ -40,6 +40,8 @@ def main():
         logging.debug(f"searching in directory: {search_dir}")
 
         if os.path.exists(search_dir):
+            url_counts = {}  # Dicionário para armazenar as URLs e suas contagens
+
             for root, dirs, files in os.walk(search_dir):
                 logging.debug(f"checking files in: {root}")
 
@@ -54,23 +56,29 @@ def main():
                             if match:
                                 img_url = match.group(1)
                                 logging.debug(f"image url found: {img_url}")
+                                url_counts[img_url] = url_counts.get(img_url, 0) + 1
 
-                                try:
-                                    response = requests.get(img_url, timeout=10)
-                                    response.raise_for_status()
-                                    img = Image.open(BytesIO(response.content))
-                                    img = img.resize((1280, 1280))
-                                    img.save(os.path.join(music_dir, folder, "cover.jpg"))
-                                    logging.info(f'artist image downloaded and saved for {folder}')
-                                    break
-                                except requests.exceptions.RequestException as e:
-                                    logging.error(f'error downloading image from {img_url} for {folder}: {str(e)}')
-                                except Exception as e:
-                                    logging.error(f'error processing image for {folder}: {str(e)}')
-                else:
-                    continue
-                break
+            # Após ler todos os arquivos .txt, verificar se algum resultado foi obtido
+            if url_counts:
+                # Seleciona a URL que se repete o maior número de vezes
+                most_common_url = max(url_counts, key=url_counts.get)
+                logging.debug(f"Most common image url: {most_common_url} with count: {url_counts[most_common_url]}")
 
+                try:
+                    response = requests.get(most_common_url, timeout=10)
+                    response.raise_for_status()
+                    img = Image.open(BytesIO(response.content))
+                    img = img.resize((1280, 1280))
+                    img.save(os.path.join(music_dir, folder, "cover.jpg"))
+                    logging.info(f'artist image downloaded and saved for {folder}')
+                except requests.exceptions.RequestException as e:
+                    logging.error(f'error downloading image from {most_common_url} for {folder}: {str(e)}')
+                except Exception as e:
+                    logging.error(f'error processing image for {folder}: {str(e)}')
+            else:
+                logging.debug(f"No valid image url found in {search_dir}")
+
+    # O loop continua para todos os diretórios dentro de music_dir
 
 
 if __name__ == "__main__":
