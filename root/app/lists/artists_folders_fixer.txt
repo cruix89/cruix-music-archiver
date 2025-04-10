@@ -11,3 +11,5 @@ Ao Cubo ‖Ao Cubo
 Bruno   Marrone‖Bruno e Marrone
 Planta   Raiz‖Planta e Raiz
 Ponto De Equilíbrio‖Ponto de Equilíbrio
+Bruno E Marrone‖Bruno e Marrone
+Planta E Raiz‖Planta e Raiz
