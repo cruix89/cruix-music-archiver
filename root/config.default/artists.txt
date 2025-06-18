@@ -1,6 +1,6 @@
-### This is where you input all the YouTube Music artists or links you want to have music downloaded from.
-### It is recommended to use the ID-based URLs, they look like: 'https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg', as the other ones might get changed.
+# This is where you input all the artists or links you want to have music downloaded from.
+# It is recommended to use the ID-based URLs, they look like: 'https://music.youtube.com/channel/UC2DXTFA6AVDg', as the other ones might get changed.
 #
 # One per line
 # Example:
-#https://music.youtube.com/channel/UC2DXTFA6ACS0Qb9QtFlAVDg
+# https://music.youtube.com/channel/UC2DXQb9QtAVDg
