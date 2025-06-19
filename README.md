@@ -12,7 +12,7 @@
 --- 
 
 ## 🎼: OVERVIEW
-a fully automated docker image to easily download and manage a music library based in YT Music and other supported music platforms by `yt-dlp`. With advanced features to enhance your library. See below for more details.
+a fully automated docker image to easily download and manage a music library based in supported music platforms by `yt-dlp`. With advanced features to enhance your library. See below for more details.
 
 ---
 
