@@ -1,24 +1,30 @@
 import os
 import shutil
 
+# define absolute paths for directories
+LOGS_DIR = '/config/logs'
+LISTS_DIR = '/app/lists'
+MUSIC_DIR = '/music'
+
+# create directories if they do not exist
+for path in [LOGS_DIR, LISTS_DIR, MUSIC_DIR]:
+    if not os.path.exists(path):
+        os.makedirs(path)
+
 # initial message
 print("[cruix-music-archiver] Starting Disambiguation Process...  🧩  The Mission Begins to Sort Out the Chaos!  🔄  ")
 
-# show current working directory
-print(f"[cruix-music-archiver] Current Working Directory: {os.getcwd()}")
-
 # absolute path to the configuration file
-config_file_path = "/app/lists/artist_disambiguator.txt"
+config_file_path = os.path.join(LISTS_DIR, 'artist_disambiguator.txt')
 
 def move_files_based_on_list(file_path):
     """
-    Reads a list in the format 'source‖destination' and moves files or directories
-    from the source to the destination.
+    reads a list in the format 'relative_source‖relative_destination' and moves files or folders from the source to the destination under MUSIC_DIR.
 
     :param file_path: path to the .txt file containing the source and destination information
     """
     try:
-        with open(file_path, "r", encoding="utf-8") as file:
+        with open(file_path, "r") as file:
             lines = file.readlines()
 
         for line in lines:
@@ -28,55 +34,48 @@ def move_files_based_on_list(file_path):
 
             # divide the line by the delimiter '‖'
             try:
-                origin, destination = map(str.strip, line.split("‖"))
+                rel_origin, rel_destination = map(str.strip, line.split("‖"))
             except ValueError:
                 print(f"[cruix-music-archiver] Invalid Format In: {line.strip()} ⚠️  Something’s Not Quite Right In This File! ⚠️ ")
                 continue
 
-            # log the path being checked
-            print(f"[cruix-music-archiver] Checking Origin: {origin}")
+            # force full paths under MUSIC_DIR
+            origin = os.path.join(MUSIC_DIR, rel_origin)
+            destination = os.path.join(MUSIC_DIR, rel_destination)
 
             # check if the source exists
             if not os.path.exists(origin):
-                print(f"[cruix-music-archiver] Source Not Found: {origin} ⚠️  Skipping... ⚠️ ")
+                print(f"[cruix-music-archiver] Source Not Found: {origin} ⚠️  Skipping.")
                 continue
 
-            # check permissions (readable?)
-            if not os.access(origin, os.R_OK):
-                print(f"[cruix-music-archiver] No Permission to Read: {origin} ⚠️  Skipping... ⚠️ ")
-                continue
+            # create the destination folder if it does not exist
+            os.makedirs(destination, exist_ok=True)
 
             # if source is a file
             if os.path.isfile(origin):
-                # ensure destination folder exists
-                os.makedirs(os.path.dirname(destination), exist_ok=True)
-
-                # move file
-                shutil.move(origin, destination)
-                print(f"[cruix-music-archiver] Moved File: {origin} to {destination}  🛠️ Transformation Complete — Clarity Achieved! 🛠️ ")
+                filename = os.path.basename(origin)
+                dst_file = os.path.join(destination, filename)
+                try:
+                    shutil.move(origin, dst_file)
+                    print(f"[cruix-music-archiver] Disambiguated: {origin} to {dst_file} 🛠️ File Moved Successfully!")
+                except Exception as e:
+                    print(f"[cruix-music-archiver] Error Moving File {origin}: {e} ⚠️ ")
 
             # if source is a directory
             elif os.path.isdir(origin):
-                # ensure destination folder exists
-                os.makedirs(destination, exist_ok=True)
-
-                # move all files inside the directory
                 for filename in os.listdir(origin):
                     src_file = os.path.join(origin, filename)
                     dst_file = os.path.join(destination, filename)
 
                     if os.path.isfile(src_file):
-                        # check permissions of each file
-                        if os.access(src_file, os.R_OK):
+                        try:
                             shutil.move(src_file, dst_file)
-                            print(f"[cruix-music-archiver] Moved File: {src_file} to {dst_file}  🛠️ Transformation Complete — Clarity Achieved! 🛠️ ")
-                        else:
-                            print(f"[cruix-music-archiver] No Permission to Read: {src_file} ⚠️  Skipping file... ⚠️ ")
-            else:
-                print(f"[cruix-music-archiver] Unknown Source Type: {origin} ⚠️  Skipping... ⚠️ ")
+                            print(f"[cruix-music-archiver] Disambiguated: {src_file} to {dst_file} 🛠️ File Moved Successfully!")
+                        except Exception as e:
+                            print(f"[cruix-music-archiver] Error Moving File {src_file}: {e} ⚠️ ")
 
     except Exception as e:
-        print(f"[cruix-music-archiver] Error Processing the List: {e} ⚠️  The List Fought Back — Mission Failed! ⚠️ ")
+        print(f"[cruix-music-archiver] Error Processing the List: {e} ⚠️ The List Fought Back — Mission Failed! ⚠️ ")
 
 # execute the script
 if __name__ == "__main__":
