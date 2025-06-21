@@ -57,9 +57,9 @@ def move_files_based_on_list(file_path):
                 dst_file = os.path.join(destination, filename)
                 try:
                     shutil.move(origin, dst_file)
-                    print(f"[cruix-music-archiver] Disambiguated: {origin} to {dst_file} 🛠️ File Moved Successfully!")
+                    print(f"[cruix-music-archiver] Disambiguated: {origin} to {dst_file}  🛠️  File Moved Successfully!")
                 except Exception as e:
-                    print(f"[cruix-music-archiver] Error Moving File {origin}: {e} ⚠️ ")
+                    print(f"[cruix-music-archiver] Error Moving File {origin}: {e}  ⚠️  ")
 
             # if source is a directory
             elif os.path.isdir(origin):
@@ -70,9 +70,9 @@ def move_files_based_on_list(file_path):
                     if os.path.isfile(src_file):
                         try:
                             shutil.move(src_file, dst_file)
-                            print(f"[cruix-music-archiver] Disambiguated: {src_file} to {dst_file} 🛠️ File Moved Successfully!")
+                            print(f"[cruix-music-archiver] Disambiguated: {src_file} to {dst_file}  🛠️  File Moved Successfully!")
                         except Exception as e:
-                            print(f"[cruix-music-archiver] Error Moving File {src_file}: {e} ⚠️ ")
+                            print(f"[cruix-music-archiver] Error Moving File {src_file}: {e}  ⚠️  ")
 
     except Exception as e:
         print(f"[cruix-music-archiver] Error Processing the List: {e} ⚠️ The List Fought Back — Mission Failed! ⚠️ ")
