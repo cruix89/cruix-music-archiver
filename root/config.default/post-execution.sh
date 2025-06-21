@@ -30,9 +30,6 @@ if [ -d "$downloads_dir" ]; then
   find $cache_dir -type d -empty -mindepth 1 -delete
 
   sleep '5'
-  find "$downloads_dir" -mindepth 1 -type d -empty -delete
-
-  sleep '5'
   mkdir -p $logs_dir
   find $logs_dir -type f -delete
 
@@ -84,7 +81,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
 
-# folder merger correction 2
+  # folder merger correction 2
 
   sleep '5'
   python3 /app/scripts/capitalize_tags_files_and_folders.py
@@ -101,7 +98,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
 
-# folder merger correction 3
+  # folder merger correction 3
 
   sleep '5'
   python3 /app/scripts/capitalize_tags_files_and_folders.py
@@ -118,7 +115,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
 
-# folder merger correction 4
+  # folder merger correction 4
 
   sleep '5'
   python3 /app/scripts/capitalize_tags_files_and_folders.py
@@ -135,7 +132,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/artists_folders_merger.py
 
-# folder merger correction 5
+  # folder merger correction 5
 
   sleep '5'
   python3 /app/scripts/capitalize_tags_files_and_folders.py
@@ -197,6 +194,12 @@ if [ -d "$downloads_dir" ]; then
   /app/scripts/complete_missing_covers.sh
 
   sleep '5'
+  python3 /app/scripts/trash_collector.py
+
+  sleep '5'
+  find "$music_dir" -mindepth 1 -type d -empty -delete
+
+  sleep '5'
   python3 /app/scripts/missing_covers_downloader.py
 
   sleep '5'
@@ -209,7 +212,7 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  # remove characters from artists
+  # remove invalid characters from artists
 
   sleep '5'
   python3 /app/scripts/artists_invalid_characters_remover.py
@@ -224,18 +227,34 @@ if [ -d "$downloads_dir" ]; then
   sleep '5'
   python3 /app/scripts/add_mp3_thumbnail.py
 
-  # move unofficial albums
+  # tracks fixer api
 
   sleep '5'
-  python3 /app/scripts/unofficial_albums_mover.py
+  python3 /app/scripts/tracks_updater.py
+
+  # capitalization artists folders to uppercase
+
+  sleep '5'
+  python3 /app/scripts/artists_folder_capitalize.py
+
+  sleep '5'
+  python3 /app/scripts/artists_folders_fixer.py
+
+  # disambiguation process
+
+  sleep '5'
+  python3 /app/scripts/artist_disambiguator.py
+
+  sleep '5'
+  python3 /app/scripts/trash_collector.py
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
 
-  # disambiguator process
+  # move unofficial albums
 
   sleep '5'
-  python3 /app/scripts/artist_disambiguator.py
+  python3 /app/scripts/unofficial_albums_mover.py
 
   sleep '5'
   find "$music_dir" -mindepth 1 -type d -empty -delete
@@ -262,19 +281,6 @@ if [ -d "$downloads_dir" ]; then
 
   sleep '5'
   python3 /app/scripts/unknown_artist_cover.py
-
-  # tracks fixer api
-
-  sleep '5'
-  python3 /app/scripts/tracks_updater.py
-
-  # capitalization artists folders to uppercase
-
-  sleep '5'
-  python3 /app/scripts/artists_folder_capitalize.py
-
-  sleep '5'
-  python3 /app/scripts/artists_folders_fixer.py
 
   mkdir -p $recycle_bin_dir
   mkdir -p $unofficial_albums_dir
