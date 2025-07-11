@@ -14,6 +14,7 @@ chmod +x /app/yt-dlp/updater.sh
 chmod +x /app/yt-dlp/yt-dlp.sh
 chmod +x /config/post-execution.sh
 chmod +x /app/scripts/add_mp3_thumbnail.py
+chmod +x /app/scripts/album_updater.py
 chmod +x /app/scripts/artist_disambiguator.py
 chmod +x /app/scripts/artists_folder_capitalize.py
 chmod +x /app/scripts/artists_folders_fixer.py
