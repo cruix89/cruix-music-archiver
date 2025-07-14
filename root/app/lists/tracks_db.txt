@@ -65,12 +65,12 @@ Renato Vianna/Um Louco/Um Louco (Sessions 2)‖01
 Renato Vianna/Um Louco (Sessions 2) (Preview)/Um Louco (Sessions 2) (Preview)‖01
 Renato Vianna/Vida/Vida‖01
 Reação em Cadeia/7 Noites/7 Noites (Voz & Reação)‖01
-Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Ao Tempo (Acústico)‖06
-Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Desespero (Acústico)‖03
-Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Espero (Acústico)‖04
-Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Infierno (Acústico)‖01
-Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Me Odeie (Versão Piano) (Acústico)‖05
-Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Tão Longe (Acústico)‖02
+Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Ao Tempo (Acústico) (Ao Vivo)‖06
+Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Desespero (Acústico) (Ao Vivo)‖03
+Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Espero (Acústico) (Ao Vivo)‖04
+Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Infierno (Acústico) (Ao Vivo)‖01
+Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Me Odeie (Versão Piano) (Acústico) (Ao Vivo)‖05
+Reação em Cadeia/Acústico Teatro São Pedro (Ao Vivo)/Tão Longe (Acústico) (Ao Vivo)‖02
 Reação em Cadeia/Canção da Despedida/Canção da Despedida‖01
 Reação em Cadeia/Clássicos Até Parar de Bater/A Falta‖22
 Reação em Cadeia/Clássicos Até Parar de Bater/Ao Tempo‖15
@@ -187,3 +187,85 @@ Reação em Cadeia/Voz & Reação, Ao Vivo em Porto Alegre 2018/Sete Noites (Ao 
 Reação em Cadeia/Voz & Reação, Ao Vivo em Porto Alegre 2018/Tanto Faz (Ao Vivo)‖08
 Reação em Cadeia/Voz & Reação, Ao Vivo em Porto Alegre 2018/Um Dia (Ao Vivo)‖05
 Reação em Cadeia/Voz & Reação, Ao Vivo em Porto Alegre 2018/Vivendo e Aprendendo (Ao Vivo)‖09
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/A Hora é Agora (Ao Vivo)‖30
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Aí Já Era (Ao Vivo)‖21
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Amo Noite e Dia (Ao Vivo)‖07
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Calma (Ao Vivo)‖18
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Coisas de Quem Ama (Ao Vivo)‖25
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/De Tanto Te Querer (Ao Vivo)‖06
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Duas Metades (Ao Vivo)‖22
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Enquanto Houver Razões (Ao Vivo)‖20
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Espelho (Ao Vivo)‖04
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Idas e Voltas (Ao Vivo)‖14
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Logo Eu (Ao Vivo)‖24
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Maneira Errada (Ao Vivo)‖08
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Mil Anos (Ao Vivo)‖17
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Nocaute (Ao Vivo)‖23
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/O Mundo é Tão Pequeno (Ao Vivo)‖11
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/O Que é Que Tem (Ao Vivo)‖05
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/O Que Eu Tava Falando (Ao Vivo)‖19
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Onde Haja Sol (Ao Vivo)‖12
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Os Anjos Cantam (Ao Vivo)‖01
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Pergunta Boba (Ao Vivo)‖29
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Por Quê? (Ao Vivo)‖13
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Pot-Pourri: Pode Chorar / Voa Beija-Flor / Flor (Ao Vivo)‖09
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Pot-Pourri: Tem Nada a Ver / Te Cuida Coração (Ao Vivo)‖02
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Querendo Te Amar (Ao Vivo)‖26
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Se Disser Bye Bye (Ao Vivo)‖16
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Se Eu Pedir Cê Volta (Ao Vivo)‖15
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Seu Astral (Ao Vivo)‖03
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Sosseguei (Ao Vivo)‖28
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Te Amo Tanto Que Nem Sei (Ao Vivo)‖10
+Jorge & Mateus/10 Anos (Ao Vivo | Deluxe)/Traz Ela de Volta pra Mim (Ao Vivo)‖27
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/A Gente Nem Ficou (Ao Vivo)‖15
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/A Hora é Agora (Ao Vivo)‖01
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/A Hora é Agora (Remix)‖19
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Amo Noite e Dia (Ao Vivo)‖22
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Amo Noite e Dia (Remix)‖20
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Cartaz (Ao Vivo)‖11
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Chove Chove (Ao Vivo)‖25
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Ciclo (Ao Vivo)‖17
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Diga Sim (Ao Vivo)‖12
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Duas Metades (Ao Vivo)‖24
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Duas Metades (Versão Estúdio)‖18
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Enquanto Houver Razões (Ao Vivo)‖02
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Eu Quero Ser Teu Sol (Ao Vivo)‖09
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Eu Quero Só Você (Be with You) (Ao Vivo)‖07
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Flor (Ao Vivo)‖03
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Invasões (Ao Vivo)‖13
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Não Demora Perceber (Ao Vivo)‖14
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/O Que é Que Tem (Ao Vivo)‖06
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Onda (Ao Vivo)‖16
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Passa Esse Modão (Ao Vivo)‖10
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Por Quê? (Ao Vivo)‖04
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Pra Que Entender (Ao Vivo)‖08
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Prisão Sem Grade (Ao Vivo)‖05
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Seu Astral (Ao Vivo)‖23
+Jorge & Mateus/A Hora é Agora - Ao Vivo em Jurerê (Deluxe)/Seu Astral (Remix)‖21
+Jorge & Mateus/Aí Já Era.../Aí Já Era (Live in Buenos Aires / 2010)‖14
+Jorge & Mateus/Aí Já Era.../Alguém no Seu Lugar (Live in Sao Paulo / 2010)‖11
+Jorge & Mateus/Aí Já Era.../Amo Noite e Dia (Live in Sao Paulo / 2010)‖02
+Jorge & Mateus/Aí Já Era.../Chove Chove (Live in Sao Paulo / 2010)‖03
+Jorge & Mateus/Aí Já Era.../Cilada (Live in Sao Paulo / 2010)‖07
+Jorge & Mateus/Aí Já Era.../Esquece o Medo e Vem (Live in Sao Paulo / 2010)‖06
+Jorge & Mateus/Aí Já Era.../Mil Anos (Live in Sao Paulo / 2010)‖10
+Jorge & Mateus/Aí Já Era.../Pra Ter o Seu Amor (Live in Sao Paulo / 2010)‖12
+Jorge & Mateus/Aí Já Era.../Refém (Live in Sao Paulo / 2010)‖09
+Jorge & Mateus/Aí Já Era.../Se Eu Chorar (Live in Sao Paulo / 2010)‖05
+Jorge & Mateus/Aí Já Era.../Seu Astral (Live in Sao Paulo / 2010)‖01
+Jorge & Mateus/Aí Já Era.../Tempo Ao Tempo (Live in Sao Paulo / 2010)‖04
+Jorge & Mateus/Aí Já Era.../Vestigios (Live in Sao Paulo / 2010)‖13
+Jorge & Mateus/Aí Já Era.../Volta pra Minha Vida (Live in Sao Paulo / 2010)‖08
+Jorge & Mateus/Amo Noite e Dia/Amo Noite e Dia‖01
+Jorge & Mateus/Amor Covarde/Amor Covarde‖01
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Abismo (Ao Vivo)‖04
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Cantada Boba (Ao Vivo)‖02
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Conflito de Interesse (Ao Vivo)‖08
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Dói‖11
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Feliz, Infelizmente‖09
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Gripe (Ao Vivo)‖07
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Haverá Sinais (Ao Vivo)‖05
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Louco pra Ficar (Ao Vivo)‖03
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Na Hora Que Você Chamar‖10
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Tem Amor, Tem Volta (Ao Vivo)‖01
+Jorge & Mateus/CHECK-IN (Ao Vivo)/Xonei‖06
