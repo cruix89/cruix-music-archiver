@@ -38,7 +38,8 @@ chmod +x /app/scripts/plex_album_downloader.py
 chmod +x /app/scripts/plex_artist_downloader.py
 chmod +x /app/scripts/release_year_update.py
 chmod +x /app/scripts/tags_and_folders_strings_fixer.py
-chmod +x /app/scripts/tracks_updater.py
+chmod +x /app/scripts/track_name_updater.py
+chmod +x /app/scripts/track_number_updater.py
 chmod +x /app/scripts/trash_collector.py
 chmod +x /app/scripts/unofficial_albums_mover.py
 chmod +x /app/scripts/youtube_tracks_folder.py

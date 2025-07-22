@@ -4,7 +4,7 @@ import os
 import logging
 
 # configure logging
-log_file = '/config/logs/track_updater.log'
+log_file = '/config/logs/track_number_updater.log'
 os.makedirs(os.path.dirname(log_file), exist_ok=True)
 logging.basicConfig(
     filename=log_file,
@@ -14,7 +14,7 @@ logging.basicConfig(
 
 # directory paths
 music_dir = '/music'
-db_file = '/app/lists/tracks_db.txt'
+db_file = '/app/lists/track_number_db.txt'
 
 # sequential track number counter for "Youtube Tracks"
 youtube_tracks_counter = {}
@@ -33,11 +33,11 @@ def update_track_number_tag(mp3_file, track_number):
 
 
 def find_track_number(album_artist, album, track):
-    """finds the track number in the tracks_db.txt file."""
+    """finds the track number in the track_number_db.txt file."""
     # build the search string
     search_str = f"{album_artist}/{album}/{track}"
 
-    # read the tracks_db.txt file and search for the exact match
+    # read the track_number_db.txt file and search for the exact match
     with open(db_file, 'r', encoding='utf-8') as db:
         for line in db:
             # split line into parts
@@ -86,7 +86,7 @@ def process_music():
                     logging.info(message)
                     print(message)
                 elif album_artist and album and track:
-                    # find the track number in the tracks_db.txt file
+                    # find the track number in the track_number_db.txt file
                     track_number = find_track_number(album_artist, album, track)
 
                     if track_number:

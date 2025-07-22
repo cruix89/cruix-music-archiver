@@ -233,7 +233,10 @@ if [ -d "$downloads_dir" ]; then
   python3 /app/scripts/album_updater.py
 
   sleep '5'
-  python3 /app/scripts/tracks_updater.py
+  python3 /app/scripts/track_name_updater.py
+
+  sleep '5'
+  python3 /app/scripts/track_number_updater.py
 
   # capitalization artists folders to uppercase
 
