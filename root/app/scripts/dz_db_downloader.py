@@ -2,6 +2,7 @@ import os
 import eyed3
 import requests
 import logging
+import urllib.parse
 
 # print in terminal
 print("[cruix-music-archiver] Downloading Music Database... 🚀  Initiating Data Stream From the Audio Archives! 🚀  ", flush=True)
@@ -83,14 +84,15 @@ def main():
                 if not album_artist:
                     album_artist = audiofile.tag.artist
 
-                # prepare API query string
-                query_string = f'artist:"{album_artist}" album:"{album_name}" track:"{track_name}"'
-                logging.info(f"api query string for file {filename}: {query_string}")
+                # prepare API query string and encode it
+                raw_query = f'artist:"{album_artist}" album:"{album_name}" track:"{track_name}"'
+                encoded_query = urllib.parse.quote(raw_query)
+                logging.info(f"api query string for file {filename}: {raw_query}")
 
                 # make request to dz api with the new order: album artist -> album -> track
                 try:
                     response = requests.get(
-                        f'https://api.deezer.com/search?q={query_string}&limit=1'
+                        f'https://api.deezer.com/search?q={encoded_query}&limit=1'
                     )
                     response.raise_for_status()  # raises exception for http error status codes
                     data = response.json()
