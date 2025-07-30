@@ -110,7 +110,7 @@ Reação em Cadeia/Febre Confessional/G.A.B.I.‖04
 Reação em Cadeia/Febre Confessional/Me Deixe em Paz‖08
 Reação em Cadeia/Febre Confessional/O Jantar‖01
 Reação em Cadeia/Febre Confessional/Os Dias‖02
-Reação em Cadeia/Febre Confessional/Panico‖06
+Reação em Cadeia/Febre Confessional/Pânico‖06
 Reação em Cadeia/Febre Confessional/Perdi Você‖03
 Reação em Cadeia/Febre Confessional/Propaganda‖09
 Reação em Cadeia/Febre Confessional/Sem Querer‖10
