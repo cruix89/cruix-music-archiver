@@ -9,22 +9,34 @@ unofficial_albums_dir="/config/unofficial-albums"
 dz_db_dir="/config/dz-db"
 merged_folders_backup_dir="/config/merged-folders-backup"
 
+mkdir -p $downloads_dir
+mkdir -p $music_dir
+mkdir -p $cache_dir
+mkdir -p $logs_dir
+mkdir -p $recycle_bin_dir
+mkdir -p $unofficial_albums_dir
+mkdir -p $dz_db_dir
+mkdir -p $merged_folders_backup_dir
+
+# clean download folder
+echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache and /logs 🧹  ✨"
+
+find $downloads_dir -type f -name '* - Topic.0.jpg' -delete
+sleep '5'
+find $downloads_dir -type f -name '* - Topic.1.jpg' -delete
+sleep '5'
+find $downloads_dir -type f -name '* - Topic.2.jpg' -delete
+sleep '5'
+find $downloads_dir -type f -name '* - Topic.3.jpg' -delete
+sleep '5'
+find $downloads_dir -type d -empty -mindepth 1 -delete
+sleep '5'
+
 # check if there are files in downloads_dir or music_dir
 if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -type f -print -quit | grep -q .; then
 
-  mkdir -p $downloads_dir
-  mkdir -p $music_dir
-  mkdir -p $cache_dir
-  mkdir -p $logs_dir
-  mkdir -p $recycle_bin_dir
-  mkdir -p $unofficial_albums_dir
-  mkdir -p $dz_db_dir
-  mkdir -p $merged_folders_backup_dir
-
   # remove cache files in the output directory and process post-processing scripts
   if [ -d "$downloads_dir" ]; then
-
-    echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache and /logs 🧹  ✨"
 
     sleep '5'
     mkdir -p $cache_dir
