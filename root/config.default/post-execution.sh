@@ -29,6 +29,10 @@ find $downloads_dir -type f -name '* - Topic.2.jpg' -delete
 sleep '5'
 find $downloads_dir -type f -name '* - Topic.3.jpg' -delete
 sleep '5'
+find $downloads_dir -type f -name 'Album - *.0.jpg' -delete
+sleep '5'
+find $downloads_dir -type f -name 'Album - *.1.jpg' -delete
+sleep '5'
 find $downloads_dir -type d -empty -mindepth 1 -delete
 sleep '5'
 
