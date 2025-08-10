@@ -9,31 +9,31 @@ unofficial_albums_dir="/config/unofficial-albums"
 dz_db_dir="/config/dz-db"
 merged_folders_backup_dir="/config/merged-folders-backup"
 
-mkdir -p $downloads_dir
-mkdir -p $music_dir
-mkdir -p $cache_dir
-mkdir -p $logs_dir
-mkdir -p $recycle_bin_dir
-mkdir -p $unofficial_albums_dir
-mkdir -p $dz_db_dir
-mkdir -p $merged_folders_backup_dir
+mkdir -p "$downloads_dir"
+mkdir -p "$music_dir"
+mkdir -p "$cache_dir"
+mkdir -p "$logs_dir"
+mkdir -p "$recycle_bin_dir"
+mkdir -p "$unofficial_albums_dir"
+mkdir -p "$dz_db_dir"
+mkdir -p "$merged_folders_backup_dir"
 
 # clean download folder
 echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache and /logs 🧹  ✨"
 
-find $downloads_dir -type f -name '* - Topic.0.jpg' -delete
+find "$downloads_dir" -type f -name '* - Topic.0.jpg' -delete
 sleep '5'
-find $downloads_dir -type f -name '* - Topic.1.jpg' -delete
+find "$downloads_dir" -type f -name '* - Topic.1.jpg' -delete
 sleep '5'
-find $downloads_dir -type f -name '* - Topic.2.jpg' -delete
+find "$downloads_dir" -type f -name '* - Topic.2.jpg' -delete
 sleep '5'
-find $downloads_dir -type f -name '* - Topic.3.jpg' -delete
+find "$downloads_dir" -type f -name '* - Topic.3.jpg' -delete
 sleep '5'
-find $downloads_dir -type f -name 'Album - *.0.jpg' -delete
+find "$downloads_dir" -type f -name 'Album - *.0.jpg' -delete
 sleep '5'
-find $downloads_dir -type f -name 'Album - *.1.jpg' -delete
+find "$downloads_dir" -type f -name 'Album - *.1.jpg' -delete
 sleep '5'
-find $downloads_dir -type d -empty -mindepth 1 -delete
+find "$downloads_dir" -type d -empty -mindepth 1 -delete
 sleep '5'
 
 # check if there are files in downloads_dir or music_dir
@@ -43,13 +43,13 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
   if [ -d "$downloads_dir" ]; then
 
     sleep '5'
-    mkdir -p $cache_dir
-    find $cache_dir -type f -delete
-    find $cache_dir -type d -empty -mindepth 1 -delete
+    mkdir -p "$cache_dir"
+    find "$cache_dir" -type f -delete
+    find "$cache_dir" -type d -empty -mindepth 1 -delete
 
     sleep '5'
-    mkdir -p $logs_dir
-    find $logs_dir -type f -delete
+    mkdir -p "$logs_dir"
+    find "$logs_dir" -type f -delete
 
     echo -e "[cruix-music-archiver] Running the [cruix-music-archiver] Scripts... Preparing to Update the Music Library With the Precision of a Time-Traveling DJ! 🕰️  🎶"
 
@@ -190,7 +190,7 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     # db cleaner
 
     sleep '5'
-    find $dz_db_dir -type d -empty -mindepth 1 -delete
+    find "$dz_db_dir" -type d -empty -mindepth 1 -delete
 
     # genre api
 
@@ -289,7 +289,7 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     python3 /app/scripts/dz_db_downloader.py
 
     sleep '5'
-    find $dz_db_dir -type d -empty -mindepth 1 -delete
+    find "$dz_db_dir" -type d -empty -mindepth 1 -delete
 
     sleep '5'
     python3 /app/scripts/jellyfin_album_downloader.py
@@ -310,9 +310,9 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     mkdir -p $unofficial_albums_dir
     mkdir -p $dz_db_dir
     mkdir -p $merged_folders_backup_dir
-    find $recycle_bin_dir -depth -mtime +6 -exec rm -rf {} \;
-    find $unofficial_albums_dir -depth -mtime +6 -exec rm -rf {} \;
-    find $dz_db_dir -depth -mtime +6 -exec rm -rf {} \;
+    find "$recycle_bin_dir" -mindepth 1 -depth -mtime +6 -exec rm -rf "{}" \;
+    find "$unofficial_albums_dir" -mindepth 1 -depth -mtime +6 -exec rm -rf "{}" \;
+    find "$dz_db_dir" -mindepth 1 -depth -mtime +6 -exec rm -rf "{}" \;
 
     echo -e "[cruix-music-archiver] Mission Accomplished! Old Files in /recycle-bin, /dz-db and /unofficial-albums Have Been Successfully Swept Away! 🗑️  ✨"
 
