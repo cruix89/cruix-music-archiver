@@ -19,7 +19,7 @@ mkdir -p "$dz_db_dir"
 mkdir -p "$merged_folders_backup_dir"
 
 # clean download folder
-echo -e "[cruix-music-archiver] Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache and /logs 🧹  ✨"
+echo -e "[cruix-music-archiver] 🧹 ✨ Initiating Cleanup Protocol... Purging Cache Files From the Following Directories: /cache and /logs 🧹 ✨"
 
 find "$downloads_dir" -type f -name '* - Topic.0.jpg' -delete
 sleep 5
@@ -51,7 +51,7 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     mkdir -p "$logs_dir"
     find "$logs_dir" -type f -delete
 
-    echo -e "[cruix-music-archiver] Running the [cruix-music-archiver] Scripts... Preparing to Update the Music Library With the Precision of a Time-Traveling DJ! 🕰️  🎶"
+    echo -e "[cruix-music-archiver] 🕰️  🎶 Running the [cruix-music-archiver] Scripts... Preparing to Update the Music Library With the Precision of a Time-Traveling DJ! 🕰️  🎶"
 
     # post-processing scripts in downloads folder
 
@@ -321,6 +321,6 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
   fi
 
 else
-  echo -e "[cruix-music-archiver] ✨ No Files Found in $downloads_dir or $music_dir. All Done!.  ✨"
+  echo -e "[cruix-music-archiver] ✨ No Files Found in $downloads_dir or $music_dir. All Done!. ✨"
   exit 0
 fi

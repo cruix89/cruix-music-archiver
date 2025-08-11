@@ -24,9 +24,9 @@ load_normalized_list() {
     echo -e "[cruix-music-archiver] Number of Normalized Files In Cache: ${#normalized_files[@]}  🗄️  Cache is Grooving! 🕺"
 }
 
-# function to save to the normalized list
+# function to save to the normalized list (always lowercase to avoid case sensitivity issues)
 save_to_normalized_list() {
-    echo "$1" >> "$normalized_list_file"
+    echo "$1" | tr '[:upper:]' '[:lower:]' >> "$normalized_list_file"
 }
 
 # function to process the audio file
@@ -105,15 +105,18 @@ main() {
     while true; do
         # collect an rough audio file
         local src_file
-        src_file=$(find "/music" -type f \( -iname "*.mp3" -o -iname "*.flac" -o -iname "*.wav" -o -iname "*.aac" -o -iname "*.m4a" -o -iname "*.ogg" -o -iname "*.wma" -o -iname "*.alac" -o -iname "*.aiff" -o -iname "*.opus" -o -iname "*.dsd" -o -iname "*.amr" -o -iname "*.ape" -o -iname "*.ac3" -o -iname "*.mp2" -o -iname "*.wv" -o -iname "*.m4b" -o -iname "*.mka" -o -iname "*.spx" -o -iname "*.caf" -o -iname "*.snd" -o -iname "*.gsm" -o -iname "*.tta" -o -iname "*.voc" -o -iname "*.w64" -o -iname "*.s8" -o -iname "*.u8" \) ! -exec grep -qx {} "$normalized_list_file" \; -print -quit)
+        src_file=$(find "/music" -type f \( -iname "*.mp3" -o -iname "*.flac" -o -iname "*.wav" -o -iname "*.aac" -o -iname "*.m4a" -o -iname "*.ogg" -o -iname "*.wma" -o -iname "*.alac" -o -iname "*.aiff" -o -iname "*.opus" -o -iname "*.dsd" -o -iname "*.amr" -o -iname "*.ape" -o -iname "*.ac3" -o -iname "*.mp2" -o -iname "*.wv" -o -iname "*.m4b" -o -iname "*.mka" -o -iname "*.spx" -o -iname "*.caf" -o -iname "*.snd" -o -iname "*.gsm" -o -iname "*.tta" -o -iname "*.voc" -o -iname "*.w64" -o -iname "*.s8" -o -iname "*.u8" \) ! -exec grep -iq {} "$normalized_list_file" \; -print -quit)
 
         # if there are no more files to process, exit the loop
         if [[ -z "$src_file" ]]; then
             break
         fi
 
+        # normalize the path to lowercase for comparison
+        normalized_path=$(echo "$src_file" | tr '[:upper:]' '[:lower:]')
+
         # check if the file was skipped
-        if grep -qx "$src_file" "$normalized_list_file"; then
+        if grep -qx "$normalized_path" "$normalized_list_file"; then
             ((skipped_files++))
             echo -e "[cruix-music-archiver] Skipped: $src_file  🏃‍♂️ File Dodged the Process Like a Pro!  🏅 "
             continue
