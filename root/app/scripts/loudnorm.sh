@@ -105,7 +105,7 @@ main() {
     while true; do
         # collect an rough audio file
         local src_file
-        src_file=$(find "/music" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" -o -name "*.aac" -o -name "*.m4a" -o -name "*.ogg" -o -name "*.wma" -o -name "*.alac" -o -name "*.aiff" -o -name "*.opus" -o -name "*.dsd" -o -name "*.amr" -o -name "*.ape" -o -name "*.ac3" -o -name "*.mp2" -o -name "*.wv" -o -name "*.m4b" -o -name "*.mka" -o -name "*.spx" -o -name "*.caf" -o -name "*.snd" -o -name "*.gsm" -o -name "*.tta" -o -name "*.voc" -o -name "*.w64" -o -name "*.s8" -o -name "*.u8" \) ! -exec grep -qx {} "$normalized_list_file" \; -print -quit)
+        src_file=$(find "/music" -type f \( -iname "*.mp3" -o -iname "*.flac" -o -iname "*.wav" -o -iname "*.aac" -o -iname "*.m4a" -o -iname "*.ogg" -o -iname "*.wma" -o -iname "*.alac" -o -iname "*.aiff" -o -iname "*.opus" -o -iname "*.dsd" -o -iname "*.amr" -o -iname "*.ape" -o -iname "*.ac3" -o -iname "*.mp2" -o -iname "*.wv" -o -iname "*.m4b" -o -iname "*.mka" -o -iname "*.spx" -o -iname "*.caf" -o -iname "*.snd" -o -iname "*.gsm" -o -iname "*.tta" -o -iname "*.voc" -o -iname "*.w64" -o -iname "*.s8" -o -iname "*.u8" \) ! -exec grep -qx {} "$normalized_list_file" \; -print -quit)
 
         # if there are no more files to process, exit the loop
         if [[ -z "$src_file" ]]; then
