@@ -76,6 +76,33 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     sleep 5
     find "$music_dir" -mindepth 1 -type d -empty -delete
 
+    # capitalization artists folders to uppercase
+
+    sleep 5
+    python3 /app/scripts/artists_folder_capitalize.py
+
+    sleep 5
+    python3 /app/scripts/artists_folders_fixer.py
+
+    # disambiguation process
+
+    sleep 5
+    python3 /app/scripts/artist_disambiguator.py
+
+    sleep 5
+    python3 /app/scripts/trash_collector.py
+
+    sleep 5
+    find "$music_dir" -mindepth 1 -type d -empty -delete
+
+    # move unofficial albums
+
+    sleep 5
+    python3 /app/scripts/unofficial_albums_mover.py
+
+    sleep 5
+    find "$music_dir" -mindepth 1 -type d -empty -delete
+
     sleep 5
     umask "$UMASK"
     /app/scripts/loudnorm.sh
