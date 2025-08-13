@@ -1,6 +1,5 @@
 import os
 import shutil
-import glob
 from typing import Optional
 
 # define absolute paths for directories
@@ -64,33 +63,50 @@ def move_files_based_on_list(list_file_path: str) -> None:
             origin_path: str = os.path.join(MUSIC_DIR, rel_origin)
             destination_path: str = os.path.join(MUSIC_DIR, rel_destination)
 
-            # search the path in a case-insensitive way
-            origin_real_path: Optional[str] = find_case_insensitive(origin_path)
-
-            # if it ends with .* (any extension)
+            # caso especial: origem termina com ".*"
             if origin_path.endswith(".*"):
-                base_no_ext_path: str = origin_path[:-2]  # remove ".*"
-                base_real_path: Optional[str] = find_case_insensitive(base_no_ext_path)
-                if base_real_path:
-                    glob_pattern: str = base_real_path + ".*"
-                    matched_files: list[str] = glob.glob(glob_pattern)
-                    if not matched_files:
-                        print(f"[cruix-music-archiver] No Files Found Matching: {origin_path} ⚠️  Skipping.")
-                        continue
-                    os.makedirs(destination_path, exist_ok=True)
-                    for matched_file in matched_files:
-                        matched_file_path: str = str(matched_file)
-                        try:
-                            shutil.move(matched_file_path, os.path.join(destination_path, os.path.basename(matched_file_path)))
-                            print(f"[cruix-music-archiver] Disambiguated: {matched_file_path} to {destination_path}  🛠️  File Moved Successfully!")
-                        except Exception as e:
-                            print(f"[cruix-music-archiver] Error Moving File {matched_file_path}: {e}  ⚠️  ")
-                    continue
-                else:
-                    print(f"[cruix-music-archiver] Source Not Found: {origin_path} ⚠️  Skipping.")
+                # separar diretório e "stem" (nome base)
+                dir_part: str = os.path.dirname(origin_path)
+                stem_with_dot: str = os.path.basename(origin_path)[:-2]  # remove ".*"
+                # se sobrou ponto no fim (ex: "preview_."), remove
+                stem: str = stem_with_dot[:-1] if stem_with_dot.endswith(".") else stem_with_dot
+
+                # resolver o diretório de forma case-insensitive
+                real_dir: Optional[str] = find_case_insensitive(dir_part)
+                if not real_dir:
+                    print(f"[cruix-music-archiver] Source Directory Not Found: {dir_part} ⚠️  Skipping.")
                     continue
 
-            # se não for caso com ".*"
+                # listar arquivos no diretório e filtrar por stem case-insensitive
+                try:
+                    dir_entries: list[str] = os.listdir(real_dir)
+                except Exception as e:
+                    print(f"[cruix-music-archiver] Error Listing Directory {real_dir}: {e}  ⚠️")
+                    continue
+
+                stem_cf = stem.casefold()
+                matched_files: list[str] = [
+                    os.path.join(real_dir, entry)
+                    for entry in dir_entries
+                    if entry.casefold().startswith(stem_cf + ".")
+                ]
+
+                if not matched_files:
+                    print(f"[cruix-music-archiver] No Files Found Matching: {origin_path} ⚠️  Skipping.")
+                    continue
+
+                # criar destino e mover arquivos
+                os.makedirs(destination_path, exist_ok=True)
+                for src in matched_files:
+                    try:
+                        shutil.move(src, os.path.join(destination_path, os.path.basename(src)))
+                        print(f"[cruix-music-archiver] Disambiguated: {src} to {destination_path}  🛠️  File Moved Successfully!")
+                    except Exception as e:
+                        print(f"[cruix-music-archiver] Error Moving File {src}: {e}  ⚠️")
+                continue
+
+            # caso normal (sem ".*")
+            origin_real_path: Optional[str] = find_case_insensitive(origin_path)
             if origin_real_path is None:
                 print(f"[cruix-music-archiver] Source Not Found: {origin_path} ⚠️  Skipping.")
                 continue
