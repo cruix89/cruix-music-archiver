@@ -20,7 +20,8 @@ print("[cruix-music-archiver] Moving Unofficial Albums to /config/unofficial-alb
 # read the folder list from the file
 try:
     with open(os.path.join(lists_dir, "unofficial_albums.txt"), 'r', encoding='utf-8') as f:
-        folders = [line.strip() for line in f if line.strip()]
+        # converte todos os nomes para minúsculas para comparação case insensitive
+        folders = [line.strip().lower() for line in f if line.strip()]
 except FileNotFoundError:
     logging.error("file unofficial_albums.txt not found.")
     print("[cruix-music-archiver] File unofficial_albums.txt Not Found... The File Has Vanished Into the Digital Black Hole! 🌌")
@@ -29,7 +30,8 @@ except FileNotFoundError:
 # walk through the download directory
 for root, dirs, files in os.walk(music_dir):
     for name in dirs:
-        if name in folders:
+        # comparação em minúsculas para ignorar diferenças de maiúsculas/minúsculas
+        if name.lower() in folders:
             source = os.path.join(root, name)
             destination = os.path.join(unofficial_albums_dir, os.path.relpath(source, music_dir))
             try:
