@@ -108,7 +108,7 @@ def move_files_based_on_list(list_file_path: str) -> None:
             # caso normal (sem ".*")
             origin_real_path: Optional[str] = find_case_insensitive(origin_path)
             if origin_real_path is None:
-                print(f"[cruix-music-archiver] Source Not Found: {origin_path} ⚠️  Skipping.")
+                # print(f"[cruix-music-archiver] Source Not Found: {origin_path} ⚠️  Skipping.")
                 continue
 
             os.makedirs(destination_path, exist_ok=True)
