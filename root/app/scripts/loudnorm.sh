@@ -7,6 +7,12 @@ cache_dir="/config/cache"
 recycle_bin_dir="/config/recycle-bin"
 failed_log_file="/config/loudnorm_failed_files_cache.txt"  # log file for failed files
 
+# function to normalize strings: lowercase + remove accents (NEW)
+normalize_string() {
+    # iconv converte para ASCII removendo acentos; tr converte para minúsculas
+    echo "$1" | iconv -f UTF-8 -t ASCII//TRANSLIT | tr '[:upper:]' '[:lower:]'
+}
+
 # function to check if ffmpeg is installed
 check_ffmpeg() {
     if ! command -v ffmpeg &> /dev/null; then
@@ -20,13 +26,19 @@ load_normalized_list() {
     if [[ ! -f "$normalized_list_file" ]]; then
         touch "$normalized_list_file"
     fi
+    # normalize existing list to lowercase and without accents (NEW)
+    mapfile -t raw_files < "$normalized_list_file"
+    > "$normalized_list_file"
+    for f in "${raw_files[@]}"; do
+        normalize_string "$f" >> "$normalized_list_file"
+    done
     mapfile -t normalized_files < "$normalized_list_file"
     echo -e "[cruix-music-archiver] Number of Normalized Files In Cache: ${#normalized_files[@]}  🗄️  Cache is Grooving! 🕺"
 }
 
 # function to save to the normalized list (always lowercase to avoid case sensitivity issues)
 save_to_normalized_list() {
-    echo "$1" | tr '[:upper:]' '[:lower:]' >> "$normalized_list_file"
+    normalize_string "$1" >> "$normalized_list_file"  # now also removing accents (NEW)
 }
 
 # function to process the audio file
@@ -112,8 +124,8 @@ main() {
             break
         fi
 
-        # normalize the path to lowercase for comparison
-        normalized_path=$(echo "$src_file" | tr '[:upper:]' '[:lower:]')
+        # normalize the path to lowercase and remove accents for comparison (NEW)
+        normalized_path=$(normalize_string "$src_file")
 
         # check if the file was skipped
         if grep -qx "$normalized_path" "$normalized_list_file"; then
@@ -123,10 +135,10 @@ main() {
         fi
 
         # increment attempt count for the current file
-        attempt_count["$src_file"]=$((attempt_count["$src_file"] + 1))
+        attempt_count["$normalized_path"]=$((attempt_count["$normalized_path"] + 1))
 
         # if the file has been attempted max_attempts times, move it to recycle bin
-        if [[ ${attempt_count["$src_file"]} -gt $max_attempts ]]; then
+        if [[ ${attempt_count["$normalized_path"]} -gt $max_attempts ]]; then
             echo -e "[cruix-music-archiver] Moving $src_file to The Recycle Bin After $max_attempts Failed Attempts. 💾  🚮  Game Over, File! 💾  🚮"
             move_to_recycle_bin "$src_file"
             continue
