@@ -74,7 +74,7 @@ def move_files_based_on_list(list_file_path: str) -> None:
                 # resolver o diretório de forma case-insensitive
                 real_dir: Optional[str] = find_case_insensitive(dir_part)
                 if not real_dir:
-                    print(f"[cruix-music-archiver] Source Directory Not Found: {dir_part} ⚠️  Skipping.")
+                    # print(f"[cruix-music-archiver] Source Directory Not Found: {dir_part} ⚠️  Skipping.")
                     continue
 
                 # listar arquivos no diretório e filtrar por stem case-insensitive
