@@ -92,7 +92,7 @@ def move_files_based_on_list(list_file_path: str) -> None:
                 ]
 
                 if not matched_files:
-                    print(f"[cruix-music-archiver] No Files Found Matching: {origin_path} ⚠️  Skipping.")
+                    # print(f"[cruix-music-archiver] No Files Found Matching: {origin_path} ⚠️  Skipping.")
                     continue
 
                 # criar destino e mover arquivos
