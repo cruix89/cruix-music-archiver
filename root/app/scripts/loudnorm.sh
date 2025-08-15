@@ -114,9 +114,18 @@ main() {
     fi
 
     while true; do
-        # collect a rough audio file (list all supported extensions, cache check is done inside the loop)
+        # collect the first audio file that is NOT in the cache
         local src_file
-        src_file=$(find "/music" -type f \( -iname "*.mp3" -o -iname "*.flac" -o -iname "*.wav" -o -iname "*.aac" -o -iname "*.m4a" -o -iname "*.ogg" -o -iname "*.wma" -o -iname "*.alac" -o -iname "*.aiff" -o -iname "*.opus" -o -iname "*.dsd" -o -iname "*.amr" -o -iname "*.ape" -o -iname "*.ac3" -o -iname "*.mp2" -o -iname "*.wv" -o -iname "*.m4b" -o -iname "*.mka" -o -iname "*.spx" -o -iname "*.caf" -o -iname "*.snd" -o -iname "*.gsm" -o -iname "*.tta" -o -iname "*.voc" -o -iname "*.w64" -o -iname "*.s8" -o -iname "*.u8" \) -print -quit)
+        src_file=$(
+            find "/music" -type f \( -iname "*.mp3" -o -iname "*.flac" -o -iname "*.wav" -o -iname "*.aac" -o -iname "*.m4a" -o -iname "*.ogg" -o -iname "*.wma" -o -iname "*.alac" -o -iname "*.aiff" -o -iname "*.opus" -o -iname "*.dsd" -o -iname "*.amr" -o -iname "*.ape" -o -iname "*.ac3" -o -iname "*.mp2" -o -iname "*.wv" -o -iname "*.m4b" -o -iname "*.mka" -o -iname "*.spx" -o -iname "*.caf" -o -iname "*.snd" -o -iname "*.gsm" -o -iname "*.tta" -o -iname "*.voc" -o -iname "*.w64" -o -iname "*.s8" -o -iname "*.u8" \) -print0 \
+            | while IFS= read -r -d '' f; do
+                n=$(normalize_key "$f")
+                if ! grep -qx "$n" "$normalized_list_file"; then
+                    printf '%s' "$f"
+                    exit 0
+                fi
+            done
+        )
 
         # if there are no more files to process, exit the loop
         if [[ -z "$src_file" ]]; then
