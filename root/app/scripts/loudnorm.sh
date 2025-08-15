@@ -7,6 +7,17 @@ cache_dir="/config/cache"
 recycle_bin_dir="/config/recycle-bin"
 failed_log_file="/config/loudnorm_failed_files_cache.txt"  # log file for failed files
 
+# function to normalize strings for cache key:
+# - lowercase
+# - remove accents
+# - replace special characters with underscores
+normalize_key() {
+    echo "$1" \
+        | iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null \
+        | sed 's/[^a-zA-Z0-9./_-]/_/g' \
+        | tr '[:upper:]' '[:lower:]'
+}
+
 # function to check if ffmpeg is installed
 check_ffmpeg() {
     if ! command -v ffmpeg &> /dev/null; then
@@ -24,9 +35,9 @@ load_normalized_list() {
     echo -e "[cruix-music-archiver] Number of Normalized Files In Cache: ${#normalized_files[@]}  🗄️  Cache is Grooving! 🕺"
 }
 
-# function to save to the normalized list (always lowercase to avoid case sensitivity issues)
+# function to save to the normalized list (now using normalized key to avoid case and accent/special char sensitivity issues)
 save_to_normalized_list() {
-    echo "$1" | tr '[:upper:]' '[:lower:]' >> "$normalized_list_file"
+    normalize_key "$1" >> "$normalized_list_file"
 }
 
 # function to process the audio file
@@ -112,8 +123,8 @@ main() {
             break
         fi
 
-        # normalize the path to lowercase for comparison
-        normalized_path=$(echo "$src_file" | tr '[:upper:]' '[:lower:]')
+        # normalize the path for comparison (lowercase + remove accents + replace specials)
+        normalized_path=$(normalize_key "$src_file")
 
         # check if the file was skipped
         if grep -qx "$normalized_path" "$normalized_list_file"; then
