@@ -21,7 +21,7 @@ def setup_directories():
 
 
 def main():
-    print("[cruix-music-archiver] Setting Up Jellyfin Artist Image... 🎨  Crafting the Perfect Visual Tribute to Your Favorite Artist! 🎨  ")
+    print("[cruix-music-archiver] Setting Up Jellyfin Artist Image... 🎨 Crafting the Perfect Visual Tribute to Your Favorite Artist! 🎨  ")
 
     # logging setup
     music_dir, dz_db_dir, log_dir = setup_directories()

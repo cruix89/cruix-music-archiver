@@ -19,7 +19,7 @@ def setup_directories():
 # call the function to set up directories
 logs_directory, music_directory = setup_directories()
 
-print("[cruix-music-archiver] Configuring Plex Album Covers... 💻  The Covers Are Syncing With the Matrix. Almost There! 💻 ")
+print("[cruix-music-archiver] Configuring Plex Album Covers... 💻 The Covers Are Syncing With the Matrix. Almost There! 💻 ")
 
 # set up logging
 log_filename = os.path.join(logs_directory, 'plex_album_downloader.log')
