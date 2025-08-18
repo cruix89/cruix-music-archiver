@@ -16,7 +16,7 @@ logging.basicConfig(
 music_dir = '/music'
 db_file = '/app/lists/track_number_db.txt'
 
-# sequential track number counter for "Youtube Tracks"
+# sequential track number counter for "YouTube Tracks"
 youtube_tracks_counter = {}
 
 
@@ -48,7 +48,7 @@ def find_track_number(album_artist, album, track):
 
 
 def assign_sequential_track(album):
-    """assigns a sequential track number for the album 'Youtube Tracks'."""
+    """assigns a sequential track number for the album 'YouTube Tracks'."""
     if album not in youtube_tracks_counter:
         youtube_tracks_counter[album] = 1  # start sequence from 1
 
@@ -104,14 +104,14 @@ def process_music():
                             " The Database Couldn't Locate This Track. It's in Another Dimension! 🤖"
                         )
                         logging.warning(message)
-                        print(message)
+                        # print(message)
                 else:
                     message = (
                         f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️ "
                         " Looks Like This File Missed Its Tag Upgrade! 🛠️"
                     )
                     logging.error(message)
-                    print(message)
+                    # print(message)
 
 
 if __name__ == '__main__':

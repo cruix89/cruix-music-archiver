@@ -73,14 +73,14 @@ def process_music():
                             " The Database Couldn't Find a New Album for This Track. Still Floating in Space! 🌌"
                         )
                         logging.warning(message)
-                        print(message)
+                        # print(message)
                 else:
                     message = (
                         f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️ "
                         " This Track Is Missing Its Metadata Passport! 🛠️"
                     )
                     logging.error(message)
-                    print(message)
+                    # print(message)
 
 
 if __name__ == '__main__':

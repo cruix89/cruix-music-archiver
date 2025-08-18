@@ -83,7 +83,7 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
             if not artist_path.is_dir():
                 continue
 
-            # extract base name (case insensitive for "copy")
+            # extract base name (case-insensitive for "copy")
             base_name = re.split(r'copy', folder_name, flags=re.IGNORECASE)[0].strip()
             artist_map.setdefault(base_name, []).append(artist_path)
 
@@ -157,8 +157,8 @@ except Exception as logging_error:
     raise
 
 # NOTIFY START OF PROCESS
-print("[cruix-music-archiver] Artists Folders Merging Process...  📚  ➡️   Let the Transformation Begin!  🚀  🛠 ",
-      flush=True)
+# print("[cruix-music-archiver] Artists Folders Merging Process...  📚  ➡️   Let the Transformation Begin!  🚀  🛠 ",
+#      flush=True)
 
 # PROCESS MUSIC DIRECTORY
 try:

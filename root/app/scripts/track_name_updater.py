@@ -73,14 +73,14 @@ def process_music():
                             " This Track Couldn't Find Its New Name. Still Echoing in the Void! 🌌"
                         )
                         logging.warning(message)
-                        print(message)
+                        # print(message)
                 else:
                     message = (
                         f"[cruix-music-archiver] Incomplete Tags For File: {file} 🛠️ "
                         " This Track Is Missing Its Metadata Passport! 🛠️"
                     )
                     logging.error(message)
-                    print(message)
+                    # print(message)
 
 
 if __name__ == '__main__':

@@ -60,9 +60,9 @@ def main():
                         image_file_found = True
                         break  # exit the loop once a valid image is found
                 if not image_file_found:
-                    logging.warning(f'no valid image file found for {mp3_file}')
-            else:
-                logging.warning(f'[cruix-music-archiver] File {os.path.join(root, filename)} is not an MP3 File ⏭️ ')
+                    logging.warning(f'[cruix-music-archiver] No valid image file found for {mp3_file}')
+            # else:
+                # logging.warning(f'[cruix-music-archiver] File {os.path.join(root, filename)} is not an MP3 File ⏭️ ')
 
     print(f"[cruix-music-archiver] Thumbnails Successfully Added to {success_count} Songs With {failure_count} Failures. 🎉  All Set For the Visual Upgrade!  🌟   ")
 

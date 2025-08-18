@@ -91,7 +91,7 @@ def main():
                 if file.endswith(".mp3"):
                     file_path = os.path.join(root, file)
                     processed_files += 1
-                    print(f"[cruix-music-archiver] Processing File {processed_files}/{total_files}: {file_path} ⏳  Almost There... Every File is a New Melody! ✨  ")
+                    # print(f"[cruix-music-archiver] Processing File {processed_files}/{total_files}: {file_path} ⏳  Almost There... Every File is a New Melody! ✨  ")
                     logging.info(f'processing file: {file_path}')
 
                     audio = File(file_path)
@@ -103,13 +103,13 @@ def main():
                         if genre_tag:
                             audio["TCON"] = mutagen.id3.TCON(encoding=3, text=genre_tag)  # using TCON from mutagen.id3
                             audio.save()
-                            print(f"[cruix-music-archiver] Genre '{genre_tag}' Added to {file_path} 🎧  Your Track is Now Officially Categorized and Ready to Groove! 🎧  ")
+                            print(f"[cruix-music-archiver] Genre '{genre_tag}' Added to {artist_name} 🎧  Your Track is Now Officially Categorized and Ready to Groove! 🎧  ")
                             logging.info(f'genre {genre_tag} added to file {file_path}')
                             artist_list[artist_name] = genre_tag
                             save_artist_list(artist_list)
                         else:
                             logging.warning(f'no genre found for artist {artist_name}, file: {file_path}')
-                            print(f"[cruix-music-archiver] No Genre Found For {file_path} 🤔  The Mystery Continues... Time to Dig Deeper! 🤔 ")
+                            print(f"[cruix-music-archiver] No Genre Found For {artist_name} 🤔  The Mystery Continues... Time to Dig Deeper! 🤔 ")
                     else:
                         logging.warning(f'no artist tag found in file: {file_path}')
                         print(f"[cruix-music-archiver] No Artist Tag Found in {file_path} 🕵️‍♂️  The Artist's Identity is Hidden... Let the Investigation Begin! 🕵️‍ ")
