@@ -4,6 +4,7 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 import time
+import re
 
 
 def handle_remove_error(func, path, exc_info):
@@ -82,8 +83,8 @@ def process_artists_top_level(base_directory, cache_directory, backup_directory)
             if not artist_path.is_dir():
                 continue
 
-            # extract base name
-            base_name = folder_name.split('copy')[0]
+            # extract base name (case insensitive for "copy")
+            base_name = re.split(r'copy', folder_name, flags=re.IGNORECASE)[0].strip()
             artist_map.setdefault(base_name, []).append(artist_path)
 
         # process each group of artist directories
