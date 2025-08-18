@@ -79,6 +79,27 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     # capitalization artists folders to uppercase
 
     sleep 5
+    python3 /app/scripts/artists_folders_merger.py
+
+    sleep 5
+    python3 /app/scripts/artists_folders_merger.py
+
+    sleep 5
+    python3 /app/scripts/artists_folders_merger.py
+
+    sleep 5
+    python3 /app/scripts/artists_folders_merger.py
+
+    sleep 5
+    python3 /app/scripts/artists_folders_merger.py
+
+    sleep 5
+    python3 /app/scripts/trash_collector.py
+
+    sleep 5
+    find "$music_dir" -mindepth 1 -type d -empty -delete
+
+    sleep 5
     python3 /app/scripts/artists_folder_capitalize.py
 
     sleep 5
@@ -97,27 +118,6 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
 
     sleep 5
     python3 /app/scripts/youtube_tracks_folder.py
-
-    sleep 5
-    python3 /app/scripts/artists_folders_merger.py
-
-    sleep 5
-    python3 /app/scripts/artists_folders_merger.py
-
-    sleep 5
-    python3 /app/scripts/artists_folders_merger.py
-
-    sleep 5
-    python3 /app/scripts/artists_folders_merger.py
-
-    sleep 5
-    python3 /app/scripts/artists_folders_merger.py
-
-    sleep 5
-    python3 /app/scripts/trash_collector.py
-
-    sleep 5
-    find "$music_dir" -mindepth 1 -type d -empty -delete
 
     # move unofficial albums
 
