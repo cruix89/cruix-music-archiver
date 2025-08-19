@@ -13,7 +13,7 @@ for directory_path in (LOGS_DIR, LISTS_DIR, MUSIC_DIR):
         os.makedirs(directory_path)
 
 # initial message
-print("[cruix-music-archiver] Starting Disambiguation Process...  🧩  The Mission Begins to Sort Out the Chaos!  🔄  ")
+print("[cruix-music-archiver] Starting Disambiguation Process...  🧩 The Mission Begins to Sort Out the Chaos!  🔄  ")
 
 # absolute path to the configuration file
 config_file_path: str = os.path.join(LISTS_DIR, 'artist_disambiguator.txt')

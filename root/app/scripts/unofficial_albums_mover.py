@@ -15,7 +15,7 @@ for directory in [logs_dir, lists_dir, music_dir, unofficial_albums_dir]:
 # configure logging
 logging.basicConfig(filename=os.path.join(logs_dir, "unofficial_albums_mover.log"), level=logging.INFO)
 
-print("[cruix-music-archiver] Moving Unofficial Albums to /config/unofficial-albums... 🚀  Warp Drive Engaged, Albums Are in Transit! 🚀 ")
+print("[cruix-music-archiver] Moving Unofficial Albums to /config/unofficial-albums... 🚀 Warp Drive Engaged, Albums Are in Transit! 🚀 ")
 
 # read the folder list from the file
 try:

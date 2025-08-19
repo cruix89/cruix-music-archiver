@@ -82,6 +82,9 @@ if find "$downloads_dir" -type f -print -quit | grep -q . || find "$music_dir" -
     python3 /app/scripts/artists_folder_capitalize.py
 
     sleep 3
+    python3 /app/scripts/artists_folders_fixer.py
+
+    sleep 3
     python3 /app/scripts/artists_folders_merger.py
 
     sleep 3

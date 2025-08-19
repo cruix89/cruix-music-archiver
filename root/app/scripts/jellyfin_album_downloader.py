@@ -19,7 +19,7 @@ def setup_directories():
 # call the function to set up directories
 logs_directory, music_directory = setup_directories()
 
-print("[cruix-music-archiver] Configuring Jellyfin Album Covers... 🎨  Transforming Your Music Collection Into a Visual Masterpiece! 🎨  ")
+print("[cruix-music-archiver] Configuring Jellyfin Album Covers... 🎨 Transforming Your Music Collection Into a Visual Masterpiece! 🎨  ")
 
 # set up logging
 log_filename = os.path.join(logs_directory, 'jellyfin_album_downloader.log')

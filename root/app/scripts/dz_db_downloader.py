@@ -5,7 +5,7 @@ import logging
 import urllib.parse
 
 # print in terminal
-print("[cruix-music-archiver] Downloading Music Database... 🚀  Initiating Data Stream From the Audio Archives! 🚀  ", flush=True)
+print("[cruix-music-archiver] Downloading Music Database... 🚀 Initiating Data Stream From the Audio Archives! 🚀  ", flush=True)
 
 def setup_directories():
     # absolute directories

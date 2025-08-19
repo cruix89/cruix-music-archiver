@@ -1,6 +1,6 @@
 import os
 
-print("[cruix-music-archiver] Capitalizing Artists Folders...  🔠  The Folders Are Leveling Up In Style!  🚀  ")
+print("[cruix-music-archiver] Capitalizing Artists Folders...  🔠 The Folders Are Leveling Up In Style!  🚀  ")
 
 # set the music directory
 music_dir = '/music'
@@ -48,4 +48,4 @@ for item in os.listdir(music_dir):
             else:
                 print(f"[cruix-music-archiver] Renamed: {item} to {final_name} (duplicate resolved) ✅")
 
-print("[cruix-music-archiver] Artists Folders Look Awesome!  😎   Like a Perfectly Executed Game Plan!  🏆   ")
+print("[cruix-music-archiver] Artists Folders Look Awesome!  😎 Like a Perfectly Executed Game Plan!  🏆   ")

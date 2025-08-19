@@ -93,7 +93,7 @@ def process_music():
                         # if found, update the 'track number' tag
                         update_track_number_tag(mp3_file, track_number)
                         message = (
-                            f"[cruix-music-archiver] Updated {file} With Track Number: {track_number} 🚀 "
+                            f"[cruix-music-archiver] Updated {file} With Track Number: {track_number} 🚀"
                             " Now It's Officially Part of the Soundtrack of the Galaxy! 🌌"
                         )
                         logging.info(message)
