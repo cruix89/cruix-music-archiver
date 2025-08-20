@@ -1,1 +1,1 @@
-((bv*[fps>30]/bv*)[height<=$youtubedl_quality]/(wv*[fps>30]/wv*)) + ba / (b[fps>30]/b)[height<=$youtubedl_quality]/(w[fps>30]/w)
+((bv*[fps>30]/bv*)[height<=$yt_dlp_quality]/(wv*[fps>30]/wv*)) + ba / (b[fps>30]/b)[height<=$yt_dlp_quality]/(w[fps>30]/w)
